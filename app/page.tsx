@@ -1,65 +1,167 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { CategoryCard } from "@/components/CategoryCard";
+import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { OfferCard } from "@/components/OfferCard";
+import { categories } from "@/data/offers";
+import {
+  formatDate,
+  getActiveOfferCount,
+  getFeaturedOffers,
+  getLastUpdated,
+  getRecentlyVerifiedOffers,
+} from "@/lib/offers";
+
+export const metadata: Metadata = {
+  title: "OfferRadar | Track bonuses, offers, referrals, and promotions",
+  description:
+    "Compare example bonuses, referral offers, brokerage promotions, savings rates, and business banking offers with verification notes and clear requirements.",
+};
 
 export default function Home() {
+  const featuredOffers = getFeaturedOffers();
+  const recentOffers = getRecentlyVerifiedOffers(5);
+  const lastUpdated = getLastUpdated();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-20">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
+              OfferRadar.io
+            </p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">
+              Track bonuses, offers, referrals, and promotions.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Updated daily, organized clearly, and built to help users compare
+              requirements before signing up. Every listing is framed as an
+              example offer with reminders to verify directly with the provider.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/offers"
+                className="inline-flex h-12 items-center justify-center rounded-lg bg-blue-700 px-5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800"
+              >
+                Browse Offers
+              </Link>
+              <Link
+                href="/bank-bonuses"
+                className="inline-flex h-12 items-center justify-center rounded-lg border border-slate-300 bg-white px-5 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                View Bank Bonuses
+              </Link>
+            </div>
+          </div>
+          <div className="grid content-start gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <Stat label="Active offers" value={String(getActiveOfferCount())} />
+            <Stat label="Categories tracked" value={String(categories.length)} />
+            <Stat
+              label="Last updated"
+              value={lastUpdated ? formatDate(lastUpdated) : "Reviewing"}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-950">
+              Featured offers
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Selected active example offers with clear requirements and last
+              checked dates.
+            </p>
+          </div>
+          <Link href="/offers" className="text-sm font-semibold text-blue-700">
+            View all offers
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {featuredOffers.map((offer) => (
+            <OfferCard key={offer.slug} offer={offer} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-950">
+              Recently verified
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              These listings were most recently checked in the local V1 data.
+              Dates are a starting point for comparison, not a guarantee that
+              terms remain available.
+            </p>
+          </div>
+          <div className="grid gap-3">
+            {recentOffers.map((offer) => (
+              <Link
+                key={offer.slug}
+                href={`/offer/${offer.slug}`}
+                className="flex flex-col justify-between gap-2 rounded-lg border border-slate-200 p-4 hover:border-blue-200 sm:flex-row sm:items-center"
+              >
+                <span>
+                  <span className="block font-semibold text-slate-950">
+                    {offer.provider}
+                  </span>
+                  <span className="text-sm text-slate-600">{offer.title}</span>
+                </span>
+                <span className="text-sm font-medium text-slate-500">
+                  {formatDate(offer.lastVerified)}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-slate-950">Categories</h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {categories.map((category) => (
+            <CategoryCard key={category.slug} category={category} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 pb-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
+        <div className="rounded-xl border border-slate-200 bg-white p-6">
+          <h2 className="text-2xl font-bold text-slate-950">
+            How OfferRadar works
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {[
+              "Track offers",
+              "Verify details",
+              "Compare requirements",
+              "Follow source/referral links",
+            ].map((item, index) => (
+              <div key={item} className="rounded-lg bg-slate-50 p-4">
+                <span className="text-sm font-bold text-emerald-700">
+                  {index + 1}
+                </span>
+                <p className="mt-2 font-semibold text-slate-950">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <DisclosureBlock />
+      </section>
+    </>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+      <p className="text-sm font-medium text-slate-500">{label}</p>
+      <p className="mt-2 text-2xl font-bold text-slate-950">{value}</p>
     </div>
   );
 }

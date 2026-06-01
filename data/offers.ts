@@ -1,19 +1,577 @@
-export type OfferCategory = 
-	| "bank"
-	| "brokerage"
-	| "regerral";
+import type { CategoryInfo, Offer } from "@/types/offer";
 
-export interface Offer {
-	slug: sting;
-	title: string;
-	provider: string;
-	category: OfferCategory;
-	offerAmount: string;
-	description: string;
-	requirements: string[];
-	expires?: string;
-	referralUrl?: string;
-	lastVerified: string;
-	featured?: boolean;
-}
+export const siteUrl = "https://offerradar.io";
 
+export const categories: CategoryInfo[] = [
+  {
+    slug: "bank-bonuses",
+    title: "Bank Bonuses",
+    shortTitle: "Bank Bonuses",
+    description:
+      "Checking and savings account bonuses organized by example value, requirements, and verification notes.",
+    education:
+      "Bank bonuses often depend on direct deposit timing, minimum balances, account history, and regional availability. Compare the requirements and verify current terms directly with the bank before opening an account.",
+  },
+  {
+    slug: "brokerage-bonuses",
+    title: "Brokerage Bonuses",
+    shortTitle: "Brokerage",
+    description:
+      "Brokerage, investing app, and transfer promotions with clear notes on funding thresholds and holding periods.",
+    education:
+      "Brokerage promotions may require new money, asset transfers, or holding funds for a defined period. Investment accounts can involve market risk, so review the provider terms and account type carefully.",
+  },
+  {
+    slug: "referral-offers",
+    title: "Referral Offers",
+    shortTitle: "Referrals",
+    description:
+      "Consumer app, card, and account referral examples with cautious notes on eligibility and changing terms.",
+    education:
+      "Referral offers can vary by user, location, invite link, and account history. Confirm the bonus screen and any required activity before relying on an offer.",
+  },
+  {
+    slug: "high-yield-savings",
+    title: "High-Yield Savings",
+    shortTitle: "HYSA",
+    description:
+      "Savings account rate and bonus examples tracked with APY, fee, and verification reminders.",
+    education:
+      "Savings rates are variable and can change without much notice. Compare APY, fees, withdrawal limits, FDIC or NCUA coverage, and minimum balance requirements.",
+  },
+  {
+    slug: "business-banking",
+    title: "Business Banking",
+    shortTitle: "Business",
+    description:
+      "Business checking, savings, and payments promotions with notes for entity, deposit, and activity requirements.",
+    education:
+      "Business banking offers may require eligible entity documents, new business deposits, transactions, or merchant activity. Verify requirements for your business type directly with the provider.",
+  },
+];
+
+// Static V1 seed data. This module is intentionally plain TypeScript so a future
+// automation process can generate the array without changing app consumers.
+export const offers: Offer[] = [
+  {
+    slug: "evergreen-bank-premier-checking-300-example",
+    title: "Premier Checking $300 Example Offer",
+    provider: "Evergreen Bank",
+    category: "bank-bonuses",
+    offerAmount: "$300",
+    offerType: "Checking bonus",
+    description:
+      "Example checking bonus for opening a new account and completing qualifying direct deposits. Terms may change and availability may vary by customer.",
+    requirements: [
+      "Open an eligible new checking account.",
+      "Complete qualifying direct deposits within the stated offer window.",
+      "Keep the account open and in good standing until the bonus posts.",
+    ],
+    fees: ["Monthly service fee may apply unless waiver requirements are met."],
+    expirationDate: "2026-08-31",
+    sourceUrl: "https://example.com/evergreen-premier-checking",
+    lastVerified: "2026-05-28",
+    status: "active",
+    featured: true,
+    riskNotes: ["Confirm direct deposit definitions and bonus payout timing."],
+    tags: ["checking", "direct deposit"],
+  },
+  {
+    slug: "harbor-one-checking-200-example",
+    title: "Everyday Checking $200 Example Bonus",
+    provider: "Harbor One Bank",
+    category: "bank-bonuses",
+    offerAmount: "$200",
+    offerType: "Checking bonus",
+    description:
+      "Example offer for new checking customers who complete qualifying account activity. Verify the current offer with the provider.",
+    requirements: [
+      "Open a new eligible checking account.",
+      "Receive qualifying deposits during the first 90 days.",
+      "Maintain account eligibility through the bonus review period.",
+    ],
+    fees: ["Overdraft and account maintenance fees may apply."],
+    expirationDate: "2026-07-15",
+    sourceUrl: "https://example.com/harbor-one-checking",
+    lastVerified: "2026-05-26",
+    status: "active",
+    riskNotes: ["Regional restrictions may apply."],
+    tags: ["checking"],
+  },
+  {
+    slug: "summit-credit-union-150-example",
+    title: "Member Checking $150 Example Offer",
+    provider: "Summit Credit Union",
+    category: "bank-bonuses",
+    offerAmount: "$150",
+    offerType: "Checking bonus",
+    description:
+      "Example credit union checking bonus for eligible new members. Membership and offer terms may change.",
+    requirements: [
+      "Meet membership eligibility rules.",
+      "Open a qualifying checking account.",
+      "Complete debit card or deposit activity listed in the offer terms.",
+    ],
+    fees: ["Membership share deposit may be required."],
+    sourceUrl: "https://example.com/summit-member-checking",
+    lastVerified: "2026-05-25",
+    status: "watching",
+    riskNotes: ["Check membership eligibility before applying."],
+    tags: ["credit union", "checking"],
+  },
+  {
+    slug: "metro-trust-savings-100-example",
+    title: "Savings Starter $100 Example Bonus",
+    provider: "Metro Trust",
+    category: "bank-bonuses",
+    offerAmount: "$100",
+    offerType: "Savings bonus",
+    description:
+      "Example savings bonus tied to opening and funding a new account. Always verify current terms before applying.",
+    requirements: [
+      "Open an eligible savings account.",
+      "Deposit at least the stated minimum new money amount.",
+      "Maintain the required balance for the offer period.",
+    ],
+    fees: ["Excess withdrawal or monthly fees may apply."],
+    expirationDate: "2026-09-30",
+    sourceUrl: "https://example.com/metro-trust-savings",
+    lastVerified: "2026-05-22",
+    status: "active",
+    tags: ["savings", "new money"],
+  },
+  {
+    slug: "northstar-bank-student-checking-75-example",
+    title: "Student Checking $75 Example Offer",
+    provider: "Northstar Bank",
+    category: "bank-bonuses",
+    offerAmount: "$75",
+    offerType: "Checking bonus",
+    description:
+      "Example student checking promotion with activity requirements. Offer details can vary by campus or region.",
+    requirements: [
+      "Open an eligible student checking account.",
+      "Complete qualifying debit card activity.",
+      "Verify student eligibility if requested.",
+    ],
+    sourceUrl: "https://example.com/northstar-student-checking",
+    lastVerified: "2026-05-20",
+    status: "active",
+    riskNotes: ["Confirm age, student, and region requirements."],
+    tags: ["student", "checking"],
+  },
+  {
+    slug: "axis-invest-600-transfer-example",
+    title: "Investment Transfer Up to $600 Example Bonus",
+    provider: "Axis Invest",
+    category: "brokerage-bonuses",
+    offerAmount: "Up to $600",
+    offerType: "Brokerage transfer bonus",
+    description:
+      "Example tiered brokerage transfer bonus based on eligible new assets. Bonus tiers and holding periods may change.",
+    requirements: [
+      "Open or use an eligible brokerage account.",
+      "Transfer qualifying new assets by the deadline.",
+      "Maintain assets for the required holding period.",
+    ],
+    fees: ["Outgoing transfer or account closure fees may apply."],
+    expirationDate: "2026-10-31",
+    sourceUrl: "https://example.com/axis-invest-transfer",
+    lastVerified: "2026-05-29",
+    status: "active",
+    featured: true,
+    riskNotes: ["Review market risk and transfer fee reimbursement terms."],
+    tags: ["brokerage", "asset transfer"],
+  },
+  {
+    slug: "clearpath-brokerage-100-example",
+    title: "New Brokerage Account $100 Example Offer",
+    provider: "ClearPath Brokerage",
+    category: "brokerage-bonuses",
+    offerAmount: "$100",
+    offerType: "New account bonus",
+    description:
+      "Example bonus for funding a new taxable brokerage account. Verify account type eligibility and funding requirements.",
+    requirements: [
+      "Open a qualifying brokerage account.",
+      "Fund with eligible new money.",
+      "Keep the qualifying balance for the offer period.",
+    ],
+    sourceUrl: "https://example.com/clearpath-brokerage",
+    lastVerified: "2026-05-27",
+    status: "active",
+    tags: ["brokerage", "new account"],
+  },
+  {
+    slug: "pioneer-retirement-ira-250-example",
+    title: "IRA Rollover $250 Example Bonus",
+    provider: "Pioneer Retirement",
+    category: "brokerage-bonuses",
+    offerAmount: "$250",
+    offerType: "IRA rollover bonus",
+    description:
+      "Example IRA rollover promotion. Tax considerations and eligibility should be reviewed with the provider or a qualified professional.",
+    requirements: [
+      "Open an eligible IRA account.",
+      "Complete a qualifying rollover or transfer.",
+      "Maintain eligible assets through the bonus period.",
+    ],
+    fees: ["IRA closure, transfer, or investment expense fees may apply."],
+    sourceUrl: "https://example.com/pioneer-ira-rollover",
+    lastVerified: "2026-05-23",
+    status: "watching",
+    riskNotes: ["Verify rollover rules, taxes, and investment risks."],
+    tags: ["ira", "retirement"],
+  },
+  {
+    slug: "nova-trade-free-stock-example",
+    title: "Free Stock Example Referral Offer",
+    provider: "NovaTrade",
+    category: "brokerage-bonuses",
+    offerAmount: "Variable stock value",
+    offerType: "Referral bonus",
+    description:
+      "Example referral offer where eligible users may receive a stock reward. Values and odds can change.",
+    requirements: [
+      "Use an eligible referral link.",
+      "Open and approve a new brokerage account.",
+      "Complete any required funding or activity.",
+    ],
+    referralUrl: "https://example.com/novatrade-referral",
+    sourceUrl: "https://example.com/novatrade-terms",
+    lastVerified: "2026-05-21",
+    status: "active",
+    riskNotes: ["Confirm reward value range and tax reporting details."],
+    tags: ["referral", "stock reward"],
+  },
+  {
+    slug: "meridian-wealth-1000-example",
+    title: "Managed Portfolio Up to $1,000 Example Bonus",
+    provider: "Meridian Wealth",
+    category: "brokerage-bonuses",
+    offerAmount: "Up to $1,000",
+    offerType: "Managed account bonus",
+    description:
+      "Example managed portfolio bonus for eligible funded accounts. Advisory fees and bonus tiers may change.",
+    requirements: [
+      "Open an eligible managed portfolio account.",
+      "Deposit qualifying new money.",
+      "Maintain the required balance for the stated period.",
+    ],
+    fees: ["Advisory fees and fund expenses may apply."],
+    expirationDate: "2026-12-31",
+    sourceUrl: "https://example.com/meridian-wealth-bonus",
+    lastVerified: "2026-05-18",
+    status: "active",
+    tags: ["managed investing", "tiered"],
+  },
+  {
+    slug: "payflow-app-20-referral-example",
+    title: "$20 App Referral Example Offer",
+    provider: "PayFlow",
+    category: "referral-offers",
+    offerAmount: "$20",
+    offerType: "Referral credit",
+    description:
+      "Example referral credit for a qualifying new app user. Referral rewards may vary by account and campaign.",
+    requirements: [
+      "Sign up through an eligible referral link.",
+      "Complete identity verification if required.",
+      "Make a qualifying transaction listed in the offer terms.",
+    ],
+    referralUrl: "https://example.com/payflow-referral",
+    lastVerified: "2026-05-30",
+    status: "active",
+    featured: true,
+    riskNotes: ["Confirm the in-app bonus screen before transacting."],
+    tags: ["app", "cashback"],
+  },
+  {
+    slug: "travelkey-50-credit-example",
+    title: "$50 Travel Credit Example Referral",
+    provider: "TravelKey",
+    category: "referral-offers",
+    offerAmount: "$50 credit",
+    offerType: "Referral travel credit",
+    description:
+      "Example travel referral credit for eligible new users. Credits may have booking, date, and redemption restrictions.",
+    requirements: [
+      "Use an eligible referral invite.",
+      "Create a new account.",
+      "Complete a qualifying booking that meets the minimum spend.",
+    ],
+    referralUrl: "https://example.com/travelkey-referral",
+    lastVerified: "2026-05-24",
+    status: "active",
+    riskNotes: ["Check blackout dates and minimum booking value."],
+    tags: ["travel", "credit"],
+  },
+  {
+    slug: "mealbox-25-referral-example",
+    title: "$25 Meal Delivery Example Credit",
+    provider: "MealBox",
+    category: "referral-offers",
+    offerAmount: "$25 credit",
+    offerType: "Referral credit",
+    description:
+      "Example meal delivery referral credit. Delivery fees, minimum order values, and service areas may affect value.",
+    requirements: [
+      "Use an eligible referral link.",
+      "Place a qualifying first order.",
+      "Remain within an eligible delivery area.",
+    ],
+    referralUrl: "https://example.com/mealbox-referral",
+    lastVerified: "2026-05-19",
+    status: "watching",
+    fees: ["Delivery, service, or small order fees may apply."],
+    tags: ["food", "first order"],
+  },
+  {
+    slug: "cloudnote-10-referral-example",
+    title: "$10 Subscription Credit Example Referral",
+    provider: "CloudNote",
+    category: "referral-offers",
+    offerAmount: "$10 credit",
+    offerType: "Subscription referral",
+    description:
+      "Example subscription referral credit for eligible new paid users. Terms can change by plan and region.",
+    requirements: [
+      "Register through a valid invite.",
+      "Start an eligible paid plan.",
+      "Keep the plan active until credit is issued.",
+    ],
+    referralUrl: "https://example.com/cloudnote-referral",
+    lastVerified: "2026-05-17",
+    status: "active",
+    tags: ["software", "subscription"],
+  },
+  {
+    slug: "fitpass-30-referral-example",
+    title: "$30 Fitness Credit Example Offer",
+    provider: "FitPass",
+    category: "referral-offers",
+    offerAmount: "$30 credit",
+    offerType: "Referral credit",
+    description:
+      "Example fitness membership referral credit. Eligibility may depend on plan, location, and new member status.",
+    requirements: [
+      "Join through an eligible referral link.",
+      "Choose a qualifying membership plan.",
+      "Complete any required first payment or check-in.",
+    ],
+    referralUrl: "https://example.com/fitpass-referral",
+    lastVerified: "2026-05-14",
+    status: "expired",
+    riskNotes: ["Verify whether this campaign has reopened."],
+    tags: ["fitness", "membership"],
+  },
+  {
+    slug: "bright-yield-savings-apy-example",
+    title: "High-Yield Savings 4.20% APY Example",
+    provider: "Bright Yield Bank",
+    category: "high-yield-savings",
+    offerAmount: "4.20% APY",
+    offerType: "Variable savings rate",
+    description:
+      "Example high-yield savings listing. APY is variable, not guaranteed, and should be checked directly with the provider.",
+    requirements: [
+      "Open an eligible savings account.",
+      "Meet any balance or activity conditions for the stated APY.",
+      "Review rate tier and account disclosures.",
+    ],
+    fees: ["Monthly fee may apply if waiver requirements are not met."],
+    sourceUrl: "https://example.com/bright-yield-savings",
+    lastVerified: "2026-05-31",
+    status: "active",
+    featured: true,
+    riskNotes: ["Rates can change at any time."],
+    tags: ["apy", "savings"],
+  },
+  {
+    slug: "oceanview-money-market-example",
+    title: "Money Market 4.05% APY Example",
+    provider: "Oceanview Financial",
+    category: "high-yield-savings",
+    offerAmount: "4.05% APY",
+    offerType: "Money market rate",
+    description:
+      "Example money market account listing with a variable APY. Verify current rate tiers and account access rules.",
+    requirements: [
+      "Open an eligible money market account.",
+      "Maintain the minimum balance for the advertised tier.",
+      "Review transfer and withdrawal rules.",
+    ],
+    fees: ["Monthly fee may apply below minimum balance."],
+    sourceUrl: "https://example.com/oceanview-money-market",
+    lastVerified: "2026-05-29",
+    status: "active",
+    tags: ["money market", "apy"],
+  },
+  {
+    slug: "greenline-savings-3-95-example",
+    title: "Online Savings 3.95% APY Example",
+    provider: "Greenline Bank",
+    category: "high-yield-savings",
+    offerAmount: "3.95% APY",
+    offerType: "Variable savings rate",
+    description:
+      "Example online savings rate listing. APY and account terms may change after the last checked date.",
+    requirements: [
+      "Open an online savings account.",
+      "Fund the account through an eligible transfer.",
+      "Confirm rate tier eligibility.",
+    ],
+    sourceUrl: "https://example.com/greenline-savings",
+    lastVerified: "2026-05-23",
+    status: "watching",
+    riskNotes: ["Check current APY before moving cash."],
+    tags: ["online savings"],
+  },
+  {
+    slug: "civic-credit-union-yield-example",
+    title: "Member Savings 4.10% APY Example",
+    provider: "Civic Credit Union",
+    category: "high-yield-savings",
+    offerAmount: "4.10% APY",
+    offerType: "Savings rate",
+    description:
+      "Example member savings APY for eligible credit union members. Membership and balance limits may apply.",
+    requirements: [
+      "Meet credit union membership eligibility.",
+      "Open a qualifying savings account.",
+      "Maintain balances within eligible rate tiers.",
+    ],
+    fees: ["Membership share deposit may be required."],
+    sourceUrl: "https://example.com/civic-member-savings",
+    lastVerified: "2026-05-16",
+    status: "active",
+    riskNotes: ["Verify membership and insured deposit coverage."],
+    tags: ["credit union", "apy"],
+  },
+  {
+    slug: "vaultplus-cash-account-example",
+    title: "Cash Account 4.00% APY Example",
+    provider: "VaultPlus",
+    category: "high-yield-savings",
+    offerAmount: "4.00% APY",
+    offerType: "Cash management rate",
+    description:
+      "Example cash management rate listing. Program bank coverage, sweep rules, and APY may change.",
+    requirements: [
+      "Open an eligible cash management account.",
+      "Enroll in the sweep program if required.",
+      "Review partner bank and coverage disclosures.",
+    ],
+    sourceUrl: "https://example.com/vaultplus-cash",
+    lastVerified: "2026-05-13",
+    status: "active",
+    riskNotes: ["Confirm FDIC pass-through coverage details."],
+    tags: ["cash management", "apy"],
+  },
+  {
+    slug: "foundry-business-checking-400-example",
+    title: "Business Checking $400 Example Bonus",
+    provider: "Foundry Business Bank",
+    category: "business-banking",
+    offerAmount: "$400",
+    offerType: "Business checking bonus",
+    description:
+      "Example business checking bonus for eligible new business accounts. Terms may vary by entity and region.",
+    requirements: [
+      "Open an eligible new business checking account.",
+      "Deposit qualifying new business funds.",
+      "Complete required transactions within the offer window.",
+    ],
+    fees: ["Monthly service, wire, and cash deposit fees may apply."],
+    expirationDate: "2026-09-15",
+    sourceUrl: "https://example.com/foundry-business-checking",
+    lastVerified: "2026-05-30",
+    status: "active",
+    featured: true,
+    riskNotes: ["Confirm entity documentation and bonus eligibility."],
+    tags: ["business checking", "new money"],
+  },
+  {
+    slug: "ledgerline-business-savings-example",
+    title: "Business Savings 3.85% APY Example",
+    provider: "LedgerLine Bank",
+    category: "business-banking",
+    offerAmount: "3.85% APY",
+    offerType: "Business savings rate",
+    description:
+      "Example business savings APY listing. Rates and business eligibility requirements may change.",
+    requirements: [
+      "Open an eligible business savings account.",
+      "Maintain qualifying balance levels.",
+      "Provide required business documentation.",
+    ],
+    fees: ["Monthly maintenance and transaction fees may apply."],
+    sourceUrl: "https://example.com/ledgerline-business-savings",
+    lastVerified: "2026-05-27",
+    status: "active",
+    tags: ["business savings", "apy"],
+  },
+  {
+    slug: "marketstreet-merchant-200-example",
+    title: "Merchant Services $200 Example Credit",
+    provider: "MarketStreet Payments",
+    category: "business-banking",
+    offerAmount: "$200 credit",
+    offerType: "Merchant services credit",
+    description:
+      "Example merchant services credit for qualifying payment processing activity. Processing fees and contract terms should be reviewed carefully.",
+    requirements: [
+      "Open an eligible merchant account.",
+      "Process a qualifying payment volume.",
+      "Keep the account active through the credit period.",
+    ],
+    fees: ["Processing, chargeback, and equipment fees may apply."],
+    sourceUrl: "https://example.com/marketstreet-merchant",
+    lastVerified: "2026-05-21",
+    status: "watching",
+    riskNotes: ["Review contract term, cancellation fees, and pricing model."],
+    tags: ["merchant services", "payments"],
+  },
+  {
+    slug: "blueprint-business-checking-250-example",
+    title: "Startup Checking $250 Example Bonus",
+    provider: "Blueprint Bank",
+    category: "business-banking",
+    offerAmount: "$250",
+    offerType: "Business checking bonus",
+    description:
+      "Example startup checking bonus for new business customers. Verify current eligibility before applying.",
+    requirements: [
+      "Open an eligible business checking account.",
+      "Deposit qualifying business funds.",
+      "Complete required debit card or ACH transactions.",
+    ],
+    fees: ["Monthly fee may apply after an introductory period."],
+    expirationDate: "2026-08-01",
+    sourceUrl: "https://example.com/blueprint-startup-checking",
+    lastVerified: "2026-05-18",
+    status: "active",
+    tags: ["startup", "checking"],
+  },
+  {
+    slug: "commercehub-business-card-500-example",
+    title: "Business Card $500 Example Bonus",
+    provider: "CommerceHub Card",
+    category: "business-banking",
+    offerAmount: "$500 value",
+    offerType: "Business card welcome offer",
+    description:
+      "Example business card welcome offer after qualifying spend. This is not financial advice and card terms can change.",
+    requirements: [
+      "Apply and be approved for an eligible business card.",
+      "Meet the stated spend requirement within the offer period.",
+      "Keep the account in good standing.",
+    ],
+    fees: ["Annual fee, interest, and late payment fees may apply."],
+    sourceUrl: "https://example.com/commercehub-business-card",
+    lastVerified: "2026-05-12",
+    status: "active",
+    riskNotes: ["Verify annual fee, APR, and reward redemption value."],
+    tags: ["business card", "welcome offer"],
+  },
+];
