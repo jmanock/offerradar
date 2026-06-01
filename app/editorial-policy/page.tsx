@@ -1,14 +1,40 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 
 export const metadata: Metadata = {
   title: "Editorial Policy",
   description:
-    "How OfferRadar selects, verifies, discloses, and presents example offers without providing financial advice.",
+    "How OfferRadar selects, verifies, discloses, and presents tracked offers without providing financial advice.",
   alternates: { canonical: "/editorial-policy" },
 };
+
+const policySections = [
+  {
+    title: "How offers are selected",
+    body: "Offers are selected to represent categories users commonly compare: bank bonuses, brokerage bonuses, referral offers, high-yield savings, business banking, credit cards, and cash back apps. Each listing is written with cautious language and reminders to verify provider terms.",
+  },
+  {
+    title: "How offers are verified",
+    body: "Each listing includes a last reviewed date and verification status. The status describes the editorial review state, not a promise that the offer is still available, that a user is eligible, or that a payout will occur.",
+  },
+  {
+    title: "How often data is intended to be checked",
+    body: "The platform is structured for future daily tracking, change detection, and daily reporting. Until those systems are active, pages rely on reviewed records and visible verification dates.",
+  },
+  {
+    title: "Referral and affiliate compensation",
+    body: "OfferRadar may earn compensation through referral or affiliate links. Compensation may influence which offers are tracked or how links are presented, but requirements, fees, and verification reminders should remain easy to find.",
+  },
+  {
+    title: "Why users should verify terms directly",
+    body: "Providers can change offer values, eligibility, deadlines, fees, state availability, and payout requirements. Users should rely on the provider terms shown at the time of signup or application.",
+  },
+  {
+    title: "No financial advice",
+    body: "OfferRadar is informational. It does not provide financial, investment, tax, credit, or legal advice, and it does not recommend any specific account, card, app, provider, or financial action.",
+  },
+];
 
 export default function EditorialPolicyPage() {
   return (
@@ -32,77 +58,36 @@ export default function EditorialPolicyPage() {
       </section>
 
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="grid gap-6">
-        <PolicySection title="How offers are selected">
-          Offers are selected to represent categories users commonly compare:
-          bank bonuses, brokerage bonuses, referral offers, high-yield savings,
-          business banking, credit cards, and cash back apps. The site uses
-          local placeholder data with cautious language and no claim that a
-          specific real-world offer is available.
-        </PolicySection>
-        <PolicySection title="How offers are verified">
-          Each listing includes a last checked date and verification status.
-          The status describes the local review state, not a promise that the
-          offer is still available, that a user is eligible, or that a payout
-          will occur.
-        </PolicySection>
-        <PolicySection title="How often data is intended to be checked">
-          The platform is structured for future daily tracking, change
-          detection, and daily reporting. Those systems are not implemented in
-          this static version; current data remains manually seeded.
-        </PolicySection>
-        <PolicySection title="Referral and affiliate compensation">
-          OfferRadar may earn compensation through referral or affiliate links.
-          Compensation may influence which offers are tracked or how links are
-          presented, but the site should still make requirements, fees, and
-          verification reminders easy to find.
-        </PolicySection>
-        <PolicySection title="Why users should verify terms directly">
-          Providers can change offer values, eligibility, deadlines, fees,
-          state availability, and payout requirements. Users should rely on the
-          provider terms shown at the time of signup or application.
-        </PolicySection>
-        <PolicySection title="No financial advice">
-          OfferRadar is informational. It does not provide financial,
-          investment, tax, credit, or legal advice, and it does not recommend
-          any specific account, card, app, provider, or financial action.
-        </PolicySection>
-      </div>
+        <div className="grid gap-6">
+          {policySections.map((section) => (
+            <section key={section.title} className="premium-card rounded-3xl p-6">
+              <h2 className="text-xl font-black text-slate-950">
+                {section.title}
+              </h2>
+              <p className="mt-3 leading-7 text-slate-600">{section.body}</p>
+            </section>
+          ))}
+        </div>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        <Link
-          href="/offers"
-          className="rounded-full border border-slate-300 bg-white px-5 py-3 text-center text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-        >
-          Browse offers
-        </Link>
-        <Link
-          href="/disclosures"
-          className="rounded-full bg-blue-700 px-5 py-3 text-center text-sm font-extrabold text-white hover:bg-blue-800"
-        >
-          View disclosures
-        </Link>
-      </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/offers"
+            className="rounded-full border border-slate-300 bg-white px-5 py-3 text-center text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+          >
+            Browse offers
+          </Link>
+          <Link
+            href="/disclosures"
+            className="rounded-full bg-blue-700 px-5 py-3 text-center text-sm font-extrabold text-white hover:bg-blue-800"
+          >
+            View disclosures
+          </Link>
+        </div>
 
-      <div className="mt-10">
-        <DisclosureBlock />
-      </div>
+        <div className="mt-10">
+          <DisclosureBlock />
+        </div>
       </div>
     </div>
-  );
-}
-
-function PolicySection({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <section className="premium-card rounded-3xl p-6">
-      <h2 className="text-xl font-black text-slate-950">{title}</h2>
-      <p className="mt-3 leading-7 text-slate-600">{children}</p>
-    </section>
   );
 }

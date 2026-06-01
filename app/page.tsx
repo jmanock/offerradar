@@ -67,7 +67,7 @@ export default function Home() {
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {[
-                "Updated daily",
+                "Built for daily tracking",
                 "Disclosure first",
                 "Verification status",
                 "No financial advice",
@@ -121,7 +121,7 @@ export default function Home() {
         tone="white"
         eyebrow="Reviewed data"
         title="Featured offers"
-        description="Selected active offers with clear requirements, last checked dates, and visible verification status."
+        description="Selected active offers with clear requirements, last reviewed dates, and visible verification status."
         action={<Link href="/offers" className="text-sm font-extrabold text-blue-700">View all offers</Link>}
       >
         {featuredOffers.map((offer) => (
@@ -149,7 +149,7 @@ export default function Home() {
               Recently verified
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              These listings were most recently checked in the local data.
+              These listings were most recently checked in the OfferRadar data.
               Dates help orient comparison, but provider terms remain the source
               of truth.
             </p>
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               "We organize offers by requirements, not just bonus size.",
-              "We show last verified dates and verification status.",
+              "We show last reviewed dates and verification status.",
               "We flag terms users should verify before applying.",
               "Referral and affiliate relationships are disclosed.",
             ].map((item) => (

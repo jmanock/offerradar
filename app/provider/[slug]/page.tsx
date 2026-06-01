@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${provider.name} Offers`,
-    description: `${provider.description} Compare example offers and verify current terms directly with ${provider.name}.`,
+    description: `${provider.description} Compare tracked offers and verify current terms directly with ${provider.name}.`,
     alternates: { canonical: `/provider/${provider.slug}` },
   };
 }

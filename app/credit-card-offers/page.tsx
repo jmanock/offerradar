@@ -7,7 +7,7 @@ const category = getCategoryBySlug("credit-card-offers")!;
 export const metadata: Metadata = {
   title: "Credit Card Offers",
   description:
-    "Compare example credit card welcome offers with spend requirements, annual fees, verification notes, and cautious eligibility reminders.",
+    "Compare credit card welcome offers with spend requirements, annual fees, verification notes, and cautious eligibility reminders.",
   alternates: { canonical: "/credit-card-offers" },
 };
 

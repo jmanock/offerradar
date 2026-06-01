@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-slate-800 bg-[#07111f] text-slate-300">
-      <div className="radar-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div className="radar-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8 [&_a]:transition [&_a:hover]:text-white">
         <div>
           <div className="[&_span_span:first-child]:text-white">
             <BrandLogo />

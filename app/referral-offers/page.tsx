@@ -7,7 +7,7 @@ const category = getCategoryBySlug("referral-offers")!;
 export const metadata: Metadata = {
   title: "Referral Offers",
   description:
-    "Compare example referral offers and credits with eligibility notes, last checked dates, and provider verification reminders.",
+    "Compare tracked referral offers and credits with eligibility notes, last reviewed dates, and provider verification reminders.",
   alternates: { canonical: "/referral-offers" },
 };
 

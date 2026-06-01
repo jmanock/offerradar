@@ -1,17 +1,17 @@
 {
   "generatedAt": "2026-06-01T00:00:00.000Z",
-  "source": "manual_seed_example",
+  "source": "editorial_review_sample",
   "notes": "Sample shape for a future reviewed automation feed. This is not consumed by the app.",
   "offers": [
     {
       "slug": "example-provider-offer",
-      "provider": "Example Provider",
+      "provider": "Tracked Provider",
       "category": "bank-bonuses",
       "detectedOfferAmount": "$300",
       "detectedStatus": "active",
       "detectedExpirationDate": "2026-08-31",
       "sourceUrl": "https://example.com/provider-offer",
-      "changeSummary": "Example detected change for future review."
+      "changeSummary": "Tracked detected change for future review."
     }
   ]
 }

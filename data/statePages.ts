@@ -5,9 +5,9 @@ function statePage(slug: string, stateName: string): StatePageInfo {
     slug,
     stateName,
     title: `${stateName} Bank Bonuses`,
-    description: `Compare example ${stateName} bank bonuses and national bank offers with state availability, direct deposit, and verification reminders.`,
+    description: `Compare ${stateName} bank bonuses and national bank offers with state availability, direct deposit, and verification reminders.`,
     h1: `${stateName} bank bonuses`,
-    intro: `This page groups example bank bonuses that may be relevant to ${stateName}, plus national offers that may be available online. Availability can vary by user, state, bank, account type, and funding requirements.`,
+    intro: `This page groups bank bonuses that may be relevant to ${stateName}, plus national offers that may be available online. Availability can vary by user, state, bank, account type, and funding requirements.`,
     cautions: [
       "Verify state availability directly with the provider before opening an account.",
       "Check direct deposit definitions, monthly fees, and early closure rules.",
@@ -18,7 +18,7 @@ function statePage(slug: string, stateName: string): StatePageInfo {
       {
         question: `Are all listed offers available in ${stateName}?`,
         answer:
-          "No. This page includes state-tagged and national example offers. Providers control eligibility and availability, so verify terms directly.",
+          "No. This page includes state-tagged and national tracked offers. Providers control eligibility and availability, so verify terms directly.",
       },
       {
         question: "Do state pages provide financial advice?",
@@ -43,10 +43,10 @@ export const statePages: StatePageInfo[] = [
     ...statePage("national-bank-bonuses", "National"),
     title: "National Bank Bonuses",
     description:
-      "Compare example national bank bonuses and online banking offers with direct deposit, fee, and verification reminders.",
+      "Compare national bank bonuses and online banking offers with direct deposit, fee, and verification reminders.",
     h1: "National bank bonuses",
     intro:
-      "This page focuses on example national and online bank bonuses. National does not mean every user qualifies; provider terms, account history, state rules, and funding requirements still apply.",
+      "This page focuses on national and online bank bonuses. National does not mean every user qualifies; provider terms, account history, state rules, and funding requirements still apply.",
     relatedPages: ["/bank-bonuses", "/checking-account-bonuses", "/direct-deposit-bonuses"],
   },
 ];

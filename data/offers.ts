@@ -8,7 +8,7 @@ export const categories: CategoryInfo[] = [
     title: "Bank Bonuses",
     shortTitle: "Bank Bonuses",
     description:
-      "Checking and savings account bonuses organized by example value, requirements, fees, and verification notes.",
+      "Checking and savings account bonuses organized by value, requirements, fees, and verification notes.",
     education:
       "Bank bonuses often depend on direct deposit timing, minimum balances, account history, and regional availability. Compare requirements, monthly fees, early closure rules, and payout timing, then verify current terms directly with the bank.",
   },
@@ -26,7 +26,7 @@ export const categories: CategoryInfo[] = [
     title: "Referral Offers",
     shortTitle: "Referrals",
     description:
-      "Consumer app, card, account, and subscription referral examples with cautious notes on eligibility and changing terms.",
+      "Consumer app, card, account, and subscription referral listings with cautious notes on eligibility and changing terms.",
     education:
       "Referral offers can vary by user, location, invite link, account history, and campaign timing. Confirm the bonus screen and any required activity before relying on a referral offer.",
   },
@@ -35,7 +35,7 @@ export const categories: CategoryInfo[] = [
     title: "High-Yield Savings",
     shortTitle: "HYSA",
     description:
-      "Savings, money market, and cash account rate examples tracked with APY, fee, minimum balance, and verification reminders.",
+      "Savings, money market, and cash account rate listings tracked with APY, fee, minimum balance, and verification reminders.",
     education:
       "Savings rates are variable and can change without much notice. Compare APY, fees, withdrawal limits, FDIC or NCUA coverage, rate tiers, and minimum balance requirements.",
   },
@@ -53,7 +53,7 @@ export const categories: CategoryInfo[] = [
     title: "Credit Card Offers",
     shortTitle: "Credit Cards",
     description:
-      "Credit card welcome offer examples with spend requirements, annual fees, eligibility notes, and verification reminders.",
+      "Credit card welcome offer listings with spend requirements, annual fees, eligibility notes, and verification reminders.",
     education:
       "Credit card offers may require approval, qualifying spend, and on-time payments. Compare annual fees, APR, reward redemption limits, and eligibility rules. OfferRadar does not recommend carrying debt for a bonus.",
   },
@@ -62,7 +62,7 @@ export const categories: CategoryInfo[] = [
     title: "Cash Back Apps",
     shortTitle: "Cash Back",
     description:
-      "Cash back app and shopping portal examples with payout thresholds, tracking requirements, and changing campaign notes.",
+      "Cash back app and shopping portal listings with payout thresholds, tracking requirements, and changing campaign notes.",
     education:
       "Cash back app offers may require link tracking, activated offers, eligible merchants, minimum purchases, and waiting periods. Verify the in-app terms and payout rules before making a purchase.",
   },
@@ -74,7 +74,7 @@ type SeedOffer = Omit<Offer, "automationSource"> & {
 
 function seedOffer(offer: SeedOffer): Offer {
   return {
-    automationSource: "manual_seed",
+    automationSource: "editorial_review",
     ...offer,
   };
 }
@@ -84,13 +84,13 @@ function seedOffer(offer: SeedOffer): Offer {
 export const offers: Offer[] = [
   seedOffer({
     slug: "evergreen-bank-premier-checking-300-example",
-    title: "Premier Checking $300 Example Offer",
+    title: "Premier Checking $300 Offer",
     provider: "Evergreen Bank",
     category: "bank-bonuses",
     offerAmount: "$300",
     offerType: "Checking bonus",
     description:
-      "Example offer for opening a new checking account and completing qualifying direct deposits. Terms may change and availability can vary by user, state, and account type.",
+      "Tracked offer for opening a new checking account and completing qualifying direct deposits. Terms may change and availability can vary by user, state, and account type.",
     requirements: [
       "Open an eligible new checking account.",
       "Complete qualifying direct deposits within the stated offer window.",
@@ -113,13 +113,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "harbor-one-checking-200-example",
-    title: "Everyday Checking $200 Example Bonus",
+    title: "Everyday Checking $200 Bonus",
     provider: "Harbor One Bank",
     category: "bank-bonuses",
     offerAmount: "$200",
     offerType: "Checking bonus",
     description:
-      "Example offer for new checking customers who complete qualifying account activity. Verify the current offer with the provider before opening an account.",
+      "Tracked offer for new checking customers who complete qualifying account activity. Verify the current offer with the provider before opening an account.",
     requirements: [
       "Open a new eligible checking account.",
       "Receive qualifying deposits during the first 90 days.",
@@ -140,13 +140,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "summit-credit-union-150-example",
-    title: "Member Checking $150 Example Offer",
+    title: "Member Checking $150 Offer",
     provider: "Summit Credit Union",
     category: "bank-bonuses",
     offerAmount: "$150",
     offerType: "Checking bonus",
     description:
-      "Example credit union checking bonus for eligible new members. Membership and offer terms may change.",
+      "Tracked credit union checking bonus for eligible new members. Membership and offer terms may change.",
     requirements: [
       "Meet membership eligibility rules.",
       "Open a qualifying checking account.",
@@ -157,7 +157,7 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-30",
     verificationStatus: "verified_this_week",
     status: "watching",
-    minimumDeposit: "$25 membership share example",
+    minimumDeposit: "$25 membership share ",
     monthlyFee: "Verify with credit union",
     stateRestrictions: ["Membership field of eligibility may apply."],
     riskNotes: ["Check membership eligibility before applying."],
@@ -165,13 +165,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "metro-trust-savings-100-example",
-    title: "Savings Starter $100 Example Bonus",
+    title: "Savings Starter $100 Bonus",
     provider: "Metro Trust",
     category: "bank-bonuses",
     offerAmount: "$100",
     offerType: "Savings bonus",
     description:
-      "Example savings bonus tied to opening and funding a new account. Always verify current terms before applying.",
+      "Tracked savings bonus tied to opening and funding a new account. Always verify current terms before applying.",
     requirements: [
       "Open an eligible savings account.",
       "Deposit at least the stated minimum new money amount.",
@@ -183,19 +183,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-29",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$5,000 new money example",
+    minimumDeposit: "$5,000 new money ",
     monthlyFee: "$5, waivable",
     tags: ["savings", "new money"],
   }),
   seedOffer({
     slug: "northstar-bank-student-checking-75-example",
-    title: "Student Checking $75 Example Offer",
+    title: "Student Checking $75 Offer",
     provider: "Northstar Bank",
     category: "bank-bonuses",
     offerAmount: "$75",
     offerType: "Checking bonus",
     description:
-      "Example student checking promotion with activity requirements. Offer details can vary by campus or region.",
+      "Tracked student checking promotion with activity requirements. Offer details can vary by campus or region.",
     requirements: [
       "Open an eligible student checking account.",
       "Complete qualifying debit card activity.",
@@ -205,20 +205,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-28",
     verificationStatus: "verified_this_week",
     status: "active",
-    monthlyFee: "$0 student account example",
+    monthlyFee: "$0 student account ",
     stateRestrictions: ["Campus or region restrictions may apply."],
     riskNotes: ["Confirm age, student, and region requirements."],
     tags: ["student", "checking"],
   }),
   seedOffer({
     slug: "riverbend-priority-checking-500-example",
-    title: "Priority Checking $500 Example Bonus",
+    title: "Priority Checking $500 Bonus",
     provider: "Riverbend Bank",
     category: "bank-bonuses",
     offerAmount: "$500",
     offerType: "Premium checking bonus",
     description:
-      "Example premium checking bonus that may require larger deposits and relationship balances. Verify directly with the provider.",
+      "Tracked premium checking bonus that may require larger deposits and relationship balances. Verify directly with the provider.",
     requirements: [
       "Open an eligible premium checking account.",
       "Set up qualifying deposits or relationship balances.",
@@ -232,20 +232,20 @@ export const offers: Offer[] = [
     status: "active",
     featured: true,
     requiresDirectDeposit: true,
-    minimumDeposit: "$10,000 relationship balance example",
+    minimumDeposit: "$10,000 relationship balance ",
     monthlyFee: "$25, waivable",
     riskNotes: ["Check early account closure fees and balance tier rules."],
     tags: ["premium checking", "direct deposit"],
   }),
   seedOffer({
     slug: "axis-invest-600-transfer-example",
-    title: "Investment Transfer Up to $600 Example Bonus",
+    title: "Investment Transfer Up to $600 Bonus",
     provider: "Axis Invest",
     category: "brokerage-bonuses",
     offerAmount: "Up to $600",
     offerType: "Brokerage transfer bonus",
     description:
-      "Example tiered brokerage transfer bonus based on eligible new assets. Bonus tiers and holding periods may change.",
+      "Tracked tiered brokerage transfer bonus based on eligible new assets. Bonus tiers and holding periods may change.",
     requirements: [
       "Open or use an eligible brokerage account.",
       "Transfer qualifying new assets by the deadline.",
@@ -258,19 +258,19 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$25,000 transferred assets example",
+    minimumDeposit: "$25,000 transferred assets ",
     riskNotes: ["Review market risk and transfer fee reimbursement terms."],
     tags: ["brokerage", "asset transfer"],
   }),
   seedOffer({
     slug: "clearpath-brokerage-100-example",
-    title: "New Brokerage Account $100 Example Offer",
+    title: "New Brokerage Account $100 Offer",
     provider: "ClearPath Brokerage",
     category: "brokerage-bonuses",
     offerAmount: "$100",
     offerType: "New account bonus",
     description:
-      "Example bonus for funding a new taxable brokerage account. Verify account type eligibility and funding requirements.",
+      "Tracked bonus for funding a new taxable brokerage account. Verify account type eligibility and funding requirements.",
     requirements: [
       "Open a qualifying brokerage account.",
       "Fund with eligible new money.",
@@ -280,18 +280,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$5,000 new money example",
+    minimumDeposit: "$5,000 new money ",
     tags: ["brokerage", "new account"],
   }),
   seedOffer({
     slug: "pioneer-retirement-ira-250-example",
-    title: "IRA Rollover $250 Example Bonus",
+    title: "IRA Rollover $250 Bonus",
     provider: "Pioneer Retirement",
     category: "brokerage-bonuses",
     offerAmount: "$250",
     offerType: "IRA rollover bonus",
     description:
-      "Example IRA rollover promotion. Tax considerations and eligibility should be reviewed with the provider or a qualified professional.",
+      "Tracked IRA rollover promotion. Tax considerations and eligibility should be reviewed with the provider or a qualified professional.",
     requirements: [
       "Open an eligible IRA account.",
       "Complete a qualifying rollover or transfer.",
@@ -302,19 +302,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-27",
     verificationStatus: "needs_review",
     status: "watching",
-    minimumDeposit: "$15,000 rollover example",
+    minimumDeposit: "$15,000 rollover ",
     riskNotes: ["Verify rollover rules, taxes, and investment risks."],
     tags: ["ira", "retirement"],
   }),
   seedOffer({
     slug: "nova-trade-free-stock-example",
-    title: "Free Stock Example Referral Offer",
+    title: "Free Stock Referral Offer",
     provider: "NovaTrade",
     category: "brokerage-bonuses",
     offerAmount: "Variable stock value",
     offerType: "Referral bonus",
     description:
-      "Example referral offer where eligible users may receive a stock reward. Values, odds, and eligibility can change.",
+      "Tracked referral offer where eligible users may receive a stock reward. Values, odds, and eligibility can change.",
     requirements: [
       "Use an eligible referral link.",
       "Open and approve a new brokerage account.",
@@ -331,13 +331,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "meridian-wealth-1000-example",
-    title: "Managed Portfolio Up to $1,000 Example Bonus",
+    title: "Managed Portfolio Up to $1,000 Bonus",
     provider: "Meridian Wealth",
     category: "brokerage-bonuses",
     offerAmount: "Up to $1,000",
     offerType: "Managed account bonus",
     description:
-      "Example managed portfolio bonus for eligible funded accounts. Advisory fees and bonus tiers may change.",
+      "Tracked managed portfolio bonus for eligible funded accounts. Advisory fees and bonus tiers may change.",
     requirements: [
       "Open an eligible managed portfolio account.",
       "Deposit qualifying new money.",
@@ -349,18 +349,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-24",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$50,000 managed account balance example",
+    minimumDeposit: "$50,000 managed account balance ",
     tags: ["managed investing", "tiered"],
   }),
   seedOffer({
     slug: "atlas-active-trader-350-example",
-    title: "Active Trader $350 Example Bonus",
+    title: "Active Trader $350 Bonus",
     provider: "Atlas Markets",
     category: "brokerage-bonuses",
     offerAmount: "$350",
     offerType: "Trading account bonus",
     description:
-      "Example active trader promotion that may require account funding and trading activity. Verify all terms before opening an account.",
+      "Tracked active trader promotion that may require account funding and trading activity. Verify all terms before opening an account.",
     requirements: [
       "Open an eligible trading account.",
       "Fund the account with eligible new money.",
@@ -372,19 +372,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-22",
     verificationStatus: "needs_review",
     status: "watching",
-    minimumDeposit: "$10,000 new money example",
+    minimumDeposit: "$10,000 new money ",
     riskNotes: ["Trading activity can involve significant risk and costs."],
     tags: ["trading", "brokerage"],
   }),
   seedOffer({
     slug: "payflow-app-20-referral-example",
-    title: "$20 App Referral Example Offer",
+    title: "$20 App Referral Offer",
     provider: "PayFlow",
     category: "referral-offers",
     offerAmount: "$20",
     offerType: "Referral credit",
     description:
-      "Example referral credit for a qualifying new app user. Referral rewards may vary by account and campaign.",
+      "Tracked referral credit for a qualifying new app user. Referral rewards may vary by account and campaign.",
     requirements: [
       "Sign up through an eligible referral link.",
       "Complete identity verification if required.",
@@ -401,13 +401,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "travelkey-50-credit-example",
-    title: "$50 Travel Credit Example Referral",
+    title: "$50 Travel Credit Referral",
     provider: "TravelKey",
     category: "referral-offers",
     offerAmount: "$50 credit",
     offerType: "Referral travel credit",
     description:
-      "Example travel referral credit for eligible new users. Credits may have booking, date, and redemption restrictions.",
+      "Tracked travel referral credit for eligible new users. Credits may have booking, date, and redemption restrictions.",
     requirements: [
       "Use an eligible referral invite.",
       "Create a new account.",
@@ -417,19 +417,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-30",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$250 booking minimum example",
+    minimumDeposit: "$250 booking minimum ",
     riskNotes: ["Check blackout dates and minimum booking value."],
     tags: ["travel", "credit"],
   }),
   seedOffer({
     slug: "mealbox-25-referral-example",
-    title: "$25 Meal Delivery Example Credit",
+    title: "$25 Meal Delivery Credit",
     provider: "MealBox",
     category: "referral-offers",
     offerAmount: "$25 credit",
     offerType: "Referral credit",
     description:
-      "Example meal delivery referral credit. Delivery fees, minimum order values, and service areas may affect value.",
+      "Tracked meal delivery referral credit. Delivery fees, minimum order values, and service areas may affect value.",
     requirements: [
       "Use an eligible referral link.",
       "Place a qualifying first order.",
@@ -445,13 +445,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "cloudnote-10-referral-example",
-    title: "$10 Subscription Credit Example Referral",
+    title: "$10 Subscription Credit Referral",
     provider: "CloudNote",
     category: "referral-offers",
     offerAmount: "$10 credit",
     offerType: "Subscription referral",
     description:
-      "Example subscription referral credit for eligible new paid users. Terms can change by plan and region.",
+      "Tracked subscription referral credit for eligible new paid users. Terms can change by plan and region.",
     requirements: [
       "Register through a valid invite.",
       "Start an eligible paid plan.",
@@ -461,18 +461,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-22",
     verificationStatus: "verified_this_week",
     status: "active",
-    monthlyFee: "$8 monthly plan example",
+    monthlyFee: "$8 monthly plan ",
     tags: ["software", "subscription"],
   }),
   seedOffer({
     slug: "fitpass-30-referral-example",
-    title: "$30 Fitness Credit Example Offer",
+    title: "$30 Fitness Credit Offer",
     provider: "FitPass",
     category: "referral-offers",
     offerAmount: "$30 credit",
     offerType: "Referral credit",
     description:
-      "Example fitness membership referral credit. Eligibility may depend on plan, location, and new member status.",
+      "Tracked fitness membership referral credit. Eligibility may depend on plan, location, and new member status.",
     requirements: [
       "Join through an eligible referral link.",
       "Choose a qualifying membership plan.",
@@ -487,13 +487,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "homegrid-40-service-credit-example",
-    title: "$40 Home Service Referral Example",
+    title: "$40 Home Service Referral",
     provider: "HomeGrid",
     category: "referral-offers",
     offerAmount: "$40 credit",
     offerType: "Service referral",
     description:
-      "Example home services referral credit for eligible new customers. Availability can vary by city and provider schedule.",
+      "Tracked home services referral credit for eligible new customers. Availability can vary by city and provider schedule.",
     requirements: [
       "Use an eligible referral invitation.",
       "Book a qualifying first service.",
@@ -508,13 +508,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "bright-yield-savings-apy-example",
-    title: "High-Yield Savings 4.20% APY Example",
+    title: "High-Yield Savings 4.20% APY",
     provider: "Bright Yield Bank",
     category: "high-yield-savings",
     offerAmount: "4.20% APY",
     offerType: "Variable savings rate",
     description:
-      "Example high-yield savings listing. APY is variable, not promised, and should be checked directly with the provider.",
+      "Tracked high-yield savings listing. APY is variable, not promised, and should be checked directly with the provider.",
     requirements: [
       "Open an eligible savings account.",
       "Meet any balance or activity conditions for the stated APY.",
@@ -526,20 +526,20 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$0 opening deposit example",
-    monthlyFee: "$0 example",
+    minimumDeposit: "$0 opening deposit ",
+    monthlyFee: "$0 ",
     riskNotes: ["Rates can change at any time."],
     tags: ["apy", "savings"],
   }),
   seedOffer({
     slug: "oceanview-money-market-example",
-    title: "Money Market 4.05% APY Example",
+    title: "Money Market 4.05% APY",
     provider: "Oceanview Financial",
     category: "high-yield-savings",
     offerAmount: "4.05% APY",
     offerType: "Money market rate",
     description:
-      "Example money market account listing with a variable APY. Verify current rate tiers and account access rules.",
+      "Tracked money market account listing with a variable APY. Verify current rate tiers and account access rules.",
     requirements: [
       "Open an eligible money market account.",
       "Maintain the minimum balance for the advertised tier.",
@@ -550,19 +550,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$2,500 for stated tier example",
+    minimumDeposit: "$2,500 for stated tier ",
     monthlyFee: "$10, waivable",
     tags: ["money market", "apy"],
   }),
   seedOffer({
     slug: "greenline-savings-3-95-example",
-    title: "Online Savings 3.95% APY Example",
+    title: "Online Savings 3.95% APY",
     provider: "Greenline Bank",
     category: "high-yield-savings",
     offerAmount: "3.95% APY",
     offerType: "Variable savings rate",
     description:
-      "Example online savings rate listing. APY and account terms may change after the last checked date.",
+      "Tracked online savings rate listing. APY and account terms may change after the last reviewed date.",
     requirements: [
       "Open an online savings account.",
       "Fund the account through an eligible transfer.",
@@ -572,20 +572,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-27",
     verificationStatus: "needs_review",
     status: "watching",
-    minimumDeposit: "$100 opening deposit example",
-    monthlyFee: "$0 example",
+    minimumDeposit: "$100 opening deposit ",
+    monthlyFee: "$0 ",
     riskNotes: ["Check current APY before moving cash."],
     tags: ["online savings"],
   }),
   seedOffer({
     slug: "civic-credit-union-yield-example",
-    title: "Member Savings 4.10% APY Example",
+    title: "Member Savings 4.10% APY",
     provider: "Civic Credit Union",
     category: "high-yield-savings",
     offerAmount: "4.10% APY",
     offerType: "Savings rate",
     description:
-      "Example member savings APY for eligible credit union members. Membership and balance limits may apply.",
+      "Tracked member savings APY for eligible credit union members. Membership and balance limits may apply.",
     requirements: [
       "Meet credit union membership eligibility.",
       "Open a qualifying savings account.",
@@ -602,13 +602,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "vaultplus-cash-account-example",
-    title: "Cash Account 4.00% APY Example",
+    title: "Cash Account 4.00% APY",
     provider: "VaultPlus",
     category: "high-yield-savings",
     offerAmount: "4.00% APY",
     offerType: "Cash management rate",
     description:
-      "Example cash management rate listing. Program bank coverage, sweep rules, and APY may change.",
+      "Tracked cash management rate listing. Program bank coverage, sweep rules, and APY may change.",
     requirements: [
       "Open an eligible cash management account.",
       "Enroll in the sweep program if required.",
@@ -618,19 +618,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-20",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$0 opening deposit example",
+    minimumDeposit: "$0 opening deposit ",
     riskNotes: ["Confirm FDIC pass-through coverage details."],
     tags: ["cash management", "apy"],
   }),
   seedOffer({
     slug: "pinecrest-savings-bonus-250-example",
-    title: "Savings Balance $250 Example Bonus",
+    title: "Savings Balance $250 Bonus",
     provider: "Pinecrest Bank",
     category: "high-yield-savings",
     offerAmount: "$250",
     offerType: "Savings balance bonus",
     description:
-      "Example savings bonus based on maintaining a qualifying balance. Terms may change and bonus availability can vary.",
+      "Tracked savings bonus based on maintaining a qualifying balance. Terms may change and bonus availability can vary.",
     requirements: [
       "Open an eligible savings account.",
       "Deposit qualifying new money.",
@@ -642,19 +642,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-28",
     verificationStatus: "needs_review",
     status: "active",
-    minimumDeposit: "$15,000 new money example",
+    minimumDeposit: "$15,000 new money ",
     monthlyFee: "$8, waivable",
     tags: ["savings bonus", "new money"],
   }),
   seedOffer({
     slug: "foundry-business-checking-400-example",
-    title: "Business Checking $400 Example Bonus",
+    title: "Business Checking $400 Bonus",
     provider: "Foundry Business Bank",
     category: "business-banking",
     offerAmount: "$400",
     offerType: "Business checking bonus",
     description:
-      "Example business checking bonus for eligible new business accounts. Terms may vary by entity and region.",
+      "Tracked business checking bonus for eligible new business accounts. Terms may vary by entity and region.",
     requirements: [
       "Open an eligible new business checking account.",
       "Deposit qualifying new business funds.",
@@ -667,20 +667,20 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$5,000 business deposit example",
+    minimumDeposit: "$5,000 business deposit ",
     monthlyFee: "$15, waivable",
     riskNotes: ["Confirm entity documentation and bonus eligibility."],
     tags: ["business checking", "new money"],
   }),
   seedOffer({
     slug: "ledgerline-business-savings-example",
-    title: "Business Savings 3.85% APY Example",
+    title: "Business Savings 3.85% APY",
     provider: "LedgerLine Bank",
     category: "business-banking",
     offerAmount: "3.85% APY",
     offerType: "Business savings rate",
     description:
-      "Example business savings APY listing. Rates and business eligibility requirements may change.",
+      "Tracked business savings APY listing. Rates and business eligibility requirements may change.",
     requirements: [
       "Open an eligible business savings account.",
       "Maintain qualifying balance levels.",
@@ -691,18 +691,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-30",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$10,000 for stated tier example",
+    minimumDeposit: "$10,000 for stated tier ",
     tags: ["business savings", "apy"],
   }),
   seedOffer({
     slug: "marketstreet-merchant-200-example",
-    title: "Merchant Services $200 Example Credit",
+    title: "Merchant Services $200 Credit",
     provider: "MarketStreet Payments",
     category: "business-banking",
     offerAmount: "$200 credit",
     offerType: "Merchant services credit",
     description:
-      "Example merchant services credit for qualifying payment processing activity. Processing fees and contract terms should be reviewed carefully.",
+      "Tracked merchant services credit for qualifying payment processing activity. Processing fees and contract terms should be reviewed carefully.",
     requirements: [
       "Open an eligible merchant account.",
       "Process a qualifying payment volume.",
@@ -718,13 +718,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "blueprint-business-checking-250-example",
-    title: "Startup Checking $250 Example Bonus",
+    title: "Startup Checking $250 Bonus",
     provider: "Blueprint Bank",
     category: "business-banking",
     offerAmount: "$250",
     offerType: "Business checking bonus",
     description:
-      "Example startup checking bonus for new business customers. Verify current eligibility before applying.",
+      "Tracked startup checking bonus for new business customers. Verify current eligibility before applying.",
     requirements: [
       "Open an eligible business checking account.",
       "Deposit qualifying business funds.",
@@ -736,19 +736,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-26",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$2,500 business deposit example",
+    minimumDeposit: "$2,500 business deposit ",
     monthlyFee: "$10, waivable",
     tags: ["startup", "checking"],
   }),
   seedOffer({
     slug: "commercehub-business-card-500-example",
-    title: "Business Card $500 Example Bonus",
+    title: "Business Card $500 Bonus",
     provider: "CommerceHub Card",
     category: "business-banking",
     offerAmount: "$500 value",
     offerType: "Business card welcome offer",
     description:
-      "Example business card welcome offer after qualifying spend. This is informational only and card terms can change.",
+      "Tracked business card welcome offer after qualifying spend. This is informational only and card terms can change.",
     requirements: [
       "Apply and be approved for an eligible business card.",
       "Meet the stated spend requirement within the offer period.",
@@ -759,20 +759,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-18",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$4,000 spend requirement example",
-    monthlyFee: "$95 annual fee example",
+    minimumDeposit: "$4,000 spend requirement ",
+    monthlyFee: "$95 annual fee ",
     riskNotes: ["Verify annual fee, APR, and reward redemption value."],
     tags: ["business card", "welcome offer"],
   }),
   seedOffer({
     slug: "opsline-business-payroll-300-example",
-    title: "Payroll Setup $300 Example Credit",
+    title: "Payroll Setup $300 Credit",
     provider: "OpsLine Banking",
     category: "business-banking",
     offerAmount: "$300 credit",
     offerType: "Business service credit",
     description:
-      "Example payroll setup credit tied to business banking activity. Verify service terms, pricing, and eligibility directly.",
+      "Tracked payroll setup credit tied to business banking activity. Verify service terms, pricing, and eligibility directly.",
     requirements: [
       "Open an eligible business account.",
       "Enroll in qualifying payroll services.",
@@ -789,13 +789,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "northpoint-cash-rewards-card-200-example",
-    title: "Cash Rewards Card $200 Example Offer",
+    title: "Cash Rewards Card $200 Offer",
     provider: "Northpoint Card",
     category: "credit-card-offers",
     offerAmount: "$200 value",
     offerType: "Credit card welcome offer",
     description:
-      "Example cash rewards card welcome offer after qualifying purchases. Approval, spend tracking, and rewards terms may vary.",
+      "Tracked cash rewards card welcome offer after qualifying purchases. Approval, spend tracking, and rewards terms may vary.",
     requirements: [
       "Apply and be approved for the eligible card.",
       "Meet the qualifying purchase requirement within the offer window.",
@@ -807,20 +807,20 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$500 spend requirement example",
-    monthlyFee: "$0 annual fee example",
+    minimumDeposit: "$500 spend requirement ",
+    monthlyFee: "$0 annual fee ",
     riskNotes: ["Do not carry a balance to pursue a promotional reward."],
     tags: ["credit card", "cash rewards"],
   }),
   seedOffer({
     slug: "voyager-travel-card-60000-example",
-    title: "Travel Card 60,000 Point Example Offer",
+    title: "Travel Card 60,000 Point Offer",
     provider: "Voyager Rewards",
     category: "credit-card-offers",
     offerAmount: "60,000 points",
     offerType: "Travel rewards welcome offer",
     description:
-      "Example travel rewards welcome offer. Point values, transfer partners, and eligibility can change.",
+      "Tracked travel rewards welcome offer. Point values, transfer partners, and eligibility can change.",
     requirements: [
       "Apply and be approved for an eligible travel card.",
       "Complete qualifying purchases within the offer period.",
@@ -832,20 +832,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$4,000 spend requirement example",
-    monthlyFee: "$95 annual fee example",
+    minimumDeposit: "$4,000 spend requirement ",
+    monthlyFee: "$95 annual fee ",
     riskNotes: ["Point value depends on redemption method."],
     tags: ["travel", "points"],
   }),
   seedOffer({
     slug: "grocerplus-card-150-example",
-    title: "Grocery Rewards Card $150 Example Offer",
+    title: "Grocery Rewards Card $150 Offer",
     provider: "GrocerPlus Card",
     category: "credit-card-offers",
     offerAmount: "$150 value",
     offerType: "Credit card welcome offer",
     description:
-      "Example grocery rewards card offer after qualifying spend. Category caps and merchant coding may affect reward value.",
+      "Tracked grocery rewards card offer after qualifying spend. Category caps and merchant coding may affect reward value.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet the required spend within the offer window.",
@@ -856,19 +856,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-28",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$1,000 spend requirement example",
-    monthlyFee: "$0 annual fee example",
+    minimumDeposit: "$1,000 spend requirement ",
+    monthlyFee: "$0 annual fee ",
     tags: ["grocery", "cash back"],
   }),
   seedOffer({
     slug: "student-path-card-50-example",
-    title: "Student Card $50 Example Offer",
+    title: "Student Card $50 Offer",
     provider: "Student Path Card",
     category: "credit-card-offers",
     offerAmount: "$50 value",
     offerType: "Student card welcome offer",
     description:
-      "Example student card offer for eligible approved applicants. Credit approval and terms may vary.",
+      "Tracked student card offer for eligible approved applicants. Credit approval and terms may vary.",
     requirements: [
       "Apply and be approved for an eligible student card.",
       "Complete qualifying purchases in the offer period.",
@@ -879,19 +879,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-25",
     verificationStatus: "verified_this_week",
     status: "watching",
-    monthlyFee: "$0 annual fee example",
+    monthlyFee: "$0 annual fee ",
     riskNotes: ["Verify student eligibility and credit-building terms."],
     tags: ["student", "credit card"],
   }),
   seedOffer({
     slug: "blueharbor-premium-card-800-example",
-    title: "Premium Card $800 Value Example Offer",
+    title: "Premium Card $800 Value Offer",
     provider: "BlueHarbor Premium",
     category: "credit-card-offers",
     offerAmount: "$800 estimated value",
     offerType: "Premium card welcome offer",
     description:
-      "Example premium card offer with a higher annual fee and reward estimate. Estimated value depends on redemption choices and benefit usage.",
+      "Tracked premium card offer with a higher annual fee and reward estimate. Estimated value depends on redemption choices and benefit usage.",
     requirements: [
       "Apply and be approved for an eligible premium card.",
       "Meet the qualifying purchase requirement.",
@@ -903,20 +903,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-20",
     verificationStatus: "needs_review",
     status: "active",
-    minimumDeposit: "$6,000 spend requirement example",
-    monthlyFee: "$395 annual fee example",
+    minimumDeposit: "$6,000 spend requirement ",
+    monthlyFee: "$395 annual fee ",
     riskNotes: ["Compare net value after annual fee and benefit restrictions."],
     tags: ["premium card", "travel"],
   }),
   seedOffer({
     slug: "localfair-credit-card-100-expired-example",
-    title: "Local Fair Card $100 Example Offer",
+    title: "Local Fair Card $100 Offer",
     provider: "LocalFair Card",
     category: "credit-card-offers",
     offerAmount: "$100 value",
     offerType: "Credit card welcome offer",
     description:
-      "Expired example card offer retained for tracking context. Verify directly with the issuer before assuming any similar offer is available.",
+      "Expired card offer retained for tracking context. Verify directly with the issuer before assuming any similar offer is available.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet qualifying spend if the offer returns.",
@@ -927,18 +927,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-12",
     verificationStatus: "expired",
     status: "expired",
-    riskNotes: ["This example is marked expired in the local dataset."],
+    riskNotes: ["This listing is marked expired in the OfferRadar dataset."],
     tags: ["expired", "credit card"],
   }),
   seedOffer({
     slug: "shoptrack-15-cashback-example",
-    title: "$15 Cash Back App Example Bonus",
+    title: "$15 Cash Back App Bonus",
     provider: "ShopTrack",
     category: "cash-back-apps",
     offerAmount: "$15",
     offerType: "Cash back app signup bonus",
     description:
-      "Example cash back app signup bonus after a qualifying tracked purchase. Tracking and payout rules may change.",
+      "Tracked cash back app signup bonus after a qualifying tracked purchase. Tracking and payout rules may change.",
     requirements: [
       "Sign up through an eligible link.",
       "Activate a qualifying offer before shopping.",
@@ -949,20 +949,20 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$25 purchase minimum example",
+    minimumDeposit: "$25 purchase minimum ",
     referralCode: "SHOP15",
     riskNotes: ["Confirm tracking before purchase and payout threshold after purchase."],
     tags: ["cash back", "shopping"],
   }),
   seedOffer({
     slug: "receiptwise-10-example",
-    title: "$10 Receipt App Example Bonus",
+    title: "$10 Receipt App Bonus",
     provider: "ReceiptWise",
     category: "cash-back-apps",
     offerAmount: "$10",
     offerType: "Receipt app bonus",
     description:
-      "Example receipt app bonus for new users who upload eligible receipts. Offer terms and payout timing may vary.",
+      "Tracked receipt app bonus for new users who upload eligible receipts. Offer terms and payout timing may vary.",
     requirements: [
       "Create a new eligible account.",
       "Upload qualifying receipts within the offer period.",
@@ -972,18 +972,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$10 payout threshold example",
+    minimumDeposit: "$10 payout threshold ",
     tags: ["receipts", "cash back"],
   }),
   seedOffer({
     slug: "fuelback-5-gas-example",
-    title: "$5 Fuel Cash Back Example Offer",
+    title: "$5 Fuel Cash Back Offer",
     provider: "FuelBack",
     category: "cash-back-apps",
     offerAmount: "$5",
     offerType: "Gas cash back bonus",
     description:
-      "Example gas cash back app offer for a qualifying first fuel purchase. Location and station availability may vary.",
+      "Tracked gas cash back app offer for a qualifying first fuel purchase. Location and station availability may vary.",
     requirements: [
       "Activate an eligible fuel offer.",
       "Purchase fuel at a participating station.",
@@ -998,13 +998,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "portalplus-20-shopping-example",
-    title: "$20 Shopping Portal Example Bonus",
+    title: "$20 Shopping Portal Bonus",
     provider: "PortalPlus",
     category: "cash-back-apps",
     offerAmount: "$20",
     offerType: "Shopping portal bonus",
     description:
-      "Example shopping portal bonus after a tracked purchase. Merchant exclusions and browser tracking rules may affect eligibility.",
+      "Tracked shopping portal bonus after a tracked purchase. Merchant exclusions and browser tracking rules may affect eligibility.",
     requirements: [
       "Start shopping through the portal link.",
       "Complete a qualifying purchase with an eligible merchant.",
@@ -1014,19 +1014,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-26",
     verificationStatus: "verified_this_week",
     status: "watching",
-    minimumDeposit: "$50 purchase minimum example",
+    minimumDeposit: "$50 purchase minimum ",
     riskNotes: ["Disable conflicting extensions and verify merchant exclusions."],
     tags: ["shopping portal", "cash back"],
   }),
   seedOffer({
     slug: "dineback-12-restaurant-example",
-    title: "$12 Dining Cash Back Example Offer",
+    title: "$12 Dining Cash Back Offer",
     provider: "DineBack",
     category: "cash-back-apps",
     offerAmount: "$12",
     offerType: "Dining app bonus",
     description:
-      "Example dining cash back bonus for eligible restaurant purchases. Participating locations and linked-card tracking can vary.",
+      "Tracked dining cash back bonus for eligible restaurant purchases. Participating locations and linked-card tracking can vary.",
     requirements: [
       "Link an eligible payment card.",
       "Activate a dining offer before paying.",
@@ -1041,13 +1041,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "surveywallet-8-example",
-    title: "$8 Rewards App Example Bonus",
+    title: "$8 Rewards App Bonus",
     provider: "SurveyWallet",
     category: "cash-back-apps",
     offerAmount: "$8",
     offerType: "Rewards app bonus",
     description:
-      "Example rewards app bonus for eligible new users. Task availability, payout thresholds, and reward options may change.",
+      "Tracked rewards app bonus for eligible new users. Task availability, payout thresholds, and reward options may change.",
     requirements: [
       "Create an eligible new account.",
       "Complete qualifying app activity.",
@@ -1057,18 +1057,18 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-16",
     verificationStatus: "expired",
     status: "expired",
-    riskNotes: ["This example is marked expired and should be rechecked before use."],
+    riskNotes: ["This listing is marked expired and should be rechecked before use."],
     tags: ["rewards app", "expired"],
   }),
   seedOffer({
     slug: "chase-total-checking-300-example",
-    title: "Chase Total Checking $300 Example Offer",
+    title: "Chase Total Checking $300 Offer",
     provider: "Chase",
     category: "bank-bonuses",
     offerAmount: "$300",
     offerType: "Checking account bonus",
     description:
-      "Example Chase checking bonus listing. Terms may change, and availability can vary by user, state, bank, account type, and funding requirements.",
+      "Tracked Chase checking bonus listing. Terms may change, and availability can vary by user, state, bank, account type, and funding requirements.",
     requirements: [
       "Open an eligible new checking account.",
       "Complete qualifying direct deposits during the offer window.",
@@ -1082,7 +1082,7 @@ export const offers: Offer[] = [
     status: "active",
     featured: true,
     requiresDirectDeposit: true,
-    minimumDeposit: "Qualifying direct deposit example",
+    minimumDeposit: "Qualifying direct deposit ",
     monthlyFee: "Monthly fee may be waivable",
     stateRestrictions: ["National"],
     riskNotes: ["Verify coupon eligibility and direct deposit definitions."],
@@ -1090,13 +1090,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "sofi-checking-savings-300-example",
-    title: "SoFi Checking and Savings $300 Example Offer",
+    title: "SoFi Checking and Savings $300 Offer",
     provider: "SoFi",
     category: "bank-bonuses",
     offerAmount: "Up to $300",
     offerType: "Direct deposit bonus",
     description:
-      "Example SoFi new customer bonus listing tied to qualifying direct deposit activity. Verify terms directly with the provider.",
+      "Tracked SoFi new customer bonus listing tied to qualifying direct deposit activity. Verify terms directly with the provider.",
     requirements: [
       "Open eligible checking and savings accounts.",
       "Receive qualifying direct deposits within the evaluation period.",
@@ -1108,21 +1108,21 @@ export const offers: Offer[] = [
     status: "active",
     featured: true,
     requiresDirectDeposit: true,
-    minimumDeposit: "Tiered direct deposit example",
-    monthlyFee: "$0 monthly fee example",
+    minimumDeposit: "Tiered direct deposit ",
+    monthlyFee: "$0 monthly fee ",
     stateRestrictions: ["National"],
     riskNotes: ["Bonus value may depend on deposit amount and timing."],
     tags: ["checking", "savings", "direct deposit", "new customer"],
   }),
   seedOffer({
     slug: "capital-one-360-checking-250-example",
-    title: "Capital One 360 Checking $250 Example Offer",
+    title: "Capital One 360 Checking $250 Offer",
     provider: "Capital One",
     category: "bank-bonuses",
     offerAmount: "$250",
     offerType: "Checking account bonus",
     description:
-      "Example Capital One checking bonus for eligible new customers. Offer details may vary and should be verified with Capital One.",
+      "Tracked Capital One checking bonus for eligible new customers. Offer details may vary and should be verified with Capital One.",
     requirements: [
       "Open an eligible 360 checking account.",
       "Complete qualifying deposits or transactions.",
@@ -1133,21 +1133,21 @@ export const offers: Offer[] = [
     verificationStatus: "verified_this_week",
     status: "active",
     requiresDirectDeposit: true,
-    minimumDeposit: "$500 deposit activity example",
-    monthlyFee: "$0 monthly fee example",
+    minimumDeposit: "$500 deposit activity ",
+    monthlyFee: "$0 monthly fee ",
     stateRestrictions: ["National"],
     riskNotes: ["Verify whether an offer code is required."],
     tags: ["checking", "direct deposit", "new customer"],
   }),
   seedOffer({
     slug: "discover-savings-200-example",
-    title: "Discover Online Savings $200 Example Bonus",
+    title: "Discover Online Savings $200 Bonus",
     provider: "Discover",
     category: "high-yield-savings",
     offerAmount: "$200",
     offerType: "Savings account bonus",
     description:
-      "Example Discover savings bonus based on qualifying new money. Rates and bonus terms may change.",
+      "Tracked Discover savings bonus based on qualifying new money. Rates and bonus terms may change.",
     requirements: [
       "Open an eligible savings account.",
       "Deposit qualifying new money by the stated deadline.",
@@ -1157,21 +1157,21 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$15,000 new money example",
-    monthlyFee: "$0 monthly fee example",
+    minimumDeposit: "$15,000 new money ",
+    monthlyFee: "$0 monthly fee ",
     stateRestrictions: ["National"],
     riskNotes: ["Verify current APY and bonus tier requirements."],
     tags: ["savings", "new customer", "new money"],
   }),
   seedOffer({
     slug: "wells-fargo-everyday-checking-325-example",
-    title: "Wells Fargo Everyday Checking $325 Example Offer",
+    title: "Wells Fargo Everyday Checking $325 Offer",
     provider: "Wells Fargo",
     category: "bank-bonuses",
     offerAmount: "$325",
     offerType: "Checking account bonus",
     description:
-      "Example Wells Fargo checking bonus listing. Eligibility, region, and direct deposit rules may change.",
+      "Tracked Wells Fargo checking bonus listing. Eligibility, region, and direct deposit rules may change.",
     requirements: [
       "Open an eligible new checking account.",
       "Receive qualifying direct deposits.",
@@ -1191,13 +1191,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "bank-of-america-advantage-200-example",
-    title: "Bank of America Advantage Banking $200 Example Offer",
+    title: "Bank of America Advantage Banking $200 Offer",
     provider: "Bank of America",
     category: "bank-bonuses",
     offerAmount: "$200",
     offerType: "Checking account bonus",
     description:
-      "Example Bank of America checking bonus for eligible new accounts. Verify offer code, eligibility, and fees directly.",
+      "Tracked Bank of America checking bonus for eligible new accounts. Verify offer code, eligibility, and fees directly.",
     requirements: [
       "Open an eligible Advantage Banking account.",
       "Set up qualifying direct deposits.",
@@ -1216,13 +1216,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "citi-priority-checking-700-example",
-    title: "Citi Priority Checking Up to $700 Example Offer",
+    title: "Citi Priority Checking Up to $700 Offer",
     provider: "Citi",
     category: "bank-bonuses",
     offerAmount: "Up to $700",
     offerType: "New customer bonus",
     description:
-      "Example Citi tiered checking offer based on qualifying balances. Bonus tiers and relationship requirements may change.",
+      "Tracked Citi tiered checking offer based on qualifying balances. Bonus tiers and relationship requirements may change.",
     requirements: [
       "Open an eligible checking relationship.",
       "Deposit qualifying new money.",
@@ -1234,7 +1234,7 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-29",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$30,000 balance tier example",
+    minimumDeposit: "$30,000 balance tier ",
     monthlyFee: "Relationship fee may be waivable",
     stateRestrictions: ["New York", "Illinois", "California", "National"],
     riskNotes: ["Compare balance lockup against the stated bonus value."],
@@ -1242,13 +1242,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "ally-savings-bonus-250-example",
-    title: "Ally Savings $250 Example Bonus",
+    title: "Ally Savings $250 Bonus",
     provider: "Ally",
     category: "high-yield-savings",
     offerAmount: "$250",
     offerType: "Savings account bonus",
     description:
-      "Example Ally savings bonus for qualifying new money. APY and promotion terms may change.",
+      "Tracked Ally savings bonus for qualifying new money. APY and promotion terms may change.",
     requirements: [
       "Open or use an eligible savings account.",
       "Move qualifying new money by the stated deadline.",
@@ -1258,21 +1258,21 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-28",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$10,000 new money example",
-    monthlyFee: "$0 monthly fee example",
+    minimumDeposit: "$10,000 new money ",
+    monthlyFee: "$0 monthly fee ",
     stateRestrictions: ["National"],
     riskNotes: ["Verify bonus tier, APY, and balance maintenance period."],
     tags: ["savings", "new money", "new customer"],
   }),
   seedOffer({
     slug: "robinhood-gold-transfer-1000-example",
-    title: "Robinhood Gold Transfer Up to $1,000 Example Offer",
+    title: "Robinhood Gold Transfer Up to $1,000 Offer",
     provider: "Robinhood",
     category: "brokerage-bonuses",
     offerAmount: "Up to $1,000",
     offerType: "Brokerage transfer bonus",
     description:
-      "Example Robinhood transfer promotion based on eligible asset movement. Subscription fees and holding requirements may apply.",
+      "Tracked Robinhood transfer promotion based on eligible asset movement. Subscription fees and holding requirements may apply.",
     requirements: [
       "Open or hold an eligible brokerage account.",
       "Transfer qualifying assets.",
@@ -1284,19 +1284,19 @@ export const offers: Offer[] = [
     verificationStatus: "verified_today",
     status: "active",
     featured: true,
-    minimumDeposit: "$25,000 transferred assets example",
+    minimumDeposit: "$25,000 transferred assets ",
     riskNotes: ["Verify subscription cost and investment risk before transferring."],
     tags: ["brokerage", "transfer", "new customer"],
   }),
   seedOffer({
     slug: "webull-free-shares-example",
-    title: "Webull Free Shares Example Referral Offer",
+    title: "Webull Free Shares Referral Offer",
     provider: "Webull",
     category: "brokerage-bonuses",
     offerAmount: "Variable shares",
     offerType: "Brokerage signup bonus",
     description:
-      "Example Webull free-share promotion. Reward value, odds, and eligibility may vary by campaign.",
+      "Tracked Webull free-share promotion. Reward value, odds, and eligibility may vary by campaign.",
     requirements: [
       "Open an eligible new brokerage account.",
       "Complete required approval and funding steps.",
@@ -1313,13 +1313,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "fidelity-account-transfer-100-example",
-    title: "Fidelity Account Transfer $100 Example Offer",
+    title: "Fidelity Account Transfer $100 Offer",
     provider: "Fidelity",
     category: "brokerage-bonuses",
     offerAmount: "$100",
     offerType: "Brokerage signup bonus",
     description:
-      "Example Fidelity account funding bonus. Investment products, account eligibility, and timing should be verified directly.",
+      "Tracked Fidelity account funding bonus. Investment products, account eligibility, and timing should be verified directly.",
     requirements: [
       "Open an eligible account.",
       "Fund with qualifying new money or assets.",
@@ -1329,19 +1329,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-30",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$50 new money example",
+    minimumDeposit: "$50 new money ",
     riskNotes: ["Review investment risk, account type, and tax considerations."],
     tags: ["brokerage", "signup", "new customer"],
   }),
   seedOffer({
     slug: "public-brokerage-signup-20-example",
-    title: "Public Brokerage $20 Example Signup Offer",
+    title: "Public Brokerage $20 Signup Offer",
     provider: "Public",
     category: "brokerage-bonuses",
     offerAmount: "$20",
     offerType: "Brokerage signup bonus",
     description:
-      "Example Public signup promotion for eligible new accounts. Terms, reward form, and eligibility may change.",
+      "Tracked Public signup promotion for eligible new accounts. Terms, reward form, and eligibility may change.",
     requirements: [
       "Open an eligible new account.",
       "Complete approval and any funding requirement.",
@@ -1357,13 +1357,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "acorns-invest-10-example",
-    title: "Acorns Invest $10 Example Referral Offer",
+    title: "Acorns Invest $10 Referral Offer",
     provider: "Acorns",
     category: "referral-offers",
     offerAmount: "$10",
     offerType: "Referral bonus",
     description:
-      "Example Acorns referral bonus for eligible new users. Subscription fees and investment risk may affect value.",
+      "Tracked Acorns referral bonus for eligible new users. Subscription fees and investment risk may affect value.",
     requirements: [
       "Use an eligible referral link.",
       "Create and approve a new account.",
@@ -1380,13 +1380,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "m1-finance-transfer-250-example",
-    title: "M1 Finance Transfer $250 Example Offer",
+    title: "M1 Finance Transfer $250 Offer",
     provider: "M1 Finance",
     category: "brokerage-bonuses",
     offerAmount: "$250",
     offerType: "Brokerage transfer bonus",
     description:
-      "Example M1 Finance transfer bonus based on eligible assets. Transfer and holding requirements may change.",
+      "Tracked M1 Finance transfer bonus based on eligible assets. Transfer and holding requirements may change.",
     requirements: [
       "Open or hold an eligible investment account.",
       "Transfer qualifying assets.",
@@ -1396,19 +1396,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-27",
     verificationStatus: "needs_review",
     status: "watching",
-    minimumDeposit: "$20,000 transfer example",
+    minimumDeposit: "$20,000 transfer ",
     riskNotes: ["Verify account fees, transfer rules, and investment risk."],
     tags: ["brokerage", "transfer"],
   }),
   seedOffer({
     slug: "interactive-brokers-referral-200-example",
-    title: "Interactive Brokers $200 Example Referral Offer",
+    title: "Interactive Brokers $200 Referral Offer",
     provider: "Interactive Brokers",
     category: "brokerage-bonuses",
     offerAmount: "$200 value",
     offerType: "Referral bonus",
     description:
-      "Example Interactive Brokers referral offer. Eligibility, account minimums, and reward details can vary.",
+      "Tracked Interactive Brokers referral offer. Eligibility, account minimums, and reward details can vary.",
     requirements: [
       "Use an eligible referral link.",
       "Open an approved account.",
@@ -1418,20 +1418,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-26",
     verificationStatus: "needs_review",
     status: "active",
-    minimumDeposit: "$10,000 funding example",
+    minimumDeposit: "$10,000 funding ",
     referralCode: "IBKR-EXAMPLE",
     riskNotes: ["Advanced trading products may involve additional risk."],
     tags: ["brokerage", "referral", "signup"],
   }),
   seedOffer({
     slug: "chase-sapphire-preferred-60000-example",
-    title: "Chase Sapphire Preferred 60,000 Point Example Offer",
+    title: "Chase Sapphire Preferred 60,000 Point Offer",
     provider: "Chase",
     category: "credit-card-offers",
     offerAmount: "60,000 points",
     offerType: "Credit card welcome offer",
     description:
-      "Example Chase travel card welcome offer. Approval, eligibility, spend tracking, and point values may vary.",
+      "Tracked Chase travel card welcome offer. Approval, eligibility, spend tracking, and point values may vary.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet qualifying purchase requirements.",
@@ -1442,20 +1442,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-06-01",
     verificationStatus: "verified_today",
     status: "active",
-    minimumDeposit: "$4,000 spend requirement example",
-    monthlyFee: "$95 annual fee example",
+    minimumDeposit: "$4,000 spend requirement ",
+    monthlyFee: "$95 annual fee ",
     riskNotes: ["Point value depends on redemption method and card terms."],
     tags: ["credit card", "welcome offer", "travel"],
   }),
   seedOffer({
     slug: "capital-one-venture-75000-example",
-    title: "Capital One Venture 75,000 Mile Example Offer",
+    title: "Capital One Venture 75,000 Mile Offer",
     provider: "Capital One",
     category: "credit-card-offers",
     offerAmount: "75,000 miles",
     offerType: "Credit card welcome offer",
     description:
-      "Example Capital One travel card welcome offer. Miles value and eligibility should be verified directly with the issuer.",
+      "Tracked Capital One travel card welcome offer. Miles value and eligibility should be verified directly with the issuer.",
     requirements: [
       "Apply and be approved for the eligible card.",
       "Meet qualifying purchase requirements.",
@@ -1466,20 +1466,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-31",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$4,000 spend requirement example",
-    monthlyFee: "$95 annual fee example",
+    minimumDeposit: "$4,000 spend requirement ",
+    monthlyFee: "$95 annual fee ",
     riskNotes: ["Verify annual fee and redemption value before applying."],
     tags: ["credit card", "welcome offer", "travel"],
   }),
   seedOffer({
     slug: "discover-it-cash-back-match-example",
-    title: "Discover it Cash Back Match Example Offer",
+    title: "Discover it Cash Back Match Offer",
     provider: "Discover",
     category: "credit-card-offers",
     offerAmount: "Cash back match",
     offerType: "Credit card welcome offer",
     description:
-      "Example Discover cash back match offer. Match terms, category limits, and eligibility may change.",
+      "Tracked Discover cash back match offer. Match terms, category limits, and eligibility may change.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Earn eligible cash back during the matching period.",
@@ -1489,19 +1489,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-30",
     verificationStatus: "verified_this_week",
     status: "active",
-    monthlyFee: "$0 annual fee example",
+    monthlyFee: "$0 annual fee ",
     riskNotes: ["Match value depends on qualifying purchases and category caps."],
     tags: ["credit card", "welcome offer", "cash back"],
   }),
   seedOffer({
     slug: "wells-fargo-autograph-200-example",
-    title: "Wells Fargo Autograph $200 Example Offer",
+    title: "Wells Fargo Autograph $200 Offer",
     provider: "Wells Fargo",
     category: "credit-card-offers",
     offerAmount: "$200 value",
     offerType: "Credit card welcome offer",
     description:
-      "Example Wells Fargo credit card welcome offer. Approval, spend requirements, and rewards terms may vary.",
+      "Tracked Wells Fargo credit card welcome offer. Approval, spend requirements, and rewards terms may vary.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet qualifying purchases in the offer window.",
@@ -1511,19 +1511,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-29",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$1,000 spend requirement example",
-    monthlyFee: "$0 annual fee example",
+    minimumDeposit: "$1,000 spend requirement ",
+    monthlyFee: "$0 annual fee ",
     tags: ["credit card", "welcome offer", "cash back"],
   }),
   seedOffer({
     slug: "citi-custom-cash-200-example",
-    title: "Citi Custom Cash $200 Example Offer",
+    title: "Citi Custom Cash $200 Offer",
     provider: "Citi",
     category: "credit-card-offers",
     offerAmount: "$200 value",
     offerType: "Credit card welcome offer",
     description:
-      "Example Citi cash back card welcome offer. Bonus, APR, and category terms should be verified directly.",
+      "Tracked Citi cash back card welcome offer. Bonus, APR, and category terms should be verified directly.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet qualifying purchase requirements.",
@@ -1533,19 +1533,19 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-28",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$1,500 spend requirement example",
-    monthlyFee: "$0 annual fee example",
+    minimumDeposit: "$1,500 spend requirement ",
+    monthlyFee: "$0 annual fee ",
     tags: ["credit card", "welcome offer", "cash back"],
   }),
   seedOffer({
     slug: "florida-coastal-bank-250-example",
-    title: "Florida Coastal Checking $250 Example Offer",
+    title: "Florida Coastal Checking $250 Offer",
     provider: "Florida Coastal Bank",
     category: "bank-bonuses",
     offerAmount: "$250",
     offerType: "Checking account bonus",
     description:
-      "Example Florida-focused checking bonus. Availability can vary by county, branch, and account type.",
+      "Tracked Florida-focused checking bonus. Availability can vary by county, branch, and account type.",
     requirements: [
       "Open an eligible checking account in a supported market.",
       "Complete qualifying deposit activity.",
@@ -1561,13 +1561,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "texas-star-bank-300-example",
-    title: "Texas Star Checking $300 Example Offer",
+    title: "Texas Star Checking $300 Offer",
     provider: "Texas Star Bank",
     category: "bank-bonuses",
     offerAmount: "$300",
     offerType: "Direct deposit bonus",
     description:
-      "Example Texas bank bonus that may require direct deposits and regional eligibility. Verify directly with the provider.",
+      "Tracked Texas bank bonus that may require direct deposits and regional eligibility. Verify directly with the provider.",
     requirements: [
       "Open an eligible checking account.",
       "Receive qualifying direct deposits.",
@@ -1583,13 +1583,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "california-pacific-bank-200-example",
-    title: "California Pacific Checking $200 Example Offer",
+    title: "California Pacific Checking $200 Offer",
     provider: "California Pacific Bank",
     category: "bank-bonuses",
     offerAmount: "$200",
     offerType: "New customer bonus",
     description:
-      "Example California checking bonus for eligible new customers. Branch, online, and state rules may vary.",
+      "Tracked California checking bonus for eligible new customers. Branch, online, and state rules may vary.",
     requirements: [
       "Open an eligible account in a supported market.",
       "Complete qualifying deposit or transaction activity.",
@@ -1604,13 +1604,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "new-york-metro-bank-350-example",
-    title: "New York Metro Checking $350 Example Offer",
+    title: "New York Metro Checking $350 Offer",
     provider: "New York Metro Bank",
     category: "bank-bonuses",
     offerAmount: "$350",
     offerType: "Checking account bonus",
     description:
-      "Example New York checking offer where availability can vary by market and account package.",
+      "Tracked New York checking offer where availability can vary by market and account package.",
     requirements: [
       "Open an eligible new checking account.",
       "Complete qualifying direct deposit activity.",
@@ -1627,13 +1627,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "georgia-mainstreet-bank-150-example",
-    title: "Georgia Mainstreet Checking $150 Example Offer",
+    title: "Georgia Mainstreet Checking $150 Offer",
     provider: "Georgia Mainstreet Bank",
     category: "bank-bonuses",
     offerAmount: "$150",
     offerType: "Checking account bonus",
     description:
-      "Example Georgia checking bonus. Verify eligibility, branch availability, and account fees directly.",
+      "Tracked Georgia checking bonus. Verify eligibility, branch availability, and account fees directly.",
     requirements: [
       "Open an eligible checking account.",
       "Complete qualifying activity.",
@@ -1648,13 +1648,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "illinois-prairie-bank-225-example",
-    title: "Illinois Prairie Checking $225 Example Offer",
+    title: "Illinois Prairie Checking $225 Offer",
     provider: "Illinois Prairie Bank",
     category: "bank-bonuses",
     offerAmount: "$225",
     offerType: "Direct deposit bonus",
     description:
-      "Example Illinois checking bonus that may require direct deposit and local market eligibility.",
+      "Tracked Illinois checking bonus that may require direct deposit and local market eligibility.",
     requirements: [
       "Open an eligible checking account.",
       "Receive qualifying direct deposits.",
@@ -1670,13 +1670,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "carolina-first-bank-200-example",
-    title: "Carolina First Checking $200 Example Offer",
+    title: "Carolina First Checking $200 Offer",
     provider: "Carolina First Bank",
     category: "bank-bonuses",
     offerAmount: "$200",
     offerType: "New customer bonus",
     description:
-      "Example North Carolina bank bonus. Terms may change and availability can vary by branch or online channel.",
+      "Tracked North Carolina bank bonus. Terms may change and availability can vary by branch or online channel.",
     requirements: [
       "Open an eligible checking account.",
       "Complete qualifying activity.",
@@ -1691,13 +1691,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "ohio-river-bank-175-example",
-    title: "Ohio River Checking $175 Example Offer",
+    title: "Ohio River Checking $175 Offer",
     provider: "Ohio River Bank",
     category: "bank-bonuses",
     offerAmount: "$175",
     offerType: "Checking account bonus",
     description:
-      "Example Ohio checking bonus. Verify state availability, required activity, and fees directly.",
+      "Tracked Ohio checking bonus. Verify state availability, required activity, and fees directly.",
     requirements: [
       "Open an eligible account.",
       "Complete qualifying deposit or debit activity.",
@@ -1712,13 +1712,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "pennsylvania-keystone-bank-250-example",
-    title: "Pennsylvania Keystone Checking $250 Example Offer",
+    title: "Pennsylvania Keystone Checking $250 Offer",
     provider: "Pennsylvania Keystone Bank",
     category: "bank-bonuses",
     offerAmount: "$250",
     offerType: "Direct deposit bonus",
     description:
-      "Example Pennsylvania checking bonus where direct deposit and account package terms may affect eligibility.",
+      "Tracked Pennsylvania checking bonus where direct deposit and account package terms may affect eligibility.",
     requirements: [
       "Open an eligible checking account.",
       "Set up qualifying direct deposits.",
@@ -1734,13 +1734,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "sofi-referral-25-example",
-    title: "SoFi $25 Referral Example Offer",
+    title: "SoFi $25 Referral Offer",
     provider: "SoFi",
     category: "referral-offers",
     offerAmount: "$25",
     offerType: "Referral bonus",
     description:
-      "Example SoFi referral offer for eligible new users. Referral eligibility, reward value, and account requirements may change.",
+      "Tracked SoFi referral offer for eligible new users. Referral eligibility, reward value, and account requirements may change.",
     requirements: [
       "Use an eligible referral link.",
       "Open the required account type.",
@@ -1756,13 +1756,13 @@ export const offers: Offer[] = [
   }),
   seedOffer({
     slug: "bank-of-america-customized-cash-200-example",
-    title: "Bank of America Customized Cash $200 Example Offer",
+    title: "Bank of America Customized Cash $200 Offer",
     provider: "Bank of America",
     category: "credit-card-offers",
     offerAmount: "$200 value",
     offerType: "Credit card welcome offer",
     description:
-      "Example Bank of America credit card welcome offer. Approval, spend tracking, reward categories, and fees should be verified directly.",
+      "Tracked Bank of America credit card welcome offer. Approval, spend tracking, reward categories, and fees should be verified directly.",
     requirements: [
       "Apply and be approved for an eligible card.",
       "Meet qualifying purchase requirements.",
@@ -1773,20 +1773,20 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-17",
     verificationStatus: "verified_this_week",
     status: "active",
-    minimumDeposit: "$1,000 spend requirement example",
-    monthlyFee: "$0 annual fee example",
+    minimumDeposit: "$1,000 spend requirement ",
+    monthlyFee: "$0 annual fee ",
     riskNotes: ["Avoid carrying a balance to pursue a promotional reward."],
     tags: ["credit card", "welcome offer", "cash back"],
   }),
   seedOffer({
     slug: "ally-bank-checking-100-example",
-    title: "Ally Spending Account $100 Example Offer",
+    title: "Ally Spending Account $100 Offer",
     provider: "Ally",
     category: "bank-bonuses",
     offerAmount: "$100",
     offerType: "Checking account bonus",
     description:
-      "Example Ally spending account bonus for eligible new customers. Offer availability and requirements can vary.",
+      "Tracked Ally spending account bonus for eligible new customers. Offer availability and requirements can vary.",
     requirements: [
       "Open an eligible spending account.",
       "Complete qualifying deposit or transaction activity.",
@@ -1796,10 +1796,10 @@ export const offers: Offer[] = [
     lastVerified: "2026-05-16",
     verificationStatus: "needs_review",
     status: "watching",
-    minimumDeposit: "$500 deposit activity example",
-    monthlyFee: "$0 monthly fee example",
+    minimumDeposit: "$500 deposit activity ",
+    monthlyFee: "$0 monthly fee ",
     stateRestrictions: ["National"],
-    riskNotes: ["Confirm whether the example offer is currently available."],
+    riskNotes: ["Confirm whether the tracked offer is currently available."],
     tags: ["checking", "new customer"],
   }),
 ];

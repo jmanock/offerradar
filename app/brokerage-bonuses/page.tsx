@@ -7,7 +7,7 @@ const category = getCategoryBySlug("brokerage-bonuses")!;
 export const metadata: Metadata = {
   title: "Brokerage Bonuses",
   description:
-    "Compare example brokerage bonuses, transfer promotions, and investing referral offers with funding requirements and risk notes.",
+    "Compare brokerage bonuses, transfer promotions, and investing referral offers with funding requirements and risk notes.",
   alternates: { canonical: "/brokerage-bonuses" },
 };
 

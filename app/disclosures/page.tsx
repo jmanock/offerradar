@@ -8,6 +8,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "/disclosures" },
 };
 
+const disclosureSections = [
+  {
+    title: "Referral and affiliate links",
+    body: "Some links may be referral or affiliate links, and OfferRadar may earn compensation if a user signs up, applies, opens an account, or completes eligible activity through those links. Compensation does not mean an offer is best for a user or that a user will qualify.",
+  },
+  {
+    title: "Offers can change",
+    body: "Listed promotions are provided for comparison. Providers may change eligibility, values, deadlines, fees, and payout rules after a page is last reviewed.",
+  },
+  {
+    title: "Verify with providers",
+    body: "Always review live provider terms before opening an account, applying, transferring money, or completing activity for a bonus.",
+  },
+  {
+    title: "No financial advice",
+    body: "OfferRadar is informational and built for comparison. It does not recommend accounts, investments, cards, or financial decisions.",
+  },
+];
+
 export default function DisclosuresPage() {
   return (
     <div>
@@ -26,58 +45,19 @@ export default function DisclosuresPage() {
           </p>
         </div>
       </section>
+
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <DisclosureBlock />
-      <div className="mt-8 grid gap-6 text-slate-600">
-        <section>
-          <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-xl font-black text-slate-950">
-            Referral and affiliate links
-          </h2>
-          <p className="mt-3 leading-7">
-            Some links may be referral or affiliate links, and OfferRadar may
-            earn compensation if a user signs up, applies, opens an account, or
-            completes eligible activity through those links. Referral or
-            affiliate compensation does not mean an offer is best for a user or
-            that a user will qualify.
-          </p>
-          </div>
-        </section>
-        <section>
-          <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-xl font-black text-slate-950">
-            Offers can change
-          </h2>
-          <p className="mt-3 leading-7">
-            Listed offers are examples for comparison. Providers may change
-            eligibility, values, deadlines, fees, and payout rules after a page
-            is last checked.
-          </p>
-          </div>
-        </section>
-        <section>
-          <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-xl font-black text-slate-950">
-            Verify with providers
-          </h2>
-          <p className="mt-3 leading-7">
-            Always review the live provider terms before opening an account,
-            applying, transferring money, or completing activity for a bonus.
-          </p>
-          </div>
-        </section>
-        <section>
-          <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-xl font-black text-slate-950">
-            No financial advice
-          </h2>
-          <p className="mt-3 leading-7">
-            OfferRadar is informational and built for comparison. It does not
-            recommend accounts, investments, cards, or financial decisions.
-          </p>
-          </div>
-        </section>
-      </div>
+        <div className="mt-8 grid gap-6 text-slate-600">
+          {disclosureSections.map((section) => (
+            <section key={section.title} className="premium-card rounded-3xl p-6">
+              <h2 className="text-xl font-black text-slate-950">
+                {section.title}
+              </h2>
+              <p className="mt-3 leading-7">{section.body}</p>
+            </section>
+          ))}
+        </div>
       </div>
     </div>
   );

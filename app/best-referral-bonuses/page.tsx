@@ -7,7 +7,7 @@ const category = getCategoryBySlug("referral-offers")!;
 export const metadata: Metadata = {
   title: "Best Referral Bonuses",
   description:
-    "Compare active example referral bonuses with eligibility notes, referral link context, verification status, and disclosure reminders.",
+    "Compare active tracked referral bonuses with eligibility notes, referral link context, verification status, and disclosure reminders.",
   alternates: { canonical: "/best-referral-bonuses" },
 };
 
@@ -16,7 +16,7 @@ export default function BestReferralBonusesPage() {
     <BestOfPage
       category={category}
       title="Best referral bonuses"
-      intro="A practical view of active example referral offers where eligibility, tracking, and user-specific terms can matter as much as the headline value."
+      intro="A practical view of active tracked referral offers where eligibility, tracking, and user-specific terms can matter as much as the headline value."
     />
   );
 }

@@ -7,7 +7,7 @@ const category = getCategoryBySlug("bank-bonuses")!;
 export const metadata: Metadata = {
   title: "Bank Bonuses",
   description:
-    "Compare example checking and savings bank bonuses with requirements, fees, last checked dates, and provider verification reminders.",
+    "Compare checking and savings bank bonuses with requirements, fees, last reviewed dates, and provider verification reminders.",
   alternates: { canonical: "/bank-bonuses" },
 };
 

@@ -7,7 +7,7 @@ const category = getCategoryBySlug("brokerage-bonuses")!;
 export const metadata: Metadata = {
   title: "Best Brokerage Bonuses",
   description:
-    "Compare active example brokerage bonuses with funding thresholds, holding period reminders, verification notes, and risk context.",
+    "Compare active brokerage bonuses with funding thresholds, holding period reminders, verification notes, and risk context.",
   alternates: { canonical: "/best-brokerage-bonuses" },
 };
 
@@ -16,7 +16,7 @@ export default function BestBrokerageBonusesPage() {
     <BestOfPage
       category={category}
       title="Best brokerage bonuses"
-      intro="A comparison page for active example brokerage, transfer, and investing account bonuses from the local OfferRadar dataset."
+      intro="A comparison page for active brokerage, transfer, and investing account bonuses with requirements and risk notes surfaced."
     />
   );
 }

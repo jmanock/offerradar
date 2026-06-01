@@ -6,7 +6,7 @@ export const providers: ProviderInfo[] = [
     name: "Chase",
     categoryFocus: "Banking and credit card offers",
     description:
-      "Chase example offers commonly include checking bonuses, savings promotions, and credit card welcome offers. Availability, offer codes, and eligibility can vary.",
+      "Chase tracked offers commonly include checking bonuses, savings promotions, and credit card welcome offers. Availability, offer codes, and eligibility can vary.",
     commonOfferTypes: ["Checking account bonuses", "Direct deposit bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Offer code requirements", "Direct deposit definitions", "Monthly fee waivers", "Credit card eligibility rules"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
@@ -17,7 +17,7 @@ export const providers: ProviderInfo[] = [
     name: "SoFi",
     categoryFocus: "Banking, savings, and referral offers",
     description:
-      "SoFi example offers often depend on direct deposit tiers, account type, and new customer eligibility. Terms should be verified directly.",
+      "SoFi tracked offers often depend on direct deposit tiers, account type, and new customer eligibility. Terms should be verified directly.",
     commonOfferTypes: ["Direct deposit bonuses", "Checking and savings offers", "Referral offers"],
     thingsToVerify: ["Direct deposit tier", "Evaluation period", "Account fee schedule", "Referral eligibility"],
     relatedCategories: ["bank-bonuses", "high-yield-savings", "referral-offers"],
@@ -28,7 +28,7 @@ export const providers: ProviderInfo[] = [
     name: "Capital One",
     categoryFocus: "Banking and card welcome offers",
     description:
-      "Capital One example offers may include 360 banking promotions and travel or cash back card welcome offers.",
+      "Capital One tracked offers may include 360 banking promotions and travel or cash back card welcome offers.",
     commonOfferTypes: ["Checking bonuses", "Savings bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Offer code needs", "Spend requirements", "Annual fees", "Account availability"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
@@ -39,7 +39,7 @@ export const providers: ProviderInfo[] = [
     name: "Discover",
     categoryFocus: "Savings and credit card offers",
     description:
-      "Discover example offers can include savings bonuses and cash back card promotions, each with separate terms and eligibility.",
+      "Discover tracked offers can include savings bonuses and cash back card promotions, each with separate terms and eligibility.",
     commonOfferTypes: ["Savings account bonuses", "Cash back card offers", "New customer bonuses"],
     thingsToVerify: ["Deposit requirements", "APY changes", "Cash back match rules", "Reward caps"],
     relatedCategories: ["high-yield-savings", "credit-card-offers"],
@@ -50,7 +50,7 @@ export const providers: ProviderInfo[] = [
     name: "Wells Fargo",
     categoryFocus: "Checking and credit card offers",
     description:
-      "Wells Fargo example offers may include checking account bonuses and credit card welcome offers with state, product, and activity rules.",
+      "Wells Fargo tracked offers may include checking account bonuses and credit card welcome offers with state, product, and activity rules.",
     commonOfferTypes: ["Checking bonuses", "Direct deposit bonuses", "Credit card welcome offers"],
     thingsToVerify: ["State availability", "Direct deposit rules", "Monthly fees", "Card approval terms"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
@@ -61,7 +61,7 @@ export const providers: ProviderInfo[] = [
     name: "Bank of America",
     categoryFocus: "Banking and card offers",
     description:
-      "Bank of America example offers may involve Advantage Banking packages, direct deposit requirements, and card welcome offers.",
+      "Bank of America tracked offers may involve Advantage Banking packages, direct deposit requirements, and card welcome offers.",
     commonOfferTypes: ["Checking bonuses", "Direct deposit bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Offer code", "Account package", "Relationship fee waivers", "State eligibility"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
@@ -72,7 +72,7 @@ export const providers: ProviderInfo[] = [
     name: "Citi",
     categoryFocus: "Relationship banking and card offers",
     description:
-      "Citi example offers may be tiered by new money, relationship balance, or card spend requirements.",
+      "Citi tracked offers may be tiered by new money, relationship balance, or card spend requirements.",
     commonOfferTypes: ["New customer bonuses", "Checking bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Balance tiers", "Monthly fees", "Offer expiration", "Reward redemption terms"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
@@ -83,18 +83,18 @@ export const providers: ProviderInfo[] = [
     name: "Ally",
     categoryFocus: "Savings and online banking offers",
     description:
-      "Ally example offers may include savings or new money promotions, with rates and terms that can change.",
+      "Ally tracked offers may include savings or new money promotions, with rates and terms that can change.",
     commonOfferTypes: ["Savings account bonuses", "High-yield savings offers", "New customer bonuses"],
     thingsToVerify: ["APY", "New money definition", "Balance maintenance period", "Payout timing"],
     relatedCategories: ["high-yield-savings", "bank-bonuses"],
-    disclosureNote: "Rates and promotions may change after the last checked date.",
+    disclosureNote: "Rates and promotions may change after the last reviewed date.",
   },
   {
     slug: "robinhood",
     name: "Robinhood",
     categoryFocus: "Brokerage and transfer offers",
     description:
-      "Robinhood example offers may involve brokerage transfers, subscription features, or referral incentives.",
+      "Robinhood tracked offers may involve brokerage transfers, subscription features, or referral incentives.",
     commonOfferTypes: ["Brokerage transfer bonuses", "Signup bonuses", "Referral offers"],
     thingsToVerify: ["Subscription cost", "Holding period", "Transfer eligibility", "Investment risk"],
     relatedCategories: ["brokerage-bonuses", "referral-offers"],
@@ -105,18 +105,18 @@ export const providers: ProviderInfo[] = [
     name: "Webull",
     categoryFocus: "Brokerage signup and referral offers",
     description:
-      "Webull example offers often involve free-share style signup or referral promotions with variable reward values.",
+      "Webull tracked offers often involve free-share style signup or referral promotions with variable reward values.",
     commonOfferTypes: ["Brokerage signup bonuses", "Referral bonuses", "Stock reward offers"],
     thingsToVerify: ["Reward value range", "Funding steps", "Tax reporting", "Account approval"],
     relatedCategories: ["brokerage-bonuses", "referral-offers"],
-    disclosureNote: "Reward values are examples and can vary by user and campaign.",
+    disclosureNote: "Reward values can vary by user and campaign.",
   },
   {
     slug: "fidelity",
     name: "Fidelity",
     categoryFocus: "Brokerage, retirement, and account funding offers",
     description:
-      "Fidelity example offers may include funding, transfer, or retirement account promotions.",
+      "Fidelity tracked offers may include funding, transfer, or retirement account promotions.",
     commonOfferTypes: ["Brokerage signup bonuses", "Transfer bonuses", "IRA offers"],
     thingsToVerify: ["Eligible account types", "Funding requirements", "Holding periods", "Tax considerations"],
     relatedCategories: ["brokerage-bonuses"],
@@ -127,7 +127,7 @@ export const providers: ProviderInfo[] = [
     name: "Public",
     categoryFocus: "Brokerage signup and referral offers",
     description:
-      "Public example offers may include signup or referral rewards for eligible new brokerage accounts.",
+      "Public tracked offers may include signup or referral rewards for eligible new brokerage accounts.",
     commonOfferTypes: ["Brokerage signup bonuses", "Referral bonuses"],
     thingsToVerify: ["Reward form", "Funding requirement", "Account approval", "Transfer restrictions"],
     relatedCategories: ["brokerage-bonuses", "referral-offers"],
@@ -138,7 +138,7 @@ export const providers: ProviderInfo[] = [
     name: "Acorns",
     categoryFocus: "Investing app referral offers",
     description:
-      "Acorns example offers may include referral bonuses, investing app credits, and subscription-linked promotions.",
+      "Acorns tracked offers may include referral bonuses, investing app credits, and subscription-linked promotions.",
     commonOfferTypes: ["Referral bonuses", "Investing app offers", "New customer bonuses"],
     thingsToVerify: ["Subscription fees", "Funding requirement", "Referral eligibility", "Bonus timing"],
     relatedCategories: ["referral-offers", "brokerage-bonuses"],
@@ -149,7 +149,7 @@ export const providers: ProviderInfo[] = [
     name: "M1 Finance",
     categoryFocus: "Brokerage and transfer offers",
     description:
-      "M1 Finance example offers may involve account transfers, new money, and holding-period requirements.",
+      "M1 Finance tracked offers may involve account transfers, new money, and holding-period requirements.",
     commonOfferTypes: ["Brokerage transfer bonuses", "Signup bonuses"],
     thingsToVerify: ["Transfer minimums", "Holding period", "Account fees", "Investment risk"],
     relatedCategories: ["brokerage-bonuses"],
@@ -160,7 +160,7 @@ export const providers: ProviderInfo[] = [
     name: "Interactive Brokers",
     categoryFocus: "Brokerage referral and trading offers",
     description:
-      "Interactive Brokers example offers may involve referral rewards, funding requirements, and trading account rules.",
+      "Interactive Brokers tracked offers may involve referral rewards, funding requirements, and trading account rules.",
     commonOfferTypes: ["Referral bonuses", "Brokerage signup bonuses", "Transfer offers"],
     thingsToVerify: ["Funding minimum", "Holding period", "Advanced trading risks", "Account fees"],
     relatedCategories: ["brokerage-bonuses", "referral-offers"],

@@ -15,7 +15,7 @@ export type VerificationStatus =
   | "needs_review"
   | "expired";
 
-export type AutomationSource = "manual_seed" | "future_bot";
+export type AutomationSource = "editorial_review" | "future_bot";
 
 export interface Offer {
   slug: string;

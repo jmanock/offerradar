@@ -38,7 +38,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
       </p>
       <div className="mt-5 flex items-center justify-between gap-4 border-t border-slate-200/70 pt-4">
         <p className="text-xs text-slate-500">
-          Last checked {formatDate(offer.lastVerified)}
+          Last reviewed {formatDate(offer.lastVerified)}
         </p>
         <Link
           href={`/offer/${offer.slug}`}

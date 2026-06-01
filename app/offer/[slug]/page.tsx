@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${offer.provider} ${offer.offerAmount} Example Offer`,
-    description: `${offer.description} Last checked ${formatDate(
+    title: `${offer.provider} ${offer.offerAmount} tracked offer details`,
+    description: `${offer.description} Last reviewed ${formatDate(
       offer.lastVerified,
     )}. Verify current terms directly with the provider.`,
     alternates: { canonical: `/offer/${offer.slug}` },
@@ -98,7 +98,7 @@ export default async function OfferDetailPage({ params }: Props) {
             <div className="mt-5 grid gap-3 text-sm">
               <DetailStat label="Offer type" value={offer.offerType} />
               <DetailStat
-                label="Last checked"
+                label="Last reviewed"
                 value={formatDate(offer.lastVerified)}
               />
             </div>
@@ -124,7 +124,7 @@ export default async function OfferDetailPage({ params }: Props) {
             <DetailStat label="Category" value={category?.shortTitle ?? "Offer"} />
             <DetailStat label="Offer type" value={offer.offerType} />
             <DetailStat
-              label="Last checked"
+              label="Last reviewed"
               value={formatDate(offer.lastVerified)}
             />
           </div>
@@ -229,17 +229,32 @@ export default async function OfferDetailPage({ params }: Props) {
               ) : null}
               {!primaryUrl ? (
                 <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
-                  No external link is listed in the local seed data.
+                  Provider terms should be verified directly before acting.
                 </p>
               ) : null}
             </div>
           </div>
           <div className="premium-card rounded-3xl p-5">
-            <h2 className="text-lg font-black text-slate-950">Tracking notes</h2>
+            <h2 className="text-lg font-black text-slate-950">
+              Verification notes
+            </h2>
             <dl className="mt-4 grid gap-3 text-sm">
-              <TrackingRow label="Automation source" value={offer.automationSource ?? "manual_seed"} />
-              <TrackingRow label="Last changed" value={offer.lastChanged ? formatDate(offer.lastChanged) : "Not listed"} />
-              <TrackingRow label="Change summary" value={offer.changeSummary ?? "No change summary listed."} />
+              <TrackingRow
+                label="Last reviewed"
+                value={formatDate(offer.lastVerified)}
+              />
+              <TrackingRow
+                label="Verification status"
+                value={offer.verificationStatus
+                  .replaceAll("_", " ")
+                  .replace(/\b\w/g, (letter) => letter.toUpperCase())}
+              />
+              {offer.lastChanged ? (
+                <TrackingRow
+                  label="Last detail change"
+                  value={formatDate(offer.lastChanged)}
+                />
+              ) : null}
             </dl>
           </div>
           <DisclosureBlock compact />

@@ -6,7 +6,7 @@ import { getAllProviders, getOffersByProvider } from "@/lib/offers";
 export const metadata: Metadata = {
   title: "Offer Providers",
   description:
-    "Browse OfferRadar provider pages for example bonuses, referral offers, card offers, and verification reminders.",
+    "Browse OfferRadar provider pages for tracked bonuses, referral offers, card offers, and verification reminders.",
   alternates: { canonical: "/providers" },
 };
 

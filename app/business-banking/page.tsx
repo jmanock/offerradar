@@ -7,7 +7,7 @@ const category = getCategoryBySlug("business-banking")!;
 export const metadata: Metadata = {
   title: "Business Banking",
   description:
-    "Compare example business checking, savings, merchant, and card offers with activity requirements and fee notes.",
+    "Compare business checking, savings, merchant, and card offers with activity requirements and fee notes.",
   alternates: { canonical: "/business-banking" },
 };
 

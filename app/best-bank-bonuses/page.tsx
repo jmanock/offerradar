@@ -7,7 +7,7 @@ const category = getCategoryBySlug("bank-bonuses")!;
 export const metadata: Metadata = {
   title: "Best Bank Bonuses",
   description:
-    "Compare active example bank bonuses from OfferRadar local data with requirements, fees, verification notes, and disclosure reminders.",
+    "Compare active bank bonuses with requirements, fees, verification notes, and disclosure reminders.",
   alternates: { canonical: "/best-bank-bonuses" },
 };
 
@@ -16,7 +16,7 @@ export default function BestBankBonusesPage() {
     <BestOfPage
       category={category}
       title="Best bank bonuses"
-      intro="A focused view of active example bank bonuses with direct deposit, deposit, monthly fee, and verification context surfaced for comparison."
+      intro="A focused view of active bank bonuses with direct deposit, deposit, monthly fee, and verification context surfaced for comparison."
     />
   );
 }

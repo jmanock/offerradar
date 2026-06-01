@@ -7,7 +7,7 @@ const category = getCategoryBySlug("cash-back-apps")!;
 export const metadata: Metadata = {
   title: "Cash Back Apps",
   description:
-    "Compare example cash back app, receipt, dining, fuel, and shopping portal offers with payout and tracking notes.",
+    "Compare cash back app, receipt, dining, fuel, and shopping portal offers with payout and tracking notes.",
   alternates: { canonical: "/cash-back-apps" },
 };
 
