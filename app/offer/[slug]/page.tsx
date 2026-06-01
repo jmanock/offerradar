@@ -13,7 +13,7 @@ import {
   getOfferBySlug,
   getRelatedOffers,
 } from "@/lib/offers";
-import { offers } from "@/data/offers";
+import { offers } from "@/lib/offerData";
 
 type Props = {
   params: Promise<{ slug: string }>;

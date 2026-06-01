@@ -1,7 +1,8 @@
-import { categories, offers } from "@/data/offers";
+import { categories } from "@/data/offers";
 import { offerTypePages } from "@/data/offerTypePages";
 import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
+import { offers } from "@/lib/offerData";
 import type { Offer, OfferCategory } from "@/types/offer";
 
 const today = "2026-06-01";

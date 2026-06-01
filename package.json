@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "offers:normalize": "python3 -B automation/scripts/normalize_offers.py --write",
+    "offers:validate": "python3 -B automation/scripts/validate_offers.py",
+    "offers:changes": "python3 -B automation/scripts/detect_offer_changes.py --write",
+    "offers:report": "python3 -B automation/scripts/generate_offer_report.py --write",
+    "offers:pipeline": "python3 -B automation/scripts/run_offer_pipeline.py --write"
   },
   "dependencies": {
     "next": "16.2.6",

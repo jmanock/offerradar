@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://offerradar.io/schemas/offer.schema.json",
+  "title": "OfferRadar Offer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "title",
+    "provider",
+    "category",
+    "offerAmount",
+    "offerType",
+    "description",
+    "requirements",
+    "lastVerified",
+    "verificationStatus",
+    "status"
+  ],
+  "properties": {
+    "slug": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "provider": { "type": "string", "minLength": 1 },
+    "category": {
+      "type": "string",
+      "enum": [
+        "bank-bonuses",
+        "brokerage-bonuses",
+        "referral-offers",
+        "high-yield-savings",
+        "business-banking",
+        "credit-card-offers",
+        "cash-back-apps"
+      ]
+    },
+    "offerAmount": { "type": "string", "minLength": 1 },
+    "offerType": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
+    },
+    "fees": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "expirationDate": { "type": "string", "format": "date" },
+    "referralUrl": { "type": "string" },
+    "sourceUrl": { "type": "string" },
+    "lastVerified": { "type": "string", "format": "date" },
+    "verificationStatus": {
+      "type": "string",
+      "enum": ["verified_today", "verified_this_week", "needs_review", "expired"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "expired", "watching"]
+    },
+    "featured": { "type": "boolean" },
+    "riskNotes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "requiresDirectDeposit": { "type": "boolean" },
+    "minimumDeposit": { "type": "string" },
+    "monthlyFee": { "type": "string" },
+    "stateRestrictions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "referralCode": { "type": "string" },
+    "lastChanged": { "type": "string", "format": "date" },
+    "changeSummary": { "type": "string" }
+  }
+}
