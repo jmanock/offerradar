@@ -17,7 +17,7 @@ export default function AboutPage() {
       </h1>
       <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600">
         <p>
-          OfferRadar is a data-first static V2 foundation for tracking bonuses, offers,
+          OfferRadar is a data-first static platform for tracking bonuses, offers,
           referrals, and promotions in one organized place.
         </p>
         <p>

@@ -79,7 +79,7 @@ function seedOffer(offer: SeedOffer): Offer {
   };
 }
 
-// Static V2 seed data. This module is intentionally plain TypeScript so a future
+// Static seed data. This module is intentionally plain TypeScript so a future
 // automation process can generate the array without changing app consumers.
 export const offers: Offer[] = [
   seedOffer({
@@ -109,7 +109,7 @@ export const offers: Offer[] = [
     riskNotes: ["Confirm direct deposit definitions and bonus payout timing."],
     tags: ["checking", "direct deposit"],
     lastChanged: "2026-06-01",
-    changeSummary: "Verification status refreshed for V2 seed data.",
+    changeSummary: "Verification status refreshed for the current seed data.",
   }),
   seedOffer({
     slug: "harbor-one-checking-200-example",

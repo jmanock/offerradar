@@ -57,40 +57,69 @@ export default async function OfferDetailPage({ params }: Props) {
   const primaryUrl = offer.referralUrl ?? offer.sourceUrl;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
-        <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-            <div>
-              <Link
-                href={category ? `/${category.slug}` : "/offers"}
-                className="text-sm font-semibold text-blue-700"
-              >
-                {category?.title ?? "Offers"}
-              </Link>
-              <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-                {offer.title}
-              </h1>
-              <p className="mt-3 text-lg font-medium text-slate-600">
-                {provider ? (
-                  <Link
-                    href={`/provider/${provider.slug}`}
-                    className="text-blue-700 hover:text-blue-900"
-                  >
-                    {offer.provider}
-                  </Link>
-                ) : (
-                  offer.provider
-                )}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2 sm:justify-end">
+    <div>
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
+        <div className="radar-grid absolute inset-0 opacity-70" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
+          <div>
+            <Link
+              href={category ? `/${category.slug}` : "/offers"}
+              className="text-sm font-extrabold text-blue-700"
+            >
+              {category?.title ?? "Offers"}
+            </Link>
+            <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+              {offer.title}
+            </h1>
+            <p className="mt-3 text-lg font-bold text-slate-600">
+              {provider ? (
+                <Link
+                  href={`/provider/${provider.slug}`}
+                  className="text-blue-700 hover:text-blue-900"
+                >
+                  {offer.provider}
+                </Link>
+              ) : (
+                offer.provider
+              )}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
               <StatusBadge status={offer.status} />
               <StatusBadge status={offer.verificationStatus} />
             </div>
           </div>
+          <div className="premium-card rounded-3xl p-6">
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Offer amount
+            </p>
+            <p className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+              {offer.offerAmount}
+            </p>
+            <div className="mt-5 grid gap-3 text-sm">
+              <DetailStat label="Offer type" value={offer.offerType} />
+              <DetailStat
+                label="Last checked"
+                value={formatDate(offer.lastVerified)}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-8 grid gap-4 rounded-xl bg-slate-50 p-5 sm:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
+        <article className="premium-card rounded-3xl p-6 sm:p-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Summary
+              </p>
+              <h2 className="mt-2 text-2xl font-black text-slate-950">
+                Offer details to compare
+              </h2>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-4 rounded-3xl bg-slate-50 p-5 sm:grid-cols-4">
             <DetailStat label="Offer amount" value={offer.offerAmount} />
             <DetailStat label="Category" value={category?.shortTitle ?? "Offer"} />
             <DetailStat label="Offer type" value={offer.offerType} />
@@ -101,7 +130,7 @@ export default async function OfferDetailPage({ params }: Props) {
           </div>
 
           <section className="mt-8">
-            <h2 className="text-xl font-bold text-slate-950">Overview</h2>
+            <h2 className="text-xl font-black text-slate-950">Overview</h2>
             <p className="mt-3 leading-7 text-slate-600">{offer.description}</p>
           </section>
 
@@ -139,7 +168,7 @@ export default async function OfferDetailPage({ params }: Props) {
           ) : null}
 
           {offer.expirationDate ? (
-            <section className="mt-8 rounded-lg border border-amber-200 bg-amber-50 p-5">
+            <section className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
               <h2 className="text-sm font-semibold uppercase tracking-wide text-amber-800">
                 Expiration date
               </h2>
@@ -149,11 +178,28 @@ export default async function OfferDetailPage({ params }: Props) {
               </p>
             </section>
           ) : null}
+
+          <section className="mt-8 rounded-3xl bg-slate-950 p-6 text-white">
+            <h2 className="text-xl font-black">Before you act</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {[
+                "Verify terms directly",
+                "Check eligibility",
+                "Review fees",
+                "Confirm expiration",
+                "Keep records",
+              ].map((item) => (
+                <p key={item} className="rounded-2xl border border-white/10 bg-white/10 p-3 text-sm font-bold">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </section>
         </article>
 
         <aside className="space-y-5">
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-950">
+          <div className="premium-card rounded-3xl p-5">
+            <h2 className="text-lg font-black text-slate-950">
               Verify before applying
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -166,7 +212,7 @@ export default async function OfferDetailPage({ params }: Props) {
                   href={offer.referralUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-full justify-center rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
+                  className="inline-flex w-full justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
                 >
                   Open referral link
                 </a>
@@ -176,7 +222,7 @@ export default async function OfferDetailPage({ params }: Props) {
                   href={offer.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-full justify-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                  className="inline-flex w-full justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
                 >
                   Open source details
                 </a>
@@ -188,8 +234,8 @@ export default async function OfferDetailPage({ params }: Props) {
               ) : null}
             </div>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-950">Tracking notes</h2>
+          <div className="premium-card rounded-3xl p-5">
+            <h2 className="text-lg font-black text-slate-950">Tracking notes</h2>
             <dl className="mt-4 grid gap-3 text-sm">
               <TrackingRow label="Automation source" value={offer.automationSource ?? "manual_seed"} />
               <TrackingRow label="Last changed" value={offer.lastChanged ? formatDate(offer.lastChanged) : "Not listed"} />
@@ -201,12 +247,14 @@ export default async function OfferDetailPage({ params }: Props) {
       </div>
 
       {relatedOffers.length ? (
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-950">Related offers</h2>
-          <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedOffers.map((relatedOffer) => (
-              <OfferCard key={relatedOffer.slug} offer={relatedOffer} />
-            ))}
+        <section className="border-t border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-black text-slate-950">Related offers</h2>
+            <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {relatedOffers.map((relatedOffer) => (
+                <OfferCard key={relatedOffer.slug} offer={relatedOffer} />
+              ))}
+            </div>
           </div>
         </section>
       ) : null}
@@ -216,7 +264,7 @@ export default async function OfferDetailPage({ params }: Props) {
 
 function DetailPanel({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4">
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
         {label}
       </p>
@@ -248,10 +296,10 @@ function TrackingRow({ label, value }: { label: string; value: string }) {
 function InfoList({ title, items }: { title: string; items: string[] }) {
   return (
     <section className="mt-8">
-      <h2 className="text-xl font-bold text-slate-950">{title}</h2>
+      <h2 className="text-xl font-black text-slate-950">{title}</h2>
       <ul className="mt-3 grid gap-3">
         {items.map((item) => (
-          <li key={item} className="rounded-lg bg-slate-50 p-4 text-slate-700">
+          <li key={item} className="rounded-2xl bg-slate-50 p-4 text-slate-700">
             {item}
           </li>
         ))}

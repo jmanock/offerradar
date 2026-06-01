@@ -26,10 +26,10 @@ export function BestOfPage({
         </h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
         <p className="mt-4 text-sm leading-6 text-slate-500">
-          These are example offers ranked from local V2 data by active status,
+          These are example offers ranked from local data by active status,
           featured flag, verification recency, and last checked date. This is
-          for comparison and planning, not a guarantee of availability,
-          eligibility, approval, or payout.
+          for comparison and planning; provider terms control availability,
+          eligibility, approval, and payout.
         </p>
       </div>
 

@@ -65,7 +65,7 @@ export const providers: ProviderInfo[] = [
     commonOfferTypes: ["Checking bonuses", "Direct deposit bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Offer code", "Account package", "Relationship fee waivers", "State eligibility"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
-    disclosureNote: "OfferRadar is informational and does not guarantee approval, eligibility, or payout.",
+    disclosureNote: "OfferRadar is informational; provider terms control approval, eligibility, and payout.",
   },
   {
     slug: "citi",

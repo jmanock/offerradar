@@ -123,37 +123,46 @@ function ProgrammaticLayout({
   relatedLinks: { href: string; label: string }[];
 }) {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="max-w-3xl">
-        <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
-          {eyebrow}
-        </p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">
-          {h1}
-        </h1>
-        <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
-        <p className="mt-4 text-sm leading-6 text-slate-500">
-          Listings are examples for comparison. Terms may change, and users
-          should verify availability, fees, eligibility, and payout timing
-          directly with the provider.
-        </p>
-      </div>
+    <div>
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
+        <div className="radar-grid absolute inset-0 opacity-70" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              {eyebrow}
+            </p>
+            <h1 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+              {h1}
+            </h1>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
+          </div>
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-lg font-black text-slate-950">
+              Verification reminder
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Terms may change. Verify availability, fees, eligibility, and
+              payout timing directly with the provider before acting.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-bold text-slate-950">Matching offers</h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-black text-slate-950">Matching offers</h2>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {offers.map((offer) => (
             <OfferCard key={offer.slug} offer={offer} />
           ))}
         </div>
       </section>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_0.85fr]">
-        <section className="rounded-xl border border-slate-200 bg-white p-6">
-          <h2 className="text-2xl font-bold text-slate-950">{tipsTitle}</h2>
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8">
+        <section className="premium-card rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">{tipsTitle}</h2>
           <div className="mt-5 grid gap-3">
             {tips.map((tip) => (
-              <p key={tip} className="rounded-lg bg-slate-50 p-4 text-slate-700">
+              <p key={tip} className="rounded-2xl bg-slate-50 p-4 text-slate-700">
                 {tip}
               </p>
             ))}
@@ -162,30 +171,34 @@ function ProgrammaticLayout({
         <DisclosureBlock />
       </div>
 
-      <section className="mt-12 rounded-xl border border-slate-200 bg-white p-6">
-        <h2 className="text-2xl font-bold text-slate-950">FAQ</h2>
-        <div className="mt-5 grid gap-5">
-          {faq.map((item) => (
-            <div key={item.question}>
-              <h3 className="font-semibold text-slate-950">{item.question}</h3>
-              <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
-            </div>
-          ))}
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black text-slate-950">FAQ</h2>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {faq.map((item) => (
+              <div key={item.question} className="rounded-2xl bg-slate-50 p-5">
+                <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+                <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-slate-200 bg-white p-6">
-        <h2 className="text-2xl font-bold text-slate-950">Related pages</h2>
-        <div className="mt-4 flex flex-wrap gap-3">
-          {relatedLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-            >
-              {link.label}
-            </Link>
-          ))}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="premium-card rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">Related pages</h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

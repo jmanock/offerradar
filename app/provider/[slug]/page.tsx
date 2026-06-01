@@ -44,27 +44,40 @@ export default async function ProviderPage({ params }: Props) {
   const offers = getOffersByProvider(provider.name);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
-        <div>
-          <Link href="/providers" className="text-sm font-semibold text-blue-700">
-            Providers
-          </Link>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">
-            {provider.name} offers
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            {provider.description} This page uses local example data for
-            comparison and does not guarantee availability, approval, eligibility,
-            or payout.
-          </p>
+    <div>
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#e0f7ff_0,#f8fbff_34%,#f6f8fb_72%)]">
+        <div className="radar-grid absolute inset-0 opacity-60" />
+        <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
+          <div>
+            <Link href="/providers" className="text-sm font-extrabold text-blue-700">
+              Providers
+            </Link>
+            <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+              {provider.name} offers
+            </h1>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              {provider.description} Use this page to compare requirements and
+              verification status, then confirm current terms directly with{" "}
+              {provider.name}.
+            </p>
+          </div>
+          <div className="premium-card rounded-3xl p-6">
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Provider focus
+            </p>
+            <p className="mt-3 text-2xl font-black text-slate-950">
+              {provider.categoryFocus}
+            </p>
+            <p className="mt-4 text-sm leading-6 text-slate-600">
+              {provider.disclosureNote}
+            </p>
+          </div>
         </div>
-        <DisclosureBlock compact />
-      </div>
+      </section>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_0.8fr]">
-        <section className="rounded-xl border border-slate-200 bg-white p-6">
-          <h2 className="text-2xl font-bold text-slate-950">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+        <section className="premium-card rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">
             Common offer types
           </h2>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -78,8 +91,8 @@ export default async function ProviderPage({ params }: Props) {
             ))}
           </div>
         </section>
-        <section className="rounded-xl border border-slate-200 bg-white p-6">
-          <h2 className="text-2xl font-bold text-slate-950">
+        <section className="premium-card rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">
             Things to verify
           </h2>
           <ul className="mt-4 grid gap-3">
@@ -92,39 +105,48 @@ export default async function ProviderPage({ params }: Props) {
         </section>
       </div>
 
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold text-slate-950">
-          Related {provider.name} offers
-        </h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Related offers
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              {provider.name} offer tracker
+            </h2>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {offers.map((offer) => (
             <OfferCard key={offer.slug} offer={offer} />
           ))}
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-slate-200 bg-white p-6">
-        <h2 className="text-2xl font-bold text-slate-950">
-          Related categories
-        </h2>
-        <div className="mt-4 flex flex-wrap gap-3">
-          {provider.relatedCategories.map((categorySlug) => {
-            const category = getCategoryBySlug(categorySlug);
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+          <div>
+            <h2 className="text-2xl font-black text-slate-950">
+              Related categories
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {provider.relatedCategories.map((categorySlug) => {
+                const category = getCategoryBySlug(categorySlug);
 
-            return category ? (
-              <Link
-                key={category.slug}
-                href={`/${category.slug}`}
-                className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-              >
-                {category.title}
-              </Link>
-            ) : null;
-          })}
+                return category ? (
+                  <Link
+                    key={category.slug}
+                    href={`/${category.slug}`}
+                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                  >
+                    {category.title}
+                  </Link>
+                ) : null;
+              })}
+            </div>
+          </div>
+          <DisclosureBlock compact />
         </div>
-        <p className="mt-5 text-sm leading-6 text-slate-600">
-          {provider.disclosureNote}
-        </p>
       </section>
     </div>
   );

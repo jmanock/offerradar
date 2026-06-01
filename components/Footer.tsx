@@ -1,15 +1,24 @@
 import Link from "next/link";
 import { categories } from "@/data/offers";
+import { getAllProviders } from "@/lib/offers";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
+  const providers = getAllProviders().slice(0, 6);
+
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-slate-300">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
+    <footer className="border-t border-slate-800 bg-[#07111f] text-slate-300">
+      <div className="radar-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
         <div>
-          <p className="text-lg font-bold text-white">OfferRadar</p>
+          <div className="[&_span_span:first-child]:text-white">
+            <BrandLogo />
+          </div>
           <p className="mt-3 text-sm leading-6">
-            Track bonuses, offers, referrals, and promotions. Updated daily,
-            organized clearly, and built for comparison before signup.
+            A disclosure-first offer tracking platform for comparing bonuses,
+            referrals, promotions, fees, and verification dates before signup.
+          </p>
+          <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-xs leading-5 text-slate-400">
+            Offer details can change. Verify terms directly with the provider.
           </p>
         </div>
         <div>
@@ -23,7 +32,18 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <p className="font-semibold text-white">Company</p>
+          <p className="font-semibold text-white">Providers</p>
+          <div className="mt-3 grid gap-2 text-sm">
+            {providers.map((provider) => (
+              <Link key={provider.slug} href={`/provider/${provider.slug}`}>
+                {provider.name}
+              </Link>
+            ))}
+            <Link href="/providers">All providers</Link>
+          </div>
+        </div>
+        <div>
+          <p className="font-semibold text-white">Research</p>
           <div className="mt-3 grid gap-2 text-sm">
             <Link href="/offers">All offers</Link>
             <Link href="/providers">Providers</Link>
