@@ -1,0 +1,107 @@
+import type { OfferTypePageInfo } from "@/types/offer";
+
+const defaultFaq = (topic: string): OfferTypePageInfo["faq"] => [
+  {
+    question: `Can I rely on ${topic.toLowerCase()} without checking provider terms?`,
+    answer:
+      "No. Offer values, eligibility, approval, payout timing, rates, and availability can change. Verify terms directly with the provider before acting.",
+  },
+  {
+    question: "How does OfferRadar rank these pages?",
+    answer:
+      "Pages use local static data with active status, featured flags, verification recency, and category fit. Rankings are for comparison, not financial advice.",
+  },
+];
+
+export const offerTypePages: OfferTypePageInfo[] = [
+  {
+    slug: "checking-account-bonuses",
+    title: "Checking Account Bonuses",
+    description: "Compare example checking account bonuses with fees, deposit requirements, and direct verification reminders.",
+    h1: "Checking account bonuses",
+    intro: "Checking account bonuses often depend on direct deposits, account opening date, account package, and monthly fee waivers.",
+    comparisonTips: ["Check direct deposit definitions.", "Compare monthly fees and waiver rules.", "Look for early closure fees.", "Verify payout timing with the bank."],
+    relatedCategories: ["bank-bonuses"],
+    faq: defaultFaq("Checking account bonuses"),
+  },
+  {
+    slug: "savings-account-bonuses",
+    title: "Savings Account Bonuses",
+    description: "Compare example savings account bonuses and high-yield savings promotions with APY and balance reminders.",
+    h1: "Savings account bonuses",
+    intro: "Savings bonuses can require new money, balance maintenance, and rate-tier checks. APYs are variable and can change.",
+    comparisonTips: ["Confirm new money rules.", "Check APY and balance tiers.", "Compare monthly or transaction fees.", "Verify deposit insurance disclosures."],
+    relatedCategories: ["bank-bonuses", "high-yield-savings"],
+    faq: defaultFaq("Savings account bonuses"),
+  },
+  {
+    slug: "direct-deposit-bonuses",
+    title: "Direct Deposit Bonuses",
+    description: "Compare example direct deposit bonuses with timing, qualifying deposit, and provider verification notes.",
+    h1: "Direct deposit bonuses",
+    intro: "Direct deposit bonuses usually require qualifying payroll or government benefit deposits, but definitions vary by provider.",
+    comparisonTips: ["Verify what counts as direct deposit.", "Check deposit amount and timing windows.", "Review account fees.", "Confirm bonus posting schedule."],
+    relatedCategories: ["bank-bonuses", "business-banking"],
+    faq: defaultFaq("Direct deposit bonuses"),
+  },
+  {
+    slug: "business-bank-bonuses",
+    title: "Business Bank Bonuses",
+    description: "Compare example business banking bonuses with entity, deposit, transaction, and fee reminders.",
+    h1: "Business bank bonuses",
+    intro: "Business bank bonuses may require entity documents, qualifying deposits, debit or ACH activity, and account maintenance.",
+    comparisonTips: ["Confirm eligible business types.", "Compare transaction and cash deposit fees.", "Check required business activity.", "Verify documentation needs before applying."],
+    relatedCategories: ["business-banking"],
+    faq: defaultFaq("Business bank bonuses"),
+  },
+  {
+    slug: "new-customer-bonuses",
+    title: "New Customer Bonuses",
+    description: "Compare example new customer bonuses across banking, brokerage, credit card, and referral categories.",
+    h1: "New customer bonuses",
+    intro: "New customer bonuses can exclude existing or recent customers. Eligibility windows and household rules can matter.",
+    comparisonTips: ["Check new customer definitions.", "Review household and prior-account exclusions.", "Compare required activity.", "Verify payout timing and tax forms."],
+    relatedCategories: ["bank-bonuses", "brokerage-bonuses", "credit-card-offers", "referral-offers"],
+    faq: defaultFaq("New customer bonuses"),
+  },
+  {
+    slug: "brokerage-signup-bonuses",
+    title: "Brokerage Signup Bonuses",
+    description: "Compare example brokerage signup and transfer bonuses with funding, holding period, and investment risk notes.",
+    h1: "Brokerage signup bonuses",
+    intro: "Brokerage signup bonuses may require funding, transfers, holding periods, or referral links. Investment accounts can lose value.",
+    comparisonTips: ["Check funding minimums.", "Review holding periods.", "Compare account and transfer fees.", "Consider market and tax risk."],
+    relatedCategories: ["brokerage-bonuses"],
+    faq: defaultFaq("Brokerage signup bonuses"),
+  },
+  {
+    slug: "referral-bonuses",
+    title: "Referral Bonuses",
+    description: "Compare example referral bonuses with invite-link eligibility, tracking, and payout reminders.",
+    h1: "Referral bonuses",
+    intro: "Referral bonuses can vary by user, link, region, and campaign. Confirm the bonus screen before completing required activity.",
+    comparisonTips: ["Use only eligible links.", "Check new user requirements.", "Confirm payout threshold.", "Review whether both users receive rewards."],
+    relatedCategories: ["referral-offers", "brokerage-bonuses", "cash-back-apps"],
+    faq: defaultFaq("Referral bonuses"),
+  },
+  {
+    slug: "cash-back-app-offers",
+    title: "Cash Back App Offers",
+    description: "Compare example cash back app offers with tracking, merchant exclusion, and payout threshold reminders.",
+    h1: "Cash back app offers",
+    intro: "Cash back app offers may require activation, link tracking, receipt uploads, or waiting through return windows.",
+    comparisonTips: ["Activate before purchase.", "Check merchant exclusions.", "Compare payout thresholds.", "Confirm purchase tracking before relying on value."],
+    relatedCategories: ["cash-back-apps", "referral-offers"],
+    faq: defaultFaq("Cash back app offers"),
+  },
+  {
+    slug: "credit-card-welcome-offers",
+    title: "Credit Card Welcome Offers",
+    description: "Compare example credit card welcome offers with spend requirements, annual fees, APR, and reward value reminders.",
+    h1: "Credit card welcome offers",
+    intro: "Credit card welcome offers may require approval and qualifying purchases. Rewards can lose value if fees or interest outweigh the bonus.",
+    comparisonTips: ["Compare annual fee and APR.", "Verify spend requirement timing.", "Review reward redemption value.", "Avoid carrying debt for a bonus."],
+    relatedCategories: ["credit-card-offers"],
+    faq: defaultFaq("Credit card welcome offers"),
+  },
+];

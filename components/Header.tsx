@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { categories } from "@/data/offers";
 
 export function Header() {
   return (
@@ -22,20 +21,23 @@ export function Header() {
           <Link href="/offers" className="hover:text-blue-700">
             Offers
           </Link>
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/${category.slug}`}
-              className="hover:text-blue-700"
-            >
-              {category.shortTitle}
-            </Link>
-          ))}
-          <Link href="/about" className="hover:text-blue-700">
-            About
+          <Link href="/bank-bonuses" className="hover:text-blue-700">
+            Bank Bonuses
+          </Link>
+          <Link href="/brokerage-bonuses" className="hover:text-blue-700">
+            Brokerage Bonuses
+          </Link>
+          <Link href="/providers" className="hover:text-blue-700">
+            Providers
+          </Link>
+          <Link href="/best-bank-bonuses" className="hover:text-blue-700">
+            Best Bonuses
           </Link>
           <Link href="/editorial-policy" className="hover:text-blue-700">
-            Policy
+            Editorial Policy
+          </Link>
+          <Link href="/disclosures" className="hover:text-blue-700">
+            Disclosures
           </Link>
         </nav>
       </div>

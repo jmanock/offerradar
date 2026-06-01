@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { getAllOfferTypePages } from "@/lib/offers";
 import { getOffersByCategory } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
 
 export function CategoryPage({ category }: { category: CategoryInfo }) {
   const offers = getOffersByCategory(category.slug);
+  const relatedOfferTypePages = getAllOfferTypePages().filter((page) =>
+    page.relatedCategories.includes(category.slug),
+  );
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -32,6 +36,25 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
           <OfferCard key={offer.slug} offer={offer} />
         ))}
       </div>
+
+      {relatedOfferTypePages.length ? (
+        <section className="mt-12 rounded-xl border border-slate-200 bg-white p-6">
+          <h2 className="text-2xl font-bold text-slate-950">
+            Related offer guides
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {relatedOfferTypePages.map((page) => (
+              <Link
+                key={page.slug}
+                href={`/${page.slug}`}
+                className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {page.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_0.85fr]">
         <section className="rounded-xl border border-slate-200 bg-white p-6">

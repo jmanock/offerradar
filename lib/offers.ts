@@ -1,4 +1,7 @@
 import { categories, offers } from "@/data/offers";
+import { offerTypePages } from "@/data/offerTypePages";
+import { providers } from "@/data/providers";
+import { statePages } from "@/data/statePages";
 import type { Offer, OfferCategory } from "@/types/offer";
 
 const today = "2026-06-01";
@@ -118,4 +121,104 @@ export function getLastUpdated() {
 
 export function getActiveOfferCount() {
   return offers.filter((offer) => offer.status === "active").length;
+}
+
+export function getAllProviders() {
+  return providers;
+}
+
+export function getProviderBySlug(slug: string) {
+  return providers.find((provider) => provider.slug === slug);
+}
+
+export function getOffersByProvider(providerName: string) {
+  return getAllOffers().filter(
+    (offer) => offer.provider.toLowerCase() === providerName.toLowerCase(),
+  );
+}
+
+export function getAllOfferTypePages() {
+  return offerTypePages;
+}
+
+export function getOfferTypePageBySlug(slug: string) {
+  return offerTypePages.find((page) => page.slug === slug);
+}
+
+export function getOffersForOfferTypePage(slug: string) {
+  const matchers: Record<string, (offer: Offer) => boolean> = {
+    "checking-account-bonuses": (offer) =>
+      offer.category === "bank-bonuses" &&
+      hasAnyText(offer, ["checking", "checking account"]),
+    "savings-account-bonuses": (offer) =>
+      (offer.category === "bank-bonuses" || offer.category === "high-yield-savings") &&
+      hasAnyText(offer, ["savings", "new money", "apy"]),
+    "direct-deposit-bonuses": (offer) =>
+      Boolean(offer.requiresDirectDeposit) || hasAnyText(offer, ["direct deposit"]),
+    "business-bank-bonuses": (offer) => offer.category === "business-banking",
+    "new-customer-bonuses": (offer) =>
+      hasAnyText(offer, ["new customer", "signup", "welcome offer"]),
+    "brokerage-signup-bonuses": (offer) =>
+      offer.category === "brokerage-bonuses" && hasAnyText(offer, ["signup", "brokerage"]),
+    "referral-bonuses": (offer) =>
+      offer.category === "referral-offers" ||
+      Boolean(offer.referralUrl) ||
+      hasAnyText(offer, ["referral"]),
+    "cash-back-app-offers": (offer) => offer.category === "cash-back-apps",
+    "credit-card-welcome-offers": (offer) =>
+      offer.category === "credit-card-offers" && hasAnyText(offer, ["welcome offer", "credit card"]),
+  };
+
+  return getAllOffers().filter(matchers[slug] ?? (() => false)).slice(0, 18);
+}
+
+export function getAllStatePages() {
+  return statePages;
+}
+
+export function getStatePageBySlug(slug: string) {
+  return statePages.find((page) => page.slug === slug);
+}
+
+export function getOffersForStatePage(slug: string) {
+  const page = getStatePageBySlug(slug);
+
+  if (!page) {
+    return [];
+  }
+
+  return getAllOffers()
+    .filter((offer) => {
+      const isBankish =
+        offer.category === "bank-bonuses" ||
+        offer.category === "high-yield-savings" ||
+        offer.category === "business-banking";
+
+      if (!isBankish) {
+        return false;
+      }
+
+      if (page.stateName === "National") {
+        return !offer.stateRestrictions?.length || offer.stateRestrictions.includes("National");
+      }
+
+      return (
+        offer.stateRestrictions?.includes(page.stateName) ||
+        offer.stateRestrictions?.includes("National")
+      );
+    })
+    .slice(0, 18);
+}
+
+function hasAnyText(offer: Offer, needles: string[]) {
+  const haystack = [
+    offer.title,
+    offer.offerType,
+    offer.description,
+    ...(offer.tags ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return needles.some((needle) => haystack.includes(needle.toLowerCase()));
 }

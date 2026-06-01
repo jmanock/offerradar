@@ -6,6 +6,7 @@ import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
 import {
   formatDate,
+  getAllProviders,
   getCategoryBySlug,
   getOfferBySlug,
   getRelatedOffers,
@@ -49,6 +50,10 @@ export default async function OfferDetailPage({ params }: Props) {
 
   const category = getCategoryBySlug(offer.category);
   const relatedOffers = getRelatedOffers(offer);
+  const provider = getAllProviders().find(
+    (providerInfo) =>
+      providerInfo.name.toLowerCase() === offer.provider.toLowerCase(),
+  );
   const primaryUrl = offer.referralUrl ?? offer.sourceUrl;
 
   return (
@@ -67,7 +72,16 @@ export default async function OfferDetailPage({ params }: Props) {
                 {offer.title}
               </h1>
               <p className="mt-3 text-lg font-medium text-slate-600">
-                {offer.provider}
+                {provider ? (
+                  <Link
+                    href={`/provider/${provider.slug}`}
+                    className="text-blue-700 hover:text-blue-900"
+                  >
+                    {offer.provider}
+                  </Link>
+                ) : (
+                  offer.provider
+                )}
               </p>
             </div>
             <div className="flex flex-wrap gap-2 sm:justify-end">

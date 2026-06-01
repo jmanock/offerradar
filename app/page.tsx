@@ -88,6 +88,7 @@ export default function Home() {
             <Link href="/best-bank-bonuses">Bank bonuses</Link>
             <Link href="/best-brokerage-bonuses">Brokerage</Link>
             <Link href="/best-referral-bonuses">Referrals</Link>
+            <Link href="/providers">Providers</Link>
           </div>
         </div>
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -183,6 +184,41 @@ export default function Home() {
           {categories.map((category) => (
             <CategoryCard key={category.slug} category={category} />
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-950">
+                Programmatic guides
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                SEO-ready comparison pages for common offer searches and state
+                bank bonus research.
+              </p>
+            </div>
+            <Link href="/providers" className="text-sm font-semibold text-blue-700">
+              Browse providers
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["/checking-account-bonuses", "Checking bonuses"],
+              ["/direct-deposit-bonuses", "Direct deposit bonuses"],
+              ["/credit-card-welcome-offers", "Card welcome offers"],
+              ["/national-bank-bonuses", "National bank bonuses"],
+            ].map(([href, label]) => (
+              <Link
+                key={href}
+                href={href}
+                className="rounded-lg border border-slate-200 bg-slate-50 p-4 font-semibold text-slate-900 hover:border-blue-200 hover:text-blue-800"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

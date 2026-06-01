@@ -53,3 +53,42 @@ export interface CategoryInfo {
   description: string;
   education: string;
 }
+
+export interface ProviderInfo {
+  slug: string;
+  name: string;
+  categoryFocus: string;
+  description: string;
+  commonOfferTypes: string[];
+  thingsToVerify: string[];
+  relatedCategories: OfferCategory[];
+  disclosureNote: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface OfferTypePageInfo {
+  slug: string;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  comparisonTips: string[];
+  relatedCategories: OfferCategory[];
+  faq: FaqItem[];
+}
+
+export interface StatePageInfo {
+  slug: string;
+  stateName: string;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  cautions: string[];
+  relatedPages: string[];
+  faq: FaqItem[];
+}
