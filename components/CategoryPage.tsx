@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
 import { getAllOfferTypePages, getOffersByCategory } from "@/lib/offers";
@@ -12,6 +13,14 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
 
   return (
     <div>
+      <AnalyticsEvent
+        name="category_page_view"
+        params={{
+          category: category.slug,
+          category_title: category.title,
+          offer_count: offers.length,
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">

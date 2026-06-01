@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
+import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import {
   formatDate,
   getAllProviders,
@@ -58,6 +60,16 @@ export default async function OfferDetailPage({ params }: Props) {
 
   return (
     <div>
+      <AnalyticsEvent
+        name="offer_detail_view"
+        params={{
+          offer_slug: offer.slug,
+          provider: offer.provider,
+          category: offer.category,
+          status: offer.status,
+          verification_status: offer.verificationStatus,
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
@@ -208,24 +220,36 @@ export default async function OfferDetailPage({ params }: Props) {
             </p>
             <div className="mt-5 grid gap-3">
               {offer.referralUrl ? (
-                <a
+                <TrackedOutboundLink
                   href={offer.referralUrl}
                   target="_blank"
                   rel="noreferrer"
+                  eventParams={{
+                    offer_slug: offer.slug,
+                    provider: offer.provider,
+                    category: offer.category,
+                    link_type: "referral",
+                  }}
                   className="inline-flex w-full justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
                 >
                   Open referral link
-                </a>
+                </TrackedOutboundLink>
               ) : null}
               {offer.sourceUrl ? (
-                <a
+                <TrackedOutboundLink
                   href={offer.sourceUrl}
                   target="_blank"
                   rel="noreferrer"
+                  eventParams={{
+                    offer_slug: offer.slug,
+                    provider: offer.provider,
+                    category: offer.category,
+                    link_type: "source",
+                  }}
                   className="inline-flex w-full justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
                 >
                   Open source details
-                </a>
+                </TrackedOutboundLink>
               ) : null}
               {!primaryUrl ? (
                 <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
