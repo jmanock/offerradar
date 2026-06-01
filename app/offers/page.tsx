@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { guidePages } from "@/data/guidePages";
 import { categories } from "@/data/offers";
 import { getOffersByCategory } from "@/lib/offers";
 
@@ -34,6 +36,34 @@ export default function OffersPage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <section className="premium-card mb-12 rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">
+            Research paths
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/providers"
+              className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+            >
+              Provider directory
+            </Link>
+            <Link
+              href="/compare/chase-vs-sofi"
+              className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+            >
+              Provider comparisons
+            </Link>
+            {guidePages.slice(0, 5).map((guide) => (
+              <Link
+                key={guide.slug}
+                href={`/guides/${guide.slug}`}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {guide.title}
+              </Link>
+            ))}
+          </div>
+        </section>
         <div className="grid gap-14">
           {categories.map((category) => {
             const offers = getOffersByCategory(category.slug);

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { guidePages } from "@/data/guidePages";
 import { categories } from "@/data/offers";
 import { getAllProviders } from "@/lib/offers";
 import { BrandLogo } from "./BrandLogo";
@@ -50,8 +51,14 @@ export function Footer() {
             <Link href="/best-bank-bonuses">Best bank bonuses</Link>
             <Link href="/best-brokerage-bonuses">Best brokerage bonuses</Link>
             <Link href="/best-referral-bonuses">Best referral bonuses</Link>
+            <Link href="/compare/chase-vs-sofi">Provider comparisons</Link>
             <Link href="/checking-account-bonuses">Checking bonuses</Link>
             <Link href="/national-bank-bonuses">National bank bonuses</Link>
+            {guidePages.slice(0, 3).map((guide) => (
+              <Link key={guide.slug} href={`/guides/${guide.slug}`}>
+                {guide.title}
+              </Link>
+            ))}
             <Link href="/about">About</Link>
             <Link href="/editorial-policy">Editorial policy</Link>
             <Link href="/disclosures">Disclosures</Link>

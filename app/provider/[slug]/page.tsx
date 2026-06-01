@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { getComparisonsForProvider } from "@/data/comparisonPages";
 import {
   getAllProviders,
   getCategoryBySlug,
@@ -42,6 +43,7 @@ export default async function ProviderPage({ params }: Props) {
   }
 
   const offers = getOffersByProvider(provider.name);
+  const comparisons = getComparisonsForProvider(provider.slug, 8);
 
   return (
     <div>
@@ -146,6 +148,25 @@ export default async function ProviderPage({ params }: Props) {
             </div>
           </div>
           <DisclosureBlock compact />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="premium-card rounded-3xl p-6">
+          <h2 className="text-2xl font-black text-slate-950">
+            Compare {provider.name} with other providers
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {comparisons.map((comparison) => (
+              <Link
+                key={comparison.slug}
+                href={`/compare/${comparison.slug}`}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {comparison.title}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -168,6 +168,38 @@ export function getOffersForOfferTypePage(slug: string) {
     "cash-back-app-offers": (offer) => offer.category === "cash-back-apps",
     "credit-card-welcome-offers": (offer) =>
       offer.category === "credit-card-offers" && hasAnyText(offer, ["welcome offer", "credit card"]),
+    "best-checking-bonuses": (offer) =>
+      offer.category === "bank-bonuses" && hasAnyText(offer, ["checking", "direct deposit"]),
+    "best-savings-bonuses": (offer) =>
+      (offer.category === "bank-bonuses" || offer.category === "high-yield-savings") &&
+      hasAnyText(offer, ["savings", "apy", "new money"]),
+    "no-monthly-fee-bank-bonuses": (offer) =>
+      offer.category === "bank-bonuses" && hasAnyText(offer, ["checking", "$0", "waivable"]),
+    "high-apy-savings-offers": (offer) =>
+      offer.category === "high-yield-savings" && hasAnyText(offer, ["apy", "savings"]),
+    "new-money-savings-bonuses": (offer) =>
+      (offer.category === "bank-bonuses" || offer.category === "high-yield-savings") &&
+      hasAnyText(offer, ["new money", "savings"]),
+    "brokerage-transfer-bonuses": (offer) =>
+      offer.category === "brokerage-bonuses" && hasAnyText(offer, ["transfer", "assets"]),
+    "ira-bonuses": (offer) =>
+      offer.category === "brokerage-bonuses" && hasAnyText(offer, ["ira", "retirement", "rollover"]),
+    "stock-referral-offers": (offer) =>
+      (offer.category === "brokerage-bonuses" || offer.category === "referral-offers") &&
+      hasAnyText(offer, ["stock", "referral", "brokerage"]),
+    "app-referral-offers": (offer) =>
+      offer.category === "referral-offers" && hasAnyText(offer, ["app", "referral"]),
+    "cash-back-signup-bonuses": (offer) =>
+      offer.category === "cash-back-apps" || hasAnyText(offer, ["cash back", "cashback"]),
+    "business-checking-bonuses": (offer) =>
+      offer.category === "business-banking" && hasAnyText(offer, ["checking", "business"]),
+    "business-savings-bonuses": (offer) =>
+      offer.category === "business-banking" && hasAnyText(offer, ["savings", "balance", "new money"]),
+    "credit-card-cash-back-offers": (offer) =>
+      offer.category === "credit-card-offers" && hasAnyText(offer, ["cash", "cash back"]),
+    "travel-card-welcome-offers": (offer) =>
+      offer.category === "credit-card-offers" && hasAnyText(offer, ["travel", "point", "miles"]),
+    "limited-time-offers": (offer) => Boolean(offer.expirationDate),
   };
 
   return getAllOffers().filter(matchers[slug] ?? (() => false)).slice(0, 18);

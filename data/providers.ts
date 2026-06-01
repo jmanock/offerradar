@@ -123,6 +123,17 @@ export const providers: ProviderInfo[] = [
     disclosureNote: "Review investment and tax implications before opening or transferring accounts.",
   },
   {
+    slug: "schwab",
+    name: "Schwab",
+    categoryFocus: "Brokerage, banking, and transfer offers",
+    description:
+      "Schwab tracked offers may include brokerage transfer promotions, investor checking features, and account funding campaigns.",
+    commonOfferTypes: ["Brokerage transfer bonuses", "New account offers", "Investor banking offers"],
+    thingsToVerify: ["Eligible account types", "Transfer minimums", "Holding periods", "Account and advisory fees"],
+    relatedCategories: ["brokerage-bonuses", "bank-bonuses"],
+    disclosureNote: "Investment and banking terms should be verified directly with Schwab before acting.",
+  },
+  {
     slug: "public",
     name: "Public",
     categoryFocus: "Brokerage signup and referral offers",
@@ -145,6 +156,50 @@ export const providers: ProviderInfo[] = [
     disclosureNote: "Subscription costs may reduce the value of a small referral bonus.",
   },
   {
+    slug: "moomoo",
+    name: "Moomoo",
+    categoryFocus: "Brokerage signup and transfer offers",
+    description:
+      "Moomoo tracked offers may involve brokerage account approval, funding thresholds, and variable promotional rewards.",
+    commonOfferTypes: ["Brokerage signup bonuses", "Transfer offers", "Referral rewards"],
+    thingsToVerify: ["Reward value range", "Funding deadlines", "Holding period", "Trading and market risk"],
+    relatedCategories: ["brokerage-bonuses", "referral-offers"],
+    disclosureNote: "Reward values and eligibility can vary by campaign and account approval.",
+  },
+  {
+    slug: "etrade",
+    name: "E*TRADE",
+    categoryFocus: "Brokerage and retirement account offers",
+    description:
+      "E*TRADE tracked offers may include tiered brokerage funding or transfer promotions with balance requirements.",
+    commonOfferTypes: ["Brokerage transfer bonuses", "IRA offers", "New account bonuses"],
+    thingsToVerify: ["Funding tiers", "Eligible account types", "Holding periods", "Transfer and account fees"],
+    relatedCategories: ["brokerage-bonuses"],
+    disclosureNote: "Provider terms control bonus eligibility, timing, and account requirements.",
+  },
+  {
+    slug: "merrill-edge",
+    name: "Merrill Edge",
+    categoryFocus: "Brokerage and relationship banking offers",
+    description:
+      "Merrill Edge tracked offers may connect brokerage funding, transfer bonuses, and relationship banking requirements.",
+    commonOfferTypes: ["Brokerage bonuses", "Transfer offers", "Relationship offers"],
+    thingsToVerify: ["Relationship tiers", "Funding requirements", "Holding periods", "Investment fees"],
+    relatedCategories: ["brokerage-bonuses", "bank-bonuses"],
+    disclosureNote: "Compare relationship requirements and investment risks before relying on a bonus.",
+  },
+  {
+    slug: "stash",
+    name: "Stash",
+    categoryFocus: "Investing app and referral offers",
+    description:
+      "Stash tracked offers may include app signup, subscription-linked, or referral promotions for eligible new users.",
+    commonOfferTypes: ["Referral bonuses", "Investing app offers", "New user promotions"],
+    thingsToVerify: ["Subscription cost", "Funding requirement", "Reward timing", "Account eligibility"],
+    relatedCategories: ["referral-offers", "brokerage-bonuses"],
+    disclosureNote: "Subscription costs and investment risk may affect the practical value of an offer.",
+  },
+  {
     slug: "m1-finance",
     name: "M1 Finance",
     categoryFocus: "Brokerage and transfer offers",
@@ -165,5 +220,71 @@ export const providers: ProviderInfo[] = [
     thingsToVerify: ["Funding minimum", "Holding period", "Advanced trading risks", "Account fees"],
     relatedCategories: ["brokerage-bonuses", "referral-offers"],
     disclosureNote: "Advanced brokerage products may carry additional risk and complexity.",
+  },
+  {
+    slug: "pnc",
+    name: "PNC",
+    categoryFocus: "Checking, savings, and relationship banking offers",
+    description:
+      "PNC tracked offers may include checking, virtual wallet, savings, and direct deposit promotions with regional availability rules.",
+    commonOfferTypes: ["Checking bonuses", "Direct deposit bonuses", "Savings offers"],
+    thingsToVerify: ["State availability", "Direct deposit rules", "Monthly fee waivers", "Offer code requirements"],
+    relatedCategories: ["bank-bonuses", "high-yield-savings"],
+    disclosureNote: "Availability can vary by state, customer history, and account package.",
+  },
+  {
+    slug: "truist",
+    name: "Truist",
+    categoryFocus: "Banking and direct deposit offers",
+    description:
+      "Truist tracked offers may involve checking accounts, direct deposit requirements, and regional banking eligibility.",
+    commonOfferTypes: ["Checking bonuses", "Direct deposit bonuses", "New customer offers"],
+    thingsToVerify: ["Offer code", "Eligible account package", "Direct deposit definition", "Regional availability"],
+    relatedCategories: ["bank-bonuses"],
+    disclosureNote: "Provider terms determine eligibility, payout timing, and availability.",
+  },
+  {
+    slug: "rakuten",
+    name: "Rakuten",
+    categoryFocus: "Cash back and shopping referral offers",
+    description:
+      "Rakuten tracked offers may include shopping portal cash back, new member bonuses, and referral promotions.",
+    commonOfferTypes: ["Cash back app offers", "Referral bonuses", "Shopping portal offers"],
+    thingsToVerify: ["Eligible merchants", "Activation steps", "Payout thresholds", "Excluded purchase categories"],
+    relatedCategories: ["cash-back-apps", "referral-offers"],
+    disclosureNote: "Cash back rates and merchant exclusions can change before or after activation.",
+  },
+  {
+    slug: "upside",
+    name: "Upside",
+    categoryFocus: "Cash back app and referral offers",
+    description:
+      "Upside tracked offers may include gas, grocery, restaurant, or app referral promotions with location-specific terms.",
+    commonOfferTypes: ["Cash back app offers", "Referral bonuses", "Location-based offers"],
+    thingsToVerify: ["Eligible locations", "Claim timing", "Receipt or card-link requirements", "Payout method"],
+    relatedCategories: ["cash-back-apps", "referral-offers"],
+    disclosureNote: "Offer availability can vary by location, merchant, and app campaign.",
+  },
+  {
+    slug: "chime",
+    name: "Chime",
+    categoryFocus: "Banking app and referral offers",
+    description:
+      "Chime tracked offers may include direct deposit, app referral, or new member promotions with account activity requirements.",
+    commonOfferTypes: ["Referral offers", "Direct deposit bonuses", "Banking app promotions"],
+    thingsToVerify: ["Qualifying direct deposit", "New member rules", "Referral link eligibility", "Bonus timing"],
+    relatedCategories: ["referral-offers", "bank-bonuses"],
+    disclosureNote: "Banking app rewards can vary by user, invite link, and campaign timing.",
+  },
+  {
+    slug: "current",
+    name: "Current",
+    categoryFocus: "Banking app and referral offers",
+    description:
+      "Current tracked offers may involve banking app referrals, account funding, and qualifying direct deposit activity.",
+    commonOfferTypes: ["Referral offers", "Banking app bonuses", "Direct deposit offers"],
+    thingsToVerify: ["Eligible invite link", "Direct deposit threshold", "Account activity", "Reward posting timing"],
+    relatedCategories: ["referral-offers", "bank-bonuses"],
+    disclosureNote: "Verify in-app terms before relying on a referral or bonus prompt.",
   },
 ];

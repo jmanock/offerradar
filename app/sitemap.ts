@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { categories, siteUrl } from "@/data/offers";
+import { getAllProviderComparisonPages } from "@/data/comparisonPages";
+import { guidePages } from "@/data/guidePages";
 import { offerTypePages } from "@/data/offerTypePages";
 import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
@@ -20,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const categoryRoutes = categories.map((category) => `/${category.slug}`);
   const offerRoutes = offers.map((offer) => `/offer/${offer.slug}`);
   const providerRoutes = providers.map((provider) => `/provider/${provider.slug}`);
+  const comparisonRoutes = getAllProviderComparisonPages().map((page) => `/compare/${page.slug}`);
+  const guideRoutes = guidePages.map((page) => `/guides/${page.slug}`);
   const offerTypeRoutes = offerTypePages.map((page) => `/${page.slug}`);
   const stateRoutes = statePages.map((page) => `/${page.slug}`);
 
@@ -28,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryRoutes,
     ...offerRoutes,
     ...providerRoutes,
+    ...comparisonRoutes,
+    ...guideRoutes,
     ...offerTypeRoutes,
     ...stateRoutes,
   ].map((route) => ({

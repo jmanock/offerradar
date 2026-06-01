@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { getAllProviderComparisonPages } from "@/data/comparisonPages";
 import { getAllProviders, getOffersByProvider } from "@/lib/offers";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function ProvidersPage() {
   const providers = getAllProviders();
+  const featuredComparisons = getAllProviderComparisonPages().slice(0, 12);
 
   return (
     <div>
@@ -66,6 +68,26 @@ export default function ProvidersPage() {
         </div>
 
         <div className="mt-12">
+          <section className="premium-card mb-8 rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Provider comparisons
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Compare providers by offer category fit, requirements, fees, and
+              verification reminders.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {featuredComparisons.map((comparison) => (
+                <Link
+                  key={comparison.slug}
+                  href={`/compare/${comparison.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {comparison.title}
+                </Link>
+              ))}
+            </div>
+          </section>
           <DisclosureBlock />
         </div>
       </div>

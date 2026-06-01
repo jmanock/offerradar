@@ -92,3 +92,28 @@ export interface StatePageInfo {
   relatedPages: string[];
   faq: FaqItem[];
 }
+
+export interface GuidePageInfo {
+  slug: string;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  sections: {
+    title: string;
+    body: string;
+  }[];
+  checklist: string[];
+  relatedPages: string[];
+  faq: FaqItem[];
+}
+
+export interface ProviderComparisonInfo {
+  slug: string;
+  title: string;
+  description: string;
+  providerA: ProviderInfo;
+  providerB: ProviderInfo;
+  sharedCategories: OfferCategory[];
+  comparisonAngles: string[];
+}

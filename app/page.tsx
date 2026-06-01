@@ -5,6 +5,8 @@ import { CategoryCard } from "@/components/CategoryCard";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
+import { getAllProviderComparisonPages } from "@/data/comparisonPages";
+import { guidePages } from "@/data/guidePages";
 import { categories } from "@/data/offers";
 import {
   formatDate,
@@ -31,6 +33,7 @@ export default function Home() {
   ].slice(0, 6);
   const recentOffers = getRecentlyVerifiedOffers(5);
   const expiringSoonOffers = getExpiringSoonOffers(5);
+  const featuredComparisons = getAllProviderComparisonPages().slice(0, 6);
   const lastUpdated = getLastUpdated();
 
   return (
@@ -219,6 +222,10 @@ export default function Home() {
               ["/direct-deposit-bonuses", "Direct deposit bonuses"],
               ["/credit-card-welcome-offers", "Card welcome offers"],
               ["/national-bank-bonuses", "National bank bonuses"],
+              ["/brokerage-transfer-bonuses", "Brokerage transfers"],
+              ["/cash-back-signup-bonuses", "Cash back signup"],
+              ["/guides/bank-bonuses", "Bank bonus guide"],
+              ["/guides/offer-comparisons", "Comparison guide"],
             ].map(([href, label]) => (
               <Link
                 key={href}
@@ -228,6 +235,60 @@ export default function Home() {
                 {label}
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Provider research
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              Provider comparisons and guides
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+              Compare providers, then use educational guides to check
+              requirements, fees, disclosures, and expiration dates.
+            </p>
+          </div>
+          <Link href="/providers" className="text-sm font-extrabold text-blue-700">
+            Browse providers
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <div className="premium-card rounded-3xl p-6">
+            <h3 className="text-xl font-black text-slate-950">
+              Popular comparisons
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {featuredComparisons.map((comparison) => (
+                <Link
+                  key={comparison.slug}
+                  href={`/compare/${comparison.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {comparison.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6">
+            <h3 className="text-xl font-black text-slate-950">
+              Offer guides
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {guidePages.slice(0, 6).map((guide) => (
+                <Link
+                  key={guide.slug}
+                  href={`/guides/${guide.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {guide.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
