@@ -19,7 +19,7 @@ export default function OffersPage() {
           All offers
         </h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">
-          Browse local V1 listings grouped by category. Featured and active
+          Browse local V2 listings grouped by category. Featured and active
           offers appear first inside each group, and every listing should be
           verified directly with the provider before applying.
         </p>

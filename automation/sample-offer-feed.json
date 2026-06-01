@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-06-01T00:00:00.000Z",
+  "source": "manual_seed_example",
+  "notes": "Sample shape for a future reviewed automation feed. This is not consumed by the app.",
+  "offers": [
+    {
+      "slug": "example-provider-offer",
+      "provider": "Example Provider",
+      "category": "bank-bonuses",
+      "detectedOfferAmount": "$300",
+      "detectedStatus": "active",
+      "detectedExpirationDate": "2026-08-31",
+      "sourceUrl": "https://example.com/provider-offer",
+      "changeSummary": "Example detected change for future review."
+    }
+  ]
+}

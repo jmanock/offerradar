@@ -2,7 +2,16 @@ import type { MetadataRoute } from "next";
 import { categories, offers, siteUrl } from "@/data/offers";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/offers", "/about", "/disclosures"];
+  const staticRoutes = [
+    "",
+    "/offers",
+    "/about",
+    "/disclosures",
+    "/editorial-policy",
+    "/best-bank-bonuses",
+    "/best-brokerage-bonuses",
+    "/best-referral-bonuses",
+  ];
   const categoryRoutes = categories.map((category) => `/${category.slug}`);
   const offerRoutes = offers.map((offer) => `/offer/${offer.slug}`);
 

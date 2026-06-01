@@ -7,6 +7,8 @@ import { categories } from "@/data/offers";
 import {
   formatDate,
   getActiveOfferCount,
+  getBestOffersByCategory,
+  getExpiringSoonOffers,
   getFeaturedOffers,
   getLastUpdated,
   getRecentlyVerifiedOffers,
@@ -20,7 +22,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const featuredOffers = getFeaturedOffers();
+  const bestCurrentOffers = [
+    ...getBestOffersByCategory("bank-bonuses", 2),
+    ...getBestOffersByCategory("brokerage-bonuses", 2),
+    ...getBestOffersByCategory("referral-offers", 2),
+  ].slice(0, 6);
   const recentOffers = getRecentlyVerifiedOffers(5);
+  const expiringSoonOffers = getExpiringSoonOffers(5);
   const lastUpdated = getLastUpdated();
 
   return (
@@ -69,19 +77,67 @@ export default function Home() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-2xl font-bold text-slate-950">
-              Featured offers
+              Best current offers
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              Selected active example offers with clear requirements and last
-              checked dates.
+              Active example offers surfaced by category, featured status, and
+              verification recency. Verify live terms before acting.
             </p>
           </div>
-          <Link href="/offers" className="text-sm font-semibold text-blue-700">
-            View all offers
-          </Link>
+          <div className="flex flex-wrap gap-3 text-sm font-semibold text-blue-700">
+            <Link href="/best-bank-bonuses">Bank bonuses</Link>
+            <Link href="/best-brokerage-bonuses">Brokerage</Link>
+            <Link href="/best-referral-bonuses">Referrals</Link>
+          </div>
         </div>
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {featuredOffers.map((offer) => (
+          {bestCurrentOffers.map((offer) => (
+            <OfferCard key={offer.slug} offer={offer} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-950">
+                Featured offers
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Selected active example offers with clear requirements and last
+                checked dates.
+              </p>
+            </div>
+            <Link
+              href="/offers"
+              className="text-sm font-semibold text-blue-700"
+            >
+              View all offers
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {featuredOffers.map((offer) => (
+              <OfferCard key={offer.slug} offer={offer} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-950">
+              Expiring soon
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Example offers with listed expiration dates in the next 45 days.
+              Providers may end or update terms earlier.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {expiringSoonOffers.map((offer) => (
             <OfferCard key={offer.slug} offer={offer} />
           ))}
         </div>
@@ -94,7 +150,7 @@ export default function Home() {
               Recently verified
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              These listings were most recently checked in the local V1 data.
+              These listings were most recently checked in the local V2 data.
               Dates are a starting point for comparison, not a guarantee that
               terms remain available.
             </p>
@@ -152,6 +208,31 @@ export default function Home() {
           </div>
         </div>
         <DisclosureBlock />
+      </section>
+
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-950">
+              Future daily tracking
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              V2 keeps the site static while preparing the data shape for later
+              automation. Future checks can compare source pages, detect
+              changes, update local data, and produce daily reports before
+              deployment review.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {["Manual seed now", "Automation-ready fields", "Daily reports later"].map(
+              (item) => (
+                <div key={item} className="rounded-lg bg-slate-50 p-4">
+                  <p className="font-semibold text-slate-950">{item}</p>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
       </section>
     </>
   );

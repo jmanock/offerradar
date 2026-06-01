@@ -20,6 +20,18 @@ export default function DisclosuresPage() {
       <div className="mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6 text-slate-600">
         <section>
           <h2 className="text-xl font-bold text-slate-950">
+            Referral and affiliate links
+          </h2>
+          <p className="mt-3 leading-7">
+            Some links may be referral or affiliate links, and OfferRadar may
+            earn compensation if a user signs up, applies, opens an account, or
+            completes eligible activity through those links. Referral or
+            affiliate compensation does not guarantee that an offer is best for
+            a user or that a user will qualify.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold text-slate-950">
             Offers can change
           </h2>
           <p className="mt-3 leading-7">

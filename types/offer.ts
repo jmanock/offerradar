@@ -3,9 +3,19 @@ export type OfferCategory =
   | "brokerage-bonuses"
   | "referral-offers"
   | "high-yield-savings"
-  | "business-banking";
+  | "business-banking"
+  | "credit-card-offers"
+  | "cash-back-apps";
 
 export type OfferStatus = "active" | "expired" | "watching";
+
+export type VerificationStatus =
+  | "verified_today"
+  | "verified_this_week"
+  | "needs_review"
+  | "expired";
+
+export type AutomationSource = "manual_seed" | "future_bot";
 
 export interface Offer {
   slug: string;
@@ -21,10 +31,19 @@ export interface Offer {
   referralUrl?: string;
   sourceUrl?: string;
   lastVerified: string;
+  verificationStatus: VerificationStatus;
   status: OfferStatus;
   featured?: boolean;
   riskNotes?: string[];
   tags?: string[];
+  requiresDirectDeposit?: boolean;
+  minimumDeposit?: string;
+  monthlyFee?: string;
+  stateRestrictions?: string[];
+  referralCode?: string;
+  automationSource?: AutomationSource;
+  lastChanged?: string;
+  changeSummary?: string;
 }
 
 export interface CategoryInfo {

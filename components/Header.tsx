@@ -34,6 +34,9 @@ export function Header() {
           <Link href="/about" className="hover:text-blue-700">
             About
           </Link>
+          <Link href="/editorial-policy" className="hover:text-blue-700">
+            Policy
+          </Link>
         </nav>
       </div>
     </header>

@@ -17,7 +17,7 @@ export default function AboutPage() {
       </h1>
       <div className="mt-6 space-y-5 text-lg leading-8 text-slate-600">
         <p>
-          OfferRadar is a data-first static V1 for tracking bonuses, offers,
+          OfferRadar is a data-first static V2 foundation for tracking bonuses, offers,
           referrals, and promotions in one organized place.
         </p>
         <p>
@@ -44,6 +44,12 @@ export default function AboutPage() {
           className="inline-flex justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:border-blue-300"
         >
           Read disclosures
+        </Link>
+        <Link
+          href="/editorial-policy"
+          className="inline-flex justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:border-blue-300"
+        >
+          Editorial policy
         </Link>
       </div>
       <div className="mt-10">

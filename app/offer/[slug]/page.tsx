@@ -70,11 +70,15 @@ export default async function OfferDetailPage({ params }: Props) {
                 {offer.provider}
               </p>
             </div>
-            <StatusBadge status={offer.status} />
+            <div className="flex flex-wrap gap-2 sm:justify-end">
+              <StatusBadge status={offer.status} />
+              <StatusBadge status={offer.verificationStatus} />
+            </div>
           </div>
 
-          <div className="mt-8 grid gap-4 rounded-xl bg-slate-50 p-5 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 rounded-xl bg-slate-50 p-5 sm:grid-cols-4">
             <DetailStat label="Offer amount" value={offer.offerAmount} />
+            <DetailStat label="Category" value={category?.shortTitle ?? "Offer"} />
             <DetailStat label="Offer type" value={offer.offerType} />
             <DetailStat
               label="Last checked"
@@ -87,9 +91,34 @@ export default async function OfferDetailPage({ params }: Props) {
             <p className="mt-3 leading-7 text-slate-600">{offer.description}</p>
           </section>
 
+          <section className="mt-8 grid gap-4 md:grid-cols-2">
+            <DetailPanel
+              label="Direct deposit"
+              value={offer.requiresDirectDeposit ? "May be required" : "Not listed"}
+            />
+            <DetailPanel
+              label="Minimum deposit or spend"
+              value={offer.minimumDeposit ?? "Verify with provider"}
+            />
+            <DetailPanel
+              label="Monthly or annual fee"
+              value={offer.monthlyFee ?? "Verify with provider"}
+            />
+            <DetailPanel
+              label="Referral code"
+              value={offer.referralCode ?? "Not listed"}
+            />
+          </section>
+
           <InfoList title="Requirements" items={offer.requirements} />
           {offer.fees?.length ? (
             <InfoList title="Fees and costs to check" items={offer.fees} />
+          ) : null}
+          {offer.stateRestrictions?.length ? (
+            <InfoList
+              title="State or availability restrictions"
+              items={offer.stateRestrictions}
+            />
           ) : null}
           {offer.riskNotes?.length ? (
             <InfoList title="Things to verify" items={offer.riskNotes} />
@@ -117,16 +146,41 @@ export default async function OfferDetailPage({ params }: Props) {
               Use the provider or referral link as a starting point, then
               compare the live terms, eligibility, fees, and payout timing.
             </p>
-            {primaryUrl ? (
-              <a
-                href={primaryUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex w-full justify-center rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
-              >
-                Open provider details
-              </a>
-            ) : null}
+            <div className="mt-5 grid gap-3">
+              {offer.referralUrl ? (
+                <a
+                  href={offer.referralUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full justify-center rounded-lg bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
+                >
+                  Open referral link
+                </a>
+              ) : null}
+              {offer.sourceUrl ? (
+                <a
+                  href={offer.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-full justify-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  Open source details
+                </a>
+              ) : null}
+              {!primaryUrl ? (
+                <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
+                  No external link is listed in the local seed data.
+                </p>
+              ) : null}
+            </div>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-950">Tracking notes</h2>
+            <dl className="mt-4 grid gap-3 text-sm">
+              <TrackingRow label="Automation source" value={offer.automationSource ?? "manual_seed"} />
+              <TrackingRow label="Last changed" value={offer.lastChanged ? formatDate(offer.lastChanged) : "Not listed"} />
+              <TrackingRow label="Change summary" value={offer.changeSummary ?? "No change summary listed."} />
+            </dl>
           </div>
           <DisclosureBlock compact />
         </aside>
@@ -146,6 +200,17 @@ export default async function OfferDetailPage({ params }: Props) {
   );
 }
 
+function DetailPanel({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-white p-4">
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 text-sm font-semibold text-slate-900">{value}</p>
+    </div>
+  );
+}
+
 function DetailStat({ label, value }: { label: string; value: string }) {
   return (
     <div>
@@ -153,6 +218,15 @@ function DetailStat({ label, value }: { label: string; value: string }) {
         {label}
       </p>
       <p className="mt-2 font-bold text-slate-950">{value}</p>
+    </div>
+  );
+}
+
+function TrackingRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="font-semibold text-slate-500">{label}</dt>
+      <dd className="mt-1 text-slate-700">{value}</dd>
     </div>
   );
 }

@@ -24,6 +24,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
         <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
           {category?.shortTitle}
         </span>
+        <StatusBadge status={offer.verificationStatus} />
       </div>
       <p className="mt-4 flex-1 text-sm leading-6 text-slate-600">
         {offer.description}
