@@ -11,7 +11,12 @@
     "offers:validate": "python3 -B automation/scripts/validate_offers.py",
     "offers:changes": "python3 -B automation/scripts/detect_offer_changes.py --write",
     "offers:report": "python3 -B automation/scripts/generate_offer_report.py --write",
-    "offers:pipeline": "python3 -B automation/scripts/run_offer_pipeline.py --write"
+    "offers:pipeline": "python3 -B automation/scripts/run_offer_pipeline.py --write",
+    "intelligence:monetization": "python3 -B automation/scripts/analyze_monetization_gaps.py",
+    "intelligence:content": "python3 -B automation/scripts/analyze_content_gaps.py",
+    "intelligence:links": "python3 -B automation/scripts/audit_internal_links.py",
+    "intelligence:report": "python3 -B automation/scripts/generate_v7_intelligence_report.py",
+    "intelligence:all": "npm run offers:pipeline && npm run intelligence:monetization && npm run intelligence:content && npm run intelligence:links && npm run intelligence:report"
   },
   "dependencies": {
     "next": "16.2.6",

@@ -1,0 +1,508 @@
+{
+  "generatedAt": "2026-06-02T11:37:54.334928+00:00",
+  "routeCountAudited": 145,
+  "majorPagesWithFewOrNoInternalLinks": [
+    {
+      "route": "/app-referral-offers",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/best-checking-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/best-savings-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/business-checking-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/business-savings-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/credit-card-cash-back-offers",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/brokerage-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/direct-deposits",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/fees",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/minimum-deposits",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/offer-expiration-dates",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/guides/referral-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/high-apy-savings-offers",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/ira-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/limited-time-offers",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/new-customer-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/new-money-savings-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/no-monthly-fee-bank-bonuses",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/acorns-invest-10-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/ally-bank-checking-100-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/ally-savings-bonus-250-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/atlas-active-trader-350-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/axis-invest-600-transfer-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/bank-of-america-advantage-200-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    }
+  ],
+  "providerPagesWithNoOfferLinks": [
+    {
+      "route": "/provider/pnc",
+      "provider": "PNC",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/truist",
+      "provider": "Truist",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/us-bank",
+      "provider": "U.S. Bank",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/td-bank",
+      "provider": "TD Bank",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/citizens-bank",
+      "provider": "Citizens Bank",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/fifth-third-bank",
+      "provider": "Fifth Third Bank",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/huntington-bank",
+      "provider": "Huntington Bank",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/schwab",
+      "provider": "Schwab",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/moomoo",
+      "provider": "Moomoo",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/etrade",
+      "provider": "E*TRADE",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/merrill-edge",
+      "provider": "Merrill Edge",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/stash",
+      "provider": "Stash",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/rakuten",
+      "provider": "Rakuten",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/upside",
+      "provider": "Upside",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/chime",
+      "provider": "Chime",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    },
+    {
+      "route": "/provider/current",
+      "provider": "Current",
+      "action": "Add or review offer records for this provider, or add contextual related offer links."
+    }
+  ],
+  "offerPagesMissingProviderCategoryBestPageLinks": [],
+  "guidePagesMissingRelatedOfferOrCategoryLinks": [
+    {
+      "route": "/guides/minimum-deposits",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/fees",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/offer-expiration-dates",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/brokerage-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/referral-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/direct-deposits",
+      "action": "Review guide related links and add offer/category links where useful."
+    }
+  ],
+  "sitemapRoutesNotLinkedFromObviousHubPages": [
+    {
+      "route": "/app-referral-offers",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/best-checking-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/best-savings-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/brokerage-signup-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/business-bank-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/business-checking-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/business-savings-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/cash-back-app-offers",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/credit-card-cash-back-offers",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/brokerage-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/direct-deposits",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/fees",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/minimum-deposits",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/offer-expiration-dates",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/referral-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/high-apy-savings-offers",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/ira-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/limited-time-offers",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/new-customer-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/new-money-savings-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/no-monthly-fee-bank-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/acorns",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/ally",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/bank-of-america",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/capital-one",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/chase",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/chime",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/citi",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/citizens-bank",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/current",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/discover",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/etrade",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/fidelity",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/fifth-third-bank",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/huntington-bank",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/merrill-edge",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/moomoo",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/pnc",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/public",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/rakuten",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/robinhood",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/schwab",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/sofi",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/stash",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/td-bank",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/truist",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/upside",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/us-bank",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/provider/webull",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    }
+  ],
+  "top10InternalLinkingActions": [
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /app-referral-offers",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-checking-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-savings-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /brokerage-signup-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-bank-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-checking-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-savings-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-app-offers",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /credit-card-cash-back-offers",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /guides/affiliate-disclosures"
+  ]
+}

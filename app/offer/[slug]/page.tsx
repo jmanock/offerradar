@@ -13,6 +13,7 @@ import {
   getOfferBySlug,
   getRelatedOffers,
 } from "@/lib/offers";
+import { getPublicLinkForProvider } from "@/lib/linkRegistry";
 import { offers } from "@/lib/offerData";
 
 type Props = {
@@ -56,7 +57,7 @@ export default async function OfferDetailPage({ params }: Props) {
     (providerInfo) =>
       providerInfo.name.toLowerCase() === offer.provider.toLowerCase(),
   );
-  const primaryUrl = offer.referralUrl ?? offer.sourceUrl;
+  const publicLink = getPublicLinkForProvider(offer.provider);
 
   return (
     <div>
@@ -215,47 +216,36 @@ export default async function OfferDetailPage({ params }: Props) {
               Verify before applying
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Use the provider or referral link as a starting point, then
-              compare the live terms, eligibility, fees, and payout timing.
+              Use a reviewed provider link when available, then compare the
+              live terms, eligibility, fees, and payout timing directly with
+              the provider.
             </p>
             <div className="mt-5 grid gap-3">
-              {offer.referralUrl ? (
+              {publicLink ? (
                 <TrackedOutboundLink
-                  href={offer.referralUrl}
+                  href={publicLink.href}
                   target="_blank"
                   rel="noreferrer"
                   eventParams={{
                     offer_slug: offer.slug,
                     provider: offer.provider,
                     category: offer.category,
-                    link_type: "referral",
+                    link_type: publicLink.linkType,
                   }}
                   className="inline-flex w-full justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
                 >
-                  Open referral link
+                  {publicLink.label}
                 </TrackedOutboundLink>
               ) : null}
-              {offer.sourceUrl ? (
-                <TrackedOutboundLink
-                  href={offer.sourceUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  eventParams={{
-                    offer_slug: offer.slug,
-                    provider: offer.provider,
-                    category: offer.category,
-                    link_type: "source",
-                  }}
-                  className="inline-flex w-full justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-                >
-                  Open source details
-                </TrackedOutboundLink>
-              ) : null}
-              {!primaryUrl ? (
+              {publicLink ? (
+                <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
+                  {publicLink.sourceLabel}
+                </p>
+              ) : (
                 <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
                   Provider terms should be verified directly before acting.
                 </p>
-              ) : null}
+              )}
             </div>
           </div>
           <div className="premium-card rounded-3xl p-5">

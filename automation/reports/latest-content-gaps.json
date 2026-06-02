@@ -1,0 +1,882 @@
+{
+  "generatedAt": "2026-06-02T11:37:54.184015+00:00",
+  "providersInRegistryWithNoOffer": [
+    {
+      "provider": "PNC",
+      "slug": "pnc",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.pnc.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
+      "notes": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Truist",
+      "slug": "truist",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.truist.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official Truist offer URLs and affiliate program details before publishing links.",
+      "notes": "Collect official Truist offer URLs and affiliate program details before publishing links.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "U.S. Bank",
+      "slug": "us-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.usbank.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
+      "notes": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "TD Bank",
+      "slug": "td-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.td.com/us/en/personal-banking",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect official TD Bank offer URLs and confirm affiliate approval or official-only status.",
+      "notes": "Collect official TD Bank offer URLs and confirm affiliate approval or official-only status.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Citizens Bank",
+      "slug": "citizens-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.citizensbank.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect official Citizens Bank offer URLs and affiliate program status manually.",
+      "notes": "Collect official Citizens Bank offer URLs and affiliate program status manually.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Fifth Third Bank",
+      "slug": "fifth-third-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.53.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect official Fifth Third Bank offer URLs and affiliate approval details before adding links.",
+      "notes": "Collect official Fifth Third Bank offer URLs and affiliate approval details before adding links.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Huntington Bank",
+      "slug": "huntington-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.huntington.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect official Huntington Bank offer URLs and affiliate approval details manually.",
+      "notes": "Collect official Huntington Bank offer URLs and affiliate approval details manually.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Schwab",
+      "slug": "schwab",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.schwab.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
+      "notes": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Moomoo",
+      "slug": "moomoo",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.moomoo.com/us",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
+      "notes": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "E*TRADE",
+      "slug": "etrade",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://us.etrade.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
+      "notes": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Merrill Edge",
+      "slug": "merrill-edge",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.merrilledge.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
+      "notes": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Stash",
+      "slug": "stash",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://www.stash.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
+      "notes": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Rakuten",
+      "slug": "rakuten",
+      "category": "cash-back-apps",
+      "officialWebsiteUrl": "https://www.rakuten.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
+      "notes": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Upside",
+      "slug": "upside",
+      "category": "cash-back-apps",
+      "officialWebsiteUrl": "https://www.upside.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
+      "notes": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Chime",
+      "slug": "chime",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://www.chime.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
+      "notes": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
+      "lastReviewed": "2026-06-02"
+    },
+    {
+      "provider": "Current",
+      "slug": "current",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://current.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
+      "notes": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
+      "lastReviewed": "2026-06-02"
+    }
+  ],
+  "providersWithOfferButNoProviderPage": [
+    {
+      "provider": "atlas-markets",
+      "slug": "atlas-markets",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "axis-invest",
+      "slug": "axis-invest",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "blueharbor-premium",
+      "slug": "blueharbor-premium",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "blueprint-bank",
+      "slug": "blueprint-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "bright-yield-bank",
+      "slug": "bright-yield-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "california-pacific-bank",
+      "slug": "california-pacific-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "carolina-first-bank",
+      "slug": "carolina-first-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "civic-credit-union",
+      "slug": "civic-credit-union",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "clearpath-brokerage",
+      "slug": "clearpath-brokerage",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "cloudnote",
+      "slug": "cloudnote",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "commercehub-card",
+      "slug": "commercehub-card",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "dineback",
+      "slug": "dineback",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "evergreen-bank",
+      "slug": "evergreen-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "fitpass",
+      "slug": "fitpass",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "florida-coastal-bank",
+      "slug": "florida-coastal-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "foundry-business-bank",
+      "slug": "foundry-business-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "fuelback",
+      "slug": "fuelback",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "georgia-mainstreet-bank",
+      "slug": "georgia-mainstreet-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "greenline-bank",
+      "slug": "greenline-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "grocerplus-card",
+      "slug": "grocerplus-card",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "harbor-one-bank",
+      "slug": "harbor-one-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "homegrid",
+      "slug": "homegrid",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "illinois-prairie-bank",
+      "slug": "illinois-prairie-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "ledgerline-bank",
+      "slug": "ledgerline-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "localfair-card",
+      "slug": "localfair-card",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "marketstreet-payments",
+      "slug": "marketstreet-payments",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "mealbox",
+      "slug": "mealbox",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "meridian-wealth",
+      "slug": "meridian-wealth",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "metro-trust",
+      "slug": "metro-trust",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "new-york-metro-bank",
+      "slug": "new-york-metro-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "northpoint-card",
+      "slug": "northpoint-card",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "northstar-bank",
+      "slug": "northstar-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "novatrade",
+      "slug": "novatrade",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "oceanview-financial",
+      "slug": "oceanview-financial",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "ohio-river-bank",
+      "slug": "ohio-river-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "opsline-banking",
+      "slug": "opsline-banking",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "payflow",
+      "slug": "payflow",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "pennsylvania-keystone-bank",
+      "slug": "pennsylvania-keystone-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "pinecrest-bank",
+      "slug": "pinecrest-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "pioneer-retirement",
+      "slug": "pioneer-retirement",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "portalplus",
+      "slug": "portalplus",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "receiptwise",
+      "slug": "receiptwise",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "riverbend-bank",
+      "slug": "riverbend-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "shoptrack",
+      "slug": "shoptrack",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "student-path-card",
+      "slug": "student-path-card",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "summit-credit-union",
+      "slug": "summit-credit-union",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "surveywallet",
+      "slug": "surveywallet",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "texas-star-bank",
+      "slug": "texas-star-bank",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "travelkey",
+      "slug": "travelkey",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "vaultplus",
+      "slug": "vaultplus",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    },
+    {
+      "provider": "voyager-rewards",
+      "slug": "voyager-rewards",
+      "offerCount": 1,
+      "action": "Add provider metadata/page coverage for this offer provider."
+    }
+  ],
+  "providersWithProviderPageButWeakOfferCoverage": [
+    {
+      "provider": "PNC",
+      "slug": "pnc",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.pnc.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
+      "notes": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for PNC before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Truist",
+      "slug": "truist",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.truist.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official Truist offer URLs and affiliate program details before publishing links.",
+      "notes": "Collect official Truist offer URLs and affiliate program details before publishing links.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Truist before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Fidelity",
+      "slug": "fidelity",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.fidelity.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect official Fidelity offer pages and confirm affiliate approval before adding brokerage links.",
+      "notes": "Collect official Fidelity offer pages and confirm affiliate approval before adding brokerage links.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 1,
+      "action": "Add or review offer coverage for Fidelity before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Schwab",
+      "slug": "schwab",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.schwab.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
+      "notes": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Schwab before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Robinhood",
+      "slug": "robinhood",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://robinhood.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect Jon's real Robinhood referral link manually from the account dashboard before publishing.",
+      "notes": "Collect Jon's real Robinhood referral link manually from the account dashboard before publishing.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 1,
+      "action": "Add or review offer coverage for Robinhood before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Webull",
+      "slug": "webull",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.webull.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect Jon's real Webull referral link manually and verify current campaign terms.",
+      "notes": "Collect Jon's real Webull referral link manually and verify current campaign terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 1,
+      "action": "Add or review offer coverage for Webull before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Public",
+      "slug": "public",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://public.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Public referral link manually and verify current referral terms.",
+      "notes": "Collect Jon's real Public referral link manually and verify current referral terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 1,
+      "action": "Add or review offer coverage for Public before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Moomoo",
+      "slug": "moomoo",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.moomoo.com/us",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
+      "notes": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Moomoo before prioritizing comparison traffic."
+    },
+    {
+      "provider": "E*TRADE",
+      "slug": "etrade",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://us.etrade.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
+      "notes": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for E*TRADE before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Merrill Edge",
+      "slug": "merrill-edge",
+      "category": "brokerage-bonuses",
+      "officialWebsiteUrl": "https://www.merrilledge.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
+      "notes": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Merrill Edge before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Acorns",
+      "slug": "acorns",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://www.acorns.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Acorns referral link manually and verify subscription/referral terms.",
+      "notes": "Collect Jon's real Acorns referral link manually and verify subscription/referral terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 1,
+      "action": "Add or review offer coverage for Acorns before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Stash",
+      "slug": "stash",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://www.stash.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
+      "notes": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Stash before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Rakuten",
+      "slug": "rakuten",
+      "category": "cash-back-apps",
+      "officialWebsiteUrl": "https://www.rakuten.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "critical",
+      "userActionNeeded": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
+      "notes": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Rakuten before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Upside",
+      "slug": "upside",
+      "category": "cash-back-apps",
+      "officialWebsiteUrl": "https://www.upside.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
+      "notes": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Upside before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Chime",
+      "slug": "chime",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://www.chime.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
+      "notes": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Chime before prioritizing comparison traffic."
+    },
+    {
+      "provider": "Current",
+      "slug": "current",
+      "category": "referral-offers",
+      "officialWebsiteUrl": "https://current.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_referral",
+      "monetizationPriority": "medium",
+      "userActionNeeded": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
+      "notes": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
+      "lastReviewed": "2026-06-02",
+      "offerCount": 0,
+      "action": "Add or review offer coverage for Current before prioritizing comparison traffic."
+    }
+  ],
+  "highPriorityProvidersMissingFromComparisonPages": [
+    {
+      "provider": "U.S. Bank",
+      "slug": "us-bank",
+      "category": "bank-bonuses",
+      "officialWebsiteUrl": "https://www.usbank.com",
+      "officialOfferUrl": "",
+      "referralUrl": "",
+      "affiliateUrl": "",
+      "affiliateNetwork": "",
+      "linkStatus": "needs_affiliate_approval",
+      "monetizationPriority": "high",
+      "userActionNeeded": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
+      "notes": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
+      "lastReviewed": "2026-06-02",
+      "action": "Add hand-curated comparison links or a focused comparison hub for U.S. Bank."
+    }
+  ],
+  "guideTopicsThatShouldExistNext": [
+    "affiliate-networks",
+    "bank-affiliate-programs",
+    "brokerage-referral-links",
+    "cash-back-referral-links",
+    "offer-review-workflow",
+    "official-offer-urls"
+  ],
+  "pageFamiliesThatNeedStrengthening": [
+    {
+      "family": "Provider pages",
+      "status": "26 provider pages detected",
+      "action": "Add missing registry providers to data/providers.ts when they become important traffic or monetization targets."
+    },
+    {
+      "family": "State pages",
+      "status": "0 state/national pages detected",
+      "action": "Add more state-specific offer context after real source URLs and bank availability data improve."
+    },
+    {
+      "family": "Offer type pages",
+      "status": "24 intent pages detected",
+      "action": "Strengthen pages with real source URLs, monetized links, and editorial review notes."
+    }
+  ],
+  "top10ContentActions": [
+    "Add or verify at least one tracked offer for Rakuten before deeper SEO expansion.",
+    "Add or verify at least one tracked offer for Schwab before deeper SEO expansion.",
+    "Strengthen Fidelity with another reviewed offer or official source URL.",
+    "Strengthen Robinhood with another reviewed offer or official source URL.",
+    "Strengthen Webull with another reviewed offer or official source URL.",
+    "Add or verify at least one tracked offer for Chime before deeper SEO expansion.",
+    "Add or verify at least one tracked offer for E*TRADE before deeper SEO expansion.",
+    "Add or verify at least one tracked offer for Merrill Edge before deeper SEO expansion.",
+    "Add or verify at least one tracked offer for Moomoo before deeper SEO expansion.",
+    "Add or verify at least one tracked offer for PNC before deeper SEO expansion."
+  ]
+}

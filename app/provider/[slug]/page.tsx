@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
+import { getPublicLinkForProvider } from "@/lib/linkRegistry";
 import {
   getAllProviders,
   getCategoryBySlug,
@@ -44,6 +46,7 @@ export default async function ProviderPage({ params }: Props) {
 
   const offers = getOffersByProvider(provider.name);
   const comparisons = getComparisonsForProvider(provider.slug, 8);
+  const publicLink = getPublicLinkForProvider(provider.name);
 
   return (
     <div>
@@ -73,6 +76,31 @@ export default async function ProviderPage({ params }: Props) {
             <p className="mt-4 text-sm leading-6 text-slate-600">
               {provider.disclosureNote}
             </p>
+            <div className="mt-5 grid gap-3">
+              {publicLink ? (
+                <>
+                  <TrackedOutboundLink
+                    href={publicLink.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    eventParams={{
+                      provider: provider.name,
+                      link_type: publicLink.linkType,
+                    }}
+                    className="inline-flex w-full justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
+                  >
+                    {publicLink.label}
+                  </TrackedOutboundLink>
+                  <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
+                    {publicLink.sourceLabel}
+                  </p>
+                </>
+              ) : (
+                <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
+                  Verify directly with provider.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </section>
