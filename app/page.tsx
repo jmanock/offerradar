@@ -3,10 +3,16 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
-import { getAllProviderComparisonPages } from "@/data/comparisonPages";
-import { guidePages } from "@/data/guidePages";
+import {
+  featuredGuideLinks,
+  popularCategoryLinks,
+  popularComparisonLinks,
+  priorityLandingPages,
+} from "@/data/internalLinks";
+import { floridaCities, localSeoPages } from "@/data/localSeo";
 import { categories } from "@/data/offers";
 import {
   formatDate,
@@ -19,9 +25,9 @@ import {
 } from "@/lib/offers";
 
 export const metadata: Metadata = {
-  title: "OfferRadar | Track bonuses, offers, referrals, and promotions",
+  title: "OfferRadar | Florida Banking Offers and Local Bank Comparisons",
   description:
-    "Compare bonuses, referral offers, brokerage promotions, savings rates, and business banking offers with verification notes and clear requirements.",
+    "Find better banking offers in Florida. Compare checking, savings, credit unions, business banking, mortgage topics, bonuses, and local bank matches.",
 };
 
 export default function Home() {
@@ -33,7 +39,6 @@ export default function Home() {
   ].slice(0, 6);
   const recentOffers = getRecentlyVerifiedOffers(5);
   const expiringSoonOffers = getExpiringSoonOffers(5);
-  const featuredComparisons = getAllProviderComparisonPages().slice(0, 6);
   const lastUpdated = getLastUpdated();
 
   return (
@@ -46,26 +51,25 @@ export default function Home() {
               OfferRadar.io
             </p>
             <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-[#07111f] sm:text-6xl sm:leading-[1.02]">
-              Track bonuses, offers, referrals, and promotions.
+              Find better banking offers in Florida.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              OfferRadar organizes offer details, referral opportunities, and
-              promotion requirements so users can compare before signing up.
-              Every page keeps verification dates and disclosure language close
-              to the decision.
+              OfferRadar helps compare Florida checking accounts, savings
+              options, credit unions, business banking, mortgage topics, and
+              bank bonuses with verification reminders and clear disclosures.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/offers"
+                href="/best-checking-accounts-florida"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-blue-700 px-6 text-sm font-extrabold text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800"
               >
-                Browse Offers
+                Compare offers
               </Link>
               <Link
-                href="/best-bank-bonuses"
+                href="#lead-capture"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white/90 px-6 text-sm font-extrabold text-slate-950 shadow-sm hover:border-blue-300 hover:text-blue-800"
               >
-                View Best Bonuses
+                Get matched with a local bank
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -205,6 +209,58 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Florida city pages
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">
+                Local banking research in Florida
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+                Start with city and statewide pages, then compare offers,
+                account requirements, and provider terms directly.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_0.9fr]">
+            <div className="premium-card rounded-3xl p-6">
+              <h3 className="text-xl font-black text-slate-950">
+                Featured local pages
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {localSeoPages.map((page) => (
+                  <Link
+                    key={page.slug}
+                    href={`/${page.slug}`}
+                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                  >
+                    {page.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="premium-card rounded-3xl p-6">
+              <h3 className="text-xl font-black text-slate-950">
+                Florida cities tracked
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {floridaCities.map((city) => (
+                  <span
+                    key={city.slug}
+                    className="rounded-full bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-700"
+                  >
+                    {city.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
                 Research paths
               </p>
               <h2 className="mt-3 text-3xl font-black text-slate-950">
@@ -222,10 +278,7 @@ export default function Home() {
               ["/direct-deposit-bonuses", "Direct deposit bonuses"],
               ["/credit-card-welcome-offers", "Card welcome offers"],
               ["/national-bank-bonuses", "National bank bonuses"],
-              ["/brokerage-transfer-bonuses", "Brokerage transfers"],
-              ["/cash-back-signup-bonuses", "Cash back signup"],
-              ["/guides/bank-bonuses", "Bank bonus guide"],
-              ["/guides/offer-comparisons", "Comparison guide"],
+              ...priorityLandingPages.map((link) => [link.href, link.label]),
             ].map(([href, label]) => (
               <Link
                 key={href}
@@ -260,32 +313,48 @@ export default function Home() {
         <div className="mt-6 grid gap-5 lg:grid-cols-2">
           <div className="premium-card rounded-3xl p-6">
             <h3 className="text-xl font-black text-slate-950">
-              Popular comparisons
+              Popular Comparisons
             </h3>
             <div className="mt-4 flex flex-wrap gap-3">
-              {featuredComparisons.map((comparison) => (
+              {popularComparisonLinks.map((comparison) => (
                 <Link
-                  key={comparison.slug}
-                  href={`/compare/${comparison.slug}`}
+                  key={comparison.href}
+                  href={comparison.href}
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
                 >
-                  {comparison.title}
+                  {comparison.label}
                 </Link>
               ))}
             </div>
           </div>
           <div className="premium-card rounded-3xl p-6">
             <h3 className="text-xl font-black text-slate-950">
-              Offer guides
+              Featured Guides
             </h3>
             <div className="mt-4 flex flex-wrap gap-3">
-              {guidePages.slice(0, 6).map((guide) => (
+              {featuredGuideLinks.map((guide) => (
                 <Link
-                  key={guide.slug}
-                  href={`/guides/${guide.slug}`}
+                  key={guide.href}
+                  href={guide.href}
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
                 >
-                  {guide.title}
+                  {guide.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6 lg:col-span-2">
+            <h3 className="text-xl font-black text-slate-950">
+              Popular Categories
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {popularCategoryLinks.map((category) => (
+                <Link
+                  key={category.href}
+                  href={category.href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {category.label}
                 </Link>
               ))}
             </div>
@@ -344,6 +413,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="lead-capture" className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+        <div>
+          <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+            Lead capture
+          </p>
+          <h2 className="mt-3 text-3xl font-black text-slate-950">
+            Join banking deal alerts
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            Tell us your city and product interest. We will use this to improve
+            local Florida banking comparisons and deal-alert workflows.
+          </p>
+        </div>
+        <div className="premium-card rounded-3xl p-6">
+          <LeadCaptureForm source="homepage" />
         </div>
       </section>
     </>

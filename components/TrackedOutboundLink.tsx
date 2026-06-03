@@ -1,7 +1,7 @@
 "use client";
 
 import type { AnchorHTMLAttributes, ReactNode } from "react";
-import { event } from "@/lib/analytics";
+import { event, offerClick } from "@/lib/analytics";
 
 type EventParams = Record<string, string | number | boolean | null | undefined>;
 
@@ -21,6 +21,7 @@ export function TrackedOutboundLink({
       {...props}
       onClick={(clickEvent) => {
         event("outbound_offer_click", eventParams);
+        offerClick(eventParams);
         onClick?.(clickEvent);
       }}
     >

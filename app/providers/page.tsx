@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { getAllProviderComparisonPages } from "@/data/comparisonPages";
-import { getAllProviders, getOffersByProvider } from "@/lib/offers";
+import {
+  featuredGuideLinks,
+  popularCategoryLinks,
+  popularComparisonLinks,
+  priorityLandingPages,
+} from "@/data/internalLinks";
+import { formatDate, getAllProviders, getOffersByProvider, getRecentlyVerifiedOffers } from "@/lib/offers";
 
 export const metadata: Metadata = {
   title: "Offer Providers",
@@ -14,6 +20,17 @@ export const metadata: Metadata = {
 export default function ProvidersPage() {
   const providers = getAllProviders();
   const featuredComparisons = getAllProviderComparisonPages().slice(0, 12);
+  const recentOffers = getRecentlyVerifiedOffers(6);
+  const comparisonLinks = [
+    ...popularComparisonLinks,
+    ...featuredComparisons.slice(0, 6).map((comparison) => ({
+      href: `/compare/${comparison.slug}`,
+      label: comparison.title,
+    })),
+  ].filter(
+    (link, index, links) =>
+      links.findIndex((candidate) => candidate.href === link.href) === index,
+  );
 
   return (
     <div>
@@ -68,22 +85,51 @@ export default function ProvidersPage() {
         </div>
 
         <div className="mt-12">
+          <section className="mb-8 grid gap-5 lg:grid-cols-3">
+            <LinkPanel title="Popular Categories" links={popularCategoryLinks} />
+            <LinkPanel title="Featured Guides" links={featuredGuideLinks} />
+            <LinkPanel title="Priority Landing Pages" links={priorityLandingPages} />
+          </section>
           <section className="premium-card mb-8 rounded-3xl p-6">
             <h2 className="text-2xl font-black text-slate-950">
-              Provider comparisons
+              Popular Comparisons
             </h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Compare providers by offer category fit, requirements, fees, and
               verification reminders.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              {featuredComparisons.map((comparison) => (
+              {comparisonLinks.map((comparison) => (
                 <Link
-                  key={comparison.slug}
-                  href={`/compare/${comparison.slug}`}
+                  key={comparison.href}
+                  href={comparison.href}
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
                 >
-                  {comparison.title}
+                  {comparison.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="premium-card mb-8 rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Recently Verified Offers
+            </h2>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {recentOffers.map((offer) => (
+                <Link
+                  key={offer.slug}
+                  href={`/offer/${offer.slug}`}
+                  className="rounded-2xl bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:bg-white hover:shadow-sm"
+                >
+                  <span className="block font-extrabold text-slate-950">
+                    {offer.provider}
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-600">
+                    {offer.title}
+                  </span>
+                  <span className="mt-2 block text-sm font-bold text-teal-700">
+                    {formatDate(offer.lastVerified)}
+                  </span>
                 </Link>
               ))}
             </div>
@@ -92,5 +138,30 @@ export default function ProvidersPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+function LinkPanel({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string }[];
+}) {
+  return (
+    <section className="premium-card rounded-3xl p-6">
+      <h2 className="text-xl font-black text-slate-950">{title}</h2>
+      <div className="mt-4 flex flex-wrap gap-3">
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }

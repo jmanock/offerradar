@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { categories, siteUrl } from "@/data/offers";
 import { getAllProviderComparisonPages } from "@/data/comparisonPages";
 import { guidePages } from "@/data/guidePages";
+import { localSeoPages } from "@/data/localSeo";
 import { offerTypePages } from "@/data/offerTypePages";
 import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
@@ -14,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/disclosures",
     "/editorial-policy",
+    "/advertising-disclosure",
+    "/privacy-policy",
+    "/terms-of-use",
+    "/contact",
     "/best-bank-bonuses",
     "/best-brokerage-bonuses",
     "/best-referral-bonuses",
@@ -26,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const guideRoutes = guidePages.map((page) => `/guides/${page.slug}`);
   const offerTypeRoutes = offerTypePages.map((page) => `/${page.slug}`);
   const stateRoutes = statePages.map((page) => `/${page.slug}`);
+  const localSeoRoutes = localSeoPages.map((page) => `/${page.slug}`);
 
   return [
     ...staticRoutes,
@@ -36,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideRoutes,
     ...offerTypeRoutes,
     ...stateRoutes,
+    ...localSeoRoutes,
   ].map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),

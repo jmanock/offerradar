@@ -5,6 +5,7 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
+import { featuredGuideLinks } from "@/data/internalLinks";
 import { getPublicLinkForProvider } from "@/lib/linkRegistry";
 import {
   getAllProviders,
@@ -47,6 +48,15 @@ export default async function ProviderPage({ params }: Props) {
   const offers = getOffersByProvider(provider.name);
   const comparisons = getComparisonsForProvider(provider.slug, 8);
   const publicLink = getPublicLinkForProvider(provider.name);
+  const relatedProviders = getAllProviders()
+    .filter(
+      (candidate) =>
+        candidate.slug !== provider.slug &&
+        candidate.relatedCategories.some((category) =>
+          provider.relatedCategories.includes(category),
+        ),
+    )
+    .slice(0, 6);
 
   return (
     <div>
@@ -180,20 +190,54 @@ export default async function ProviderPage({ params }: Props) {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-2xl font-black text-slate-950">
-            Compare {provider.name} with other providers
-          </h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {comparisons.map((comparison) => (
-              <Link
-                key={comparison.slug}
-                href={`/compare/${comparison.slug}`}
-                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-              >
-                {comparison.title}
-              </Link>
-            ))}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related providers
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {relatedProviders.map((relatedProvider) => (
+                <Link
+                  key={relatedProvider.slug}
+                  href={`/provider/${relatedProvider.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {relatedProvider.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related guides
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {featuredGuideLinks.slice(0, 5).map((guide) => (
+                <Link
+                  key={guide.href}
+                  href={guide.href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {guide.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6 lg:col-span-2">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related comparisons
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {comparisons.map((comparison) => (
+                <Link
+                  key={comparison.slug}
+                  href={`/compare/${comparison.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {comparison.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

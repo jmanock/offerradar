@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { OfferCard } from "@/components/OfferCard";
 import { guidePages } from "@/data/guidePages";
+import {
+  getAllProviders,
+  getCategoryBySlug,
+  getOffersByCategory,
+} from "@/lib/offers";
+import type { CategoryInfo, OfferCategory } from "@/types/offer";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -34,6 +41,21 @@ export default async function GuidePage({ params }: Props) {
   if (!page) {
     notFound();
   }
+
+  const relatedCategorySlugs = getGuideCategorySlugs(page.slug);
+  const relatedCategories = relatedCategorySlugs
+    .map((categorySlug) => getCategoryBySlug(categorySlug))
+    .filter((category): category is CategoryInfo => Boolean(category));
+  const relatedOffers = relatedCategorySlugs
+    .flatMap((categorySlug) => getOffersByCategory(categorySlug))
+    .slice(0, 3);
+  const relatedProviders = getAllProviders()
+    .filter((provider) =>
+      provider.relatedCategories.some((categorySlug) =>
+        relatedCategorySlugs.includes(categorySlug),
+      ),
+    )
+    .slice(0, 6);
 
   return (
     <div>
@@ -106,25 +128,88 @@ export default async function GuidePage({ params }: Props) {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="premium-card rounded-3xl p-6">
-          <h2 className="text-2xl font-black text-slate-950">Related pages</h2>
-          <div className="mt-4 flex flex-wrap gap-3">
-            {page.relatedPages.map((href) => (
-              <Link
-                key={href}
-                href={href}
-                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
-              >
-                {href
-                  .replace("/", "")
-                  .split("-")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(" ")}
-              </Link>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related categories
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {relatedCategories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/${category.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {category.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related providers
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {relatedProviders.map((provider) => (
+                <Link
+                  key={provider.slug}
+                  href={`/provider/${provider.slug}`}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {provider.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="premium-card rounded-3xl p-6 lg:col-span-2">
+            <h2 className="text-2xl font-black text-slate-950">Related pages</h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {page.relatedPages.map((href) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {href
+                    .replace("/", "")
+                    .split("-")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black text-slate-950">
+            Related offers
+          </h2>
+          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {relatedOffers.map((offer) => (
+              <OfferCard key={offer.slug} offer={offer} />
             ))}
           </div>
         </div>
       </section>
     </div>
   );
+}
+
+function getGuideCategorySlugs(slug: string): OfferCategory[] {
+  const guideCategories: Record<string, OfferCategory[]> = {
+    "bank-bonuses": ["bank-bonuses"],
+    "direct-deposits": ["bank-bonuses", "business-banking"],
+    "minimum-deposits": ["bank-bonuses", "high-yield-savings", "brokerage-bonuses"],
+    "brokerage-bonuses": ["brokerage-bonuses"],
+    "referral-bonuses": ["referral-offers", "cash-back-apps"],
+    fees: ["bank-bonuses", "brokerage-bonuses", "credit-card-offers"],
+    "offer-comparisons": ["bank-bonuses", "brokerage-bonuses", "referral-offers"],
+    "offer-expiration-dates": ["bank-bonuses", "brokerage-bonuses"],
+    "affiliate-disclosures": ["referral-offers", "cash-back-apps"],
+  };
+
+  return guideCategories[slug] ?? ["bank-bonuses", "brokerage-bonuses"];
 }

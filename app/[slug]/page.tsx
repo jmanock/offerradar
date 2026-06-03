@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { LocalSeoPageView } from "@/components/LocalSeoPage";
 import { OfferCard } from "@/components/OfferCard";
+import { getLocalSeoPageBySlug, localSeoPages } from "@/data/localSeo";
 import {
   getAllOfferTypePages,
   getAllStatePages,
@@ -21,6 +23,7 @@ export function generateStaticParams() {
   return [
     ...getAllOfferTypePages().map((page) => ({ slug: page.slug })),
     ...getAllStatePages().map((page) => ({ slug: page.slug })),
+    ...localSeoPages.map((page) => ({ slug: page.slug })),
   ];
 }
 
@@ -28,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const offerTypePage = getOfferTypePageBySlug(slug);
   const statePage = getStatePageBySlug(slug);
+  const localSeoPage = getLocalSeoPageBySlug(slug);
 
   if (offerTypePage) {
     return {
@@ -45,6 +49,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (localSeoPage) {
+    return {
+      title: localSeoPage.title,
+      description: localSeoPage.description,
+      alternates: { canonical: `/${localSeoPage.slug}` },
+    };
+  }
+
   return { title: "Page not found" };
 }
 
@@ -52,6 +64,7 @@ export default async function ProgrammaticPage({ params }: Props) {
   const { slug } = await params;
   const offerTypePage = getOfferTypePageBySlug(slug);
   const statePage = getStatePageBySlug(slug);
+  const localSeoPage = getLocalSeoPageBySlug(slug);
 
   if (offerTypePage) {
     const offers = getOffersForOfferTypePage(offerTypePage.slug);
@@ -98,6 +111,10 @@ export default async function ProgrammaticPage({ params }: Props) {
         }))}
       />
     );
+  }
+
+  if (localSeoPage) {
+    return <LocalSeoPageView page={localSeoPage} />;
   }
 
   notFound();

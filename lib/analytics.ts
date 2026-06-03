@@ -31,5 +31,25 @@ export function event(name: string, params: AnalyticsParams = {}) {
   window.gtag("event", name, params);
 }
 
+export function offerClick(params: AnalyticsParams = {}) {
+  event("offer_click", params);
+}
+
+export function compareClick(params: AnalyticsParams = {}) {
+  event("compare_click", params);
+}
+
+export function leadSubmit(params: AnalyticsParams = {}) {
+  event("lead_submit", params);
+}
+
+export function newsletterSignup(params: AnalyticsParams = {}) {
+  event("newsletter_signup", params);
+}
+
+export function cityPageView(params: AnalyticsParams = {}) {
+  event("city_page_view", params);
+}
+
 // Add future product analytics events here so event names and payload shapes
 // stay consistent across pages, cards, outbound links, and comparison tools.
