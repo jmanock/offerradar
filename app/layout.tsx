@@ -23,6 +23,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "fbd66d1bed94486a87683b0b5f029153",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://offerradar.io",
+    siteName: "OfferRadar",
+    title: "OfferRadar | Banking Offers and Local Financial Comparisons",
+    description:
+      "Compare banking offers, bonuses, referrals, local account options, verification dates, and disclosure-first financial comparison pages.",
+  },
+  twitter: {
+    card: "summary",
+    title: "OfferRadar | Banking Offers and Local Financial Comparisons",
+    description:
+      "Compare banking offers, bonuses, referrals, local account options, verification dates, and disclosure-first financial comparison pages.",
+  },
 };
 
 export default function RootLayout({

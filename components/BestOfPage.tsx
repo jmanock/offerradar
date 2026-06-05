@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { getBestOffersByCategory } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
@@ -17,6 +18,15 @@ export function BestOfPage({
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: title,
+          description: intro,
+          url: `https://offerradar.io/${getBestOfPath(category.slug)}`,
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
@@ -83,4 +93,14 @@ export function BestOfPage({
       </section>
     </div>
   );
+}
+
+function getBestOfPath(categorySlug: CategoryInfo["slug"]) {
+  const paths: Partial<Record<CategoryInfo["slug"], string>> = {
+    "bank-bonuses": "best-bank-bonuses",
+    "brokerage-bonuses": "best-brokerage-bonuses",
+    "referral-offers": "best-referral-bonuses",
+  };
+
+  return paths[categorySlug] ?? categorySlug;
 }

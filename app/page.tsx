@@ -17,6 +17,7 @@ import { categories } from "@/data/offers";
 import {
   formatDate,
   getActiveOfferCount,
+  getAllProviders,
   getBestOffersByCategory,
   getExpiringSoonOffers,
   getFeaturedOffers,
@@ -39,6 +40,8 @@ export default function Home() {
   ].slice(0, 6);
   const recentOffers = getRecentlyVerifiedOffers(5);
   const expiringSoonOffers = getExpiringSoonOffers(5);
+  const popularProviders = getAllProviders().slice(0, 8);
+  const newThisWeekOffers = getRecentlyVerifiedOffers(4);
   const lastUpdated = getLastUpdated();
 
   return (
@@ -147,6 +150,39 @@ export default function Home() {
       </OfferSection>
 
       <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Popular Providers
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">
+                Provider pages to compare
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+                Start with provider pages, then compare related offers,
+                categories, and provider-vs-provider pages.
+              </p>
+            </div>
+            <Link href="/providers" className="text-sm font-extrabold text-blue-700">
+              Browse all providers
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {popularProviders.map((provider) => (
+              <Link
+                key={provider.slug}
+                href={`/provider/${provider.slug}`}
+                className="premium-card rounded-2xl p-4 font-extrabold text-slate-950 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-800"
+              >
+                {provider.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
@@ -180,6 +216,40 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              New This Week
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              Recently refreshed offer records
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+              New and recently verified records are shown with last reviewed
+              dates so readers can verify terms directly before acting.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {newThisWeekOffers.map((offer) => (
+            <Link
+              key={offer.slug}
+              href={`/offer/${offer.slug}`}
+              className="premium-card rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200"
+            >
+              <p className="text-sm font-extrabold text-slate-950">
+                {offer.provider}
+              </p>
+              <p className="mt-2 text-sm text-slate-600">{offer.title}</p>
+              <p className="mt-4 text-xs font-bold uppercase tracking-wide text-teal-700">
+                Last verified {formatDate(offer.lastVerified)}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
 

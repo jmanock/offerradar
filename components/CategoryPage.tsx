@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { getAllOfferTypePages, getOffersByCategory } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
@@ -13,6 +14,35 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: category.title,
+          description: category.description,
+          url: `https://offerradar.io/${category.slug}`,
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: category.title,
+              item: `https://offerradar.io/${category.slug}`,
+            },
+          ],
+        }}
+      />
       <AnalyticsEvent
         name="category_page_view"
         params={{

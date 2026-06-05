@@ -1,6 +1,6 @@
 # OfferRadar V7 Intelligence Report
 
-Generated: 2026-06-02T11:37:54.463779+00:00
+Generated: 2026-06-05T11:20:23.487796+00:00
 
 ## Executive Summary
 
@@ -82,12 +82,12 @@ Generated: 2026-06-02T11:37:54.463779+00:00
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-checking-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-savings-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /brokerage-signup-bonuses
+- Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /brokerage-transfer-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-bank-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-checking-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-savings-bonuses
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-app-offers
-- Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /credit-card-cash-back-offers
-- Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /guides/affiliate-disclosures
+- Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-signup-bonuses
 
 ## Recommended Tomorrow Workflow
 

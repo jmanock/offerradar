@@ -1,24 +1,9 @@
 {
-  "generatedAt": "2026-06-02T11:37:54.334928+00:00",
+  "generatedAt": "2026-06-05T11:20:23.272450+00:00",
   "routeCountAudited": 145,
   "majorPagesWithFewOrNoInternalLinks": [
     {
-      "route": "/app-referral-offers",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/best-checking-bonuses",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/best-savings-bonuses",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/business-checking-bonuses",
+      "route": "/brokerage-transfer-bonuses",
       "linkCount": 0,
       "action": "Add this route to a hub page or related-page block if it is a priority."
     },
@@ -28,27 +13,7 @@
       "action": "Add this route to a hub page or related-page block if it is a priority."
     },
     {
-      "route": "/credit-card-cash-back-offers",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/guides/affiliate-disclosures",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/guides/brokerage-bonuses",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/guides/direct-deposits",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/guides/fees",
+      "route": "/cash-back-signup-bonuses",
       "linkCount": 0,
       "action": "Add this route to a hub page or related-page block if it is a priority."
     },
@@ -59,11 +24,6 @@
     },
     {
       "route": "/guides/offer-expiration-dates",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/guides/referral-bonuses",
       "linkCount": 0,
       "action": "Add this route to a hub page or related-page block if it is a priority."
     },
@@ -84,11 +44,6 @@
     },
     {
       "route": "/new-customer-bonuses",
-      "linkCount": 0,
-      "action": "Add this route to a hub page or related-page block if it is a priority."
-    },
-    {
-      "route": "/new-money-savings-bonuses",
       "linkCount": 0,
       "action": "Add this route to a hub page or related-page block if it is a priority."
     },
@@ -124,6 +79,51 @@
     },
     {
       "route": "/offer/bank-of-america-advantage-200-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/bank-of-america-customized-cash-200-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/blueharbor-premium-card-800-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/blueprint-business-checking-250-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/bright-yield-savings-apy-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/california-pacific-bank-200-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/capital-one-360-checking-250-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/capital-one-venture-75000-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/carolina-first-bank-200-example",
+      "linkCount": 0,
+      "action": "Add this route to a hub page or related-page block if it is a priority."
+    },
+    {
+      "route": "/offer/chase-sapphire-preferred-60000-example",
       "linkCount": 0,
       "action": "Add this route to a hub page or related-page block if it is a priority."
     }
@@ -217,15 +217,7 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/fees",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/offer-expiration-dates",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/affiliate-disclosures",
+      "route": "/guides/direct-deposits",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
@@ -233,11 +225,27 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
+      "route": "/guides/bank-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/offer-expiration-dates",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/referral-bonuses",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/direct-deposits",
+      "route": "/guides/fees",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/offer-comparisons",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     }
   ],
@@ -263,6 +271,11 @@
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     },
     {
+      "route": "/brokerage-transfer-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
       "route": "/business-bank-bonuses",
       "hubLinkCount": 0,
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
@@ -283,12 +296,22 @@
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     },
     {
+      "route": "/cash-back-signup-bonuses",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
       "route": "/credit-card-cash-back-offers",
       "hubLinkCount": 0,
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     },
     {
       "route": "/guides/affiliate-disclosures",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/bank-bonuses",
       "hubLinkCount": 0,
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     },
@@ -309,6 +332,11 @@
     },
     {
       "route": "/guides/minimum-deposits",
+      "hubLinkCount": 0,
+      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
+    },
+    {
+      "route": "/guides/offer-comparisons",
       "hubLinkCount": 0,
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     },
@@ -471,26 +499,6 @@
       "route": "/provider/td-bank",
       "hubLinkCount": 0,
       "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
-    },
-    {
-      "route": "/provider/truist",
-      "hubLinkCount": 0,
-      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
-    },
-    {
-      "route": "/provider/upside",
-      "hubLinkCount": 0,
-      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
-    },
-    {
-      "route": "/provider/us-bank",
-      "hubLinkCount": 0,
-      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
-    },
-    {
-      "route": "/provider/webull",
-      "hubLinkCount": 0,
-      "action": "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page."
     }
   ],
   "top10InternalLinkingActions": [
@@ -498,11 +506,11 @@
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-checking-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-savings-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /brokerage-signup-bonuses",
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /brokerage-transfer-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-bank-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-checking-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /business-savings-bonuses",
     "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-app-offers",
-    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /credit-card-cash-back-offers",
-    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /guides/affiliate-disclosures"
+    "Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-signup-bonuses"
   ]
 }

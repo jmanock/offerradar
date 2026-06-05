@@ -408,6 +408,142 @@ export const localSeoPages: LocalSeoPage[] = [
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
     ],
   },
+  {
+    slug: "checking-account-bonuses-florida",
+    title: "Checking Account Bonuses in Florida",
+    description:
+      "Compare checking account bonuses in Florida by direct deposit requirements, fees, eligibility, and last reviewed dates.",
+    h1: "Checking account bonuses in Florida",
+    kind: "promotions",
+    location: "Florida",
+    lastUpdated: "2026-06-05",
+    intro:
+      "Florida checking account bonuses can be useful to compare, but eligibility, direct deposit rules, monthly fees, and payout timing vary by provider. Use this page as a checklist before verifying terms directly.",
+    comparisonSections: [
+      {
+        title: "Direct deposit and activity rules",
+        body: "Many checking bonuses require qualifying direct deposits or account activity within a defined window.",
+        points: ["Qualifying deposit source", "Minimum deposit amount", "Activity deadline", "Payout timing"],
+      },
+      {
+        title: "Fees and eligibility",
+        body: "A bonus can lose value if the account has monthly fees, waiver rules, or early closure restrictions that do not fit your situation.",
+        points: ["Monthly fee waiver", "New customer rule", "State availability", "Early closure policy"],
+      },
+    ],
+    faqs: floridaFaqs,
+    cta: {
+      title: "Compare checking bonuses",
+      body: "Review tracked checking offers and request local match alerts as Florida coverage expands.",
+    },
+    relatedLinks: [
+      { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
+      { href: "/checking-account-bonuses", label: "Checking account bonuses" },
+      { href: "/bank-bonuses-promotions-florida", label: "Florida bank promotions" },
+    ],
+  },
+  {
+    slug: "savings-account-bonuses-florida",
+    title: "Savings Account Bonuses in Florida",
+    description:
+      "Compare Florida savings account bonuses by new money rules, balance requirements, APY, fees, and verification reminders.",
+    h1: "Savings account bonuses in Florida",
+    kind: "promotions",
+    location: "Florida",
+    lastUpdated: "2026-06-05",
+    intro:
+      "Savings account bonuses in Florida often depend on new money, balance tiers, hold periods, and variable APYs. Compare the bonus against account fit and provider terms.",
+    comparisonSections: [
+      {
+        title: "New money and balance rules",
+        body: "Savings bonuses may require external deposits that stay in the account for a stated period.",
+        points: ["New money definition", "Minimum balance", "Hold period", "Funding deadline"],
+      },
+      {
+        title: "Rate and fee checks",
+        body: "Savings APYs can change, and fees or withdrawal rules may affect whether an account is useful beyond the bonus.",
+        points: ["Variable APY", "Monthly fee", "Withdrawal limits", "Deposit insurance disclosures"],
+      },
+    ],
+    faqs: floridaFaqs,
+    cta: {
+      title: "Compare savings bonuses",
+      body: "Track savings offers, balance requirements, and verification dates before moving money.",
+    },
+    relatedLinks: [
+      { href: "/best-savings-accounts-florida", label: "Best savings accounts in Florida" },
+      { href: "/savings-account-bonuses", label: "Savings account bonuses" },
+      { href: "/high-yield-savings", label: "High-yield savings" },
+    ],
+  },
+  {
+    slug: "brokerage-bonuses-florida",
+    title: "Brokerage Bonuses in Florida",
+    description:
+      "Compare brokerage bonuses available to Florida users by funding thresholds, transfer rules, holding periods, and risk reminders.",
+    h1: "Brokerage bonuses in Florida",
+    kind: "promotions",
+    location: "Florida",
+    lastUpdated: "2026-06-05",
+    intro:
+      "Brokerage bonuses may be available nationally, including to Florida users, but account approval, funding thresholds, transfer rules, and investment risks should be reviewed carefully.",
+    comparisonSections: [
+      {
+        title: "Funding and transfer requirements",
+        body: "Brokerage promotions often use tiered rewards based on new money, ACAT transfers, or retirement account movement.",
+        points: ["Funding tier", "Eligible account type", "Transfer deadline", "Holding period"],
+      },
+      {
+        title: "Risk and cost reminders",
+        body: "Investment accounts can lose value, and transfer fees, advisory fees, or tax considerations may matter more than a bonus.",
+        points: ["Market risk", "Transfer fees", "Tax considerations", "Account fit"],
+      },
+    ],
+    faqs: floridaFaqs,
+    cta: {
+      title: "Compare brokerage bonuses",
+      body: "Use OfferRadar to compare funding requirements and risk notes before opening or transferring an account.",
+    },
+    relatedLinks: [
+      { href: "/brokerage-bonuses", label: "Brokerage bonuses" },
+      { href: "/best-brokerage-bonuses", label: "Best brokerage bonuses" },
+      { href: "/brokerage-signup-bonuses", label: "Brokerage signup bonuses" },
+    ],
+  },
+  {
+    slug: "referral-bonuses-florida",
+    title: "Referral Bonuses in Florida",
+    description:
+      "Compare referral bonuses relevant to Florida users by app eligibility, invite links, required activity, and payout rules.",
+    h1: "Referral bonuses in Florida",
+    kind: "promotions",
+    location: "Florida",
+    lastUpdated: "2026-06-05",
+    intro:
+      "Referral bonuses can vary by user, link, campaign, and region. Florida users should confirm the in-app or provider terms before relying on a referral reward.",
+    comparisonSections: [
+      {
+        title: "Referral eligibility",
+        body: "A referral link may require a new account, identity verification, funding, spend, or a first transaction before a reward is available.",
+        points: ["New user status", "Eligible invite link", "Required activity", "Reward timing"],
+      },
+      {
+        title: "Reward value and limits",
+        body: "Referral rewards can change, expire, or vary by account. Confirm the visible bonus screen before acting.",
+        points: ["Reward amount", "Both-party eligibility", "Campaign expiration", "Payout method"],
+      },
+    ],
+    faqs: floridaFaqs,
+    cta: {
+      title: "Join referral deal alerts",
+      body: "Get organized updates as OfferRadar expands referral offer coverage and verified link workflows.",
+    },
+    relatedLinks: [
+      { href: "/referral-offers", label: "Referral offers" },
+      { href: "/referral-bonuses", label: "Referral bonuses" },
+      { href: "/app-referral-offers", label: "App referral offers" },
+    ],
+  },
 ];
 
 export function getLocalSeoPageBySlug(slug: string) {

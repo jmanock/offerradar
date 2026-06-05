@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { guidePages } from "@/data/guidePages";
 import {
@@ -59,6 +60,49 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: page.title,
+          description: page.description,
+          author: {
+            "@type": "Organization",
+            name: "OfferRadar",
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "OfferRadar",
+          },
+          mainEntityOfPage: `https://offerradar.io/guides/${page.slug}`,
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Guides",
+              item: "https://offerradar.io/offers",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: page.title,
+              item: `https://offerradar.io/guides/${page.slug}`,
+            },
+          ],
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
