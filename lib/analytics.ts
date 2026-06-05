@@ -1,4 +1,5 @@
 export const GA_MEASUREMENT_ID = "G-M5706CBZ5M";
+export const CLARITY_PROJECT_ID = "x29lg7gz7q";
 
 type AnalyticsParams = Record<string, string | number | boolean | null | undefined>;
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
@@ -60,6 +61,50 @@ export default async function ProviderPage({ params }: Props) {
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: `${provider.name} offers`,
+          description: provider.description,
+          url: `https://offerradar.io/provider/${provider.slug}`,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: offers.slice(0, 10).map((offer, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: offer.title,
+              url: `https://offerradar.io/offer/${offer.slug}`,
+            })),
+          },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Providers",
+              item: "https://offerradar.io/providers",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: provider.name,
+              item: `https://offerradar.io/provider/${provider.slug}`,
+            },
+          ],
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#e0f7ff_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">

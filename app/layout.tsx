@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -59,18 +60,28 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": "https://offerradar.io/#organization",
             name: "OfferRadar",
             url: "https://offerradar.io",
             description:
               "OfferRadar helps users compare banking offers, bonuses, referrals, and local financial account options.",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "Editorial and site inquiries",
+              url: "https://offerradar.io/contact",
+            },
           }}
         />
         <JsonLd
           data={{
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": "https://offerradar.io/#website",
             name: "OfferRadar",
             url: "https://offerradar.io",
+            publisher: {
+              "@id": "https://offerradar.io/#organization",
+            },
             potentialAction: {
               "@type": "SearchAction",
               target: "https://offerradar.io/offers",
@@ -82,6 +93,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <GoogleAnalytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );

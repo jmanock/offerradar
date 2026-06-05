@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import {
   getAllProviderComparisonPages,
   getProviderComparisonBySlug,
 } from "@/data/comparisonPages";
+import {
+  featuredGuideLinks,
+  popularComparisonLinks,
+} from "@/data/internalLinks";
 import {
   getCategoryBySlug,
   getOffersByProvider,
@@ -49,9 +54,56 @@ export default async function ProviderComparisonPage({ params }: Props) {
   const sharedCategories = page.sharedCategories
     .map((categorySlug) => getCategoryBySlug(categorySlug))
     .filter((category): category is CategoryInfo => Boolean(category));
+  const relatedComparisons = popularComparisonLinks.filter(
+    (comparison) => comparison.href !== `/compare/${page.slug}`,
+  );
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: page.title,
+          description: page.description,
+          url: `https://offerradar.io/compare/${page.slug}`,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: [page.providerA, page.providerB].map((provider, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: provider.name,
+              url: `https://offerradar.io/provider/${provider.slug}`,
+            })),
+          },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Providers",
+              item: "https://offerradar.io/providers",
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: page.title,
+              item: `https://offerradar.io/compare/${page.slug}`,
+            },
+          ],
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#e0f7ff_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
@@ -143,10 +195,42 @@ export default async function ProviderComparisonPage({ params }: Props) {
         <OfferColumn title={`${page.providerB.name} tracked offers`} offers={providerBOffers} />
       </section>
 
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <LinkPanel title="Featured guides" links={featuredGuideLinks.slice(0, 6)} />
+          <LinkPanel title="Popular comparisons" links={relatedComparisons.slice(0, 6)} />
+        </div>
+      </section>
+
       <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <DisclosureBlock />
       </div>
     </div>
+  );
+}
+
+function LinkPanel({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string }[];
+}) {
+  return (
+    <section className="premium-card rounded-3xl p-6">
+      <h2 className="text-2xl font-black text-slate-950">{title}</h2>
+      <div className="mt-4 flex flex-wrap gap-3">
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 

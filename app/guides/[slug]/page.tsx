@@ -80,6 +80,20 @@ export default async function GuidePage({ params }: Props) {
       <JsonLd
         data={{
           "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: page.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
             {
