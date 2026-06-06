@@ -1,56 +1,38 @@
-# OfferRadar V7 Intelligence Report
+# OfferRadar Search Growth Report
 
-Generated: 2026-06-06T11:10:20.150244+00:00
+Generated: 2026-06-06T11:10:20.651986+00:00
 
 ## Executive Summary
 
-- Current offer count: 74
-- Current provider registry count: 29
-- Monetized provider count: 0
-- Providers needing referral links: 10
-- Providers needing affiliate approval: 19
-- High-priority providers missing offer URLs: 23
+- URL inventory: 515 records
+- Critical URLs: 20
+- High-priority URLs: 121
+- Unknown indexing status: 515
+- Latest IndexNow dry run: 25 URLs
+- Imported Search Console impressions: 1910
 
-## Providers Needing Referral Links
+## Top Crawl And Indexing Priorities
 
-- Robinhood (critical)
-- Webull (critical)
-- Public (high)
-- Moomoo (high)
-- Acorns (high)
-- Stash (medium)
-- Rakuten (critical)
-- Upside (high)
-- Chime (high)
-- Current (medium)
+- critical home: / (unknown)
+- high intent: /app-referral-offers (unknown)
+- critical category: /bank-bonuses (unknown)
+- high intent: /bank-bonuses-promotions-florida (unknown)
+- high intent: /banks-lake-mary-fl (unknown)
+- critical static: /best-bank-bonuses (unknown)
+- critical static: /best-brokerage-bonuses (unknown)
+- high intent: /best-checking-accounts-florida (unknown)
+- high intent: /best-checking-bonuses (unknown)
+- high intent: /best-credit-unions-florida (unknown)
 
-## Providers Needing Affiliate Approval
+## Search Console Opportunities
 
-- Chase (critical)
-- SoFi (critical)
-- Capital One (critical)
-- Discover (high)
-- Ally (high)
-- Wells Fargo (critical)
-- Citi (critical)
-- Bank of America (critical)
-- PNC (high)
-- Truist (high)
+- https://offerradar.io/best-checking-bonuses: 850 impressions, 1.41% CTR
+- https://offerradar.io/bank-bonuses-promotions-florida: 420 impressions, 0.95% CTR
+- https://offerradar.io/best-brokerage-bonuses: 310 impressions, 0.00% CTR
+- https://offerradar.io/compare/chase-vs-sofi: 190 impressions, 1.05% CTR
+- https://offerradar.io/app-referral-offers: 140 impressions, 0.00% CTR
 
-## Providers Missing Offer URLs
-
-- Chase (critical)
-- SoFi (critical)
-- Capital One (critical)
-- Discover (high)
-- Ally (high)
-- Wells Fargo (critical)
-- Citi (critical)
-- Bank of America (critical)
-- PNC (high)
-- Truist (high)
-
-## Top 10 Revenue Actions
+## Top Monetization Priorities
 
 - Bank of America: Apply for or confirm affiliate approval for Bank of America; collect official offer URL while reviewing.
 - Capital One: Apply for or confirm affiliate approval for Capital One; collect official offer URL while reviewing.
@@ -63,7 +45,7 @@ Generated: 2026-06-06T11:10:20.150244+00:00
 - Webull: Collect real referral link for Webull and paste it into data/linkRegistry.json.
 - Rakuten: Collect real referral link for Rakuten and paste it into data/linkRegistry.json.
 
-## Top 10 Content Actions
+## Top SEO Content Priorities
 
 - Add or verify at least one tracked offer for Rakuten before deeper SEO expansion.
 - Add or verify at least one tracked offer for Schwab before deeper SEO expansion.
@@ -76,7 +58,7 @@ Generated: 2026-06-06T11:10:20.150244+00:00
 - Add or verify at least one tracked offer for Moomoo before deeper SEO expansion.
 - Add or verify at least one tracked offer for PNC before deeper SEO expansion.
 
-## Top 10 Internal Linking Actions
+## Top Internal Link Priorities
 
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /app-referral-offers
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /best-checking-bonuses
@@ -89,10 +71,11 @@ Generated: 2026-06-06T11:10:20.150244+00:00
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-app-offers
 - Consider adding this route to homepage, providers, offers, or footer if it is a priority landing page. Route: /cash-back-signup-bonuses
 
-## Recommended Tomorrow Workflow
+## Recommended Daily Workflow
 
-1. Collect real referral links for Robinhood, Webull, Public, Moomoo, Acorns, Stash, Rakuten, Upside, Chime, Current, and SoFi if available.
-2. Apply to or confirm approval in Impact, CJ, FlexOffers, Rakuten Advertising, PartnerStack, and Awin where applicable.
-3. Collect official offer URLs for critical/high providers before publishing new CTAs.
-4. Paste reviewed links into `data/linkRegistry.json` only after manual confirmation.
-5. Run `npm run intelligence:all`, `npm run lint`, and `npm run build` before publishing changes.
+1. Run `npm run ops:all` to refresh offers, intelligence, URL inventory, IndexNow dry run, and this report.
+2. Review critical/high URLs with unknown, not indexed, or needs review status.
+3. Import a fresh manual Search Console CSV when new performance data is available.
+4. Improve pages with impressions but low CTR or average positions from 8-20.
+5. Review the IndexNow dry-run report before any intentional `npm run indexnow:submit` action.
+6. Collect real official/referral/affiliate links only through the V7 registry workflow.

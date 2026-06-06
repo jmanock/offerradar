@@ -26,6 +26,9 @@ const staticRoutes = [
   "/ops/monetization",
   "/ops/analytics",
   "/ops/seo",
+  "/ops/url-inventory",
+  "/ops/search-console",
+  "/ops/indexnow",
 ];
 
 export function getSiteStats() {

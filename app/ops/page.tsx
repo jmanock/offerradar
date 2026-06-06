@@ -50,6 +50,9 @@ export default function OpsPage() {
         <OpsLink href="/ops/content-gaps" title="Content gaps" />
         <OpsLink href="/ops/analytics" title="Analytics configuration" />
         <OpsLink href="/ops/seo" title="SEO health" />
+        <OpsLink href="/ops/url-inventory" title="URL inventory" />
+        <OpsLink href="/ops/search-console" title="Search Console summary" />
+        <OpsLink href="/ops/indexnow" title="IndexNow operations" />
       </section>
     </main>
   );

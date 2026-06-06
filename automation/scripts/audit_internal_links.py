@@ -62,6 +62,8 @@ def source_text() -> str:
     parts = []
     for folder in [APP_DIR, ROOT / "components", DATA_DIR]:
         for path in folder.rglob("*"):
+            if path.name == "urlInventory.json":
+                continue
             if path.suffix in {".tsx", ".ts", ".json"}:
                 parts.append(read_text(path))
     return "\n".join(parts)

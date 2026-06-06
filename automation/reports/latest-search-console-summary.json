@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-06-06T11:05:04.052143+00:00",
+  "sourceFile": "automation/search-console/sample-search-console-export.csv",
+  "rowCount": 5,
+  "totals": {
+    "clicks": 18.0,
+    "impressions": 1910.0
+  },
+  "topUrlsByImpressions": [
+    {
+      "query": "best checking bonuses",
+      "page": "https://offerradar.io/best-checking-bonuses",
+      "clicks": 12.0,
+      "impressions": 850.0,
+      "ctr": 0.0141,
+      "position": 9.4
+    },
+    {
+      "query": "bank bonuses florida",
+      "page": "https://offerradar.io/bank-bonuses-promotions-florida",
+      "clicks": 4.0,
+      "impressions": 420.0,
+      "ctr": 0.0095,
+      "position": 12.6
+    },
+    {
+      "query": "best brokerage bonuses",
+      "page": "https://offerradar.io/best-brokerage-bonuses",
+      "clicks": 0.0,
+      "impressions": 310.0,
+      "ctr": 0.0,
+      "position": 15.2
+    },
+    {
+      "query": "chase vs sofi",
+      "page": "https://offerradar.io/compare/chase-vs-sofi",
+      "clicks": 2.0,
+      "impressions": 190.0,
+      "ctr": 0.0105,
+      "position": 8.8
+    },
+    {
+      "query": "referral bonus apps",
+      "page": "https://offerradar.io/app-referral-offers",
+      "clicks": 0.0,
+      "impressions": 140.0,
+      "ctr": 0.0,
+      "position": 18.1
+    }
+  ],
+  "highImpressionsLowCtr": [
+    {
+      "query": "best checking bonuses",
+      "page": "https://offerradar.io/best-checking-bonuses",
+      "clicks": 12.0,
+      "impressions": 850.0,
+      "ctr": 0.0141,
+      "position": 9.4
+    },
+    {
+      "query": "bank bonuses florida",
+      "page": "https://offerradar.io/bank-bonuses-promotions-florida",
+      "clicks": 4.0,
+      "impressions": 420.0,
+      "ctr": 0.0095,
+      "position": 12.6
+    },
+    {
+      "query": "best brokerage bonuses",
+      "page": "https://offerradar.io/best-brokerage-bonuses",
+      "clicks": 0.0,
+      "impressions": 310.0,
+      "ctr": 0.0,
+      "position": 15.2
+    },
+    {
+      "query": "chase vs sofi",
+      "page": "https://offerradar.io/compare/chase-vs-sofi",
+      "clicks": 2.0,
+      "impressions": 190.0,
+      "ctr": 0.0105,
+      "position": 8.8
+    },
+    {
+      "query": "referral bonus apps",
+      "page": "https://offerradar.io/app-referral-offers",
+      "clicks": 0.0,
+      "impressions": 140.0,
+      "ctr": 0.0,
+      "position": 18.1
+    }
+  ],
+  "averagePosition8To20": [
+    {
+      "query": "best checking bonuses",
+      "page": "https://offerradar.io/best-checking-bonuses",
+      "clicks": 12.0,
+      "impressions": 850.0,
+      "ctr": 0.0141,
+      "position": 9.4
+    },
+    {
+      "query": "bank bonuses florida",
+      "page": "https://offerradar.io/bank-bonuses-promotions-florida",
+      "clicks": 4.0,
+      "impressions": 420.0,
+      "ctr": 0.0095,
+      "position": 12.6
+    },
+    {
+      "query": "best brokerage bonuses",
+      "page": "https://offerradar.io/best-brokerage-bonuses",
+      "clicks": 0.0,
+      "impressions": 310.0,
+      "ctr": 0.0,
+      "position": 15.2
+    },
+    {
+      "query": "chase vs sofi",
+      "page": "https://offerradar.io/compare/chase-vs-sofi",
+      "clicks": 2.0,
+      "impressions": 190.0,
+      "ctr": 0.0105,
+      "position": 8.8
+    },
+    {
+      "query": "referral bonus apps",
+      "page": "https://offerradar.io/app-referral-offers",
+      "clicks": 0.0,
+      "impressions": 140.0,
+      "ctr": 0.0,
+      "position": 18.1
+    }
+  ],
+  "zeroClicksWithImpressions": [
+    {
+      "query": "best brokerage bonuses",
+      "page": "https://offerradar.io/best-brokerage-bonuses",
+      "clicks": 0.0,
+      "impressions": 310.0,
+      "ctr": 0.0,
+      "position": 15.2
+    },
+    {
+      "query": "referral bonus apps",
+      "page": "https://offerradar.io/app-referral-offers",
+      "clicks": 0.0,
+      "impressions": 140.0,
+      "ctr": 0.0,
+      "position": 18.1
+    }
+  ],
+  "normalizedRows": [
+    {
+      "query": "best checking bonuses",
+      "page": "https://offerradar.io/best-checking-bonuses",
+      "clicks": 12.0,
+      "impressions": 850.0,
+      "ctr": 0.0141,
+      "position": 9.4
+    },
+    {
+      "query": "bank bonuses florida",
+      "page": "https://offerradar.io/bank-bonuses-promotions-florida",
+      "clicks": 4.0,
+      "impressions": 420.0,
+      "ctr": 0.0095,
+      "position": 12.6
+    },
+    {
+      "query": "best brokerage bonuses",
+      "page": "https://offerradar.io/best-brokerage-bonuses",
+      "clicks": 0.0,
+      "impressions": 310.0,
+      "ctr": 0.0,
+      "position": 15.2
+    },
+    {
+      "query": "chase vs sofi",
+      "page": "https://offerradar.io/compare/chase-vs-sofi",
+      "clicks": 2.0,
+      "impressions": 190.0,
+      "ctr": 0.0105,
+      "position": 8.8
+    },
+    {
+      "query": "referral bonus apps",
+      "page": "https://offerradar.io/app-referral-offers",
+      "clicks": 0.0,
+      "impressions": 140.0,
+      "ctr": 0.0,
+      "position": 18.1
+    }
+  ]
+}

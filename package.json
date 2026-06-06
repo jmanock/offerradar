@@ -17,8 +17,13 @@
     "intelligence:links": "python3 -B automation/scripts/audit_internal_links.py",
     "intelligence:report": "python3 -B automation/scripts/generate_v7_intelligence_report.py",
     "intelligence:all": "npm run offers:pipeline && npm run intelligence:monetization && npm run intelligence:content && npm run intelligence:links && npm run intelligence:report",
+    "url:inventory": "python3 -B automation/scripts/generate_url_inventory.py",
+    "search-console:import": "python3 -B automation/scripts/import_search_console_export.py --input automation/search-console/sample-search-console-export.csv",
     "indexnow:dry": "python3 -B automation/scripts/submit_indexnow.py --limit 25",
-    "indexnow:submit": "python3 -B automation/scripts/submit_indexnow.py --submit"
+    "indexnow:changed": "python3 -B automation/scripts/submit_indexnow.py --changed-only --limit 100",
+    "indexnow:submit": "python3 -B automation/scripts/submit_indexnow.py --submit",
+    "search:growth-report": "python3 -B automation/scripts/generate_search_growth_report.py",
+    "ops:all": "npm run offers:pipeline && npm run intelligence:all && npm run url:inventory && npm run indexnow:dry && npm run search:growth-report"
   },
   "dependencies": {
     "next": "16.2.6",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T11:52:02.812522+00:00",
+  "generatedAt": "2026-06-06T11:10:20.004340+00:00",
   "routeCountAudited": 145,
   "majorPagesWithFewOrNoInternalLinks": [
     {
@@ -213,7 +213,7 @@
   "offerPagesMissingProviderCategoryBestPageLinks": [],
   "guidePagesMissingRelatedOfferOrCategoryLinks": [
     {
-      "route": "/guides/fees",
+      "route": "/guides/offer-comparisons",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
@@ -221,19 +221,15 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
+      "route": "/guides/fees",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/offer-expiration-dates",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/direct-deposits",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/affiliate-disclosures",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/offer-comparisons",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/brokerage-bonuses",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
@@ -241,11 +237,15 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/referral-bonuses",
+      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/offer-expiration-dates",
+      "route": "/guides/brokerage-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/referral-bonuses",
       "action": "Review guide related links and add offer/category links where useful."
     }
   ],
