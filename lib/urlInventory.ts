@@ -15,9 +15,28 @@ export function getUrlsByType(type: string) {
 export function getUrlsNeedingReview() {
   return urlInventory.filter(
     (record) =>
+      record.indexingStatus === "unknown" ||
       record.indexingStatus === "needs_review" ||
       record.indexingStatus === "not_indexed" ||
-      record.monetizationStatus === "needs_link",
+      !record.lastReviewed,
+  );
+}
+
+export function getMonetizedUrls() {
+  return urlInventory.filter((record) => record.monetizationStatus === "monetized");
+}
+
+export function getUrlsPendingSubmission() {
+  return urlInventory.filter(
+    (record) =>
+      record.indexingStatus === "unknown" &&
+      (record.priority === "critical" || record.priority === "high"),
+  );
+}
+
+export function getUrlsNeedingInternalLinks() {
+  return urlInventory.filter(
+    (record) => record.path !== "/" && record.internalLinkCountEstimate <= 1,
   );
 }
 

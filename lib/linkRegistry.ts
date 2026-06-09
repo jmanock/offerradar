@@ -19,12 +19,31 @@ export function getLinkRegistryRecordBySlug(slug: string) {
 export function getReadyMonetizedProviders() {
   return linkRegistry.filter(
     (record) =>
-      record.linkStatus === "ready" &&
+      record.monetizationStatus === "ready" &&
       Boolean(record.referralUrl || record.affiliateUrl),
   );
 }
 
+export function getProvidersWithAffiliatePrograms() {
+  return linkRegistry.filter((record) =>
+    Boolean(record.affiliateProgram || record.affiliateNetwork),
+  );
+}
+
+export function getProvidersNeedingApproval() {
+  return linkRegistry.filter((record) => record.affiliateStatus === "needs_approval");
+}
+
+export function getProvidersNeedingReview() {
+  return linkRegistry.filter(
+    (record) =>
+      record.affiliateStatus === "needs_review" ||
+      record.affiliateStatus === "not_identified",
+  );
+}
+
 export function getProvidersNeedingReferral() {
+  // Legacy helper retained for V7 reports until their schema is migrated.
   return linkRegistry.filter((record) => record.linkStatus === "needs_referral");
 }
 
@@ -43,7 +62,7 @@ export function getHighPriorityMonetizationGaps() {
     (record) =>
       (record.monetizationPriority === "critical" ||
         record.monetizationPriority === "high") &&
-      record.linkStatus !== "ready",
+      record.monetizationStatus !== "ready",
   );
 }
 
@@ -58,7 +77,7 @@ export function getPublicLinkForProvider(provider: string) {
 }
 
 export function getPublicLinkForRecord(record: LinkRegistryRecord) {
-  if (record.linkStatus === "ready") {
+  if (record.monetizationStatus === "ready") {
     const monetizedUrl = record.referralUrl || record.affiliateUrl;
 
     if (monetizedUrl) {

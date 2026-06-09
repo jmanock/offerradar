@@ -14,7 +14,9 @@ type SearchRow = {
 type SearchSummary = {
   sourceFile: string;
   rowCount: number;
-  totals: { clicks: number; impressions: number };
+  totals: { clicks: number; impressions: number; averagePosition: number };
+  topPages: SearchRow[];
+  topQueries: SearchRow[];
   topUrlsByImpressions: SearchRow[];
   highImpressionsLowCtr: SearchRow[];
   averagePosition8To20: SearchRow[];
@@ -34,14 +36,16 @@ export default function SearchConsoleOpsPage() {
       <p className="mt-4 text-xs font-extrabold uppercase tracking-wide text-teal-700">Manual Search Console import</p>
       <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950">Search Console summary</h1>
       <p className="mt-3 max-w-3xl text-slate-600">Read-only summary from a manually downloaded CSV. No Google API credentials or live calls are used.</p>
-      <section className="mt-8 grid gap-5 md:grid-cols-3">
+      <section className="mt-8 grid gap-5 md:grid-cols-4">
         <Stat label="Imported clicks" value={summary.totals.clicks} />
         <Stat label="Imported impressions" value={summary.totals.impressions} />
+        <Stat label="Average position" value={summary.totals.averagePosition} />
         <Stat label="Imported rows" value={summary.rowCount} />
       </section>
       <p className="premium-card mt-8 rounded-3xl p-5 text-sm font-bold text-slate-700">Source: {summary.sourceFile}</p>
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        <Rows title="Top URLs by impressions" rows={summary.topUrlsByImpressions} />
+        <Rows title="Top pages" rows={summary.topPages} />
+        <Rows title="Top queries" rows={summary.topQueries} />
         <Rows title="High impressions, low CTR" rows={summary.highImpressionsLowCtr} />
         <Rows title="Average position 8-20" rows={summary.averagePosition8To20} />
         <Rows title="Zero clicks with impressions" rows={summary.zeroClicksWithImpressions} />

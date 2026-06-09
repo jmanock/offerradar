@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OfferRadar Search Console Import Row",
+  "type": "object",
+  "description": "Normalized shape produced from flexible manual Google Search Console CSV exports.",
+  "properties": {
+    "query": { "type": "string" },
+    "page": { "type": "string" },
+    "clicks": { "type": "number" },
+    "impressions": { "type": "number" },
+    "ctr": { "type": "number", "description": "Decimal value, where 0.05 means 5%." },
+    "position": { "type": "number" }
+  },
+  "required": ["clicks", "impressions", "ctr", "position"],
+  "additionalProperties": false
+}

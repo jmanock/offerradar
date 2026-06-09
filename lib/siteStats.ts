@@ -29,6 +29,9 @@ const staticRoutes = [
   "/ops/url-inventory",
   "/ops/search-console",
   "/ops/indexnow",
+  "/ops/indexing",
+  "/ops/affiliate",
+  "/offerradar-impact-verification",
 ];
 
 export function getSiteStats() {

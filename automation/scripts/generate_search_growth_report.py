@@ -27,10 +27,12 @@ def bullets(items: list[str], empty: str = "None available.") -> list[str]:
 
 def render_markdown() -> str:
     inventory = read_json(INVENTORY_PATH, [])
+    offers = read_json(ROOT / "data" / "offers.json", [])
+    registry = read_json(ROOT / "data" / "linkRegistry.json", [])
     monetization = read_json(REPORTS / "latest-monetization-gaps.json", {})
     content = read_json(REPORTS / "latest-content-gaps.json", {})
     links = read_json(REPORTS / "latest-internal-link-audit.json", {})
-    indexnow = read_json(REPORTS / "latest-indexnow-dry-run.json", {})
+    indexnow = read_json(REPORTS / "latest-indexnow-report.json", {})
     search_console = read_json(REPORTS / "latest-search-console-summary.json", {})
     indexing_counts = Counter(item.get("indexingStatus", "unknown") for item in inventory)
     priority_counts = Counter(item.get("priority", "unknown") for item in inventory)
@@ -50,9 +52,36 @@ def render_markdown() -> str:
             for item in monetization.get("highPriorityProviders", [])
         ]
     search_opportunities = [
-        f"{item.get('page') or item.get('query')}: {item.get('impressions', 0):g} impressions, {item.get('ctr', 0) * 100:.2f}% CTR"
-        for item in search_console.get("highImpressionsLowCtr", [])
+        f"{item.get('page') or item.get('query')}: position {item.get('position', 0):.1f}, {item.get('impressions', 0):g} impressions, {item.get('ctr', 0) * 100:.2f}% CTR"
+        for item in search_console.get("averagePosition8To20", [])
     ]
+    pages_needing_links = [
+        f"{item.get('route')}: estimated {item.get('linkCount', item.get('hubLinkCount', 0))} links"
+        for item in links.get("majorPagesWithFewOrNoInternalLinks", [])
+    ]
+    pages_needing_offer_data = [
+        f"{item.get('provider')}: add or review offer coverage"
+        for item in content.get("providersInRegistryWithNoOffer", [])
+    ]
+    pages_needing_official_urls = [
+        f"{item.get('provider')}: collect official offer URL"
+        for item in monetization.get("highPriorityProviders", [])
+        if not item.get("officialOfferUrl")
+    ]
+    missing_referrals = [
+        f"{item.get('provider')}: collect real referral link"
+        for item in monetization.get("providersNeedingReferral", [])
+    ]
+    missing_affiliate_approvals = [
+        f"{item.get('provider')}: confirm affiliate approval"
+        for item in monetization.get("providersNeedingAffiliateApproval", [])
+    ]
+    monetized_provider_count = sum(
+        1
+        for item in registry
+        if item.get("linkStatus") == "ready"
+        and (item.get("referralUrl") or item.get("affiliateUrl"))
+    )
     lines = [
         "# OfferRadar Search Growth Report",
         "",
@@ -60,7 +89,10 @@ def render_markdown() -> str:
         "",
         "## Executive Summary",
         "",
-        f"- URL inventory: {len(inventory)} records",
+        f"- URL count: {len(inventory)}",
+        f"- Offer count: {len(offers)}",
+        f"- Provider count: {len(registry)}",
+        f"- Monetized provider count: {monetized_provider_count}",
         f"- Critical URLs: {priority_counts.get('critical', 0)}",
         f"- High-priority URLs: {priority_counts.get('high', 0)}",
         f"- Unknown indexing status: {indexing_counts.get('unknown', 0)}",
@@ -75,9 +107,39 @@ def render_markdown() -> str:
         "",
         *bullets(search_opportunities, "Import a recent Search Console CSV to populate opportunities."),
         "",
-        "## Top Monetization Priorities",
+        "## Top Growth Opportunities",
+        "",
+        "### Pages Needing Internal Links",
+        "",
+        *bullets(pages_needing_links),
+        "",
+        "### Pages Needing Offer Data",
+        "",
+        *bullets(pages_needing_offer_data),
+        "",
+        "### Pages Needing Official URLs",
+        "",
+        *bullets(pages_needing_official_urls),
+        "",
+        "### Pages With Strongest Ranking Potential",
+        "",
+        *bullets(search_opportunities, "Import a recent Search Console CSV to identify ranking opportunities."),
+        "",
+        "## Top Monetization Opportunities",
         "",
         *bullets(monetization_actions),
+        "",
+        "### Missing Referral Links",
+        "",
+        *bullets(missing_referrals),
+        "",
+        "### Missing Affiliate Approvals",
+        "",
+        *bullets(missing_affiliate_approvals),
+        "",
+        "### Missing Official Offer URLs",
+        "",
+        *bullets(pages_needing_official_urls),
         "",
         "## Top SEO Content Priorities",
         "",

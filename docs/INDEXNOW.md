@@ -34,6 +34,11 @@ npm run indexnow:dry
 
 The dry run reads sitemap URLs from the local production build output when available and prints the URLs that would be sent. It does not contact Bing.
 
+Dry runs also write:
+
+- `automation/reports/latest-indexnow-report.json`
+- `automation/reports/latest-indexnow-report.md`
+
 To inspect a smaller or larger batch directly:
 
 ```bash

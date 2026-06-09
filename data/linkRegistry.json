@@ -12,7 +12,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Chase offer pages and confirm affiliate approval before adding tracked links.",
     "notes": "Collect official Chase offer pages and confirm affiliate approval before adding tracked links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "SoFi",
@@ -27,7 +30,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect a real SoFi referral link if available and confirm affiliate approval before adding monetized links.",
     "notes": "Collect a real SoFi referral link if available and confirm affiliate approval before adding monetized links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Capital One",
@@ -42,7 +48,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Capital One offer URLs and affiliate approval details before adding tracked links.",
     "notes": "Collect official Capital One offer URLs and affiliate approval details before adding tracked links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Discover",
@@ -57,7 +66,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official Discover banking or card offer pages and confirm affiliate program status.",
     "notes": "Collect official Discover banking or card offer pages and confirm affiliate program status.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Ally",
@@ -72,7 +84,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official Ally offer URLs and affiliate approval status before adding outbound links.",
     "notes": "Collect official Ally offer URLs and affiliate approval status before adding outbound links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Wells Fargo",
@@ -87,7 +102,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Wells Fargo offer pages and affiliate or compliance approval details manually.",
     "notes": "Collect official Wells Fargo offer pages and affiliate or compliance approval details manually.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Citi",
@@ -102,7 +120,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Citi offer URLs and only add affiliate links after program approval is confirmed.",
     "notes": "Collect official Citi offer URLs and only add affiliate links after program approval is confirmed.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Bank of America",
@@ -117,7 +138,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Bank of America offer URLs and affiliate approval details before adding tracked links.",
     "notes": "Collect official Bank of America offer URLs and affiliate approval details before adding tracked links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "PNC",
@@ -132,7 +156,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
     "notes": "Collect official PNC banking offer URLs and confirm affiliate approval status.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Truist",
@@ -147,7 +174,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official Truist offer URLs and affiliate program details before publishing links.",
     "notes": "Collect official Truist offer URLs and affiliate program details before publishing links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "U.S. Bank",
@@ -162,7 +192,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
     "notes": "Collect official U.S. Bank offer URLs and affiliate approval status manually.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "TD Bank",
@@ -177,7 +210,10 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect official TD Bank offer URLs and confirm affiliate approval or official-only status.",
     "notes": "Collect official TD Bank offer URLs and confirm affiliate approval or official-only status.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Citizens Bank",
@@ -192,7 +228,10 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect official Citizens Bank offer URLs and affiliate program status manually.",
     "notes": "Collect official Citizens Bank offer URLs and affiliate program status manually.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Fifth Third Bank",
@@ -207,7 +246,10 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect official Fifth Third Bank offer URLs and affiliate approval details before adding links.",
     "notes": "Collect official Fifth Third Bank offer URLs and affiliate approval details before adding links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Huntington Bank",
@@ -222,7 +264,10 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect official Huntington Bank offer URLs and affiliate approval details manually.",
     "notes": "Collect official Huntington Bank offer URLs and affiliate approval details manually.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Fidelity",
@@ -237,7 +282,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Fidelity offer pages and confirm affiliate approval before adding brokerage links.",
     "notes": "Collect official Fidelity offer pages and confirm affiliate approval before adding brokerage links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Schwab",
@@ -252,7 +300,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
     "notes": "Collect official Schwab offer pages and confirm affiliate approval before adding tracked links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Robinhood",
@@ -267,7 +318,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect Jon's real Robinhood referral link manually from the account dashboard before publishing.",
     "notes": "Collect Jon's real Robinhood referral link manually from the account dashboard before publishing.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Webull",
@@ -282,7 +336,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect Jon's real Webull referral link manually and verify current campaign terms.",
     "notes": "Collect Jon's real Webull referral link manually and verify current campaign terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Public",
@@ -297,7 +354,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect Jon's real Public referral link manually and verify current referral terms.",
     "notes": "Collect Jon's real Public referral link manually and verify current referral terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Moomoo",
@@ -312,7 +372,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
     "notes": "Collect Jon's real Moomoo referral link manually and confirm the current campaign.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "E*TRADE",
@@ -327,7 +390,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
     "notes": "Collect official E*TRADE offer URLs and affiliate approval status before adding tracked links.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Merrill Edge",
@@ -342,7 +408,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
     "notes": "Collect official Merrill Edge offer URLs and affiliate approval details manually.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_approval",
+    "monetizationStatus": "needs_approval"
   },
   {
     "provider": "Acorns",
@@ -357,7 +426,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect Jon's real Acorns referral link manually and verify subscription/referral terms.",
     "notes": "Collect Jon's real Acorns referral link manually and verify subscription/referral terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Stash",
@@ -372,7 +444,10 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
     "notes": "Collect Jon's real Stash referral link manually and confirm subscription-linked terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Rakuten",
@@ -387,7 +462,10 @@
     "monetizationPriority": "critical",
     "userActionNeeded": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
     "notes": "Collect Jon's real Rakuten referral link manually and verify new-member bonus terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Upside",
@@ -402,7 +480,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
     "notes": "Collect Jon's real Upside referral link manually from the app and verify current campaign terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Chime",
@@ -417,7 +498,10 @@
     "monetizationPriority": "high",
     "userActionNeeded": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
     "notes": "Collect Jon's real Chime referral link manually and verify direct deposit or referral campaign terms.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   },
   {
     "provider": "Current",
@@ -432,6 +516,9 @@
     "monetizationPriority": "medium",
     "userActionNeeded": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
     "notes": "Collect Jon's real Current referral link manually and verify in-app terms before marking ready.",
-    "lastReviewed": "2026-06-02"
+    "lastReviewed": "2026-06-02",
+    "affiliateProgram": "",
+    "affiliateStatus": "needs_review",
+    "monetizationStatus": "needs_review"
   }
 ]

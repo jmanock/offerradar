@@ -8,6 +8,7 @@ import json
 import re
 import urllib.request
 import xml.etree.ElementTree as ET
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -41,10 +42,25 @@ CRITICAL_PATHS = {
     "/best-brokerage-bonuses",
     "/best-referral-bonuses",
 }
+POLICY_PATHS = {
+    "/about",
+    "/disclosures",
+    "/editorial-policy",
+    "/advertising-disclosure",
+    "/privacy-policy",
+    "/terms-of-use",
+    "/contact",
+}
 
 
 def read_json(path: Path, fallback: Any) -> Any:
     return json.loads(path.read_text()) if path.exists() else fallback
+
+
+def slugify(value: str) -> str:
+    value = value.lower().strip().replace("*", "")
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    return re.sub(r"-+", "-", value).strip("-")
 
 
 def ts_slugs(path: Path) -> list[str]:
@@ -128,29 +144,25 @@ def route_sources() -> dict[str, str]:
     return routes
 
 
-def route_type(path: str, state_slugs: set[str], intent_slugs: set[str], local_slugs: set[str]) -> str:
+def route_type(path: str, state_slugs: set[str]) -> str:
     slug = path.removeprefix("/")
     if path == "/":
-        return "home"
+        return "homepage"
     if path.startswith("/provider/"):
         return "provider"
     if path.startswith("/offer/"):
         return "offer"
     if path.startswith("/compare/"):
-        return "compare"
+        return "comparison"
     if path.startswith("/guides/"):
         return "guide"
     if slug in state_slugs:
         return "state"
-    if slug in intent_slugs:
-        return "intent"
-    if slug in local_slugs:
-        return "intent"
+    if slug.startswith("best-"):
+        return "best-of"
     if slug in category_slugs():
         return "category"
-    if path in {"/about", "/disclosures", "/editorial-policy", "/advertising-disclosure", "/privacy-policy", "/terms-of-use", "/contact"}:
-        return "policy"
-    return "static"
+    return "other"
 
 
 def monetization_for_record(
@@ -175,7 +187,9 @@ def monetization_for_record(
         if record.get("linkStatus") == "official_only" or record.get("officialOfferUrl"):
             return "official_only"
         return "needs_link"
-    if kind in {"category", "intent", "compare"}:
+    if kind == "other" and path in POLICY_PATHS:
+        return "not_applicable"
+    if kind in {"category", "best-of", "comparison", "other"}:
         return "needs_link"
     return "not_applicable"
 
@@ -188,11 +202,67 @@ def priority_for_record(path: str, kind: str, registry_by_slug: dict[str, dict[s
     if kind == "offer":
         offer = offers_by_slug.get(path.rsplit("/", 1)[-1], {})
         return "high" if offer.get("featured") or offer.get("status") == "active" else "medium"
-    if kind in {"category", "guide", "intent"}:
+    if kind in {"category", "guide", "best-of"}:
         return "high"
-    if kind in {"compare", "state"}:
+    if kind in {"comparison", "state"}:
         return "medium"
+    if kind == "other" and path not in POLICY_PATHS:
+        return "high"
     return "low"
+
+
+def source_text() -> str:
+    parts = []
+    for folder in [ROOT / "app", ROOT / "components", DATA_DIR]:
+        for path in folder.rglob("*"):
+            if path.name == "urlInventory.json":
+                continue
+            if path.suffix in {".tsx", ".ts", ".json"}:
+                parts.append(path.read_text())
+    return "\n".join(parts)
+
+
+def provider_and_offer_count(
+    path: str,
+    kind: str,
+    provider_names: dict[str, str],
+    provider_offer_counts: Counter[str],
+    offers_by_slug: dict[str, dict[str, Any]],
+    category_offer_counts: Counter[str],
+) -> tuple[str | None, int]:
+    if kind == "provider":
+        slug = path.rsplit("/", 1)[-1]
+        return provider_names.get(slug), provider_offer_counts.get(slug, 0)
+    if kind == "offer":
+        offer = offers_by_slug.get(path.rsplit("/", 1)[-1], {})
+        return offer.get("provider") or None, 1 if offer else 0
+    if kind == "comparison":
+        pair = path.removeprefix("/compare/")
+        first_slug, separator, second_slug = pair.partition("-vs-")
+        if separator:
+            names = [provider_names.get(first_slug), provider_names.get(second_slug)]
+            provider = " vs ".join(name for name in names if name) or None
+            return provider, provider_offer_counts.get(first_slug, 0) + provider_offer_counts.get(second_slug, 0)
+    if kind == "category":
+        return None, category_offer_counts.get(path.removeprefix("/"), 0)
+    return None, 0
+
+
+def last_reviewed_for_record(
+    old: dict[str, Any],
+    kind: str,
+    path: str,
+    registry_by_slug: dict[str, dict[str, Any]],
+    offers_by_slug: dict[str, dict[str, Any]],
+    latest_offer_review: str | None,
+) -> str | None:
+    if old.get("lastReviewed"):
+        return old["lastReviewed"]
+    if kind == "provider":
+        return registry_by_slug.get(path.rsplit("/", 1)[-1], {}).get("lastReviewed")
+    if kind == "offer":
+        return offers_by_slug.get(path.rsplit("/", 1)[-1], {}).get("lastVerified")
+    return latest_offer_review
 
 
 def generate_inventory() -> list[dict[str, Any]]:
@@ -201,29 +271,54 @@ def generate_inventory() -> list[dict[str, Any]]:
     offers = read_json(DATA_DIR / "offers.json", [])
     registry_by_slug = {item["slug"]: item for item in registry}
     offers_by_slug = {item["slug"]: item for item in offers}
+    provider_names = {item["slug"]: item["provider"] for item in registry}
+    provider_offer_counts = Counter(slugify(offer.get("provider", "")) for offer in offers)
+    category_offer_counts = Counter(offer.get("category", "") for offer in offers)
     state_slugs = set(state_page_slugs())
-    intent_slugs = set(ts_slugs(DATA_DIR / "offerTypePages.ts"))
-    local_slugs = set(
-        ts_slugs_after(DATA_DIR / "localSeo.ts", "export const localSeoPages")
-    )
+    all_source = source_text()
+    latest_offer_review = max((offer.get("lastVerified", "") for offer in offers), default="") or None
     inventory = []
 
     for path, source in sorted(route_sources().items()):
         url = SITE_URL if path == "/" else f"{SITE_URL}{path}"
         old = previous.get(url, {})
-        kind = route_type(path, state_slugs, intent_slugs, local_slugs)
+        kind = route_type(path, state_slugs)
+        previous_notes = old.get("notes", "")
+        provider, offer_count = provider_and_offer_count(
+            path,
+            kind,
+            provider_names,
+            provider_offer_counts,
+            offers_by_slug,
+            category_offer_counts,
+        )
         inventory.append(
             {
                 "url": url,
                 "path": path,
                 "type": kind,
+                "provider": provider,
+                "offerCount": offer_count,
                 "priority": priority_for_record(path, kind, registry_by_slug, offers_by_slug),
                 "monetizationStatus": monetization_for_record(path, kind, registry_by_slug, offers_by_slug),
                 "indexingStatus": old.get("indexingStatus", "unknown"),
+                "lastReviewed": last_reviewed_for_record(
+                    old,
+                    kind,
+                    path,
+                    registry_by_slug,
+                    offers_by_slug,
+                    latest_offer_review,
+                ),
+                "internalLinkCountEstimate": 0 if path == "/" else len(re.findall(re.escape(path), all_source)),
                 "lastChecked": old.get("lastChecked"),
                 "lastSubmitted": old.get("lastSubmitted"),
                 "source": source,
-                "notes": old.get("notes") or f"Generated {kind} route; verify indexing status manually.",
+                "notes": (
+                    previous_notes
+                    if previous_notes and not previous_notes.startswith("Generated ")
+                    else f"Generated {kind} route; verify indexing status manually."
+                ),
             }
         )
     return inventory

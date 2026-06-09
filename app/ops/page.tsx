@@ -4,7 +4,7 @@ import {
   getHighPriorityMonetizationGaps,
   getProvidersMissingOfficialOfferUrl,
   getProvidersNeedingAffiliateApproval,
-  getProvidersNeedingReferral,
+  getProvidersNeedingReview,
   getReadyMonetizedProviders,
 } from "@/lib/linkRegistry";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function OpsPage() {
-  const referral = getProvidersNeedingReferral();
+  const review = getProvidersNeedingReview();
   const affiliate = getProvidersNeedingAffiliateApproval();
   const missingOfferUrls = getProvidersMissingOfficialOfferUrl();
   const priorityGaps = getHighPriorityMonetizationGaps();
@@ -39,7 +39,7 @@ export default function OpsPage() {
 
       <section className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
         <OpsStat label="Ready monetized" value={ready.length} />
-        <OpsStat label="Need referral" value={referral.length} />
+        <OpsStat label="Need link review" value={review.length} />
         <OpsStat label="Need affiliate approval" value={affiliate.length} />
         <OpsStat label="Missing offer URLs" value={missingOfferUrls.length} />
         <OpsStat label="High-priority gaps" value={priorityGaps.length} />
@@ -47,11 +47,13 @@ export default function OpsPage() {
 
       <section className="mt-8 grid gap-5 md:grid-cols-2">
         <OpsLink href="/ops/monetization" title="Monetization gaps" />
+        <OpsLink href="/ops/affiliate" title="Affiliate readiness" />
         <OpsLink href="/ops/content-gaps" title="Content gaps" />
         <OpsLink href="/ops/analytics" title="Analytics configuration" />
         <OpsLink href="/ops/seo" title="SEO health" />
         <OpsLink href="/ops/url-inventory" title="URL inventory" />
         <OpsLink href="/ops/search-console" title="Search Console summary" />
+        <OpsLink href="/ops/indexing" title="Indexing dashboard" />
         <OpsLink href="/ops/indexnow" title="IndexNow operations" />
       </section>
     </main>

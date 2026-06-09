@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import indexNowReportJson from "@/automation/reports/latest-indexnow-dry-run.json";
+import indexNowReportJson from "@/automation/reports/latest-indexnow-report.json";
 
 const KEY = "fbd66d1bed94486a87683b0b5f029153";
 const KEY_URL = `https://offerradar.io/${KEY}.txt`;

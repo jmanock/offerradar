@@ -44,7 +44,7 @@ export default function MonetizationOpsPage() {
 
       <section className="mt-8 grid gap-5 lg:grid-cols-3">
         <ListCard
-          title="Need referral"
+          title="Need link review"
           items={(report.providersNeedingReferral ?? []).map(
             (item) => `${item.provider} (${item.monetizationPriority})`,
           )}

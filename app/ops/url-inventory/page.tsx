@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   countInventoryBy,
+  getMonetizedUrls,
   getUrlInventory,
   getUrlsNeedingReview,
 } from "@/lib/urlInventory";
@@ -21,13 +22,15 @@ export default function UrlInventoryOpsPage() {
     ["critical", "high"].includes(item.priority),
   );
   const needsReview = getUrlsNeedingReview();
+  const monetized = getMonetizedUrls();
 
   return (
     <OpsPage title="URL inventory" description="Generated route inventory for crawl, indexing, priority, and monetization planning.">
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
         <Stat label="Total URLs" value={inventory.length} />
         <Stat label="Critical URLs" value={byPriority.critical ?? 0} />
         <Stat label="High priority" value={byPriority.high ?? 0} />
+        <Stat label="Monetized URLs" value={monetized.length} />
         <Stat label="Needs review/link" value={needsReview.length} />
       </section>
       <section className="mt-8 grid gap-5 lg:grid-cols-3">
@@ -82,6 +85,10 @@ function RecordPanel({ title, records }: { title: string; records: ReturnType<ty
             <p className="break-words font-extrabold text-slate-950">{record.path}</p>
             <p className="mt-1 text-xs font-bold uppercase tracking-wide text-slate-500">
               {record.type} · {record.priority} · {record.indexingStatus} · {record.monetizationStatus}
+            </p>
+            <p className="mt-2 text-sm text-slate-600">
+              {record.provider ? `${record.provider} · ` : ""}
+              {record.offerCount} offers · {record.internalLinkCountEstimate} estimated internal links
             </p>
           </div>
         ))}

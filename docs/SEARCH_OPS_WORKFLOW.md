@@ -22,8 +22,26 @@ Then review:
 
 - `/ops/url-inventory`
 - `/ops/search-console`
+- `/ops/indexing`
 - `/ops/indexnow`
 - `automation/reports/latest-search-growth-report.md`
+
+## Daily Review Checklist
+
+1. Review Google Analytics for traffic and engagement changes.
+2. Review Microsoft Clarity for navigation friction and confusing interactions.
+3. Review the latest manual Search Console import.
+4. Review `latest-search-growth-report.md`.
+5. Update one priority provider record.
+6. Add or verify one offer using a real provider source.
+7. Deploy only when reviewed changes are ready.
+
+## Weekly Review Checklist
+
+1. Review indexing status in `/ops/indexing`.
+2. Review monetization gaps.
+3. Review content gaps.
+4. Review the changed-only IndexNow report and submit changed URLs only after deployment.
 
 ## Manual Search Console Export
 
@@ -51,6 +69,7 @@ npm run url:inventory
 The generator combines known local route families with sitemap URLs when available. It assigns route type, crawl priority, monetization status, and indexing status. Existing manual indexing statuses and notes are preserved when the inventory is regenerated.
 
 Update `indexingStatus`, `lastChecked`, `lastSubmitted`, and notes manually when reliable information is available.
+The inventory also records provider, offer count, last reviewed date, and an internal-link count estimate.
 
 ## IndexNow Safety
 

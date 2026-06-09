@@ -144,6 +144,39 @@ def analyze() -> dict[str, object]:
         item["action"] + f" Route: {item['route']}"
         for item in sitemap_routes_not_linked_from_obvious_hubs[:10]
     ]
+    orphan_pages = [
+        {"route": route, "linkCount": count}
+        for route, count in link_counts.items()
+        if count == 0
+    ][:50]
+    weakly_linked_pages = [
+        {"route": route, "linkCount": count}
+        for route, count in sorted(link_counts.items(), key=lambda item: (item[1], item[0]))
+        if count <= 1
+    ][:50]
+    pages_with_no_related_content = [
+        *provider_pages_with_no_offer_links,
+        *guide_pages_missing_related_links,
+    ][:50]
+    placement_recommendations = {
+        "homepageLinks": [
+            item["route"] for item in sitemap_routes_not_linked_from_obvious_hubs
+            if item["route"].startswith(("/best-", "/app-", "/business-"))
+        ][:10],
+        "providerLinks": [
+            item["route"] for item in provider_pages_with_no_offer_links
+        ][:10],
+        "guideLinks": [
+            item["route"] for item in guide_pages_missing_related_links
+        ][:10],
+        "comparisonLinks": [
+            route for route, count in link_counts.items()
+            if route.startswith("/compare/") and count <= 1
+        ][:10],
+        "footerLinks": [
+            item["route"] for item in sitemap_routes_not_linked_from_obvious_hubs
+        ][:10],
+    }
 
     return {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -153,6 +186,11 @@ def analyze() -> dict[str, object]:
         "offerPagesMissingProviderCategoryBestPageLinks": offer_pages_missing_provider_category_best_links,
         "guidePagesMissingRelatedOfferOrCategoryLinks": guide_pages_missing_related_links,
         "sitemapRoutesNotLinkedFromObviousHubPages": sitemap_routes_not_linked_from_obvious_hubs,
+        "orphanPages": orphan_pages,
+        "weaklyLinkedPages": weakly_linked_pages,
+        "pagesWithNoRelatedContent": pages_with_no_related_content,
+        "pagesNotLinkedFromMajorHubs": sitemap_routes_not_linked_from_obvious_hubs,
+        "placementRecommendations": placement_recommendations,
         "top10InternalLinkingActions": top_actions,
     }
 

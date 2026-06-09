@@ -1,6 +1,6 @@
 # OfferRadar V7 Intelligence Report
 
-Generated: 2026-06-06T11:10:20.150244+00:00
+Generated: 2026-06-08T13:16:03.716467+00:00
 
 ## Executive Summary
 

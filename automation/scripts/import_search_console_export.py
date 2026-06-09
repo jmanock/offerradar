@@ -55,12 +55,43 @@ def normalize_row(row: dict[str, str]) -> dict[str, Any]:
     }
 
 
+def aggregate_rows(rows: list[dict[str, Any]], key: str) -> list[dict[str, Any]]:
+    grouped: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        label = row.get(key)
+        if not label:
+            continue
+        item = grouped.setdefault(
+            label,
+            {"query": "", "page": "", "clicks": 0.0, "impressions": 0.0, "positionWeight": 0.0},
+        )
+        item[key] = label
+        item["clicks"] += row["clicks"]
+        item["impressions"] += row["impressions"]
+        item["positionWeight"] += row["position"] * row["impressions"]
+    aggregated = []
+    for item in grouped.values():
+        impressions = item["impressions"]
+        aggregated.append(
+            {
+                "query": item["query"],
+                "page": item["page"],
+                "clicks": item["clicks"],
+                "impressions": impressions,
+                "ctr": item["clicks"] / impressions if impressions else 0,
+                "position": item["positionWeight"] / impressions if impressions else 0,
+            }
+        )
+    return sorted(aggregated, key=lambda row: (-row["impressions"], row["position"]))
+
+
 def summarize(input_path: Path) -> dict[str, Any]:
     with input_path.open(newline="", encoding="utf-8-sig") as handle:
         rows = [normalize_row(row) for row in csv.DictReader(handle)]
 
-    page_rows = [row for row in rows if row["page"]]
-    ranked = sorted(page_rows or rows, key=lambda row: (-row["impressions"], row["position"]))
+    top_pages = aggregate_rows(rows, "page")
+    top_queries = aggregate_rows(rows, "query")
+    ranked = top_pages or top_queries
     high_impressions_low_ctr = [
         row for row in ranked if row["impressions"] >= 100 and row["ctr"] < 0.02
     ]
@@ -77,7 +108,15 @@ def summarize(input_path: Path) -> dict[str, Any]:
         "totals": {
             "clicks": sum(row["clicks"] for row in rows),
             "impressions": sum(row["impressions"] for row in rows),
+            "averagePosition": (
+                sum(row["position"] * row["impressions"] for row in rows)
+                / sum(row["impressions"] for row in rows)
+                if sum(row["impressions"] for row in rows)
+                else 0
+            ),
         },
+        "topPages": top_pages[:10],
+        "topQueries": top_queries[:10],
         "topUrlsByImpressions": ranked[:10],
         "highImpressionsLowCtr": high_impressions_low_ctr[:10],
         "averagePosition8To20": position_opportunities[:10],
@@ -105,10 +144,12 @@ def render_markdown(summary: dict[str, Any]) -> str:
         "",
         f"- Clicks: {summary['totals']['clicks']:g}",
         f"- Impressions: {summary['totals']['impressions']:g}",
+        f"- Average position: {summary['totals']['averagePosition']:.1f}",
         f"- Imported rows: {summary['rowCount']}",
     ]
     for title, key in [
-        ("Top URLs By Impressions", "topUrlsByImpressions"),
+        ("Top Pages", "topPages"),
+        ("Top Queries", "topQueries"),
         ("High Impressions And Low CTR", "highImpressionsLowCtr"),
         ("Average Position 8-20", "averagePosition8To20"),
         ("Zero Clicks With Impressions", "zeroClicksWithImpressions"),

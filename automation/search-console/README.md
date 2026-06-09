@@ -29,3 +29,5 @@ The importer writes:
 - `automation/reports/latest-search-console-summary.md`
 
 No API calls, credentials, or live Google access are used.
+
+The normalized row format is documented in `automation/search-console/schema.json`.

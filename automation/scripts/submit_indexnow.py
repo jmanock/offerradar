@@ -20,14 +20,26 @@ KEY = "fbd66d1bed94486a87683b0b5f029153"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 INDEXNOW_ENDPOINT = "https://www.bing.com/indexnow"
 INVENTORY_PATH = ROOT / "data" / "urlInventory.json"
-JSON_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-dry-run.json"
-MD_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-dry-run.md"
+JSON_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-report.json"
+MD_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-report.md"
+LEGACY_JSON_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-dry-run.json"
+LEGACY_MD_REPORT = ROOT / "automation" / "reports" / "latest-indexnow-dry-run.md"
 DEFAULT_SITEMAP_CANDIDATES = [
     ROOT / "public" / "sitemap.xml",
     ROOT / ".next" / "server" / "app" / "sitemap.xml.body",
 ]
 PRIORITIES = {"critical", "high", "medium", "low"}
-FILTER_TYPES = {"provider", "offer", "compare", "guide", "state", "intent"}
+FILTER_TYPES = {
+    "homepage",
+    "offer",
+    "provider",
+    "comparison",
+    "guide",
+    "category",
+    "state",
+    "best-of",
+    "other",
+}
 
 
 def read_url(url: str) -> str:
@@ -93,19 +105,19 @@ def record_matches_changed_files(record: dict[str, Any], files: list[str]) -> bo
             return True
         if file.startswith("app/offer") and kind == "offer":
             return True
-        if file.startswith("app/compare") and kind == "compare":
+        if file.startswith("app/compare") and kind == "comparison":
             return True
         if file.startswith("app/guides") and kind == "guide":
             return True
-        if file in {"data/offers.json", "data/offers.ts", "lib/offerData.ts"} and kind in {"offer", "category", "intent"}:
+        if file in {"data/offers.json", "data/offers.ts", "lib/offerData.ts"} and kind in {"offer", "category", "best-of", "other"}:
             return True
-        if file in {"data/providers.ts", "data/linkRegistry.json", "data/linkRegistry.ts"} and kind in {"provider", "compare"}:
+        if file in {"data/providers.ts", "data/linkRegistry.json", "data/linkRegistry.ts"} and kind in {"provider", "comparison"}:
             return True
         if file == "data/guidePages.ts" and kind == "guide":
             return True
         if file == "data/statePages.ts" and kind == "state":
             return True
-        if file in {"data/offerTypePages.ts", "data/localSeo.ts"} and kind == "intent":
+        if file in {"data/offerTypePages.ts", "data/localSeo.ts"} and kind in {"best-of", "other"}:
             return True
     return False
 
@@ -204,6 +216,8 @@ def write_dry_run_report(
         *[f"- {url}" for url in urls],
     ]
     MD_REPORT.write_text("\n".join(lines) + "\n")
+    LEGACY_JSON_REPORT.write_text(JSON_REPORT.read_text())
+    LEGACY_MD_REPORT.write_text(MD_REPORT.read_text())
 
 
 def main() -> int:

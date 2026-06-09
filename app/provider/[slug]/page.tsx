@@ -7,7 +7,10 @@ import { OfferCard } from "@/components/OfferCard";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
 import { featuredGuideLinks } from "@/data/internalLinks";
-import { getPublicLinkForProvider } from "@/lib/linkRegistry";
+import {
+  getLinkRegistryRecordByProvider,
+  getPublicLinkForProvider,
+} from "@/lib/linkRegistry";
 import {
   getAllProviders,
   getCategoryBySlug,
@@ -49,6 +52,7 @@ export default async function ProviderPage({ params }: Props) {
   const offers = getOffersByProvider(provider.name);
   const comparisons = getComparisonsForProvider(provider.slug, 8);
   const publicLink = getPublicLinkForProvider(provider.name);
+  const registryRecord = getLinkRegistryRecordByProvider(provider.name);
   const relatedProviders = getAllProviders()
     .filter(
       (candidate) =>
@@ -132,6 +136,24 @@ export default async function ProviderPage({ params }: Props) {
               {provider.disclosureNote}
             </p>
             <div className="mt-5 grid gap-3">
+              {registryRecord ? (
+                <dl className="grid gap-3 border-b border-slate-200 pb-5 text-sm">
+                  <div className="flex items-center justify-between gap-4">
+                    <dt className="font-semibold text-slate-500">Last verified</dt>
+                    <dd className="font-extrabold text-slate-900">
+                      {registryRecord.lastReviewed}
+                    </dd>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <dt className="font-semibold text-slate-500">Verification status</dt>
+                    <dd className="font-extrabold text-slate-900">
+                      {registryRecord.officialOfferUrl
+                        ? "Official offer URL recorded"
+                        : "Official website recorded"}
+                    </dd>
+                  </div>
+                </dl>
+              ) : null}
               {publicLink ? (
                 <>
                   <TrackedOutboundLink
@@ -152,9 +174,24 @@ export default async function ProviderPage({ params }: Props) {
                 </>
               ) : (
                 <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-600">
-                  Verify directly with provider.
+                  Provider terms should be verified directly before acting.
                 </p>
               )}
+              {registryRecord?.officialWebsiteUrl &&
+              registryRecord.officialWebsiteUrl !== publicLink?.href ? (
+                <TrackedOutboundLink
+                  href={registryRecord.officialWebsiteUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  eventParams={{
+                    provider: provider.name,
+                    link_type: "official_website",
+                  }}
+                  className="inline-flex w-full justify-center rounded-full border border-slate-300 px-5 py-3 text-sm font-extrabold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  Visit official website
+                </TrackedOutboundLink>
+              ) : null}
             </div>
           </div>
         </div>
@@ -189,6 +226,47 @@ export default async function ProviderPage({ params }: Props) {
           </ul>
         </section>
       </div>
+
+      {registryRecord ? (
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="premium-card grid gap-6 rounded-3xl p-6 lg:grid-cols-2">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Verification notes
+              </p>
+              <h2 className="mt-3 text-2xl font-black text-slate-950">
+                Source review
+              </h2>
+              <p className="mt-3 leading-7 text-slate-600">
+                Official website reviewed on {registryRecord.lastReviewed}.{" "}
+                {registryRecord.officialOfferUrl
+                  ? "A direct official offer source is recorded for comparison."
+                  : "No direct official offer source is currently recorded. Verify current promotions on the provider's official website."}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Editorial disclosure
+              </p>
+              <h2 className="mt-3 text-2xl font-black text-slate-950">
+                How this provider page works
+              </h2>
+              <p className="mt-3 leading-7 text-slate-600">
+                OfferRadar independently organizes provider and offer details
+                for comparison. Compensation may apply when a reviewed
+                affiliate or referral link is available, but provider terms
+                control eligibility, approval, and offer availability.
+              </p>
+              <Link
+                href="/editorial-policy"
+                className="mt-4 inline-flex font-extrabold text-blue-700 hover:text-blue-800"
+              >
+                Read the editorial policy
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-4">
