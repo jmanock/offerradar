@@ -22,6 +22,61 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const providerSearchContent: Record<
+  string,
+  {
+    title: string;
+    body: string;
+    links: { href: string; label: string }[];
+    faq: { question: string; answer: string }[];
+  }
+> = {
+  "wells-fargo": {
+    title: "Wells Fargo checking and credit card offer records",
+    body: "OfferRadar currently tracks Wells Fargo checking and credit card offer records. Credit card approval, spend requirements, rewards value, annual fees, APR, and availability must be verified directly with Wells Fargo; the records are not recommendations or approval estimates.",
+    links: [
+      { href: "/bank-bonuses", label: "Compare bank bonuses" },
+      { href: "/credit-card-offers", label: "Compare credit card offers" },
+      { href: "/checking-account-bonuses", label: "Checking account bonuses" },
+      { href: "/compare/chase-vs-wells-fargo", label: "Chase vs Wells Fargo" },
+    ],
+    faq: [
+      {
+        question: "Does OfferRadar track Wells Fargo credit card offers?",
+        answer:
+          "Yes. OfferRadar has a tracked Wells Fargo credit card offer record, but approval, spend requirements, rewards terms, APR, fees, and current availability must be verified directly with Wells Fargo.",
+      },
+      {
+        question: "What should I verify for a Wells Fargo checking offer?",
+        answer:
+          "Verify new-customer eligibility, direct deposit definitions, state availability, monthly fees, waiver rules, deadlines, and current provider terms.",
+      },
+    ],
+  },
+  "merrill-edge": {
+    title: "Merrill Edge brokerage and transfer research",
+    body: "Merrill Edge promotions may connect brokerage funding, asset transfers, and Bank of America relationship requirements. Compare eligible account types, funding or transfer thresholds, holding periods, investment fees, and current provider terms.",
+    links: [
+      { href: "/brokerage-bonuses", label: "Brokerage promotions" },
+      { href: "/brokerage-transfer-bonuses", label: "Transfer bonus records" },
+      { href: "/compare/fidelity-vs-merrill-edge", label: "Fidelity vs Merrill Edge" },
+      { href: "/guides/brokerage-bonuses", label: "Brokerage bonus guide" },
+    ],
+    faq: [
+      {
+        question: "What should I compare in a Merrill Edge promotion?",
+        answer:
+          "Compare eligible account types, funding or transfer requirements, holding periods, relationship requirements, fees, investment risk, and current provider terms.",
+      },
+      {
+        question: "Does a tracked Merrill Edge record guarantee a promotion?",
+        answer:
+          "No. Tracked records are for research. Verify current availability and all requirements directly with Merrill Edge before transferring or opening an account.",
+      },
+    ],
+  },
+};
+
 export function generateStaticParams() {
   return getAllProviders().map((provider) => ({ slug: provider.slug }));
 }
@@ -34,8 +89,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Provider not found" };
   }
 
+  if (provider.slug === "wells-fargo") {
+    return {
+      title: "Wells Fargo Offers | Checking and Credit Card Records",
+      description:
+        "Compare tracked Wells Fargo checking and credit card offer records, requirements, fees to verify, last reviewed dates, and current provider terms.",
+      alternates: { canonical: `/provider/${provider.slug}` },
+    };
+  }
+
+  if (provider.slug === "merrill-edge") {
+    return {
+      title: "Merrill Edge Offers | Brokerage and Transfer Research",
+      description:
+        "Review tracked Merrill Edge brokerage and transfer offer records, funding requirements, holding periods, fees, and verification notes.",
+      alternates: { canonical: `/provider/${provider.slug}` },
+    };
+  }
+
   return {
-    title: `${provider.name} Offers`,
+    title: `${provider.name} Offers | Tracked Records and Requirements`,
     description: `${provider.description} Compare tracked offers and verify current terms directly with ${provider.name}.`,
     alternates: { canonical: `/provider/${provider.slug}` },
   };
@@ -53,6 +126,7 @@ export default async function ProviderPage({ params }: Props) {
   const comparisons = getComparisonsForProvider(provider.slug, 8);
   const publicLink = getPublicLinkForProvider(provider.name);
   const registryRecord = getLinkRegistryRecordByProvider(provider.name);
+  const searchContent = providerSearchContent[provider.slug];
   const relatedProviders = getAllProviders()
     .filter(
       (candidate) =>
@@ -83,6 +157,19 @@ export default async function ProviderPage({ params }: Props) {
           },
         }}
       />
+      {searchContent ? (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: searchContent.faq.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
+          }}
+        />
+      ) : null}
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -268,6 +355,33 @@ export default async function ProviderPage({ params }: Props) {
         </section>
       ) : null}
 
+      {searchContent ? (
+        <section className="border-y border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Provider research
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              {searchContent.title}
+            </h2>
+            <p className="mt-4 max-w-4xl leading-7 text-slate-600">
+              {searchContent.body}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {searchContent.links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -364,6 +478,21 @@ export default async function ProviderPage({ params }: Props) {
           </div>
         </div>
       </section>
+      {searchContent ? (
+        <section className="border-t border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-black text-slate-950">FAQ</h2>
+            <div className="mt-5 grid gap-5 md:grid-cols-2">
+              {searchContent.faq.map((item) => (
+                <article key={item.question} className="rounded-2xl bg-slate-50 p-5">
+                  <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+                  <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }

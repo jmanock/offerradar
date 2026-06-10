@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import {
   featuredGuideLinks,
@@ -13,9 +14,9 @@ import { categories } from "@/data/offers";
 import { formatDate, getOffersByCategory, getRecentlyVerifiedOffers } from "@/lib/offers";
 
 export const metadata: Metadata = {
-  title: "All Offers",
+  title: "Tracked Banking and Brokerage Offers | Compare Details",
   description:
-    "Browse OfferRadar promotions grouped by category, with status, requirements, last reviewed dates, and disclosure reminders.",
+    "Compare tracked banking, brokerage, savings, referral, business, credit card, and cash back offer records with requirements and verification dates.",
   alternates: { canonical: "/offers" },
 };
 
@@ -24,6 +25,46 @@ export default function OffersPage() {
 
   return (
     <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Tracked banking and brokerage offers",
+          description: metadata.description,
+          url: "https://offerradar.io/offers",
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Offers",
+              item: "https://offerradar.io/offers",
+            },
+          ],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: offersFaq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#e0f7ff_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -36,8 +77,11 @@ export default function OffersPage() {
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">
               Browse promotions grouped by category. Featured and active offers
-              appear first, with verification dates and requirements surfaced
-              for comparison.
+              appear first, with requirements, fees to check, and last verified
+              dates surfaced for research before visiting a provider.
+            </p>
+            <p className="mt-4 text-sm font-bold text-slate-500">
+              Verification-first database · Source links shown when reviewed
             </p>
           </div>
         </div>
@@ -142,10 +186,34 @@ export default function OffersPage() {
         <div className="mt-12">
           <DisclosureBlock />
         </div>
+        <section className="mt-12 border-t border-slate-200 pt-12">
+          <h2 className="text-3xl font-black text-slate-950">Offer comparison FAQ</h2>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {offersFaq.map((item) => (
+              <article key={item.question} className="rounded-2xl bg-white p-5">
+                <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+                <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
 }
+
+const offersFaq = [
+  {
+    question: "How should I compare tracked offers?",
+    answer:
+      "Compare requirements, fees, eligibility, timing, account usefulness, verification date, and the current provider terms rather than relying only on the headline value.",
+  },
+  {
+    question: "Does a tracked offer mean it is currently available?",
+    answer:
+      "No. A tracked offer is a research record. Availability and terms can change, so verify the live provider source before acting.",
+  },
+];
 
 function LinkPanel({
   title,

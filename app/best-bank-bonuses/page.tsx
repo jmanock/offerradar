@@ -5,9 +5,9 @@ import { getCategoryBySlug } from "@/lib/offers";
 const category = getCategoryBySlug("bank-bonuses")!;
 
 export const metadata: Metadata = {
-  title: "Best Bank Bonuses",
+  title: "Best Bank Bonuses | Current Tracked Offers and Requirements",
   description:
-    "Compare active bank bonuses with requirements, fees, verification notes, and disclosure reminders.",
+    "Compare current tracked bank bonus records by requirements, fees, direct deposit rules, verification dates, and provider terms.",
   alternates: { canonical: "/best-bank-bonuses" },
 };
 
@@ -15,8 +15,8 @@ export default function BestBankBonusesPage() {
   return (
     <BestOfPage
       category={category}
-      title="Best bank bonuses"
-      intro="A focused view of active bank bonuses with direct deposit, deposit, monthly fee, and verification context surfaced for comparison."
+      title="Best bank bonuses to compare"
+      intro="A verification-first view of current tracked bank bonus records with direct deposit, deposit, monthly fee, eligibility, and provider-term context."
     />
   );
 }

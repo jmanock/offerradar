@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { JsonLd } from "@/components/JsonLd";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
@@ -26,9 +27,9 @@ import {
 } from "@/lib/offers";
 
 export const metadata: Metadata = {
-  title: "OfferRadar | Florida Banking Offers and Local Bank Comparisons",
+  title: "Florida Banking Offers and Account Comparisons | OfferRadar",
   description:
-    "Find better banking offers in Florida. Compare checking, savings, credit unions, business banking, mortgage topics, bonuses, and local bank matches.",
+    "Compare Florida checking accounts, savings options, bank bonuses, brokerage promotions, providers, requirements, and last verified offer records.",
 };
 
 export default function Home() {
@@ -46,6 +47,17 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: homepageFaq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_20%_20%,#dffcf4_0,#f8fbff_32%,#f6f8fb_70%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
@@ -54,12 +66,13 @@ export default function Home() {
               OfferRadar.io
             </p>
             <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-[#07111f] sm:text-6xl sm:leading-[1.02]">
-              Find better banking offers in Florida.
+              Compare banking offers and accounts in Florida.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
               OfferRadar helps compare Florida checking accounts, savings
               options, credit unions, business banking, mortgage topics, and
-              bank bonuses with verification reminders and clear disclosures.
+              bank bonuses with requirements, last verified dates, source
+              review, and clear disclosures.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -503,9 +516,35 @@ export default function Home() {
           <LeadCaptureForm source="homepage" />
         </div>
       </section>
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black text-slate-950">OfferRadar FAQ</h2>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {homepageFaq.map((item) => (
+              <article key={item.question} className="rounded-2xl bg-slate-50 p-5">
+                <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+                <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
+
+const homepageFaq = [
+  {
+    question: "What does OfferRadar track?",
+    answer:
+      "OfferRadar organizes banking, brokerage, savings, referral, business, credit card, and cash back offer records for research and comparison.",
+  },
+  {
+    question: "How current are OfferRadar records?",
+    answer:
+      "Pages show last verified or last reviewed dates where available. Provider terms remain the source of truth and should be checked before acting.",
+  },
+];
 
 function HeroDashboard({
   activeCount,

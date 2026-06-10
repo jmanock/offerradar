@@ -41,6 +41,26 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
       ) : null}
       <JsonLd data={faqSchema} />
       <JsonLd data={serviceSchema} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: page.title,
+              item: `https://offerradar.io/${page.slug}`,
+            },
+          ],
+        }}
+      />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
@@ -53,7 +73,7 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{page.intro}</p>
             <p className="mt-5 text-sm font-bold text-slate-500">
-              Last updated {page.lastUpdated}
+              Source reviewed · Last verified {page.lastUpdated}
             </p>
           </div>
           <div className="premium-card rounded-3xl p-6">

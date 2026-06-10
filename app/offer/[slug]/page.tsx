@@ -81,6 +81,9 @@ export default async function OfferDetailPage({ params }: Props) {
             >
               {category?.title ?? "Offers"}
             </Link>
+            <p className="mt-4 text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Tracked offer record
+            </p>
             <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
               {offer.title}
             </h1>

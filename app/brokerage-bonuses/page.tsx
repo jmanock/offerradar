@@ -5,9 +5,9 @@ import { getCategoryBySlug } from "@/lib/offers";
 const category = getCategoryBySlug("brokerage-bonuses")!;
 
 export const metadata: Metadata = {
-  title: "Brokerage Bonuses",
+  title: "Brokerage Bonuses | Track Current Brokerage Promotions",
   description:
-    "Compare brokerage bonuses, transfer promotions, and investing referral offers with funding requirements and risk notes.",
+    "Compare tracked brokerage promotions, account bonuses, transfer requirements, holding periods, fees, and last verified dates.",
   alternates: { canonical: "/brokerage-bonuses" },
 };
 

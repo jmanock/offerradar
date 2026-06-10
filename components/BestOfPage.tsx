@@ -2,7 +2,8 @@ import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
-import { getBestOffersByCategory } from "@/lib/offers";
+import { featuredGuideLinks, popularComparisonLinks } from "@/data/internalLinks";
+import { formatDate, getBestOffersByCategory, getLastUpdated } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
 
 export function BestOfPage({
@@ -15,6 +16,20 @@ export function BestOfPage({
   intro: string;
 }) {
   const offers = getBestOffersByCategory(category.slug, 6);
+  const path = getBestOfPath(category.slug);
+  const lastUpdated = getLastUpdated();
+  const faq = [
+    {
+      question: `How are ${title.toLowerCase()} organized?`,
+      answer:
+        "OfferRadar organizes tracked records using active status, verification recency, requirements completeness, and last reviewed dates. It does not guarantee availability or eligibility.",
+    },
+    {
+      question: "What should I verify before opening an account?",
+      answer:
+        "Verify current provider terms, eligibility, required activity, fees, timing, account usefulness, and any early closure or holding-period rules.",
+    },
+  ];
 
   return (
     <div>
@@ -24,7 +39,38 @@ export function BestOfPage({
           "@type": "CollectionPage",
           name: title,
           description: intro,
-          url: `https://offerradar.io/${getBestOfPath(category.slug)}`,
+          url: `https://offerradar.io/${path}`,
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://offerradar.io",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: title,
+              item: `https://offerradar.io/${path}`,
+            },
+          ],
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
         }}
       />
       <section className="relative overflow-hidden border-b border-slate-200 bg-[radial-gradient(circle_at_18%_20%,#dffcf4_0,#f8fbff_34%,#f6f8fb_72%)]">
@@ -38,6 +84,10 @@ export function BestOfPage({
               {title}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
+            <p className="mt-4 text-sm font-bold text-slate-500">
+              Verification-first comparison · Last verified{" "}
+              {lastUpdated ? formatDate(lastUpdated) : "review in progress"}
+            </p>
           </div>
           <div className="premium-card rounded-3xl p-6">
             <h2 className="text-lg font-black text-slate-950">
@@ -91,7 +141,51 @@ export function BestOfPage({
           <DisclosureBlock />
         </div>
       </section>
+
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <LinkPanel title="Related guides" links={featuredGuideLinks.slice(0, 6)} />
+        <LinkPanel title="Popular comparisons" links={popularComparisonLinks.slice(0, 6)} />
+      </section>
+
+      <section className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black text-slate-950">FAQ</h2>
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            {faq.map((item) => (
+              <article key={item.question} className="rounded-2xl bg-slate-50 p-5">
+                <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+                <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+function LinkPanel({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string }[];
+}) {
+  return (
+    <section className="premium-card rounded-3xl p-6">
+      <h2 className="text-xl font-black text-slate-950">{title}</h2>
+      <div className="mt-4 flex flex-wrap gap-3">
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
 

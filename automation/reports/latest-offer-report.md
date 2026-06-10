@@ -1,6 +1,6 @@
 # OfferRadar Automation Report
 
-Generated: 2026-06-08T13:16:02.894964+00:00
+Generated: 2026-06-10T00:36:48.321985+00:00
 
 ## Summary
 
@@ -111,6 +111,7 @@ Generated: 2026-06-08T13:16:02.894964+00:00
 - 2026-07-05: Atlas Markets - Active Trader $350 Bonus
 - 2026-07-10: Citi - Citi Priority Checking Up to $700 Offer
 - 2026-07-15: Harbor One Bank - Everyday Checking $200 Bonus
+- 2026-07-24: Chase - Chase Total Checking $300 Offer
 
 ## Changes Detected
 
