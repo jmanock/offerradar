@@ -58,7 +58,7 @@ export function Header() {
             onClick={() => setIsOpen(false)}
             className="inline-flex rounded-full bg-blue-700 px-4 py-2 text-white shadow-sm shadow-blue-900/20 transition hover:bg-blue-800 lg:ml-2"
           >
-            Browse Offers
+            Compare Offers
           </Link>
         </nav>
       </div>

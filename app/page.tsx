@@ -72,7 +72,7 @@ export default function Home() {
                 href="#lead-capture"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white/90 px-6 text-sm font-extrabold text-slate-950 shadow-sm hover:border-blue-300 hover:text-blue-800"
               >
-                Get matched with a local bank
+                Review local options
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -445,7 +445,7 @@ export default function Home() {
               "Track offers",
               "Verify details",
               "Compare requirements",
-              "Follow source/referral links",
+              "Review source links",
             ].map((item, index) => (
               <div key={item} className="rounded-2xl bg-slate-50 p-4">
                 <span className="text-sm font-black text-teal-700">
@@ -476,7 +476,7 @@ export default function Home() {
               "We organize offers by requirements, not just bonus size.",
               "We show last reviewed dates and verification status.",
               "We flag terms users should verify before applying.",
-              "Referral and affiliate relationships are disclosed.",
+              "Outbound link relationships are disclosed.",
             ].map((item) => (
               <div key={item} className="rounded-2xl border border-white/10 bg-white/10 p-4">
                 <p className="font-bold text-slate-100">{item}</p>
@@ -489,14 +489,14 @@ export default function Home() {
       <section id="lead-capture" className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <div>
           <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-            Lead capture
+            Research updates
           </p>
           <h2 className="mt-3 text-3xl font-black text-slate-950">
-            Join banking deal alerts
+            Track banking updates
           </h2>
           <p className="mt-3 text-sm leading-6 text-slate-600">
             Tell us your city and product interest. We will use this to improve
-            local Florida banking comparisons and deal-alert workflows.
+            local Florida banking comparisons and research-update workflows.
           </p>
         </div>
         <div className="premium-card rounded-3xl p-6">

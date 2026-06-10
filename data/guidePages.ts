@@ -184,23 +184,23 @@ export const guidePages: GuidePageInfo[] = [
   },
   {
     slug: "affiliate-disclosures",
-    title: "Affiliate Disclosure Guide",
-    description: "Learn how referral and affiliate compensation may appear on OfferRadar and why provider terms still control.",
-    h1: "Affiliate disclosures",
+    title: "Outbound Link Disclosure Guide",
+    description: "Learn how compensated outbound links may appear on OfferRadar and why provider terms still control.",
+    h1: "Outbound link disclosures",
     intro:
-      "OfferRadar may earn compensation through referral or affiliate links. Disclosure language should stay close to comparison and decision points.",
+      "Some outbound links may result in compensation to OfferRadar. Disclosure language should stay clear while research and provider verification remain the focus.",
     sections: [
       {
         title: "Compensation does not guarantee terms",
-        body: "Referral or affiliate compensation does not mean an offer is available, approved, paid, or best for a reader.",
+        body: "Compensation from an outbound link does not mean an offer is available, approved, paid, recommended, or best for a reader.",
       },
       {
         title: "Provider terms are the source of truth",
         body: "Readers should verify offer details directly with the provider before opening an account, applying, transferring assets, or making a purchase.",
       },
     ],
-    checklist: ["Referral relationship", "Provider terms", "Eligibility", "Fees", "No financial advice"],
+    checklist: ["Outbound link relationship", "Provider terms", "Eligibility", "Fees", "No financial advice"],
     relatedPages: ["/disclosures", "/editorial-policy", "/offers"],
-    faq: faq("affiliate disclosure"),
+    faq: faq("outbound link disclosure"),
   },
 ];

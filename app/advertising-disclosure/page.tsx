@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Advertising Disclosure",
   description:
-    "OfferRadar advertising disclosure explaining referral, affiliate, and compensation relationships.",
+    "OfferRadar advertising disclosure explaining outbound links and compensation relationships.",
   alternates: { canonical: "/advertising-disclosure" },
 };
 
@@ -13,7 +13,7 @@ export default function AdvertisingDisclosurePage() {
     <PolicyPage
       eyebrow="Advertising disclosure"
       title="Advertising Disclosure"
-      intro="OfferRadar may earn compensation through referral or affiliate links when links are available and reviewed. Compensation does not guarantee approval, eligibility, payout, rate, or offer availability."
+      intro="Some reviewed outbound links may result in compensation to OfferRadar. This does not guarantee approval, eligibility, payout, rate, or offer availability."
       sections={[
         ["Not a bank", "OfferRadar is not a bank, credit union, lender, broker-dealer, or financial institution."],
         ["Educational information", "Information on OfferRadar is for educational comparison purposes only and is not financial advice."],

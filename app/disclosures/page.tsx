@@ -4,14 +4,14 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 export const metadata: Metadata = {
   title: "Disclosures",
   description:
-    "OfferRadar disclosure information about referral or affiliate compensation, changing terms, and provider verification.",
+    "OfferRadar disclosure information about outbound links, changing terms, and provider verification.",
   alternates: { canonical: "/disclosures" },
 };
 
 const disclosureSections = [
   {
-    title: "Referral and affiliate links",
-    body: "Some links may be referral or affiliate links, and OfferRadar may earn compensation if a user signs up, applies, opens an account, or completes eligible activity through those links. Compensation does not mean an offer is best for a user or that a user will qualify.",
+    title: "Outbound links and compensation",
+    body: "Some outbound links may result in compensation to OfferRadar. This does not change the requirements shown, mean an offer is a recommendation, or indicate that a user will qualify.",
   },
   {
     title: "Offers can change",

@@ -68,7 +68,7 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
                 href="#lead-capture"
                 className="inline-flex justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
               >
-                Get matched with a local bank
+                Review local options
               </Link>
               <Link
                 href="/offers"
@@ -121,14 +121,14 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
       <section id="lead-capture" className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <div>
           <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-            Lead capture
+            Comparison request
           </p>
           <h2 className="mt-3 text-3xl font-black text-slate-950">
-            Get matched with a local bank
+            Request local comparison information
           </h2>
           <p className="mt-3 text-sm leading-6 text-slate-600">
             Share what you are comparing. OfferRadar will use this to organize
-            future local banking and deal-alert workflows.
+            future local banking comparison and research-update workflows.
           </p>
         </div>
         <div className="premium-card rounded-3xl p-6">

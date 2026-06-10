@@ -253,9 +253,9 @@ export default async function ProviderPage({ params }: Props) {
               </h2>
               <p className="mt-3 leading-7 text-slate-600">
                 OfferRadar independently organizes provider and offer details
-                for comparison. Compensation may apply when a reviewed
-                affiliate or referral link is available, but provider terms
-                control eligibility, approval, and offer availability.
+                for research and comparison. Source links are included when
+                available, but provider terms control eligibility, approval,
+                and offer availability.
               </p>
               <Link
                 href="/editorial-policy"

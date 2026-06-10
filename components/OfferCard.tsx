@@ -44,7 +44,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
           href={`/offer/${offer.slug}`}
           className="rounded-full bg-blue-700 px-4 py-2 text-sm font-bold text-white shadow-sm shadow-blue-900/20 transition hover:bg-blue-800"
         >
-          Details
+          Compare details
         </Link>
       </div>
     </article>

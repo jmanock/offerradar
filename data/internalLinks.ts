@@ -26,7 +26,7 @@ export const featuredGuideLinks = [
   { href: "/guides/referral-bonuses", label: "Referral bonus guide" },
   { href: "/guides/fees", label: "Fee comparison guide" },
   { href: "/guides/offer-comparisons", label: "Offer comparison guide" },
-  { href: "/guides/affiliate-disclosures", label: "Affiliate disclosure guide" },
+  { href: "/guides/affiliate-disclosures", label: "Outbound link disclosure guide" },
 ];
 
 export const popularComparisonLinks = [

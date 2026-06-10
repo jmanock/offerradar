@@ -23,8 +23,8 @@ const policySections = [
     body: "The platform is structured for future daily tracking, change detection, and daily reporting. Until those systems are active, pages rely on reviewed records and visible verification dates.",
   },
   {
-    title: "Referral and affiliate compensation",
-    body: "OfferRadar may earn compensation through referral or affiliate links. Compensation may influence which offers are tracked or how links are presented, but requirements, fees, and verification reminders should remain easy to find.",
+    title: "Outbound links and compensation",
+    body: "Some outbound links may result in compensation to OfferRadar. Editorial pages remain focused on requirements, fees, verification dates, source review, and terms users should check directly with providers.",
   },
   {
     title: "Why users should verify terms directly",

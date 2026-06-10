@@ -32,7 +32,7 @@ export function BestOfPage({
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_360px] lg:px-8">
           <div className="max-w-3xl">
             <p className="inline-flex rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-teal-700">
-              Best-of tracker
+              Comparison tracker
             </p>
             <h1 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
               {title}
@@ -44,9 +44,9 @@ export function BestOfPage({
               Ranking notes
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Offers are organized by active status, featured placement,
-              verification recency, and last reviewed date. Provider terms
-              control availability, eligibility, approval, and payout.
+              Offers are organized by active status, verification recency,
+              requirements completeness, and last reviewed date. Provider
+              terms control availability, eligibility, approval, and payout.
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@ export function BestOfPage({
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-black text-slate-950">
-          Top tracked offers
+          Tracked offers to compare
         </h2>
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {offers.map((offer) => (

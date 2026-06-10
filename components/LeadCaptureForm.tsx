@@ -44,7 +44,7 @@ export function LeadCaptureForm({ source }: { source: string }) {
       product_interest: payload.productInterest,
     });
 
-    if (payload.productInterest.toLowerCase().includes("alerts")) {
+    if (payload.productInterest.toLowerCase().includes("updates")) {
       newsletterSignup({ source });
     }
 
@@ -97,7 +97,7 @@ export function LeadCaptureForm({ source }: { source: string }) {
                 {option}
               </option>
             ))}
-            <option value="Banking deal alerts">Banking deal alerts</option>
+            <option value="Banking research updates">Banking research updates</option>
           </select>
         </label>
       </div>
@@ -114,7 +114,7 @@ export function LeadCaptureForm({ source }: { source: string }) {
         disabled={status === "submitting"}
         className="inline-flex h-12 items-center justify-center rounded-full bg-blue-700 px-6 text-sm font-extrabold text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-slate-400"
       >
-        {status === "submitting" ? "Submitting..." : "Get matched with a local bank"}
+        {status === "submitting" ? "Submitting..." : "Request comparison information"}
       </button>
       {message ? (
         <p

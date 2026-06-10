@@ -83,9 +83,9 @@ export function getPublicLinkForRecord(record: LinkRegistryRecord) {
     if (monetizedUrl) {
       return {
         href: monetizedUrl,
-        label: "Open tracked offer",
+        label: "Check current terms",
         linkType: record.referralUrl ? "referral" : "affiliate",
-        sourceLabel: "Referral/affiliate disclosure applies where links are available",
+        sourceLabel: "Source reviewed. Verify current terms with the provider.",
       };
     }
   }
@@ -93,9 +93,9 @@ export function getPublicLinkForRecord(record: LinkRegistryRecord) {
   if (record.officialOfferUrl) {
     return {
       href: record.officialOfferUrl,
-      label: "Open provider offer",
+      label: "Check current terms",
       linkType: "official_offer",
-      sourceLabel: "Source: Provider website",
+      sourceLabel: "Source reviewed: provider website.",
     };
   }
 

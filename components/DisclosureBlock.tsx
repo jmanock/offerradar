@@ -10,13 +10,14 @@ export function DisclosureBlock({ compact = false }: { compact?: boolean }) {
           i
         </span>
         <h2 className="text-sm font-extrabold uppercase tracking-wide text-slate-950">
-          Disclosure first
+          Important information
         </h2>
       </div>
       <p className="mt-3 text-sm leading-6 text-slate-700">
-        OfferRadar may earn compensation through referral or affiliate links.
-        Offers can change, expire, or vary by user. Always verify details
-        directly with the provider before opening an account or applying.
+        OfferRadar is an independent research and comparison resource. Some
+        outbound links may result in compensation to OfferRadar. Offers can
+        change, expire, or vary by user, so verify current terms directly with
+        the provider before acting.
       </p>
     </section>
   );

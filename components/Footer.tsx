@@ -21,7 +21,7 @@ export function Footer() {
           </div>
           <p className="mt-3 text-sm leading-6">
             A disclosure-first offer tracking platform for comparing bonuses,
-            referrals, promotions, fees, and verification dates before signup.
+            referrals, promotions, fees, and verification dates before acting.
           </p>
           <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-xs leading-5 text-slate-400">
             Offer details can change. Verify terms directly with the provider.

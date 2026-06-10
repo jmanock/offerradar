@@ -10,7 +10,7 @@ export const providers: ProviderInfo[] = [
     commonOfferTypes: ["Checking account bonuses", "Direct deposit bonuses", "Credit card welcome offers"],
     thingsToVerify: ["Offer code requirements", "Direct deposit definitions", "Monthly fee waivers", "Credit card eligibility rules"],
     relatedCategories: ["bank-bonuses", "credit-card-offers"],
-    disclosureNote: "OfferRadar may earn compensation through eligible Chase referral or affiliate links if added later.",
+    disclosureNote: "Review requirements and verify current terms directly with Chase before acting.",
   },
   {
     slug: "sofi",
@@ -21,7 +21,7 @@ export const providers: ProviderInfo[] = [
     commonOfferTypes: ["Direct deposit bonuses", "Checking and savings offers", "Referral offers"],
     thingsToVerify: ["Direct deposit tier", "Evaluation period", "Account fee schedule", "Referral eligibility"],
     relatedCategories: ["bank-bonuses", "high-yield-savings", "referral-offers"],
-    disclosureNote: "Referral compensation may apply if an eligible referral link is used.",
+    disclosureNote: "Review requirements and verify current terms directly with SoFi before acting.",
   },
   {
     slug: "capital-one",

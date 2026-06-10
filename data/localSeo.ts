@@ -102,8 +102,8 @@ export const localOfferTypes: LocalOfferType[] = [
   },
   {
     slug: "local-bank-matches",
-    label: "Local bank matches",
-    description: "Lead capture paths for users who want help comparing local banks or credit unions.",
+    label: "Local banking comparisons",
+    description: "Comparison paths for users researching local banks or credit unions.",
   },
   {
     slug: "rate-comparison",
@@ -112,8 +112,8 @@ export const localOfferTypes: LocalOfferType[] = [
   },
   {
     slug: "deal-alerts",
-    label: "Deal alerts",
-    description: "Email capture for readers who want banking offer updates and local comparison reminders.",
+    label: "Banking research updates",
+    description: "Organized updates for readers tracking banking offers and local comparison topics.",
   },
 ];
 
@@ -229,7 +229,7 @@ export const localSeoPages: LocalSeoPage[] = [
     ],
     faqs: floridaFaqs,
     cta: {
-      title: "Get matched with a local bank",
+      title: "Review local banking options",
       body: "Tell us your city and product interest so OfferRadar can help organize local banking options for review.",
     },
     relatedLinks: [
@@ -263,7 +263,7 @@ export const localSeoPages: LocalSeoPage[] = [
     ],
     faqs: floridaFaqs,
     cta: {
-      title: "Get matched with a Sanford-area bank",
+      title: "Review Sanford-area banking options",
       body: "Share your city and product interest to start a local banking comparison checklist.",
     },
     relatedLinks: [
@@ -331,7 +331,7 @@ export const localSeoPages: LocalSeoPage[] = [
     ],
     faqs: floridaFaqs,
     cta: {
-      title: "Get matched with a Florida mortgage option",
+      title: "Review Florida mortgage options",
       body: "Share your city and product interest so we can route you into a comparison workflow as OfferRadar expands lender coverage.",
     },
     relatedLinks: [
@@ -399,8 +399,8 @@ export const localSeoPages: LocalSeoPage[] = [
     ],
     faqs: floridaFaqs,
     cta: {
-      title: "Join banking deal alerts",
-      body: "Get organized updates as OfferRadar expands Florida banking promotion coverage.",
+      title: "Track Florida banking updates",
+      body: "Request organized updates as OfferRadar expands Florida banking promotion coverage.",
     },
     relatedLinks: [
       { href: "/bank-bonuses", label: "Bank bonuses" },
@@ -535,8 +535,8 @@ export const localSeoPages: LocalSeoPage[] = [
     ],
     faqs: floridaFaqs,
     cta: {
-      title: "Join referral deal alerts",
-      body: "Get organized updates as OfferRadar expands referral offer coverage and verified link workflows.",
+      title: "Track referral offer updates",
+      body: "Request organized updates as OfferRadar expands referral offer coverage and source review.",
     },
     relatedLinks: [
       { href: "/referral-offers", label: "Referral offers" },

@@ -4,7 +4,7 @@ import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 export const metadata: Metadata = {
   title: "Contact OfferRadar",
   description:
-    "Contact OfferRadar about banking comparisons, local bank matches, offer listings, and deal alerts.",
+    "Contact OfferRadar about banking comparisons, local options, offer listings, and research updates.",
   alternates: { canonical: "/contact" },
 };
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
           </h1>
           <p className="mt-4 text-lg leading-8 text-slate-600">
             Send offer feedback, comparison questions, or a request for banking
-            deal alerts.
+            research updates.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function ContactPage() {
           </h2>
           <p className="mt-4 leading-7 text-slate-600">
             Use this form for local banking comparison requests, offer listing
-            feedback, or banking deal alerts. Do not submit sensitive account or
+            feedback, or research updates. Do not submit sensitive account or
             identity information.
           </p>
           <p className="mt-4 rounded-xl bg-slate-50 p-4 text-sm leading-6 text-slate-600">

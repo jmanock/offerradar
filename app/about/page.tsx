@@ -38,7 +38,7 @@ export default function AboutPage() {
             ],
             [
               "Disclosure-first presentation",
-              "Referral or affiliate relationships are disclosed, and provider terms remain the source of truth.",
+              "Outbound link relationships are disclosed, and provider terms remain the source of truth.",
             ],
             [
               "No financial advice",
