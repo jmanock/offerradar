@@ -7,6 +7,7 @@ import { offerTypePages } from "@/data/offerTypePages";
 import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
 import { offers } from "@/lib/offerData";
+import { authorityPages } from "@/data/authorityPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -32,8 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const offerTypeRoutes = offerTypePages.map((page) => `/${page.slug}`);
   const stateRoutes = statePages.map((page) => `/${page.slug}`);
   const localSeoRoutes = localSeoPages.map((page) => `/${page.slug}`);
+  const authorityRoutes = authorityPages.map((page) => `/${page.slug}`);
 
-  return [
+  const routes = [
     ...staticRoutes,
     ...categoryRoutes,
     ...offerRoutes,
@@ -43,7 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...offerTypeRoutes,
     ...stateRoutes,
     ...localSeoRoutes,
-  ].map((route) => ({
+    ...authorityRoutes,
+  ].filter((route, index, allRoutes) => allRoutes.indexOf(route) === index);
+
+  return routes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route.startsWith("/offer") ? "weekly" : "daily",

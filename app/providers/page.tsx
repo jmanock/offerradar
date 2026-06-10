@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { getAllProviderComparisonPages } from "@/data/comparisonPages";
 import {
   featuredGuideLinks,
@@ -135,6 +136,7 @@ export default function ProvidersPage() {
             </div>
           </section>
           <DisclosureBlock />
+          <div className="mt-8"><VerificationMethodology /></div>
         </div>
       </div>
     </div>

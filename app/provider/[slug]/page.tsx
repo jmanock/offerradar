@@ -5,6 +5,7 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
 import { featuredGuideLinks } from "@/data/internalLinks";
 import {
@@ -31,6 +32,30 @@ const providerSearchContent: Record<
     faq: { question: string; answer: string }[];
   }
 > = {
+  chase: {
+    title: "Chase banking and credit card research",
+    body: "Chase tracked records can include checking, savings, and credit card categories. Compare offer codes, direct deposit definitions, account packages, monthly fees, card eligibility, and current provider terms.",
+    links: [{ href: "/bank-bonuses", label: "Bank bonuses" }, { href: "/credit-card-offers", label: "Credit card records" }, { href: "/compare/chase-vs-sofi", label: "Chase vs SoFi" }],
+    faq: [{ question: "What Chase offer types does OfferRadar track?", answer: "OfferRadar tracks Chase records across banking and credit card categories when data is available." }, { question: "What should I verify with Chase?", answer: "Verify current availability, offer codes, eligibility, direct deposit definitions, fees, spend requirements, and provider terms." }],
+  },
+  sofi: {
+    title: "SoFi banking, savings, and referral research",
+    body: "SoFi tracked records may involve checking and savings, direct deposit tiers, or referral eligibility. Compare account type, required activity, evaluation period, fees, and current terms.",
+    links: [{ href: "/bank-bonuses", label: "Bank bonuses" }, { href: "/high-yield-savings", label: "Savings records" }, { href: "/compare/chase-vs-sofi", label: "Chase vs SoFi" }],
+    faq: [{ question: "What should I verify for a SoFi promotion?", answer: "Verify the eligible account, direct deposit or funding tier, evaluation period, referral eligibility, fees, and current terms." }, { question: "Are SoFi terms the same for every user?", answer: "Not necessarily. Eligibility and visible promotions can vary, so check the terms shown directly by SoFi." }],
+  },
+  robinhood: {
+    title: "Robinhood transfer and brokerage research",
+    body: "Robinhood tracked records may involve transfers, subscription features, or referral activity. Compare eligible assets, ACAT support, transfer value, holding periods, subscription costs, and investment risk.",
+    links: [{ href: "/robinhood-transfer-bonus-guide", label: "Robinhood transfer guide" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/compare/robinhood-vs-webull", label: "Robinhood vs Webull" }],
+    faq: [{ question: "What should I verify before a Robinhood transfer?", answer: "Verify eligible assets, ACAT support, transfer fees, minimum value, holding period, subscription costs, and current terms." }, { question: "Does a tracked Robinhood record guarantee a transfer bonus?", answer: "No. Verify current availability and all terms directly with Robinhood before transferring assets." }],
+  },
+  fidelity: {
+    title: "Fidelity brokerage, retirement, and transfer research",
+    body: "Fidelity tracked records may involve brokerage funding, asset transfers, or retirement accounts. Compare eligible account types, funding thresholds, holding periods, fees, tax considerations, and current terms.",
+    links: [{ href: "/brokerage-bonuses", label: "Brokerage promotions" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/compare/fidelity-vs-robinhood", label: "Fidelity vs Robinhood" }],
+    faq: [{ question: "What Fidelity account types should I compare?", answer: "Compare eligible brokerage, retirement, cash management, and transfer account types using current Fidelity terms." }, { question: "What should I verify before moving assets?", answer: "Verify eligible assets, account type, fees, tax considerations, funding or transfer threshold, and holding period." }],
+  },
   "wells-fargo": {
     title: "Wells Fargo checking and credit card offer records",
     body: "OfferRadar currently tracks Wells Fargo checking and credit card offer records. Credit card approval, spend requirements, rewards value, annual fees, APR, and availability must be verified directly with Wells Fargo; the records are not recommendations or approval estimates.",
@@ -127,6 +152,7 @@ export default async function ProviderPage({ params }: Props) {
   const publicLink = getPublicLinkForProvider(provider.name);
   const registryRecord = getLinkRegistryRecordByProvider(provider.name);
   const searchContent = providerSearchContent[provider.slug];
+  const isPriorityProvider = ["robinhood", "fidelity", "wells-fargo", "chase", "sofi"].includes(provider.slug);
   const relatedProviders = getAllProviders()
     .filter(
       (candidate) =>
@@ -169,6 +195,27 @@ export default async function ProviderPage({ params }: Props) {
             })),
           }}
         />
+      ) : null}
+
+      {isPriorityProvider ? (
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <article className="premium-card rounded-3xl p-6">
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Provider overview</p>
+              <h2 className="mt-3 text-2xl font-black text-slate-950">{provider.name} account types</h2>
+              <p className="mt-3 leading-7 text-slate-600">{provider.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">{provider.commonOfferTypes.map((type) => <span key={type} className="rounded-full bg-slate-100 px-3 py-2 text-sm font-bold text-slate-700">{type}</span>)}</div>
+            </article>
+            <article className="premium-card rounded-3xl p-6">
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Tracked offer history</p>
+              <h2 className="mt-3 text-2xl font-black text-slate-950">Current tracked records</h2>
+              <div className="mt-5 grid gap-3">
+                {offers.length ? offers.slice(0, 4).map((offer, index) => <Link key={offer.slug} href={`/offer/${offer.slug}`} className="rounded-2xl bg-slate-50 p-4"><span className="block text-xs font-extrabold uppercase tracking-wide text-teal-700">{index === 0 ? "Current tracked record" : "Other tracked record"}</span><span className="mt-2 block font-extrabold text-slate-950">{offer.title}</span><span className="mt-1 block text-sm text-slate-600">Last verified {offer.lastVerified}</span></Link>) : <p className="rounded-2xl bg-slate-50 p-4 text-slate-600">No current tracked offer record. Verify directly with the provider.</p>}
+              </div>
+            </article>
+          </div>
+          <div className="mt-6"><VerificationMethodology /></div>
+        </section>
       ) : null}
       <JsonLd
         data={{

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
@@ -528,6 +529,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <VerificationMethodology />
       </section>
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { OfferCard } from "@/components/OfferCard";
 import {
   featuredGuideLinks,
@@ -184,7 +185,10 @@ export default function OffersPage() {
         </div>
 
         <div className="mt-12">
-          <DisclosureBlock />
+          <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+            <VerificationMethodology />
+            <DisclosureBlock />
+          </div>
         </div>
         <section className="mt-12 border-t border-slate-200 pt-12">
           <h2 className="text-3xl font-black text-slate-950">Offer comparison FAQ</h2>

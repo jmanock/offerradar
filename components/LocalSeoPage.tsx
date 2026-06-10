@@ -3,9 +3,11 @@ import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import type { LocalSeoPage } from "@/data/localSeo";
 
 export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
+  const isFloridaChecking = page.slug === "best-checking-accounts-florida";
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -121,6 +123,47 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
         </div>
       </section>
 
+      {isFloridaChecking ? (
+        <>
+          <section className="border-y border-slate-200 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-black text-slate-950">Best banks for checking in Florida</h2>
+              <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+                These institutions are useful comparison starting points because
+                they represent national banks, regional banks, and Florida
+                credit unions. Account availability, branch coverage, fees,
+                and promotions should be verified directly.
+              </p>
+              <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+                <table className="min-w-[850px] w-full text-left text-sm">
+                  <thead className="bg-slate-950 text-white"><tr>{["Bank", "Branch availability", "Online banking", "ATM access", "Bonus availability", "Verification status"].map((heading) => <th key={heading} className="px-4 py-3">{heading}</th>)}</tr></thead>
+                  <tbody>{floridaBanks.map((bank) => <tr key={bank.name} className="border-t border-slate-200"><td className="px-4 py-4 font-extrabold text-slate-950">{bank.href ? <Link href={bank.href} className="text-blue-700">{bank.name}</Link> : bank.name}</td><td className="px-4 py-4 text-slate-700">{bank.branches}</td><td className="px-4 py-4 text-slate-700">Available; verify features</td><td className="px-4 py-4 text-slate-700">Verify network and fees</td><td className="px-4 py-4 text-slate-700">{bank.bonus}</td><td className="px-4 py-4 text-slate-700">{bank.status}</td></tr>)}</tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+          <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <article className="premium-card rounded-3xl p-6">
+              <h2 className="text-2xl font-black text-slate-950">Florida credit unions vs national banks</h2>
+              <p className="mt-3 leading-7 text-slate-600">Credit unions may use membership eligibility and emphasize local service, while national banks may offer broader branch, ATM, and digital access. Compare fees, eligibility, service, deposit insurance, and account fit.</p>
+            </article>
+            <article className="premium-card rounded-3xl p-6">
+              <h2 className="text-2xl font-black text-slate-950">Florida direct deposit requirements explained</h2>
+              <p className="mt-3 leading-7 text-slate-600">Providers may define qualifying direct deposit differently. Verify accepted sources, required amount, timing window, account package, monthly fee waiver, and bonus posting period.</p>
+              <Link href="/guides/direct-deposits" className="mt-5 inline-flex font-extrabold text-blue-700">Read the direct deposit guide</Link>
+            </article>
+          </section>
+          <section className="border-y border-slate-200 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-black text-slate-950">Florida banking by city</h2>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale"].map((city) => <article key={city} className="rounded-2xl bg-slate-50 p-4"><h3 className="font-extrabold text-slate-950">{city}</h3><p className="mt-2 text-sm leading-6 text-slate-600">Compare branch access, regional institutions, credit unions, and online alternatives serving {city}.</p><Link href="/best-banks-in-florida" className="mt-3 inline-flex text-sm font-extrabold text-blue-700">Review Florida banks</Link></article>)}
+              </div>
+            </div>
+          </section>
+        </>
+      ) : null}
+
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
           <div>
@@ -156,6 +199,10 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <VerificationMethodology />
+      </section>
+
       <section className="border-t border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-slate-950">Related pages</h2>
@@ -175,3 +222,14 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
     </div>
   );
 }
+
+const floridaBanks = [
+  { name: "Chase", href: "/provider/chase", branches: "Florida locations; verify nearby branches", bonus: "Tracked records available", status: "Source review shown on provider page" },
+  { name: "Wells Fargo", href: "/provider/wells-fargo", branches: "Florida locations; verify nearby branches", bonus: "Tracked records available", status: "Source review shown on provider page" },
+  { name: "Bank of America", href: "/provider/bank-of-america", branches: "Florida locations; verify nearby branches", bonus: "Tracked records available", status: "Source review shown on provider page" },
+  { name: "Truist", href: "/provider/truist", branches: "Regional Florida presence; verify locally", bonus: "No current tracked offer record", status: "Official website recorded" },
+  { name: "Regions", branches: "Regional presence; verify locally", bonus: "Not currently tracked", status: "Independent verification needed" },
+  { name: "Fifth Third", branches: "Regional presence; verify locally", bonus: "Not currently tracked", status: "Independent verification needed" },
+  { name: "VyStar", branches: "Florida credit union; membership applies", bonus: "Not currently tracked", status: "Independent verification needed" },
+  { name: "MIDFLORIDA", branches: "Florida credit union; membership applies", bonus: "Not currently tracked", status: "Independent verification needed" },
+];

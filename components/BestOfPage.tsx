@@ -2,6 +2,8 @@ import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
+import { OfferComparisonTable } from "@/components/OfferComparisonTable";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { featuredGuideLinks, popularComparisonLinks } from "@/data/internalLinks";
 import { formatDate, getBestOffersByCategory, getLastUpdated } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
@@ -142,9 +144,17 @@ export function BestOfPage({
         </div>
       </section>
 
+      {category.slug === "brokerage-bonuses" ? (
+        <OfferComparisonTable offers={offers} title="Best brokerage bonus comparison" />
+      ) : null}
+
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
         <LinkPanel title="Related guides" links={featuredGuideLinks.slice(0, 6)} />
         <LinkPanel title="Popular comparisons" links={popularComparisonLinks.slice(0, 6)} />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <VerificationMethodology />
       </section>
 
       <section className="border-t border-slate-200 bg-white">

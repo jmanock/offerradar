@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "Compare current tracked bank bonus records by requirements, fees, direct deposit rules, verification dates, and provider terms.",
   alternates: { canonical: "/best-bank-bonuses" },
+  openGraph: {
+    title: "Best Bank Bonuses | Verified Offers and Requirements",
+    description:
+      "Compare current tracked bank bonus records, requirements, fees, direct deposit rules, and last verified dates.",
+  },
 };
 
 export default function BestBankBonusesPage() {

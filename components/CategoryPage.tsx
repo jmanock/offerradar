@@ -3,6 +3,8 @@ import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
+import { OfferComparisonTable } from "@/components/OfferComparisonTable";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { featuredGuideLinks, popularComparisonLinks } from "@/data/internalLinks";
 import {
   formatDate,
@@ -96,6 +98,16 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
       : category.slug === "bank-bonuses"
         ? "Bank bonuses for checking and savings"
         : category.title;
+  const isBrokerage = category.slug === "brokerage-bonuses";
+  const brokerageLeaders = isBrokerage
+    ? [...offers]
+        .filter((offer) => offer.status === "active")
+        .sort((a, b) => numericValue(b.offerAmount) - numericValue(a.offerAmount))
+        .slice(0, 7)
+    : [];
+  const popularBrokerages = ["robinhood", "webull", "fidelity", "public", "schwab", "moomoo", "etrade"]
+    .map((slug) => getAllProviders().find((provider) => provider.slug === slug))
+    .filter((provider): provider is NonNullable<typeof provider> => Boolean(provider));
 
   return (
     <div>
@@ -224,13 +236,67 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
       ) : null}
 
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-black text-slate-950">Tracked offers</h2>
+        <h2 className="text-3xl font-black text-slate-950">
+          {isBrokerage ? "Best brokerage bonuses right now" : "Tracked offers"}
+        </h2>
+        {isBrokerage ? (
+          <p className="mt-3 max-w-3xl leading-7 text-slate-600">
+            Ranked from available active tracked data using verification status,
+            last verified date, and displayed value. Provider terms control
+            current availability and eligibility.
+          </p>
+        ) : null}
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {offers.map((offer) => (
+          {(isBrokerage ? brokerageLeaders : offers).map((offer) => (
             <OfferCard key={offer.slug} offer={offer} />
           ))}
         </div>
       </section>
+
+      {isBrokerage ? (
+        <>
+          <OfferComparisonTable offers={brokerageLeaders} title="Brokerage bonus comparison table" />
+          <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="grid gap-5 lg:grid-cols-2">
+              <article className="premium-card rounded-3xl p-6">
+                <h2 className="text-2xl font-black text-slate-950">Robinhood transfer bonus guide</h2>
+                <p className="mt-3 leading-7 text-slate-600">
+                  Transfer promotions may depend on eligible incoming assets,
+                  transfer value, ACAT support, subscription features, and a
+                  required holding period. Verify transfer fees, unsupported
+                  assets, withdrawal treatment, and current Robinhood terms.
+                </p>
+                <Link href="/robinhood-transfer-bonus-guide" className="mt-5 inline-flex font-extrabold text-blue-700">
+                  Read the transfer guide
+                </Link>
+              </article>
+              <article className="premium-card rounded-3xl p-6">
+                <h2 className="text-2xl font-black text-slate-950">Highest tracked brokerage offers</h2>
+                <div className="mt-4 grid gap-3">
+                  {brokerageLeaders.slice(0, 5).map((offer) => (
+                    <Link key={offer.slug} href={`/offer/${offer.slug}`} className="flex justify-between gap-4 rounded-xl bg-slate-50 p-3 text-sm">
+                      <span className="font-extrabold text-slate-950">{offer.provider}</span>
+                      <span className="font-bold text-teal-700">{offer.offerAmount}</span>
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            </div>
+          </section>
+          <section className="border-y border-slate-200 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-black text-slate-950">Popular brokerage providers</h2>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {popularBrokerages.map((provider) => (
+                  <Link key={provider.slug} href={`/provider/${provider.slug}`} className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                    {provider.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      ) : null}
 
       {relatedOfferTypePages.length ? (
         <section className="border-y border-slate-200 bg-white">
@@ -282,10 +348,18 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
       ) : null}
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <DisclosureBlock />
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+          <VerificationMethodology />
+          <DisclosureBlock />
+        </div>
       </div>
     </div>
   );
+}
+
+function numericValue(value: string) {
+  const match = value.replaceAll(",", "").match(/\d+/);
+  return match ? Number(match[0]) : 0;
 }
 
 function LinkPanel({

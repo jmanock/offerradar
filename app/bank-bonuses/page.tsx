@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "Compare tracked checking and savings account offers by direct deposit requirements, monthly fees, eligibility, and last verified dates.",
   alternates: { canonical: "/bank-bonuses" },
+  openGraph: {
+    title: "Bank Bonuses | Compare Checking and Savings Offers",
+    description:
+      "Compare tracked checking and savings offers by requirements, fees, eligibility, and last verified dates.",
+  },
 };
 
 export default function BankBonusesPage() {

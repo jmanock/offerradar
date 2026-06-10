@@ -6,6 +6,7 @@ import { categories, siteUrl } from "@/data/offers";
 import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
 import { offers } from "@/lib/offerData";
+import { authorityPages } from "@/data/authorityPages";
 
 const staticRoutes = [
   "",
@@ -50,6 +51,7 @@ export function getSiteStats() {
     offerTypePageCount: offerTypePages.length,
     statePageCount: statePages.length,
     localSeoPageCount: localSeoPages.length,
+    authorityPageCount: authorityPages.length,
     estimatedPublicPageCount:
       staticRoutes.length +
       categories.length +
@@ -59,6 +61,7 @@ export function getSiteStats() {
       guidePages.length +
       offerTypePages.length +
       statePages.length +
-      localSeoPages.length,
+      localSeoPages.length +
+      authorityPages.length,
   };
 }

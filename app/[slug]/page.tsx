@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { AuthorityPage } from "@/components/AuthorityPage";
 import { LocalSeoPageView } from "@/components/LocalSeoPage";
 import { OfferCard } from "@/components/OfferCard";
 import { getLocalSeoPageBySlug, localSeoPages } from "@/data/localSeo";
+import { authorityPages, getAuthorityPage } from "@/data/authorityPages";
 import {
   getAllOfferTypePages,
   getAllStatePages,
@@ -20,11 +22,16 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return [
+  const pages = [
     ...getAllOfferTypePages().map((page) => ({ slug: page.slug })),
     ...getAllStatePages().map((page) => ({ slug: page.slug })),
     ...localSeoPages.map((page) => ({ slug: page.slug })),
+    ...authorityPages.map((page) => ({ slug: page.slug })),
   ];
+
+  return pages.filter(
+    (page, index) => pages.findIndex((candidate) => candidate.slug === page.slug) === index,
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -32,6 +39,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const offerTypePage = getOfferTypePageBySlug(slug);
   const statePage = getStatePageBySlug(slug);
   const localSeoPage = getLocalSeoPageBySlug(slug);
+  const authorityPage = getAuthorityPage(slug);
+
+  if (authorityPage) {
+    return {
+      title: authorityPage.title,
+      description: authorityPage.description,
+      alternates: { canonical: `/${authorityPage.slug}` },
+      openGraph: {
+        title: authorityPage.title,
+        description: authorityPage.description,
+        url: `/${authorityPage.slug}`,
+      },
+    };
+  }
 
   if (offerTypePage) {
     return {
@@ -56,6 +77,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description:
           "Compare Florida checking accounts and tracked bonuses by direct deposit rules, monthly fees, access, requirements, and last verified dates.",
         alternates: { canonical: `/${localSeoPage.slug}` },
+        openGraph: {
+          title: "Best Checking Accounts in Florida | Compare Bonuses and Features",
+          description:
+            "Compare Florida checking accounts, tracked bonuses, banking features, fees, access, and last verified details.",
+          url: `/${localSeoPage.slug}`,
+        },
       };
     }
 
@@ -74,6 +101,11 @@ export default async function ProgrammaticPage({ params }: Props) {
   const offerTypePage = getOfferTypePageBySlug(slug);
   const statePage = getStatePageBySlug(slug);
   const localSeoPage = getLocalSeoPageBySlug(slug);
+  const authorityPage = getAuthorityPage(slug);
+
+  if (authorityPage) {
+    return <AuthorityPage page={authorityPage} />;
+  }
 
   if (offerTypePage) {
     const offers = getOffersForOfferTypePage(offerTypePage.slug);
