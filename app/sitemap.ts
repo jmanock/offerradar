@@ -24,6 +24,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/best-brokerage-bonuses",
     "/best-referral-bonuses",
     "/providers",
+    "/weekly-offer-radar",
+    "/bank-bonus-calculator",
+    "/brokerage-bonus-calculator",
+    "/travel-fee-calculator",
   ];
   const categoryRoutes = categories.map((category) => `/${category.slug}`);
   const offerRoutes = offers.map((offer) => `/offer/${offer.slug}`);

@@ -56,6 +56,10 @@ export function Footer() {
             <Link href="/best-bank-bonuses">Best bank bonuses</Link>
             <Link href="/best-brokerage-bonuses">Best brokerage bonuses</Link>
             <Link href="/best-referral-bonuses">Best referral bonuses</Link>
+            <Link href="/weekly-offer-radar">Weekly OfferRadar</Link>
+            <Link href="/bank-bonus-calculator">Bank bonus calculator</Link>
+            <Link href="/brokerage-bonus-calculator">Brokerage bonus calculator</Link>
+            <Link href="/travel-fee-calculator">Travel fee calculator</Link>
             {priorityLandingPages.map((link) => (
               <Link key={link.href} href={link.href}>
                 {link.label}

@@ -266,6 +266,100 @@ export const authorityPages: AuthorityPage[] = [
     ],
     offerCategory: "brokerage-bonuses",
   },
+  {
+    slug: "world-cup-travel-money-guide",
+    title: "World Cup Travel Money Guide",
+    description: "Plan World Cup travel spending by comparing cards, bank accounts, ATM fees, foreign transaction fees, backups, and current provider terms.",
+    h1: "World Cup travel money guide",
+    intro: "International travel can make everyday banking fees and payment access more visible. Use this research guide to plan spending, compare payment methods, and verify current bank and card terms before a World Cup trip.",
+    sections: [
+      { title: "Plan the full travel budget", body: "Estimate hotels, flights, tickets, food, local transportation, mobile access, and a contingency amount before comparing payment methods.", points: ["Hotels and flights", "Food and transportation", "Ticket spending", "Emergency budget"] },
+      { title: "Debit cards vs credit cards", body: "Debit and credit cards can differ in fraud handling, account access, foreign transaction fees, ATM use, rewards, and approval requirements.", points: ["Foreign transaction fee", "ATM access", "Fraud protections", "Available credit or cash"] },
+      { title: "ATM and exchange costs", body: "An international withdrawal may involve provider fees, ATM-owner fees, exchange-rate conversion, and dynamic currency conversion.", points: ["Bank ATM fee", "ATM-owner fee", "Exchange rate", "Currency conversion choice"] },
+      { title: "Backup payment planning", body: "Travelers can reduce disruption by checking fraud settings, mobile access, emergency contacts, and backup payment methods before departure.", points: ["Backup card", "Emergency cash", "Fraud alerts", "Mobile banking access"] },
+    ],
+    faq: [
+      { question: "What banking fees should I check before World Cup travel?", answer: "Check foreign transaction fees, international ATM fees, ATM-owner fees, currency conversion terms, annual fees, and any account access restrictions." },
+      { question: "Should I rely on one card while traveling?", answer: "A backup payment method may help if a card is lost, declined, or temporarily restricted. Verify access and security settings with each provider." },
+    ],
+    relatedLinks: [
+      { href: "/travel-fee-calculator", label: "Travel fee calculator" },
+      { href: "/world-cup-credit-card-offers", label: "World Cup credit card research" },
+      { href: "/world-cup-bank-account-travel-checklist", label: "Travel banking checklist" },
+      { href: "/credit-card-offers", label: "Tracked credit card offers" },
+      { href: "/bank-bonuses", label: "Bank bonus tracker" },
+    ],
+  },
+  {
+    slug: "world-cup-credit-card-offers",
+    title: "World Cup Credit Card Offer Research",
+    description: "Compare credit card offer features for World Cup travel, including foreign transaction fees, annual fees, rewards, insurance terms, and provider requirements.",
+    h1: "Credit card offer research for World Cup travel",
+    intro: "A credit card offer can be one part of travel planning, but the ongoing card terms matter too. Compare verified tracked records with foreign transaction fees, annual fees, rewards categories, insurance language, and provider requirements.",
+    sections: [
+      { title: "Travel features to compare", body: "Compare payment-network acceptance, foreign transaction fees, support access, fraud tools, and the practical fit of the card after travel.", points: ["International acceptance", "Foreign transaction fee", "Fraud tools", "Support access"] },
+      { title: "Rewards and sign-up requirements", body: "Rewards and welcome offers can involve eligible spending, deadlines, exclusions, and approval requirements controlled by the provider.", points: ["Eligible purchases", "Spend deadline", "Rewards categories", "Approval terms"] },
+      { title: "Insurance language to verify", body: "Do not assume a card includes travel protections. Review the current benefit guide, coverage limits, exclusions, and required payment method.", points: ["Benefit guide", "Coverage limits", "Exclusions", "Claim requirements"] },
+      { title: "Fees and provider terms", body: "Annual fees, interest, cash advance costs, ATM treatment, and current offer terms can affect the overall account fit.", points: ["Annual fee", "APR and interest", "Cash advance terms", "Current provider terms"] },
+    ],
+    faq: [
+      { question: "Does OfferRadar recommend a card for World Cup travel?", answer: "No. OfferRadar organizes tracked records and comparison considerations. Verify approval requirements, fees, benefits, and current terms directly with the provider." },
+      { question: "Are travel insurance benefits guaranteed?", answer: "No. Benefits, eligibility, limits, exclusions, and claims requirements vary. Review the current provider benefit guide before relying on coverage." },
+    ],
+    relatedLinks: [
+      { href: "/credit-card-offers", label: "Tracked credit card offers" },
+      { href: "/travel-card-welcome-offers", label: "Travel card welcome offers" },
+      { href: "/credit-card-cash-back-offers", label: "Cash-back card offers" },
+      { href: "/world-cup-travel-money-guide", label: "World Cup travel money guide" },
+      { href: "/travel-fee-calculator", label: "Travel fee calculator" },
+    ],
+  },
+  {
+    slug: "world-cup-bank-account-travel-checklist",
+    title: "World Cup Bank Account Travel Checklist",
+    description: "Use a practical bank-account checklist before World Cup travel, covering international fees, ATM access, fraud settings, mobile banking, and backup payments.",
+    h1: "Bank account checklist for World Cup travel",
+    intro: "A short banking review before international travel can help identify access limits, fees, and security settings. Confirm every item directly with your bank or card provider before departure.",
+    sections: [
+      { title: "Confirm travel access", body: "Ask whether travel notices are needed and verify international debit-card use, account access, contact information, and security settings.", points: ["Travel notice policy", "International card access", "Current phone number", "Fraud alert settings"] },
+      { title: "Check debit and ATM fees", body: "Review international transaction fees, ATM network access, withdrawal limits, ATM-owner fees, and currency conversion terms.", points: ["International debit fee", "ATM network", "Withdrawal limit", "Currency conversion"] },
+      { title: "Set up mobile banking", body: "Confirm secure login, alerts, card controls, support contacts, and how you will access authentication codes while abroad.", points: ["Secure login", "Transaction alerts", "Card controls", "Support contacts"] },
+      { title: "Keep backup payment methods", body: "Consider a separately stored backup card and a modest emergency cash plan based on your itinerary and risk tolerance.", points: ["Backup card", "Emergency cash", "Separate storage", "Emergency contacts"] },
+    ],
+    faq: [
+      { question: "Do I need to notify my bank before international travel?", answer: "Policies vary. Some providers no longer require notices, while others offer travel settings. Confirm the current policy directly before departure." },
+      { question: "What should I verify about international ATM use?", answer: "Verify network access, withdrawal limits, provider and ATM-owner fees, exchange terms, card settings, and support options." },
+    ],
+    relatedLinks: [
+      { href: "/world-cup-travel-money-guide", label: "World Cup travel money guide" },
+      { href: "/travel-fee-calculator", label: "Travel fee calculator" },
+      { href: "/best-checking-accounts-florida", label: "Florida checking comparison" },
+      { href: "/bank-bonuses", label: "Bank bonus tracker" },
+    ],
+  },
+  {
+    slug: "florida-world-cup-travel-banking-guide",
+    title: "Florida World Cup Travel Banking Guide",
+    description: "Help Florida travelers compare bank accounts, cards, ATM access, travel fees, and payment backups before World Cup travel.",
+    h1: "Florida travel banking guide for the World Cup",
+    intro: "Florida travelers planning an international trip can compare checking access, savings transfers, debit and credit cards, airport spending, hotel holds, and travel fees before departure.",
+    sections: [
+      { title: "Compare accounts before travel", body: "Review account access, debit-card terms, foreign transaction fees, ATM coverage, savings transfers, and support before choosing a travel payment setup.", points: ["Checking access", "Savings transfers", "Debit-card terms", "Credit-card terms"] },
+      { title: "Florida city considerations", body: "Travelers leaving from Miami, Orlando, Tampa, Jacksonville, or Fort Lauderdale can plan for airport purchases, transportation, hotel holds, and international access.", points: ["Miami", "Orlando", "Tampa", "Jacksonville and Fort Lauderdale"] },
+      { title: "Airport and hotel spending", body: "Review card holds, available balances, transportation payments, baggage costs, and how international transactions will post.", points: ["Hotel holds", "Available balance", "Airport spending", "Transaction posting"] },
+      { title: "Verification checklist", body: "Confirm fees, access, security settings, support contacts, backup payments, and live provider terms before leaving Florida.", points: ["Fee schedule", "Fraud settings", "Support access", "Backup payment"] },
+    ],
+    faq: [
+      { question: "What should Florida travelers compare before an international trip?", answer: "Compare account access, foreign transaction and ATM fees, card acceptance, fraud settings, available funds, support, and backup payment methods." },
+      { question: "Does OfferRadar provide travel or financial advice?", answer: "No. This guide is educational and helps organize questions to verify directly with banks, card providers, and other relevant professionals." },
+    ],
+    relatedLinks: [
+      { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },
+      { href: "/best-banks-in-florida", label: "Banks in Florida" },
+      { href: "/world-cup-travel-money-guide", label: "World Cup travel money guide" },
+      { href: "/travel-fee-calculator", label: "Travel fee calculator" },
+    ],
+  },
 ];
 
 export function getAuthorityPage(slug: string) {

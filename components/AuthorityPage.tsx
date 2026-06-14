@@ -25,10 +25,25 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
           ? getBestOffersByCategory(page.offerCategory, 6)
           : [];
   const lastUpdated = getLastUpdated();
+  const isTravelGuide = page.slug.includes("world-cup");
 
   return (
     <div>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: page.title, description: page.description, url: `https://offerradar.io/${page.slug}` }} />
+      <JsonLd
+        data={
+          isTravelGuide
+            ? {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: page.title,
+                description: page.description,
+                mainEntityOfPage: `https://offerradar.io/${page.slug}`,
+                author: { "@type": "Organization", name: "OfferRadar" },
+                publisher: { "@type": "Organization", name: "OfferRadar" },
+              }
+            : { "@context": "https://schema.org", "@type": "CollectionPage", name: page.title, description: page.description, url: `https://offerradar.io/${page.slug}` }
+        }
+      />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://offerradar.io" }, { "@type": "ListItem", position: 2, name: page.title, item: `https://offerradar.io/${page.slug}` }] }} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }} />
       <section className="border-b border-slate-200 bg-white">

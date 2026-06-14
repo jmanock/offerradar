@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-14T10:47:09.389901+00:00",
+  "generatedAt": "2026-06-14T11:01:12.163879+00:00",
   "routeCountAudited": 145,
   "majorPagesWithFewOrNoInternalLinks": [
     {
@@ -213,6 +213,14 @@
   "offerPagesMissingProviderCategoryBestPageLinks": [],
   "guidePagesMissingRelatedOfferOrCategoryLinks": [
     {
+      "route": "/guides/referral-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/brokerage-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/offer-expiration-dates",
       "action": "Review guide related links and add offer/category links where useful."
     },
@@ -221,7 +229,15 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
+      "route": "/guides/offer-comparisons",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/direct-deposits",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
@@ -229,23 +245,7 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/referral-bonuses",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
       "route": "/guides/fees",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/offer-comparisons",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/brokerage-bonuses",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     }
   ],
@@ -987,6 +987,14 @@
       "action": "Add or review offer records for this provider, or add contextual related offer links."
     },
     {
+      "route": "/guides/referral-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/brokerage-bonuses",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/offer-expiration-dates",
       "action": "Review guide related links and add offer/category links where useful."
     },
@@ -995,7 +1003,15 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
+      "route": "/guides/offer-comparisons",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
       "route": "/guides/direct-deposits",
+      "action": "Review guide related links and add offer/category links where useful."
+    },
+    {
+      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
@@ -1003,23 +1019,7 @@
       "action": "Review guide related links and add offer/category links where useful."
     },
     {
-      "route": "/guides/referral-bonuses",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
       "route": "/guides/fees",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/offer-comparisons",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/brokerage-bonuses",
-      "action": "Review guide related links and add offer/category links where useful."
-    },
-    {
-      "route": "/guides/affiliate-disclosures",
       "action": "Review guide related links and add offer/category links where useful."
     }
   ],
@@ -1297,15 +1297,15 @@
       "/provider/etrade"
     ],
     "guideLinks": [
+      "/guides/referral-bonuses",
+      "/guides/brokerage-bonuses",
       "/guides/offer-expiration-dates",
       "/guides/bank-bonuses",
-      "/guides/direct-deposits",
-      "/guides/minimum-deposits",
-      "/guides/referral-bonuses",
-      "/guides/fees",
       "/guides/offer-comparisons",
-      "/guides/brokerage-bonuses",
-      "/guides/affiliate-disclosures"
+      "/guides/direct-deposits",
+      "/guides/affiliate-disclosures",
+      "/guides/minimum-deposits",
+      "/guides/fees"
     ],
     "comparisonLinks": [],
     "footerLinks": [

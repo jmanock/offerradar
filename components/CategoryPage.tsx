@@ -269,6 +269,9 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
                 <Link href="/robinhood-transfer-bonus-guide" className="mt-5 inline-flex font-extrabold text-blue-700">
                   Read the transfer guide
                 </Link>
+                <Link href="/brokerage-bonus-calculator" className="mt-3 block font-extrabold text-blue-700">
+                  Estimate bonus costs
+                </Link>
               </article>
               <article className="premium-card rounded-3xl p-6">
                 <h2 className="text-2xl font-black text-slate-950">Highest tracked brokerage offers</h2>
@@ -296,6 +299,15 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             </div>
           </section>
         </>
+      ) : null}
+
+      {category.slug === "bank-bonuses" ? (
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <Link href="/bank-bonus-calculator" className="premium-card block rounded-3xl p-6 transition hover:border-blue-200">
+            <h2 className="text-2xl font-black text-slate-950">Estimate bank bonus costs</h2>
+            <p className="mt-3 leading-7 text-slate-600">Use the bank bonus calculator to compare a stated bonus with monthly fees, deposit requirements, and holding time.</p>
+          </Link>
+        </section>
       ) : null}
 
       {relatedOfferTypePages.length ? (

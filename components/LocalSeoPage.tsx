@@ -151,6 +151,7 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
               <h2 className="text-2xl font-black text-slate-950">Florida direct deposit requirements explained</h2>
               <p className="mt-3 leading-7 text-slate-600">Providers may define qualifying direct deposit differently. Verify accepted sources, required amount, timing window, account package, monthly fee waiver, and bonus posting period.</p>
               <Link href="/guides/direct-deposits" className="mt-5 inline-flex font-extrabold text-blue-700">Read the direct deposit guide</Link>
+              <Link href="/florida-world-cup-travel-banking-guide" className="mt-3 block font-extrabold text-blue-700">Review Florida travel banking considerations</Link>
             </article>
           </section>
           <section className="border-y border-slate-200 bg-white">

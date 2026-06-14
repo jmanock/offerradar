@@ -144,8 +144,8 @@ export function BestOfPage({
         </div>
       </section>
 
-      {category.slug === "brokerage-bonuses" ? (
-        <OfferComparisonTable offers={offers} title="Best brokerage bonus comparison" />
+      {["brokerage-bonuses", "bank-bonuses"].includes(category.slug) ? (
+        <OfferComparisonTable offers={offers} title={`Best ${category.shortTitle.toLowerCase()} comparison`} />
       ) : null}
 
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">

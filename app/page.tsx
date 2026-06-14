@@ -141,6 +141,34 @@ export default function Home() {
         ))}
       </OfferSection>
 
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Current research paths</p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">Trending financial guides this week</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Timely comparison pages and tools connected to the banking and brokerage topics readers are researching now.</p>
+            </div>
+            <Link href="/weekly-offer-radar" className="text-sm font-extrabold text-blue-700">Open the weekly hub</Link>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["/brokerage-bonuses", "Brokerage bonuses", "Compare tracked promotions, transfers, and requirements."],
+              ["/best-checking-accounts-florida", "Florida checking accounts", "Review access, fees, bonuses, and verification details."],
+              ["/bank-bonuses", "Bank bonuses", "Compare checking and savings offer requirements."],
+              ["/world-cup-travel-money-guide", "World Cup travel money guide", "Plan cards, ATM access, fees, and backup payments."],
+              ["/bank-bonus-calculator", "Bank bonus calculator", "Estimate a bonus after listed monthly fees."],
+              ["/brokerage-bonus-calculator", "Brokerage bonus calculator", "Estimate a promotion after transfer and account fees."],
+            ].map(([href, label, description]) => (
+              <Link key={href} href={href} className="premium-card rounded-2xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200">
+                <h3 className="font-extrabold text-slate-950">{label}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <OfferSection
         tone="white"
         eyebrow="Reviewed data"
