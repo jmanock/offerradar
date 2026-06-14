@@ -17,8 +17,10 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
   const offers =
     page.slug === "brokerage-transfer-bonuses"
       ? getOffersForOfferTypePage(page.slug).slice(0, 8)
-      : page.slug === "robinhood-transfer-bonus-guide"
+      : page.slug.startsWith("robinhood-")
         ? getOffersByProvider("Robinhood").slice(0, 6)
+        : page.slug.startsWith("wells-fargo-")
+          ? getOffersByProvider("Wells Fargo").slice(0, 6)
         : page.offerCategory
           ? getBestOffersByCategory(page.offerCategory, 6)
           : [];

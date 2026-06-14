@@ -47,13 +47,13 @@ const providerSearchContent: Record<
   robinhood: {
     title: "Robinhood transfer and brokerage research",
     body: "Robinhood tracked records may involve transfers, subscription features, or referral activity. Compare eligible assets, ACAT support, transfer value, holding periods, subscription costs, and investment risk.",
-    links: [{ href: "/robinhood-transfer-bonus-guide", label: "Robinhood transfer guide" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/compare/robinhood-vs-webull", label: "Robinhood vs Webull" }],
+    links: [{ href: "/robinhood-transfer-bonus-guide", label: "Robinhood transfer guide" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/robinhood-vs-webull", label: "Robinhood vs Webull research" }, { href: "/robinhood-vs-fidelity", label: "Robinhood vs Fidelity research" }],
     faq: [{ question: "What should I verify before a Robinhood transfer?", answer: "Verify eligible assets, ACAT support, transfer fees, minimum value, holding period, subscription costs, and current terms." }, { question: "Does a tracked Robinhood record guarantee a transfer bonus?", answer: "No. Verify current availability and all terms directly with Robinhood before transferring assets." }],
   },
   fidelity: {
     title: "Fidelity brokerage, retirement, and transfer research",
     body: "Fidelity tracked records may involve brokerage funding, asset transfers, or retirement accounts. Compare eligible account types, funding thresholds, holding periods, fees, tax considerations, and current terms.",
-    links: [{ href: "/brokerage-bonuses", label: "Brokerage promotions" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/compare/fidelity-vs-robinhood", label: "Fidelity vs Robinhood" }],
+    links: [{ href: "/brokerage-bonuses", label: "Brokerage promotions" }, { href: "/brokerage-transfer-bonuses", label: "Transfer bonuses" }, { href: "/robinhood-vs-fidelity", label: "Robinhood vs Fidelity research" }],
     faq: [{ question: "What Fidelity account types should I compare?", answer: "Compare eligible brokerage, retirement, cash management, and transfer account types using current Fidelity terms." }, { question: "What should I verify before moving assets?", answer: "Verify eligible assets, account type, fees, tax considerations, funding or transfer threshold, and holding period." }],
   },
   "wells-fargo": {
@@ -63,6 +63,8 @@ const providerSearchContent: Record<
       { href: "/bank-bonuses", label: "Compare bank bonuses" },
       { href: "/credit-card-offers", label: "Compare credit card offers" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },
+      { href: "/wells-fargo-bonuses", label: "Wells Fargo bonus research" },
+      { href: "/wells-fargo-checking-bonus", label: "Wells Fargo checking bonus research" },
       { href: "/compare/chase-vs-wells-fargo", label: "Chase vs Wells Fargo" },
     ],
     faq: [
@@ -153,6 +155,8 @@ export default async function ProviderPage({ params }: Props) {
   const registryRecord = getLinkRegistryRecordByProvider(provider.name);
   const searchContent = providerSearchContent[provider.slug];
   const isPriorityProvider = ["robinhood", "fidelity", "wells-fargo", "chase", "sofi"].includes(provider.slug);
+  const providerLastVerified =
+    registryRecord?.lastReviewed ?? offers[0]?.lastVerified ?? "Review in progress";
   const relatedProviders = getAllProviders()
     .filter(
       (candidate) =>
@@ -214,7 +218,6 @@ export default async function ProviderPage({ params }: Props) {
               </div>
             </article>
           </div>
-          <div className="mt-6"><VerificationMethodology /></div>
         </section>
       ) : null}
       <JsonLd
@@ -270,24 +273,24 @@ export default async function ProviderPage({ params }: Props) {
               {provider.disclosureNote}
             </p>
             <div className="mt-5 grid gap-3">
-              {registryRecord ? (
-                <dl className="grid gap-3 border-b border-slate-200 pb-5 text-sm">
+              <dl className="grid gap-3 border-b border-slate-200 pb-5 text-sm">
                   <div className="flex items-center justify-between gap-4">
                     <dt className="font-semibold text-slate-500">Last verified</dt>
                     <dd className="font-extrabold text-slate-900">
-                      {registryRecord.lastReviewed}
+                      {providerLastVerified}
                     </dd>
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <dt className="font-semibold text-slate-500">Verification status</dt>
                     <dd className="font-extrabold text-slate-900">
-                      {registryRecord.officialOfferUrl
+                      {registryRecord?.officialOfferUrl
                         ? "Official offer URL recorded"
-                        : "Official website recorded"}
+                        : registryRecord?.officialWebsiteUrl
+                          ? "Official website recorded"
+                          : "Provider review in progress"}
                     </dd>
                   </div>
                 </dl>
-              ) : null}
               {publicLink ? (
                 <>
                   <TrackedOutboundLink
@@ -401,6 +404,10 @@ export default async function ProviderPage({ params }: Props) {
           </div>
         </section>
       ) : null}
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <VerificationMethodology />
+      </section>
 
       {searchContent ? (
         <section className="border-y border-slate-200 bg-white">

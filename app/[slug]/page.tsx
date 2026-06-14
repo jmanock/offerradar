@@ -73,12 +73,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (localSeoPage) {
     if (localSeoPage.slug === "best-checking-accounts-florida") {
       return {
-        title: "Best Checking Account Bonuses in Florida",
+        title: "Best Checking Accounts in Florida (2026) | Compare Offers",
         description:
           "Compare Florida checking accounts and tracked bonuses by direct deposit rules, monthly fees, access, requirements, and last verified dates.",
         alternates: { canonical: `/${localSeoPage.slug}` },
         openGraph: {
-          title: "Best Checking Accounts in Florida | Compare Bonuses and Features",
+          title: "Best Checking Accounts in Florida (2026) | Compare Offers",
           description:
             "Compare Florida checking accounts, tracked bonuses, banking features, fees, access, and last verified details.",
           url: `/${localSeoPage.slug}`,

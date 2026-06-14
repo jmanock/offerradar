@@ -4,10 +4,13 @@ import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { guidePages } from "@/data/guidePages";
 import {
   getAllProviders,
   getCategoryBySlug,
+  formatDate,
+  getLastUpdated,
   getOffersByCategory,
 } from "@/lib/offers";
 import type { CategoryInfo, OfferCategory } from "@/types/offer";
@@ -57,6 +60,7 @@ export default async function GuidePage({ params }: Props) {
       ),
     )
     .slice(0, 6);
+  const lastVerified = getLastUpdated();
 
   return (
     <div>
@@ -128,6 +132,9 @@ export default async function GuidePage({ params }: Props) {
               {page.h1}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{page.intro}</p>
+            <p className="mt-4 text-sm font-bold text-slate-500">
+              Last verified {lastVerified ? formatDate(lastVerified) : "review in progress"}
+            </p>
           </div>
           <div className="premium-card rounded-3xl p-6">
             <h2 className="text-lg font-black text-slate-950">
@@ -167,6 +174,7 @@ export default async function GuidePage({ params }: Props) {
               ))}
             </div>
           </section>
+          <VerificationMethodology compact />
           <DisclosureBlock compact />
         </aside>
       </div>

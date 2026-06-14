@@ -6,6 +6,7 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
 import { StatusBadge } from "@/components/StatusBadge";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import {
   formatDate,
   getAllProviders,
@@ -274,6 +275,7 @@ export default async function OfferDetailPage({ params }: Props) {
               ) : null}
             </dl>
           </div>
+          <VerificationMethodology compact />
           <DisclosureBlock compact />
         </aside>
       </div>

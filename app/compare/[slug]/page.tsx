@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
+import { VerificationMethodology } from "@/components/VerificationMethodology";
 import {
   getAllProviderComparisonPages,
   getProviderComparisonBySlug,
@@ -14,6 +15,8 @@ import {
 } from "@/data/internalLinks";
 import {
   getCategoryBySlug,
+  formatDate,
+  getLastUpdated,
   getOffersByProvider,
 } from "@/lib/offers";
 import type { CategoryInfo } from "@/types/offer";
@@ -57,6 +60,7 @@ export default async function ProviderComparisonPage({ params }: Props) {
   const relatedComparisons = popularComparisonLinks.filter(
     (comparison) => comparison.href !== `/compare/${page.slug}`,
   );
+  const lastVerified = getLastUpdated();
 
   return (
     <div>
@@ -119,6 +123,9 @@ export default async function ProviderComparisonPage({ params }: Props) {
               verification reminders for {page.providerA.name} and{" "}
               {page.providerB.name}. Provider terms control eligibility and
               availability.
+            </p>
+            <p className="mt-4 text-sm font-bold text-slate-500">
+              Last verified {lastVerified ? formatDate(lastVerified) : "review in progress"}
             </p>
           </div>
           <div className="premium-card rounded-3xl p-6">
@@ -203,7 +210,10 @@ export default async function ProviderComparisonPage({ params }: Props) {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-        <DisclosureBlock />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <VerificationMethodology />
+          <DisclosureBlock />
+        </div>
       </div>
     </div>
   );

@@ -5,12 +5,12 @@ import { getCategoryBySlug } from "@/lib/offers";
 const category = getCategoryBySlug("bank-bonuses")!;
 
 export const metadata: Metadata = {
-  title: "Best Bank Bonuses | Current Tracked Offers and Requirements",
+  title: "Best Bank Bonuses (2026) | Compare Verified Promotions",
   description:
     "Compare current tracked bank bonus records by requirements, fees, direct deposit rules, verification dates, and provider terms.",
   alternates: { canonical: "/best-bank-bonuses" },
   openGraph: {
-    title: "Best Bank Bonuses | Verified Offers and Requirements",
+    title: "Best Bank Bonuses (2026) | Compare Verified Promotions",
     description:
       "Compare current tracked bank bonus records, requirements, fees, direct deposit rules, and last verified dates.",
   },
