@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
+import { OfferComparisonTable } from "@/components/OfferComparisonTable";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
@@ -78,6 +79,16 @@ const providerSearchContent: Record<
         answer:
           "Verify new-customer eligibility, direct deposit definitions, state availability, monthly fees, waiver rules, deadlines, and current provider terms.",
       },
+      {
+        question: "What should I compare in a Wells Fargo credit card offer?",
+        answer:
+          "Compare the tracked welcome-offer requirements with approval terms, eligible spending, rewards rules, annual fees, APR, other costs, and the current Wells Fargo terms.",
+      },
+      {
+        question: "Does OfferRadar recommend a Wells Fargo credit card?",
+        answer:
+          "No. OfferRadar organizes tracked records for research and comparison. It does not recommend cards or estimate approval, eligibility, rewards value, or account fit.",
+      },
     ],
   },
   "merrill-edge": {
@@ -118,10 +129,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (provider.slug === "wells-fargo") {
     return {
-      title: "Wells Fargo Offers | Checking and Credit Card Records",
+      title: "Wells Fargo Credit Card and Checking Offers | Tracked Records",
       description:
-        "Compare tracked Wells Fargo checking and credit card offer records, requirements, fees to verify, last reviewed dates, and current provider terms.",
+        "Compare tracked Wells Fargo credit card and checking offer records, requirements, fees, verification dates, and current provider terms.",
       alternates: { canonical: `/provider/${provider.slug}` },
+      openGraph: {
+        title: "Wells Fargo Credit Card and Checking Offers | Tracked Records",
+        description:
+          "Compare tracked Wells Fargo credit card and checking records, requirements, fees, verification dates, and current provider terms.",
+        url: `/provider/${provider.slug}`,
+      },
     };
   }
 
@@ -254,12 +271,14 @@ export default async function ProviderPage({ params }: Props) {
               Providers
             </Link>
             <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
-              {provider.name} offers
+              {provider.slug === "wells-fargo"
+                ? "Wells Fargo credit card and checking offers"
+                : `${provider.name} offers`}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              {provider.description} Use this page to compare requirements and
-              verification status, then confirm current terms directly with{" "}
-              {provider.name}.
+              {provider.slug === "wells-fargo"
+                ? "Research tracked Wells Fargo credit card and checking records, compare requirements and fees, review source status, and verify approval, eligibility, rewards, APR, and current terms directly with Wells Fargo."
+                : `${provider.description} Use this page to compare requirements and verification status, then confirm current terms directly with ${provider.name}.`}
             </p>
           </div>
           <div className="premium-card rounded-3xl p-6">
@@ -408,6 +427,14 @@ export default async function ProviderPage({ params }: Props) {
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <VerificationMethodology />
       </section>
+
+      {provider.slug === "wells-fargo" && offers.length ? (
+        <OfferComparisonTable
+          offers={offers}
+          title="Wells Fargo tracked offer comparison"
+          variant="provider"
+        />
+      ) : null}
 
       {searchContent ? (
         <section className="border-y border-slate-200 bg-white">

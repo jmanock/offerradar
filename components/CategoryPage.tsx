@@ -46,6 +46,16 @@ const categorySearchContent: Partial<
           "A brokerage account bonus is a promotion that may depend on opening, funding, transferring, or maintaining an eligible account. Requirements and availability can change.",
       },
       {
+        question: "How should I compare brokerage account promotions?",
+        answer:
+          "Compare the stated value, eligible account type, funding or transfer requirement, holding period, transfer and account fees, investment risk, verification date, and current provider terms.",
+      },
+      {
+        question: "Are brokerage promotions available to every investor?",
+        answer:
+          "No. Availability and eligibility can vary by provider, account type, customer history, transfer value, campaign, and location. Verify current terms directly.",
+      },
+      {
         question: "What should I verify before transferring investments?",
         answer:
           "Verify eligible assets, transfer fees, minimum values, holding periods, subscription costs, tax considerations, and current provider terms.",
@@ -78,6 +88,16 @@ const categorySearchContent: Partial<
         answer:
           "No. Some require deposits, transactions, balances, or offer codes instead. Verify the live provider terms for each tracked offer.",
       },
+      {
+        question: "What is the best bank for checking?",
+        answer:
+          "There is no single best bank for every user. Compare monthly fees, waiver rules, branch and ATM access, digital tools, direct deposit definitions, support, and ongoing account fit.",
+      },
+      {
+        question: "How should I compare checking and savings account offers?",
+        answer:
+          "Compare the account purpose, required activity or balance, fees, access, eligibility, payout timing, verification date, and current provider terms.",
+      },
     ],
   },
 };
@@ -99,6 +119,10 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
         ? "Bank bonuses for checking and savings"
         : category.title;
   const isBrokerage = category.slug === "brokerage-bonuses";
+  const isBank = category.slug === "bank-bonuses";
+  const comparisonOffers = [...offers]
+    .filter((offer) => offer.status === "active")
+    .slice(0, 8);
   const brokerageLeaders = isBrokerage
     ? [...offers]
         .filter((offer) => offer.status === "active")
@@ -172,10 +196,14 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
               {h1}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              {category.description}
+              {isBank
+                ? "Compare tracked checking and savings account offers by direct deposit rules, required balances, monthly fees, access, verification dates, and current provider terms. The best bank for checking depends on ongoing account fit, not only a promotion."
+                : isBrokerage
+                  ? "Compare tracked brokerage account bonuses and promotions by funding or transfer requirements, holding periods, fees, verification status, and current provider terms before opening or moving an account."
+                  : category.description}
             </p>
             <p className="mt-4 text-sm font-bold text-slate-500">
-              Verification-first tracker · Last verified{" "}
+              Source-reviewed records · Last verified{" "}
               {lastUpdated ? formatDate(lastUpdated) : "review in progress"}
             </p>
             <Link
@@ -299,6 +327,10 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             </div>
           </section>
         </>
+      ) : null}
+
+      {isBank ? (
+        <OfferComparisonTable offers={comparisonOffers} title="Checking and savings offer comparison" variant="bank" />
       ) : null}
 
       {category.slug === "bank-bonuses" ? (
