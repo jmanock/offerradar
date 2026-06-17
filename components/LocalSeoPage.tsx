@@ -125,6 +125,32 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
 
       {isFloridaChecking ? (
         <>
+          <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-black text-slate-950">Direct deposit bonus comparison</h2>
+            <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+              Use this table as a Florida checking account bonus research
+              checklist. The provider terms define qualifying deposits,
+              deadlines, payout timing, and eligibility.
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+              <table className="min-w-[900px] w-full text-left text-sm">
+                <thead className="bg-slate-950 text-white">
+                  <tr>{["Provider", "Tracked bonus", "Direct deposit note", "Fee note", "Verification"].map((heading) => <th key={heading} className="px-4 py-3">{heading}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {directDepositRows.map((row) => (
+                    <tr key={row.provider} className="border-t border-slate-200">
+                      <td className="px-4 py-4 font-extrabold text-slate-950">{row.href ? <Link href={row.href} className="text-blue-700">{row.provider}</Link> : row.provider}</td>
+                      <td className="px-4 py-4 text-slate-700">{row.bonus}</td>
+                      <td className="px-4 py-4 text-slate-700">{row.deposit}</td>
+                      <td className="px-4 py-4 text-slate-700">{row.fees}</td>
+                      <td className="px-4 py-4 text-slate-700">{row.verification}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
           <section className="border-y border-slate-200 bg-white">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-black text-slate-950">Best banks for checking in Florida</h2>
@@ -144,8 +170,18 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
           </section>
           <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
             <article className="premium-card rounded-3xl p-6">
-              <h2 className="text-2xl font-black text-slate-950">Florida credit unions vs national banks</h2>
-              <p className="mt-3 leading-7 text-slate-600">Credit unions may use membership eligibility and emphasize local service, while national banks may offer broader branch, ATM, and digital access. Compare fees, eligibility, service, deposit insurance, and account fit.</p>
+              <h2 className="text-2xl font-black text-slate-950">Best online banks in Florida</h2>
+              <p className="mt-3 leading-7 text-slate-600">Online banks may fit Florida users who prefer mobile account access, digital transfers, and broad ATM networks. Verify cash deposit rules, monthly fees, support options, and deposit insurance before opening an account.</p>
+              <Link href="/best-online-banks-in-florida" className="mt-5 inline-flex font-extrabold text-blue-700">Review online banks in Florida</Link>
+            </article>
+            <article className="premium-card rounded-3xl p-6">
+              <h2 className="text-2xl font-black text-slate-950">Florida credit unions</h2>
+              <p className="mt-3 leading-7 text-slate-600">Credit unions may use membership eligibility and emphasize local service. Compare fees, eligibility, shared branch access, deposit insurance, and account fit before relying on a promotion.</p>
+              <Link href="/florida-credit-unions" className="mt-5 inline-flex font-extrabold text-blue-700">Compare Florida credit union research</Link>
+            </article>
+            <article className="premium-card rounded-3xl p-6">
+              <h2 className="text-2xl font-black text-slate-950">National banks vs local banks</h2>
+              <p className="mt-3 leading-7 text-slate-600">National banks may offer broader branch, ATM, and digital coverage, while local banks and credit unions may offer community presence or membership-based service. Compare fees, access, support, and account usefulness.</p>
             </article>
             <article className="premium-card rounded-3xl p-6">
               <h2 className="text-2xl font-black text-slate-950">Florida direct deposit requirements explained</h2>
@@ -233,4 +269,39 @@ const floridaBanks = [
   { name: "Fifth Third", branches: "Regional presence; verify locally", bonus: "Not currently tracked", status: "Independent verification needed" },
   { name: "VyStar", branches: "Florida credit union; membership applies", bonus: "Not currently tracked", status: "Independent verification needed" },
   { name: "MIDFLORIDA", branches: "Florida credit union; membership applies", bonus: "Not currently tracked", status: "Independent verification needed" },
+];
+
+const directDepositRows = [
+  {
+    provider: "Chase",
+    href: "/provider/chase",
+    bonus: "Tracked checking records available",
+    deposit: "Verify qualifying source, amount, and posting window",
+    fees: "Review monthly fee and waiver rules",
+    verification: "Source review shown on provider page",
+  },
+  {
+    provider: "Wells Fargo",
+    href: "/provider/wells-fargo",
+    bonus: "Tracked checking records available",
+    deposit: "Verify qualifying direct deposit definition and deadline",
+    fees: "Review monthly fee, waiver, and account package",
+    verification: "Source review shown on provider page",
+  },
+  {
+    provider: "Bank of America",
+    href: "/provider/bank-of-america",
+    bonus: "Tracked checking records available",
+    deposit: "Verify deposit source, activity timing, and eligibility",
+    fees: "Review monthly fee and waiver requirements",
+    verification: "Source review shown on provider page",
+  },
+  {
+    provider: "SoFi",
+    href: "/provider/sofi",
+    bonus: "Tracked direct-deposit records available",
+    deposit: "Verify direct deposit tier and evaluation period",
+    fees: "Review account terms directly",
+    verification: "Source review shown on provider page",
+  },
 ];

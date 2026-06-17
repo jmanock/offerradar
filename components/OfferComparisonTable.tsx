@@ -16,7 +16,7 @@ export function OfferComparisonTable({
       ? ["Provider", "Offer type", "Value", "Direct deposit", "Deposit requirement", "Monthly fee", "Verification"]
       : variant === "provider"
         ? ["Tracked record", "Category", "Value", "Offer type", "Key requirement", "Verification"]
-        : ["Provider", "Offer type", "Value", "Transfer requirement", "Funding requirement", "Verification"];
+        : ["Provider", "Bonus amount", "Transfer requirement", "Holding period", "Verification date"];
 
   return (
     <section className="border-y border-slate-200 bg-white">
@@ -60,10 +60,9 @@ export function OfferComparisonTable({
                   ) : (
                     <>
                       <ProviderCell offer={offer} />
-                      <td className="px-4 py-4 text-slate-700">{offer.offerType}</td>
                       <td className="px-4 py-4 font-bold text-slate-950">{offer.offerAmount}</td>
                       <td className="px-4 py-4 text-slate-700">{textMatch(offer, "transfer")}</td>
-                      <td className="px-4 py-4 text-slate-700">{offer.minimumDeposit ?? "Verify with provider"}</td>
+                      <td className="px-4 py-4 text-slate-700">{holdingPeriod(offer)}</td>
                       <VerificationCell offer={offer} />
                     </>
                   )}
@@ -90,4 +89,12 @@ function textMatch(offer: Offer, term: string) {
     item.toLowerCase().includes(term),
   );
   return requirement ?? "Not listed";
+}
+
+function holdingPeriod(offer: Offer) {
+  return (
+    textMatch(offer, "holding") !== "Not listed"
+      ? textMatch(offer, "holding")
+      : textMatch(offer, "hold")
+  );
 }

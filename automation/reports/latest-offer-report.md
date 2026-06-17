@@ -1,6 +1,6 @@
 # OfferRadar Automation Report
 
-Generated: 2026-06-14T12:09:26.689269+00:00
+Generated: 2026-06-17T10:31:04.447854+00:00
 
 ## Summary
 
@@ -112,6 +112,8 @@ Generated: 2026-06-14T12:09:26.689269+00:00
 - 2026-07-10: Citi - Citi Priority Checking Up to $700 Offer
 - 2026-07-15: Harbor One Bank - Everyday Checking $200 Bonus
 - 2026-07-24: Chase - Chase Total Checking $300 Offer
+- 2026-07-31: Voyager Rewards - Travel Card 60,000 Point Offer
+- 2026-08-01: Blueprint Bank - Startup Checking $250 Bonus
 
 ## Changes Detected
 

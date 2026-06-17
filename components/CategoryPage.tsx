@@ -28,7 +28,7 @@ const categorySearchContent: Partial<
     sections: [
       {
         title: "Brokerage promotions and account bonuses",
-        body: "Brokerage promotions can involve new-account funding, asset transfers, referral eligibility, or a required holding period. Compare the requirement behind the headline value and review investment, transfer, and account fees.",
+        body: "Brokerage promotions can involve new-account funding, ACAT transfers, referral eligibility, or a required holding period. Compare the required transfer or deposit behind the headline value and review investment, transfer, tax, and account fees.",
       },
       {
         title: "Robinhood transfer bonus records for 2026",
@@ -37,6 +37,10 @@ const categorySearchContent: Partial<
       {
         title: "Clearpath Brokerage search note",
         body: "OfferRadar has a tracked Clearpath Brokerage record, but no verified official provider source is currently recorded. Treat the listing as a research record and verify the provider and current terms independently before acting.",
+      },
+      {
+        title: "How brokerage bonuses work",
+        body: "A brokerage account bonus usually depends on opening an eligible account, transferring or depositing assets, maintaining assets for a stated period, and meeting current provider terms. The bonus value is only one part of the comparison.",
       },
     ],
     faq: [
@@ -60,13 +64,23 @@ const categorySearchContent: Partial<
         answer:
           "Verify eligible assets, transfer fees, minimum values, holding periods, subscription costs, tax considerations, and current provider terms.",
       },
+      {
+        question: "How should I research a Robinhood transfer bonus?",
+        answer:
+          "Verify eligible assets, transfer amount, ACAT support, subscription requirements, holding period, transfer fees, investment risk, and current Robinhood terms before moving assets.",
+      },
+      {
+        question: "What should I compare in a Webull bonus?",
+        answer:
+          "Compare eligible account type, deposit or transfer requirement, campaign dates, reward form, holding period, fees, and current Webull terms. Availability can vary.",
+      },
     ],
   },
   "bank-bonuses": {
     sections: [
       {
         title: "Checking and savings account offers",
-        body: "Checking bonuses often focus on direct deposit or account activity, while savings offers may require new money and a maintained balance. Compare the account itself as well as the promotion.",
+        body: "The best checking and savings account offers are the ones where the account still fits after the promotion. Checking promotions often focus on direct deposit or activity, while savings promotions may require new money and a maintained balance.",
       },
       {
         title: "How to compare banks for checking",
@@ -75,6 +89,10 @@ const categorySearchContent: Partial<
       {
         title: "Direct deposit requirements and monthly fees",
         body: "Providers define qualifying direct deposit differently. Check the required source, amount, timing window, monthly service fee, waiver conditions, and early account closure rules.",
+      },
+      {
+        title: "Checking and savings promotions",
+        body: "Checking account promotions and savings account promotions should be compared separately because they often use different requirements, account access rules, balance expectations, and fee structures.",
       },
     ],
     faq: [
@@ -97,6 +115,16 @@ const categorySearchContent: Partial<
         question: "How should I compare checking and savings account offers?",
         answer:
           "Compare the account purpose, required activity or balance, fees, access, eligibility, payout timing, verification date, and current provider terms.",
+      },
+      {
+        question: "How do checking account promotions differ from savings account promotions?",
+        answer:
+          "Checking promotions often involve direct deposit or account activity, while savings promotions may require new money, balance tiers, and a maintained balance. Verify the current provider terms for each account.",
+      },
+      {
+        question: "Can a savings account promotion be better than a checking promotion?",
+        answer:
+          "It depends on your account needs, balance, access requirements, fees, timing, and eligibility. Compare the full account fit instead of only the stated bonus amount.",
       },
     ],
   },
@@ -374,6 +402,29 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
         <LinkPanel title="Related guides" links={featuredGuideLinks.slice(0, 6)} />
         <LinkPanel title="Popular comparisons" links={popularComparisonLinks.slice(0, 6)} />
       </section>
+
+      {(isBank || isBrokerage) ? (
+        <section className="border-y border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-black text-slate-950">Related high-intent pages</h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {[
+                { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
+                { href: "/bank-bonuses", label: "Bank bonuses" },
+                { href: "/brokerage-bonuses", label: "Brokerage bonuses" },
+                { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonuses" },
+                { href: "/offers", label: "All tracked offers" },
+              ]
+                .filter((link) => link.href !== `/${category.slug}`)
+                .map((link) => (
+                  <Link key={link.href} href={link.href} className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                    {link.label}
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {searchContent ? (
         <section className="border-y border-slate-200 bg-white">
