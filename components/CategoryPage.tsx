@@ -28,7 +28,11 @@ const categorySearchContent: Partial<
     sections: [
       {
         title: "Brokerage promotions and account bonuses",
-        body: "Brokerage promotions can involve new-account funding, ACAT transfers, referral eligibility, or a required holding period. Compare the required transfer or deposit behind the headline value and review investment, transfer, tax, and account fees.",
+        body: "Brokerage promotions and brokerage account bonuses can involve new-account funding, ACAT transfers, referral eligibility, or a required holding period. Compare the required transfer or deposit behind the headline value and review investment, transfer, tax, and account fees.",
+      },
+      {
+        title: "Brokerage account bonus comparison",
+        body: "A useful brokerage account bonus comparison starts with the provider, displayed bonus amount, transfer or funding requirement, holding period, account fees, and source-reviewed date. Investment risk and account fit matter more than the headline amount alone.",
       },
       {
         title: "Robinhood transfer bonus records for 2026",
@@ -50,9 +54,19 @@ const categorySearchContent: Partial<
           "A brokerage account bonus is a promotion that may depend on opening, funding, transferring, or maintaining an eligible account. Requirements and availability can change.",
       },
       {
+        question: "Where can I compare brokerage promotions?",
+        answer:
+          "Use a comparison table that shows the provider, displayed bonus amount, transfer or funding requirement, holding period, fees, verification date, and current provider source. OfferRadar organizes tracked records for research, not recommendations.",
+      },
+      {
         question: "How should I compare brokerage account promotions?",
         answer:
           "Compare the stated value, eligible account type, funding or transfer requirement, holding period, transfer and account fees, investment risk, verification date, and current provider terms.",
+      },
+      {
+        question: "Are brokerage account promotions worth it?",
+        answer:
+          "They may be worth researching when the account already fits your investing needs. Review transfer costs, account fees, taxes, holding periods, available investments, and provider terms before moving money or assets.",
       },
       {
         question: "Are brokerage promotions available to every investor?",
@@ -80,11 +94,15 @@ const categorySearchContent: Partial<
     sections: [
       {
         title: "Checking and savings account offers",
-        body: "The best checking and savings account offers are the ones where the account still fits after the promotion. Checking promotions often focus on direct deposit or activity, while savings promotions may require new money and a maintained balance.",
+        body: "The best checking and savings account offers are the ones where the account still fits after the promotion. Checking promotions often focus on direct deposit or activity, while savings promotions may require new money, a maintained balance, and variable-rate terms.",
       },
       {
         title: "How to compare banks for checking",
-        body: "A useful checking account comparison includes monthly fees, waiver rules, direct deposit definitions, ATM access, overdraft policies, regional availability, and the account's ongoing fit after a promotion ends.",
+        body: "The best bank for checking depends on how you use the account. Compare monthly fees, waiver rules, direct deposit definitions, ATM access, overdraft policies, regional availability, mobile tools, and the account's ongoing fit after a promotion ends.",
+      },
+      {
+        title: "Best bank for checking research",
+        body: "A checking account that looks attractive in search results can still be a poor fit if the fee waiver is hard to meet or branch and ATM access are inconvenient. Use the comparison table to separate offer value from everyday account usefulness.",
       },
       {
         title: "Direct deposit requirements and monthly fees",
@@ -102,6 +120,11 @@ const categorySearchContent: Partial<
           "Compare the stated value against required deposits, direct deposit rules, monthly fees, account usefulness, eligibility restrictions, and the time required to complete the terms.",
       },
       {
+        question: "What are the best checking and savings account offers?",
+        answer:
+          "The best offers are the ones with requirements you can verify and accounts that fit after the promotion. Compare checking direct deposit rules, savings balance requirements, monthly fees, account access, payout timing, and source-reviewed dates.",
+      },
+      {
         question: "Do all checking bonuses require direct deposit?",
         answer:
           "No. Some require deposits, transactions, balances, or offer codes instead. Verify the live provider terms for each tracked offer.",
@@ -110,6 +133,11 @@ const categorySearchContent: Partial<
         question: "What is the best bank for checking?",
         answer:
           "There is no single best bank for every user. Compare monthly fees, waiver rules, branch and ATM access, digital tools, direct deposit definitions, support, and ongoing account fit.",
+      },
+      {
+        question: "How do I choose the best bank for checking?",
+        answer:
+          "Start with the account's ongoing cost and access: monthly fee, fee waiver, ATM network, branch needs, mobile tools, overdraft policy, customer support, and direct deposit compatibility. Then compare any tracked promotion as a secondary factor.",
       },
       {
         question: "How should I compare checking and savings account offers?",
@@ -142,9 +170,9 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
   );
   const h1 =
     category.slug === "brokerage-bonuses"
-      ? "Brokerage bonuses and promotions"
+      ? "Brokerage promotions and account bonuses"
       : category.slug === "bank-bonuses"
-        ? "Bank bonuses for checking and savings"
+        ? "Best checking and savings account offers"
         : category.title;
   const isBrokerage = category.slug === "brokerage-bonuses";
   const isBank = category.slug === "bank-bonuses";
@@ -225,9 +253,9 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">
               {isBank
-                ? "Compare tracked checking and savings account offers by direct deposit rules, required balances, monthly fees, access, verification dates, and current provider terms. The best bank for checking depends on ongoing account fit, not only a promotion."
+                ? "Compare tracked checking and savings account offers by direct deposit rules, required balances, monthly fees, branch and ATM access, verification dates, and current provider terms. The best bank for checking depends on everyday account fit, not only a promotion."
                 : isBrokerage
-                  ? "Compare tracked brokerage account bonuses and promotions by funding or transfer requirements, holding periods, fees, verification status, and current provider terms before opening or moving an account."
+                  ? "Compare tracked brokerage promotions and account bonuses by funding or transfer requirements, holding periods, fees, verification status, and current provider terms before opening or moving an account."
                   : category.description}
             </p>
             <p className="mt-4 text-sm font-bold text-slate-500">

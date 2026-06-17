@@ -58,12 +58,13 @@ const providerSearchContent: Record<
     faq: [{ question: "What Fidelity account types should I compare?", answer: "Compare eligible brokerage, retirement, cash management, and transfer account types using current Fidelity terms." }, { question: "What should I verify before moving assets?", answer: "Verify eligible assets, account type, fees, tax considerations, funding or transfer threshold, and holding period." }],
   },
   "wells-fargo": {
-    title: "Wells Fargo checking and credit card offer records",
-    body: "OfferRadar currently tracks Wells Fargo checking and credit card offer records. Credit card approval, spend requirements, rewards value, annual fees, APR, and availability must be verified directly with Wells Fargo; the records are not recommendations or approval estimates.",
+    title: "Wells Fargo credit card and checking research",
+    body: "OfferRadar currently tracks Wells Fargo checking and credit card offer records for research. Credit card approval, spend requirements, rewards value, annual fees, APR, checking eligibility, and availability must be verified directly with Wells Fargo; the records are not recommendations or approval estimates.",
     links: [
       { href: "/bank-bonuses", label: "Compare bank bonuses" },
       { href: "/credit-card-offers", label: "Compare credit card offers" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },
+      { href: "/offers", label: "All tracked offers" },
       { href: "/wells-fargo-bonuses", label: "Wells Fargo bonus research" },
       { href: "/wells-fargo-checking-bonus", label: "Wells Fargo checking bonus research" },
       { href: "/compare/chase-vs-wells-fargo", label: "Chase vs Wells Fargo" },
@@ -73,6 +74,11 @@ const providerSearchContent: Record<
         question: "Does OfferRadar track Wells Fargo credit card offers?",
         answer:
           "Yes. OfferRadar has a tracked Wells Fargo credit card offer record, but approval, spend requirements, rewards terms, APR, fees, and current availability must be verified directly with Wells Fargo.",
+      },
+      {
+        question: "Why does this page appear for Wells Fargo credit card searches?",
+        answer:
+          "This page includes Wells Fargo credit card and checking offer records when data is available. It is a research page, not a credit card recommendation or approval estimate.",
       },
       {
         question: "What should I verify for a Wells Fargo checking offer?",
@@ -129,14 +135,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (provider.slug === "wells-fargo") {
     return {
-      title: "Wells Fargo Credit Card and Checking Offers | Tracked Records",
+      title: "Wells Fargo Credit Card Offers and Checking Bonuses | Research",
       description:
-        "Compare tracked Wells Fargo credit card and checking offer records, requirements, fees, verification dates, and current provider terms.",
+        "Research tracked Wells Fargo credit card offers and checking bonuses by requirements, fees, verification dates, and current provider terms.",
       alternates: { canonical: `/provider/${provider.slug}` },
       openGraph: {
-        title: "Wells Fargo Credit Card and Checking Offers | Tracked Records",
+        title: "Wells Fargo Credit Card Offers and Checking Bonuses | Research",
         description:
-          "Compare tracked Wells Fargo credit card and checking records, requirements, fees, verification dates, and current provider terms.",
+          "Research tracked Wells Fargo credit card and checking offer records, requirements, fees, verification dates, and current provider terms.",
         url: `/provider/${provider.slug}`,
       },
     };
@@ -272,12 +278,12 @@ export default async function ProviderPage({ params }: Props) {
             </Link>
             <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
               {provider.slug === "wells-fargo"
-                ? "Wells Fargo credit card and checking offers"
+                ? "Wells Fargo credit card offers and checking bonuses"
                 : `${provider.name} offers`}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">
               {provider.slug === "wells-fargo"
-                ? "Research tracked Wells Fargo credit card and checking records, compare requirements and fees, review source status, and verify approval, eligibility, rewards, APR, and current terms directly with Wells Fargo."
+                ? "Research tracked Wells Fargo credit card offers and checking bonuses, compare requirements and fees, review source status, and verify approval, eligibility, rewards, APR, and current terms directly with Wells Fargo."
                 : `${provider.description} Use this page to compare requirements and verification status, then confirm current terms directly with ${provider.name}.`}
             </p>
           </div>
@@ -427,6 +433,38 @@ export default async function ProviderPage({ params }: Props) {
       <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <VerificationMethodology />
       </section>
+
+      {provider.slug === "wells-fargo" ? (
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="premium-card rounded-3xl p-6">
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Search note
+            </p>
+            <h2 className="mt-3 text-2xl font-black text-slate-950">
+              Wells Fargo credit card query support
+            </h2>
+            <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+              Searchers looking for a Wells Fargo credit card should verify
+              the current card page, approval terms, welcome-offer rules,
+              eligible purchases, APR, annual fee, and rewards program
+              directly with Wells Fargo. OfferRadar keeps this page as a
+              tracked research record and does not estimate approval odds or
+              recommend a card.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link href="/credit-card-offers" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                Compare credit card records
+              </Link>
+              <Link href="/bank-bonuses" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                Compare bank bonuses
+              </Link>
+              <Link href="/offers" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                All tracked offers
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {provider.slug === "wells-fargo" && offers.length ? (
         <OfferComparisonTable
