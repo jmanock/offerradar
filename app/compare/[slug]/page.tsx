@@ -61,6 +61,23 @@ export default async function ProviderComparisonPage({ params }: Props) {
     (comparison) => comparison.href !== `/compare/${page.slug}`,
   );
   const lastVerified = getLastUpdated();
+  const comparisonFaq = [
+    {
+      question: `How should I compare ${page.providerA.name} and ${page.providerB.name}?`,
+      answer:
+        "Compare account types, fees, access, mobile tools, requirements, verification dates, and current provider terms. OfferRadar organizes research records and does not recommend one provider for every user.",
+    },
+    {
+      question: "Should I choose a provider only because of a promotion?",
+      answer:
+        "No. A promotion can be one comparison point, but account fit, ongoing fees, access, service, and provider terms may matter more over time.",
+    },
+    {
+      question: "What fees should I verify?",
+      answer:
+        "Verify monthly fees, fee waiver rules, transfer fees, ATM fees, annual fees where relevant, advisory or subscription fees, and any early closure or withdrawal terms.",
+    },
+  ];
 
   return (
     <div>
@@ -80,6 +97,17 @@ export default async function ProviderComparisonPage({ params }: Props) {
               url: `https://offerradar.io/provider/${provider.slug}`,
             })),
           },
+        }}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: comparisonFaq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
         }}
       />
       <JsonLd
@@ -172,6 +200,60 @@ export default async function ProviderComparisonPage({ params }: Props) {
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-black text-slate-950">Side-by-side comparison table</h2>
+          <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+            Use this table as a research checklist. Provider terms control
+            account availability, eligibility, fees, rewards, and features.
+          </p>
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+            <table className="min-w-[900px] w-full text-left text-sm">
+              <thead className="bg-slate-950 text-white">
+                <tr>
+                  {["Comparison area", page.providerA.name, page.providerB.name, "What to verify"].map((heading) => (
+                    <th key={heading} className="px-4 py-3">{heading}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows(page.providerA, page.providerB).map((row) => (
+                  <tr key={row.area} className="border-t border-slate-200">
+                    <td className="px-4 py-4 font-extrabold text-slate-950">{row.area}</td>
+                    <td className="px-4 py-4 text-slate-700">{row.a}</td>
+                    <td className="px-4 py-4 text-slate-700">{row.b}</td>
+                    <td className="px-4 py-4 text-slate-700">{row.verify}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <ResearchPanel
+          title={`${page.providerA.name} research notes`}
+          items={page.providerA.commonOfferTypes}
+          footer={page.providerA.disclosureNote}
+        />
+        <ResearchPanel
+          title={`${page.providerB.name} research notes`}
+          items={page.providerB.commonOfferTypes}
+          footer={page.providerB.disclosureNote}
+        />
+        <ResearchPanel
+          title="Fees and account costs"
+          items={["Monthly fees or waivers", "Transfer or funding fees", "ATM and cash access costs", "Subscription, annual, or advisory fees where relevant"]}
+          footer="Fee schedules can change. Verify current costs directly before opening or moving an account."
+        />
+        <ResearchPanel
+          title="Mobile experience and access"
+          items={["Mobile deposit and transfers", "Alerts and card controls", "ATM or branch access", "Support channels and availability"]}
+          footer="Mobile tools, ATM policies, and support options vary by provider and account type."
+        />
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-black text-slate-950">
             Shared and related categories
           </h2>
@@ -209,6 +291,18 @@ export default async function ProviderComparisonPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-black text-slate-950">FAQ</h2>
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          {comparisonFaq.map((item) => (
+            <article key={item.question} className="rounded-2xl bg-white p-5">
+              <h3 className="font-extrabold text-slate-950">{item.question}</h3>
+              <p className="mt-2 leading-7 text-slate-600">{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2">
           <VerificationMethodology />
@@ -216,6 +310,68 @@ export default async function ProviderComparisonPage({ params }: Props) {
         </div>
       </div>
     </div>
+  );
+}
+
+function comparisonRows(
+  providerA: NonNullable<ReturnType<typeof getProviderComparisonBySlug>>["providerA"],
+  providerB: NonNullable<ReturnType<typeof getProviderComparisonBySlug>>["providerB"],
+) {
+  return [
+    {
+      area: "Account types",
+      a: providerA.commonOfferTypes.join(", "),
+      b: providerB.commonOfferTypes.join(", "),
+      verify: "Eligible account type, opening rules, and current terms",
+    },
+    {
+      area: "Fees",
+      a: providerA.thingsToVerify.filter((item) => item.toLowerCase().includes("fee")).join(", ") || "Review provider fee schedule",
+      b: providerB.thingsToVerify.filter((item) => item.toLowerCase().includes("fee")).join(", ") || "Review provider fee schedule",
+      verify: "Monthly, transfer, ATM, annual, subscription, or advisory fees",
+    },
+    {
+      area: "Mobile experience",
+      a: "Review mobile tools, alerts, transfers, and support access",
+      b: "Review mobile tools, alerts, transfers, and support access",
+      verify: "Mobile deposit, card controls, alerts, transfer limits, and app support",
+    },
+    {
+      area: "ATM or branch access",
+      a: providerA.relatedCategories.includes("bank-bonuses") ? "Verify branch, ATM, and cash access" : "Verify cash movement, transfer, and account access",
+      b: providerB.relatedCategories.includes("bank-bonuses") ? "Verify branch, ATM, and cash access" : "Verify cash movement, transfer, and account access",
+      verify: "Availability can vary by location, account type, and provider rules",
+    },
+    {
+      area: "Promotion research",
+      a: providerA.disclosureNote,
+      b: providerB.disclosureNote,
+      verify: "Last verified date, source reviewed, eligibility, and current provider terms",
+    },
+  ];
+}
+
+function ResearchPanel({
+  title,
+  items,
+  footer,
+}: {
+  title: string;
+  items: string[];
+  footer: string;
+}) {
+  return (
+    <article className="premium-card rounded-3xl p-6">
+      <h2 className="text-2xl font-black text-slate-950">{title}</h2>
+      <div className="mt-4 grid gap-2">
+        {items.map((item) => (
+          <p key={item} className="rounded-xl bg-slate-50 p-3 text-sm font-bold text-slate-700">
+            {item}
+          </p>
+        ))}
+      </div>
+      <p className="mt-4 text-sm leading-6 text-slate-600">{footer}</p>
+    </article>
   );
 }
 

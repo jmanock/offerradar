@@ -8,6 +8,7 @@ import type { LocalSeoPage } from "@/data/localSeo";
 
 export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
   const isFloridaChecking = page.slug === "best-checking-accounts-florida";
+  const isFloridaCreditUnions = page.slug === "best-credit-unions-florida";
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -151,6 +152,52 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
               </table>
             </div>
           </section>
+          <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-3 lg:px-8">
+            <ComparisonCard
+              title="Best bank bonuses for Florida residents"
+              body="Florida residents can compare national, regional, online, and local account offers, but state availability and enrollment channels can vary. Start with the offer requirements, then verify current terms directly with the institution."
+              href="/best-bank-bonuses-florida"
+              linkLabel="Review Florida bank bonuses"
+            />
+            <ComparisonCard
+              title="Minimum deposit comparison"
+              body="Minimum opening deposits and bonus-related funding requirements are different concepts. A low opening deposit does not mean a promotion has low activity requirements."
+              href="/guides/minimum-deposits"
+              linkLabel="Review minimum deposits"
+            />
+            <ComparisonCard
+              title="Monthly fee comparison"
+              body="Monthly fees can matter more than a one-time promotion if the account is hard to waive. Compare direct deposit, balance, and activity waiver paths before opening."
+              href="/no-monthly-fee-bank-bonuses"
+              linkLabel="Compare fee-focused offers"
+            />
+          </section>
+          <section className="border-y border-slate-200 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-black text-slate-950">Minimum deposit and monthly fee comparison</h2>
+              <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+                Use this as a research checklist for checking accounts in
+                Florida. The exact opening deposit, fee waiver, and promotion
+                requirement should be confirmed from the provider source.
+              </p>
+              <ResponsiveTable
+                headings={["Provider", "Minimum deposit lens", "Monthly fee lens", "What to verify"]}
+                rows={checkingCostRows.map((row) => [row.provider, row.deposit, row.fee, row.verify])}
+              />
+            </div>
+          </section>
+          <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-black text-slate-950">Mobile banking comparison</h2>
+            <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+              Mobile banking can matter as much as branch access for Florida
+              users who travel between cities, rely on mobile check deposit, or
+              manage direct deposits and alerts from a phone.
+            </p>
+            <ResponsiveTable
+              headings={["Bank type", "Mobile strengths", "Access tradeoffs", "Verification notes"]}
+              rows={mobileBankingRows.map((row) => [row.type, row.strengths, row.tradeoffs, row.verify])}
+            />
+          </section>
           <section className="border-y border-slate-200 bg-white">
             <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-black text-slate-950">Best banks for checking in Florida</h2>
@@ -196,6 +243,80 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
               <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
                 {["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale"].map((city) => <article key={city} className="rounded-2xl bg-slate-50 p-4"><h3 className="font-extrabold text-slate-950">{city}</h3><p className="mt-2 text-sm leading-6 text-slate-600">Compare branch access, regional institutions, credit unions, and online alternatives serving {city}.</p><Link href="/best-banks-in-florida" className="mt-3 inline-flex text-sm font-extrabold text-blue-700">Review Florida banks</Link></article>)}
               </div>
+            </div>
+          </section>
+        </>
+      ) : null}
+
+      {isFloridaCreditUnions ? (
+        <>
+          <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-3">
+              <ComparisonCard
+                title="Florida credit unions"
+                body="Florida credit unions may serve specific counties, cities, employers, schools, or association groups. Compare eligibility, branch access, shared branching, checking fees, savings options, and mobile tools."
+                href="/florida-credit-unions"
+                linkLabel="Review Florida credit unions"
+              />
+              <ComparisonCard
+                title="National credit unions"
+                body="Some credit unions have broader national membership paths or digital account opening. Verify field of membership, funding rules, branch access, and whether the product is available in Florida."
+                href="/best-banks-in-florida"
+                linkLabel="Compare Florida banking options"
+              />
+              <ComparisonCard
+                title="Credit union vs bank"
+                body="A credit union can be useful for local service or member-focused products, while a bank may offer broader branch networks or more specialized digital tools. Neither is automatically better."
+                href="/best-checking-accounts-florida"
+                linkLabel="Compare checking accounts"
+              />
+            </div>
+          </section>
+          <section className="border-y border-slate-200 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+              <h2 className="text-3xl font-black text-slate-950">Florida credit union comparison table</h2>
+              <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+                This table avoids ranking credit unions by unsupported rates or
+                promises. Use it to compare membership rules, fees, mobile
+                access, ATM networks, and the details to verify directly.
+              </p>
+              <ResponsiveTable
+                headings={["Institution type", "Membership requirement", "Fee check", "Mobile and ATM access", "Verify directly"]}
+                rows={creditUnionRows.map((row) => [row.type, row.membership, row.fees, row.access, row.verify])}
+              />
+            </div>
+          </section>
+          <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="grid gap-6 lg:grid-cols-2">
+              <article className="premium-card rounded-3xl p-6">
+                <h2 className="text-2xl font-black text-slate-950">Savings rates discussion</h2>
+                <p className="mt-3 leading-7 text-slate-600">
+                  Credit union savings rates, certificate rates, and money
+                  market rates can change. Compare the stated rate with balance
+                  tiers, membership requirements, minimum deposits, early
+                  withdrawal rules, and whether the account is practical for
+                  your regular banking needs.
+                </p>
+                <p className="mt-3 leading-7 text-slate-600">
+                  OfferRadar does not publish unverified rate claims on this
+                  page. Treat any rate you see elsewhere as a point to verify
+                  from the current credit union source.
+                </p>
+              </article>
+              <article className="premium-card rounded-3xl p-6">
+                <h2 className="text-2xl font-black text-slate-950">Mobile app and ATM network comparison</h2>
+                <p className="mt-3 leading-7 text-slate-600">
+                  A credit union may be a good fit even with a smaller branch
+                  footprint if mobile deposit, account alerts, external
+                  transfers, shared branches, and fee-free ATM access meet your
+                  needs. Verify cash deposit rules and support hours before
+                  joining.
+                </p>
+                <p className="mt-3 leading-7 text-slate-600">
+                  If you travel around Florida, compare ATM and branch access in
+                  multiple cities instead of only the branch nearest your home.
+                </p>
+              </article>
             </div>
           </section>
         </>
@@ -303,5 +424,141 @@ const directDepositRows = [
     deposit: "Verify direct deposit tier and evaluation period",
     fees: "Review account terms directly",
     verification: "Source review shown on provider page",
+  },
+];
+
+function ComparisonCard({
+  title,
+  body,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  body: string;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <article className="premium-card rounded-3xl p-6">
+      <h2 className="text-2xl font-black text-slate-950">{title}</h2>
+      <p className="mt-3 leading-7 text-slate-600">{body}</p>
+      <Link href={href} className="mt-5 inline-flex font-extrabold text-blue-700">
+        {linkLabel}
+      </Link>
+    </article>
+  );
+}
+
+function ResponsiveTable({
+  headings,
+  rows,
+}: {
+  headings: string[];
+  rows: string[][];
+}) {
+  return (
+    <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+      <table className="min-w-[900px] w-full text-left text-sm">
+        <thead className="bg-slate-950 text-white">
+          <tr>
+            {headings.map((heading) => (
+              <th key={heading} className="px-4 py-3">
+                {heading}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, rowIndex) => (
+            <tr key={`${row[0]}-${rowIndex}`} className="border-t border-slate-200">
+              {row.map((cell, cellIndex) => (
+                <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-4 text-slate-700">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+const checkingCostRows = [
+  {
+    provider: "National banks",
+    deposit: "Opening deposit and bonus funding rules vary by account package",
+    fee: "Monthly fee may be waivable by direct deposit, balance, or relationship",
+    verify: "Confirm current fee schedule and promotion terms",
+  },
+  {
+    provider: "Online banks",
+    deposit: "Often digital opening with separate transfer limits or funding steps",
+    fee: "May have lower routine fees, but cash deposit rules can matter",
+    verify: "Confirm cash access, ATM policy, and account availability",
+  },
+  {
+    provider: "Florida credit unions",
+    deposit: "May require membership share or minimum opening deposit",
+    fee: "Checking fees and waiver paths vary by membership and account type",
+    verify: "Confirm membership eligibility, shared branching, and fees",
+  },
+  {
+    provider: "Regional banks",
+    deposit: "May combine branch access with account package requirements",
+    fee: "Review balance, activity, and direct deposit waiver options",
+    verify: "Confirm Florida ZIP code availability and branch access",
+  },
+];
+
+const mobileBankingRows = [
+  {
+    type: "National banks",
+    strengths: "Broad mobile feature sets, card controls, alerts, and branch integration",
+    tradeoffs: "Fees and account package rules may be more complex",
+    verify: "Mobile deposit limits, Zelle or transfer support, and fraud tools",
+  },
+  {
+    type: "Online banks",
+    strengths: "Digital-first account opening, transfers, alerts, and savings tools",
+    tradeoffs: "Cash deposits and in-person support may be limited",
+    verify: "ATM access, cash deposit options, support hours, and app reviews",
+  },
+  {
+    type: "Credit unions",
+    strengths: "Member service with mobile deposit and shared network options",
+    tradeoffs: "App features and support hours can vary widely",
+    verify: "Shared branching, ATM network, mobile deposit, and transfer limits",
+  },
+];
+
+const creditUnionRows = [
+  {
+    type: "Local Florida credit union",
+    membership: "Often based on county, city, employer, school, or family eligibility",
+    fees: "Review checking fee, savings share requirement, and overdraft policy",
+    access: "Local branches, shared branches, and ATM network may vary",
+    verify: "Field of membership, NCUA coverage, and current account terms",
+  },
+  {
+    type: "Regional credit union",
+    membership: "May serve multiple Florida regions or employment groups",
+    fees: "Compare monthly fees, balance rules, and certificate penalties",
+    access: "Broader local footprint with possible shared branching",
+    verify: "Branch coverage, digital tools, and product availability",
+  },
+  {
+    type: "National credit union",
+    membership: "May offer broader association or family membership paths",
+    fees: "Fee schedules and account tiers differ by product",
+    access: "Often more digital access, but local Florida branches may be limited",
+    verify: "Eligibility path, funding rules, ATM access, and support options",
+  },
+  {
+    type: "Online alternative",
+    membership: "Not a credit union in every case; review charter and coverage",
+    fees: "Routine fees may be lower, but services differ",
+    access: "Digital-first access with partner ATM or cash constraints",
+    verify: "Deposit insurance, cash access, and transfer limits",
   },
 ];

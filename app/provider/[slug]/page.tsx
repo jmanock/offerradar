@@ -178,6 +178,8 @@ export default async function ProviderPage({ params }: Props) {
   const registryRecord = getLinkRegistryRecordByProvider(provider.name);
   const searchContent = providerSearchContent[provider.slug];
   const isPriorityProvider = ["robinhood", "fidelity", "wells-fargo", "chase", "sofi"].includes(provider.slug);
+  const isBankProvider = provider.relatedCategories.includes("bank-bonuses");
+  const isBrokerageProvider = provider.relatedCategories.includes("brokerage-bonuses");
   const providerLastVerified =
     registryRecord?.lastReviewed ?? offers[0]?.lastVerified ?? "Review in progress";
   const relatedProviders = getAllProviders()
@@ -544,6 +546,39 @@ export default async function ProviderPage({ params }: Props) {
           <DisclosureBlock compact />
         </div>
       </section>
+
+      {(isBankProvider || isBrokerageProvider) ? (
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              Related authority pages
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {(isBankProvider
+                ? [
+                    { href: "/best-banks-for-checking", label: "Best banks for checking" },
+                    { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
+                    { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },
+                    { href: "/best-bank-bonuses-florida", label: "Florida bank bonuses" },
+                  ]
+                : [
+                    { href: "/brokerage-bonuses", label: "Brokerage promotions" },
+                    { href: "/brokerage-transfer-bonuses", label: "Brokerage transfer bonuses" },
+                    { href: "/guides/brokerage-bonuses", label: "Brokerage bonus guide" },
+                    { href: "/brokerage-bonus-calculator", label: "Brokerage bonus calculator" },
+                  ]).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2">

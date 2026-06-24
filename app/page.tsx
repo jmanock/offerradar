@@ -155,8 +155,10 @@ export default function Home() {
             {[
               ["/brokerage-bonuses", "Brokerage bonuses", "Compare tracked promotions, transfers, and requirements."],
               ["/best-checking-accounts-florida", "Florida checking accounts", "Review access, fees, bonuses, and verification details."],
+              ["/best-banks-for-checking", "Best banks for checking", "Compare fees, mobile tools, direct deposit, and access."],
+              ["/best-checking-and-savings-account-offers", "Checking and savings offers", "Compare account offers by requirements and verification dates."],
               ["/bank-bonuses", "Bank bonuses", "Compare checking and savings offer requirements."],
-              ["/world-cup-travel-money-guide", "World Cup travel money guide", "Plan cards, ATM access, fees, and backup payments."],
+              ["/2026-world-cup-banking-guide", "2026 World Cup banking guide", "Plan banking access, cards, ATM fees, and mobile tools."],
               ["/bank-bonus-calculator", "Bank bonus calculator", "Estimate a bonus after listed monthly fees."],
               ["/brokerage-bonus-calculator", "Brokerage bonus calculator", "Estimate a promotion after transfer and account fees."],
             ].map(([href, label, description]) => (
@@ -623,6 +625,8 @@ function SectionLinks() {
   return (
     <div className="flex flex-wrap gap-3 text-sm font-extrabold text-blue-700">
       <Link href="/best-bank-bonuses">Bank bonuses</Link>
+      <Link href="/best-banks-for-checking">Checking banks</Link>
+      <Link href="/best-checking-and-savings-account-offers">Checking and savings</Link>
       <Link href="/best-brokerage-bonuses">Brokerage</Link>
       <Link href="/best-referral-bonuses">Referrals</Link>
       <Link href="/providers">Providers</Link>

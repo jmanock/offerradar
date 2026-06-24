@@ -58,8 +58,16 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
         <div className="grid gap-5 lg:grid-cols-3">{page.sections.map((section) => <article key={section.title} className="premium-card rounded-3xl p-6"><h2 className="text-2xl font-black text-slate-950">{section.title}</h2><p className="mt-3 leading-7 text-slate-600">{section.body}</p><div className="mt-5 grid gap-2">{section.points.map((point) => <p key={point} className="rounded-xl bg-slate-50 p-3 text-sm font-bold text-slate-700">{point}</p>)}</div></article>)}</div>
       </section>
       {offers.length ? <section className="border-y border-slate-200 bg-white"><div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><h2 className="text-3xl font-black text-slate-950">Tracked records to compare</h2><div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{offers.map((offer) => <OfferCard key={offer.slug} offer={offer} />)}</div></div></section> : null}
-      {page.slug === "brokerage-transfer-bonuses" && offers.length ? (
-        <OfferComparisonTable offers={offers} title="Brokerage transfer bonus comparison" />
+      {offers.length && (page.slug === "brokerage-transfer-bonuses" || page.offerCategory) ? (
+        <OfferComparisonTable
+          offers={offers}
+          title={
+            page.offerCategory === "bank-bonuses"
+              ? "Bank offer comparison table"
+              : "Brokerage transfer bonus comparison"
+          }
+          variant={page.offerCategory === "bank-bonuses" ? "bank" : "brokerage"}
+        />
       ) : null}
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8"><VerificationMethodology /><DisclosureBlock /></section>
       <section className="border-y border-slate-200 bg-white"><div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><h2 className="text-3xl font-black text-slate-950">FAQ</h2><div className="mt-5 grid gap-5 md:grid-cols-2">{page.faq.map((item) => <article key={item.question} className="rounded-2xl bg-slate-50 p-5"><h3 className="font-extrabold text-slate-950">{item.question}</h3><p className="mt-2 leading-7 text-slate-600">{item.answer}</p></article>)}</div></div></section>

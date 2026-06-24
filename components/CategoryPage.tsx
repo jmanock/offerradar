@@ -35,8 +35,20 @@ const categorySearchContent: Partial<
         body: "A useful brokerage account bonus comparison starts with the provider, displayed bonus amount, transfer or funding requirement, holding period, account fees, and source-reviewed date. Investment risk and account fit matter more than the headline amount alone.",
       },
       {
+        title: "Transfer bonus section",
+        body: "Transfer bonuses may depend on eligible incoming assets, ACAT support, asset value tiers, unsupported securities, outgoing transfer fees, and a required holding period after assets arrive.",
+      },
+      {
+        title: "Account funding section",
+        body: "Funding promotions may use cash deposits, minimum account values, eligible account types, campaign windows, and reward rules. Verify whether funds or assets must stay in the account.",
+      },
+      {
         title: "Robinhood transfer bonus records for 2026",
         body: "OfferRadar tracks a Robinhood transfer promotion record for comparison. Transfer thresholds, subscription requirements, holding periods, and current availability should be checked directly with Robinhood before moving assets.",
+      },
+      {
+        title: "Robinhood, Webull, Fidelity, Merrill Edge, and SoFi Invest",
+        body: "These providers can appear in brokerage bonus research for different reasons: app-based signup promotions, transfer offers, retirement or brokerage account funding, relationship requirements, or investing platform features. Compare the account fit before comparing a promotion.",
       },
       {
         title: "Clearpath Brokerage search note",
@@ -67,6 +79,21 @@ const categorySearchContent: Partial<
         question: "Are brokerage account promotions worth it?",
         answer:
           "They may be worth researching when the account already fits your investing needs. Review transfer costs, account fees, taxes, holding periods, available investments, and provider terms before moving money or assets.",
+      },
+      {
+        question: "Are brokerage bonuses taxable?",
+        answer:
+          "Brokerage bonus tax treatment can vary by provider, reward type, account type, and reporting. OfferRadar does not provide tax advice; review provider tax documents and consult a qualified tax professional when needed.",
+      },
+      {
+        question: "How long do brokerage bonuses take?",
+        answer:
+          "Timing can vary. Review the provider's funding or transfer deadline, asset arrival date, holding period, reward calculation window, and expected payout timing.",
+      },
+      {
+        question: "What is a transfer bonus?",
+        answer:
+          "A transfer bonus is a promotion tied to moving eligible assets or cash to a brokerage. Verify ACAT support, eligible assets, minimum value, outgoing fees, holding period, and current terms.",
       },
       {
         question: "Are brokerage promotions available to every investor?",
@@ -185,7 +212,7 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
         .sort((a, b) => numericValue(b.offerAmount) - numericValue(a.offerAmount))
         .slice(0, 7)
     : [];
-  const popularBrokerages = ["robinhood", "webull", "fidelity", "public", "schwab", "moomoo", "etrade"]
+  const popularBrokerages = ["robinhood", "webull", "fidelity", "merrill-edge", "sofi", "public", "schwab", "moomoo", "etrade"]
     .map((slug) => getAllProviders().find((provider) => provider.slug === slug))
     .filter((provider): provider is NonNullable<typeof provider> => Boolean(provider));
 
@@ -438,6 +465,8 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             <div className="mt-4 flex flex-wrap gap-3">
               {[
                 { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
+                { href: "/best-banks-for-checking", label: "Best banks for checking" },
+                { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
                 { href: "/bank-bonuses", label: "Bank bonuses" },
                 { href: "/brokerage-bonuses", label: "Brokerage bonuses" },
                 { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonuses" },

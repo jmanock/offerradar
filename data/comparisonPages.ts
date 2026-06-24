@@ -5,6 +5,14 @@ function pairSlug(providerA: string, providerB: string) {
   return `${providerA}-vs-${providerB}`;
 }
 
+const comparisonAliases = [
+  {
+    slug: "webull-vs-robinhood",
+    providerA: "webull",
+    providerB: "robinhood",
+  },
+];
+
 export function getAllProviderComparisonPages(): ProviderComparisonInfo[] {
   const comparisons: ProviderComparisonInfo[] = [];
 
@@ -36,11 +44,75 @@ export function getAllProviderComparisonPages(): ProviderComparisonInfo[] {
     }
   }
 
+  for (const alias of comparisonAliases) {
+    const providerA = providers.find((provider) => provider.slug === alias.providerA);
+    const providerB = providers.find((provider) => provider.slug === alias.providerB);
+
+    if (!providerA || !providerB) {
+      continue;
+    }
+
+    const sharedCategories = providerA.relatedCategories.filter((category) =>
+      providerB.relatedCategories.includes(category),
+    );
+
+    comparisons.push({
+      slug: alias.slug,
+      title: `${providerA.name} vs ${providerB.name} offers`,
+      description: `Compare ${providerA.name} and ${providerB.name} tracked offer types, requirements, fees, verification reminders, and shared offer categories.`,
+      providerA,
+      providerB,
+      sharedCategories,
+      comparisonAngles: [
+        "Offer category fit",
+        "Funding, direct deposit, or activity requirements",
+        "Fees, waiver rules, and account costs",
+        "Verification status and provider terms",
+      ],
+    });
+  }
+
   return comparisons;
 }
 
 export function getProviderComparisonBySlug(slug: string) {
-  return getAllProviderComparisonPages().find((page) => page.slug === slug);
+  const directPage = getAllProviderComparisonPages().find((page) => page.slug === slug);
+
+  if (directPage) {
+    return directPage;
+  }
+
+  const alias = comparisonAliases.find((candidate) => candidate.slug === slug);
+
+  if (!alias) {
+    return undefined;
+  }
+
+  const providerA = providers.find((provider) => provider.slug === alias.providerA);
+  const providerB = providers.find((provider) => provider.slug === alias.providerB);
+
+  if (!providerA || !providerB) {
+    return undefined;
+  }
+
+  const sharedCategories = providerA.relatedCategories.filter((category) =>
+    providerB.relatedCategories.includes(category),
+  );
+
+  return {
+    slug: alias.slug,
+    title: `${providerA.name} vs ${providerB.name} offers`,
+    description: `Compare ${providerA.name} and ${providerB.name} tracked offer types, requirements, fees, verification reminders, and shared offer categories.`,
+    providerA,
+    providerB,
+    sharedCategories,
+    comparisonAngles: [
+      "Offer category fit",
+      "Funding, direct deposit, or activity requirements",
+      "Fees, waiver rules, and account costs",
+      "Verification status and provider terms",
+    ],
+  };
 }
 
 export function getComparisonsForProvider(providerSlug: string, limit = 6) {

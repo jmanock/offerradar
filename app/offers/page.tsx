@@ -106,6 +106,20 @@ export default function OffersPage() {
             >
               Provider comparisons
             </Link>
+            {[
+              { href: "/best-banks-for-checking", label: "Best banks for checking" },
+              { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
+              { href: "/best-credit-unions-florida", label: "Best credit unions in Florida" },
+              { href: "/2026-world-cup-banking-guide", label: "2026 World Cup banking guide" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {link.label}
+              </Link>
+            ))}
             {priorityLandingPages.map((link) => (
               <Link
                 key={link.href}
