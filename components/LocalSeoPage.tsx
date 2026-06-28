@@ -3,6 +3,8 @@ import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { ResearchMethodologyBlock } from "@/components/ResearchMethodologyBlock";
+import { SortableComparisonTable } from "@/components/SortableComparisonTable";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import type { LocalSeoPage } from "@/data/localSeo";
 
@@ -76,7 +78,8 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{page.intro}</p>
             <p className="mt-5 text-sm font-bold text-slate-500">
-              Source reviewed · Last verified {page.lastUpdated}
+              Last updated {page.lastUpdated} · Source reviewed · Last verified
+              dates shown where offer records are available
             </p>
           </div>
           <div className="premium-card rounded-3xl p-6">
@@ -105,6 +108,18 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <ResearchMethodologyBlock
+          focus={
+            isFloridaCreditUnions
+              ? "Florida credit unions"
+              : isFloridaChecking
+                ? "Florida checking accounts"
+                : "local banking pages"
+          }
+        />
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-2">
           {page.comparisonSections.map((section) => (
             <article key={section.title} className="premium-card rounded-3xl p-6">
@@ -126,6 +141,12 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
 
       {isFloridaChecking ? (
         <>
+          <SortableComparisonTable
+            title="Sortable Florida checking comparison"
+            description="Sort common Florida checking account research paths by monthly fee, minimum deposit, ATM access, or bonus amount. Values are cautious research fields, not guaranteed provider terms."
+            rows={floridaCheckingSortableRows}
+            showBonus
+          />
           <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-black text-slate-950">Direct deposit bonus comparison</h2>
             <p className="mt-3 max-w-4xl leading-7 text-slate-600">
@@ -250,6 +271,43 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
 
       {isFloridaCreditUnions ? (
         <>
+          <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <div className="premium-card rounded-3xl p-6">
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Evaluation method
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">
+                How we evaluate credit unions
+              </h2>
+              <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+                OfferRadar compares credit unions by membership eligibility,
+                checking fees, savings and certificate considerations, ATM and
+                shared-branch access, mobile banking tools, student and family
+                fit, and the details users should verify directly. We do not
+                rank credit unions by unverified rates or unsupported claims.
+              </p>
+            </div>
+          </section>
+          <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {creditUnionBestForSections.map((section) => (
+                <article key={section.title} className="premium-card rounded-3xl p-6">
+                  <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                    {section.eyebrow}
+                  </p>
+                  <h2 className="mt-3 text-2xl font-black text-slate-950">
+                    {section.title}
+                  </h2>
+                  <p className="mt-3 leading-7 text-slate-600">{section.body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <SortableComparisonTable
+            title="Sortable Florida credit union comparison"
+            description="Sort credit union research paths by monthly fee, minimum deposit, or ATM access. Verify membership rules, fee schedules, savings rates, and digital tools directly with the credit union."
+            rows={creditUnionSortableRows}
+          />
           <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-3">
               <ComparisonCard
@@ -424,6 +482,113 @@ const directDepositRows = [
     deposit: "Verify direct deposit tier and evaluation period",
     fees: "Review account terms directly",
     verification: "Source review shown on provider page",
+  },
+];
+
+const floridaCheckingSortableRows = [
+  {
+    name: "Online bank",
+    bestFor: "Digital checking",
+    monthlyFee: "$0 to verify",
+    minimumDeposit: "$0 to verify",
+    atmAccess: "Partner or national ATM network; verify cash access",
+    bonusAmount: "Tracked offers vary",
+    notes: "Verify mobile tools, cash deposits, transfer limits, and provider terms.",
+  },
+  {
+    name: "National bank",
+    bestFor: "Branch and ATM access",
+    monthlyFee: "Waivable fee varies",
+    minimumDeposit: "Verify by account package",
+    atmAccess: "Broad national ATM and branch network",
+    bonusAmount: "Tracked checking records available",
+    notes: "Verify fee waiver, direct deposit rules, and Florida branch access.",
+  },
+  {
+    name: "Florida credit union",
+    bestFor: "Local service",
+    monthlyFee: "Varies by membership",
+    minimumDeposit: "Membership share may apply",
+    atmAccess: "Local, shared branch, or partner ATM access",
+    bonusAmount: "Verify current promotions",
+    notes: "Verify eligibility, NCUA coverage, mobile tools, and shared branching.",
+  },
+  {
+    name: "Regional bank",
+    bestFor: "Florida branch footprint",
+    monthlyFee: "Waivable fee varies",
+    minimumDeposit: "Verify account opening rules",
+    atmAccess: "Regional branch and ATM access",
+    bonusAmount: "Verify current promotions",
+    notes: "Verify ZIP-code availability, account package, and source terms.",
+  },
+];
+
+const creditUnionBestForSections = [
+  {
+    eyebrow: "Best Overall",
+    title: "Best overall credit union fit",
+    body: "Look for a credit union with eligibility you can meet, reasonable fees, useful checking and savings products, reliable mobile access, and branches or ATM options where you actually bank.",
+  },
+  {
+    eyebrow: "Best for Checking",
+    title: "Best for checking",
+    body: "Compare monthly fees, fee waivers, debit-card access, overdraft policies, direct deposit features, mobile deposit, and day-to-day support.",
+  },
+  {
+    eyebrow: "Best for Savings",
+    title: "Best for savings",
+    body: "Verify current savings and certificate rates directly, then compare minimum deposits, balance tiers, transfer limits, early withdrawal rules, and NCUA coverage.",
+  },
+  {
+    eyebrow: "Best for Students",
+    title: "Best for students",
+    body: "Student-friendly credit unions should be compared by low fees, easy membership, digital access, ATM availability near campus, and account education resources.",
+  },
+  {
+    eyebrow: "Best for Military Families",
+    title: "Best for military families",
+    body: "Military families may value nationwide access, direct deposit reliability, shared branching, strong mobile tools, and support while relocating or traveling.",
+  },
+  {
+    eyebrow: "Best Digital Experience",
+    title: "Best digital experience",
+    body: "Compare mobile deposit, external transfers, account alerts, card controls, secure login, support messaging, and how often users need a branch.",
+  },
+];
+
+const creditUnionSortableRows = [
+  {
+    name: "Local Florida credit union",
+    bestFor: "Local service",
+    monthlyFee: "Varies by account",
+    minimumDeposit: "Membership share may apply",
+    atmAccess: "Local or shared branch access",
+    notes: "Verify field of membership, fees, shared branching, and current terms.",
+  },
+  {
+    name: "Regional Florida credit union",
+    bestFor: "Broader Florida footprint",
+    monthlyFee: "Varies by product",
+    minimumDeposit: "Opening deposit varies",
+    atmAccess: "Regional, shared, or partner ATM access",
+    notes: "Verify branch coverage, mobile app tools, savings rates, and support.",
+  },
+  {
+    name: "National credit union",
+    bestFor: "Military or broad membership",
+    monthlyFee: "Verify account schedule",
+    minimumDeposit: "Membership path varies",
+    atmAccess: "Broad or national ATM access",
+    notes: "Verify eligibility, Florida availability, deposit rules, and support.",
+  },
+  {
+    name: "Digital banking alternative",
+    bestFor: "Mobile-first access",
+    monthlyFee: "$0 to verify",
+    minimumDeposit: "$0 to verify",
+    atmAccess: "Partner ATM access; verify cash deposits",
+    notes: "Verify charter, deposit insurance, cash access, and transfer limits.",
   },
 ];
 

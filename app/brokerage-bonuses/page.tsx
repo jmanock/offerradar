@@ -5,11 +5,11 @@ import { getCategoryBySlug } from "@/lib/offers";
 const category = getCategoryBySlug("brokerage-bonuses")!;
 
 export const metadata: Metadata = {
-  title: "Brokerage Promotions and Account Bonuses (2026) | Compare Offers",
+  title: "Brokerage Account Bonuses (2026) | Compare Promotions",
   description:
-    "Compare brokerage promotions and account bonuses by provider, bonus amount, transfer requirement, holding period, fees, and verification date.",
+    "Compare brokerage account bonuses and promotions by provider, bonus amount, transfer requirements, holding periods, fees, and verification dates.",
   openGraph: {
-    title: "Brokerage Promotions and Account Bonuses (2026) | Compare Offers",
+    title: "Brokerage Account Bonuses (2026) | Compare Promotions",
     description:
       "Compare brokerage account promotions by provider, bonus amount, transfer requirements, holding periods, and last verified dates.",
   },

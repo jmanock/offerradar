@@ -155,6 +155,7 @@ export default function Home() {
             {[
               ["/brokerage-bonuses", "Brokerage bonuses", "Compare tracked promotions, transfers, and requirements."],
               ["/best-checking-accounts-florida", "Florida checking accounts", "Review access, fees, bonuses, and verification details."],
+              ["/best-bank-for-checking", "Best bank for checking", "Research account fit, fees, mobile tools, and access."],
               ["/best-banks-for-checking", "Best banks for checking", "Compare fees, mobile tools, direct deposit, and access."],
               ["/best-checking-and-savings-account-offers", "Checking and savings offers", "Compare account offers by requirements and verification dates."],
               ["/bank-bonuses", "Bank bonuses", "Compare checking and savings offer requirements."],
@@ -625,6 +626,7 @@ function SectionLinks() {
   return (
     <div className="flex flex-wrap gap-3 text-sm font-extrabold text-blue-700">
       <Link href="/best-bank-bonuses">Bank bonuses</Link>
+      <Link href="/best-bank-for-checking">Best checking bank</Link>
       <Link href="/best-banks-for-checking">Checking banks</Link>
       <Link href="/best-checking-and-savings-account-offers">Checking and savings</Link>
       <Link href="/best-brokerage-bonuses">Brokerage</Link>

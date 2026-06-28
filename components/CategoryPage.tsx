@@ -4,6 +4,8 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { OfferComparisonTable } from "@/components/OfferComparisonTable";
+import { ResearchMethodologyBlock } from "@/components/ResearchMethodologyBlock";
+import { SortableComparisonTable } from "@/components/SortableComparisonTable";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { featuredGuideLinks, popularComparisonLinks } from "@/data/internalLinks";
 import {
@@ -94,6 +96,11 @@ const categorySearchContent: Partial<
         question: "What is a transfer bonus?",
         answer:
           "A transfer bonus is a promotion tied to moving eligible assets or cash to a brokerage. Verify ACAT support, eligible assets, minimum value, outgoing fees, holding period, and current terms.",
+      },
+      {
+        question: "Can brokerage bonuses be combined?",
+        answer:
+          "Sometimes promotions have restrictions that prevent stacking or combining. Verify current campaign rules, referral terms, transfer terms, and account eligibility directly with the brokerage.",
       },
       {
         question: "Are brokerage promotions available to every investor?",
@@ -317,12 +324,17 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <section className="premium-card rounded-3xl p-6">
-          <h2 className="text-2xl font-black text-slate-950">
-            How to think about {category.shortTitle.toLowerCase()} offers
-          </h2>
-          <p className="mt-4 leading-7 text-slate-600">{category.education}</p>
-        </section>
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <section className="premium-card rounded-3xl p-6">
+            <h2 className="text-2xl font-black text-slate-950">
+              How to think about {category.shortTitle.toLowerCase()} offers
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600">{category.education}</p>
+          </section>
+          <ResearchMethodologyBlock
+            focus={isBrokerage ? "brokerage bonuses" : isBank ? "bank bonuses" : "tracked offers"}
+          />
+        </div>
       </div>
 
       {searchContent ? (
@@ -366,6 +378,20 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
 
       {isBrokerage ? (
         <>
+          <SortableComparisonTable
+            title="Sortable brokerage bonus comparison"
+            description="Sort tracked brokerage records by provider, bonus amount, funding or transfer requirement, or verification-oriented research fields. Provider terms control eligibility and availability."
+            rows={brokerageLeaders.map((offer) => ({
+              name: offer.provider,
+              bestFor: offer.offerType,
+              monthlyFee: offer.monthlyFee ?? "Verify account fees",
+              minimumDeposit: offer.minimumDeposit ?? "Verify transfer or funding",
+              atmAccess: "Not applicable; verify cash movement and transfer access",
+              bonusAmount: offer.offerAmount,
+              notes: offer.requirements[0] ?? "Verify current provider terms.",
+            }))}
+            showBonus
+          />
           <OfferComparisonTable offers={brokerageLeaders} title="Brokerage bonus comparison table" />
           <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid gap-5 lg:grid-cols-2">
@@ -413,7 +439,23 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
       ) : null}
 
       {isBank ? (
-        <OfferComparisonTable offers={comparisonOffers} title="Checking and savings offer comparison" variant="bank" />
+        <>
+          <SortableComparisonTable
+            title="Sortable checking and savings comparison"
+            description="Sort active tracked bank offers by provider, monthly fee, minimum deposit, ATM-access research notes, or bonus amount. Verify provider terms before opening an account."
+            rows={comparisonOffers.map((offer) => ({
+              name: offer.provider,
+              bestFor: offer.offerType,
+              monthlyFee: offer.monthlyFee ?? "Verify monthly fee",
+              minimumDeposit: offer.minimumDeposit ?? "Verify deposit requirement",
+              atmAccess: offer.category === "bank-bonuses" ? "Verify branch, ATM, and cash access" : "Verify provider access",
+              bonusAmount: offer.offerAmount,
+              notes: offer.requirements[0] ?? "Verify current provider terms.",
+            }))}
+            showBonus
+          />
+          <OfferComparisonTable offers={comparisonOffers} title="Checking and savings offer comparison" variant="bank" />
+        </>
       ) : null}
 
       {category.slug === "bank-bonuses" ? (
@@ -465,6 +507,7 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             <div className="mt-4 flex flex-wrap gap-3">
               {[
                 { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
+                { href: "/best-bank-for-checking", label: "Best bank for checking" },
                 { href: "/best-banks-for-checking", label: "Best banks for checking" },
                 { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
                 { href: "/bank-bonuses", label: "Bank bonuses" },

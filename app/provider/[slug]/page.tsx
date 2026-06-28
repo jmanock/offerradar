@@ -556,6 +556,7 @@ export default async function ProviderPage({ params }: Props) {
             <div className="mt-4 flex flex-wrap gap-3">
               {(isBankProvider
                 ? [
+                    { href: "/best-bank-for-checking", label: "Best bank for checking" },
                     { href: "/best-banks-for-checking", label: "Best banks for checking" },
                     { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
                     { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },

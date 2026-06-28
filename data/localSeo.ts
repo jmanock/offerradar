@@ -138,9 +138,9 @@ const floridaFaqs: FaqItem[] = [
 export const localSeoPages: LocalSeoPage[] = [
   {
     slug: "best-checking-accounts-florida",
-    title: "Best Checking Accounts in Florida",
+    title: "Best Checking Accounts in Florida (2026)",
     description:
-      "Compare checking accounts in Florida by online banks, credit unions, branch access, fees, direct deposit bonus notes, and last verified details.",
+      "Compare Florida checking accounts by fees, bonuses, online banks, credit unions, mobile banking, ATM access, and last verified details.",
     h1: "Best checking accounts and bonuses in Florida",
     kind: "state",
     location: "Florida",
@@ -239,6 +239,7 @@ export const localSeoPages: LocalSeoPage[] = [
     relatedLinks: [
       { href: "/bank-bonuses-promotions-florida", label: "Florida bank bonuses" },
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
+      { href: "/best-bank-for-checking", label: "Best bank for checking" },
       { href: "/best-banks-for-checking", label: "Best banks for checking" },
       { href: "/best-checking-and-savings-account-offers", label: "Checking and savings account offers" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },
@@ -320,9 +321,9 @@ export const localSeoPages: LocalSeoPage[] = [
   },
   {
     slug: "best-credit-unions-florida",
-    title: "Best Credit Unions in Florida",
+    title: "Best Credit Unions in Florida (2026)",
     description:
-      "Compare the best credit unions in Florida by membership eligibility, fees, savings rate considerations, mobile banking, ATM access, and account fit.",
+      "Compare Florida credit unions by membership rules, checking fees, savings rate questions, mobile app access, ATM networks, and best-fit categories.",
     h1: "Best credit unions in Florida",
     kind: "state",
     location: "Florida",

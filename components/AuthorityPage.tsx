@@ -3,6 +3,8 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { OfferComparisonTable } from "@/components/OfferComparisonTable";
+import { ResearchMethodologyBlock } from "@/components/ResearchMethodologyBlock";
+import { SortableComparisonTable } from "@/components/SortableComparisonTable";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import type { AuthorityPage as AuthorityPageData } from "@/data/authorityPages";
 import {
@@ -26,6 +28,10 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
           : [];
   const lastUpdated = getLastUpdated();
   const isTravelGuide = page.slug.includes("world-cup");
+  const isCheckingAuthority =
+    page.slug === "best-bank-for-checking" ||
+    page.slug === "best-banks-for-checking" ||
+    page.slug === "best-checking-and-savings-account-offers";
 
   return (
     <div>
@@ -55,6 +61,25 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <ResearchMethodologyBlock
+          focus={
+            page.offerCategory === "brokerage-bonuses"
+              ? "brokerage bonuses"
+              : isCheckingAuthority
+                ? "checking accounts"
+                : "financial comparison pages"
+          }
+        />
+      </section>
+      {isCheckingAuthority ? (
+        <SortableComparisonTable
+          title="Sortable checking account comparison"
+          description="Sort common checking account paths by monthly fee, minimum deposit, ATM access, or bonus amount. Values are comparison prompts and must be verified directly with the provider."
+          rows={checkingAuthorityRows}
+          showBonus
+        />
+      ) : null}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-3">{page.sections.map((section) => <article key={section.title} className="premium-card rounded-3xl p-6"><h2 className="text-2xl font-black text-slate-950">{section.title}</h2><p className="mt-3 leading-7 text-slate-600">{section.body}</p><div className="mt-5 grid gap-2">{section.points.map((point) => <p key={point} className="rounded-xl bg-slate-50 p-3 text-sm font-bold text-slate-700">{point}</p>)}</div></article>)}</div>
       </section>
       {offers.length ? <section className="border-y border-slate-200 bg-white"><div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><h2 className="text-3xl font-black text-slate-950">Tracked records to compare</h2><div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{offers.map((offer) => <OfferCard key={offer.slug} offer={offer} />)}</div></div></section> : null}
@@ -75,3 +100,42 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
     </div>
   );
 }
+
+const checkingAuthorityRows = [
+  {
+    name: "Online bank",
+    bestFor: "Low-fee digital checking",
+    monthlyFee: "$0 to verify",
+    minimumDeposit: "$0 to verify",
+    atmAccess: "Partner or national ATM network; verify cash deposits",
+    bonusAmount: "Verify current offers",
+    notes: "Best for users who prefer mobile access and do not need branches.",
+  },
+  {
+    name: "National bank",
+    bestFor: "Branch and ATM coverage",
+    monthlyFee: "Waivable fee varies",
+    minimumDeposit: "Verify account package",
+    atmAccess: "Broad national ATM and branch access",
+    bonusAmount: "Tracked records available",
+    notes: "Best for users who value physical access and broad product coverage.",
+  },
+  {
+    name: "Credit union",
+    bestFor: "Member-focused checking",
+    monthlyFee: "Varies by account",
+    minimumDeposit: "Membership share may apply",
+    atmAccess: "Local, shared branch, or partner ATM access",
+    bonusAmount: "Verify current promotions",
+    notes: "Best for eligible members who value local service and account fit.",
+  },
+  {
+    name: "Regional bank",
+    bestFor: "Local relationship banking",
+    monthlyFee: "Waivable fee varies",
+    minimumDeposit: "Verify opening rules",
+    atmAccess: "Regional ATM and branch access",
+    bonusAmount: "Verify current promotions",
+    notes: "Best for users who want local support with a bank branch footprint.",
+  },
+];

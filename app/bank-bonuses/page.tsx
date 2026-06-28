@@ -5,12 +5,12 @@ import { getCategoryBySlug } from "@/lib/offers";
 const category = getCategoryBySlug("bank-bonuses")!;
 
 export const metadata: Metadata = {
-  title: "Best Checking and Savings Account Offers (2026) | Bank Bonuses",
+  title: "Bank Bonuses and Best Checking Offers (2026) | Compare",
   description:
-    "Compare bank bonuses, checking account promotions, and savings account offers by requirements, fees, account access, and last verified dates.",
+    "Compare bank bonuses, checking and savings account offers, direct deposit rules, monthly fees, account access, and last verified dates.",
   alternates: { canonical: "/bank-bonuses" },
   openGraph: {
-    title: "Best Checking and Savings Account Offers (2026) | Bank Bonuses",
+    title: "Bank Bonuses and Best Checking Offers (2026) | Compare",
     description:
       "Compare tracked checking and savings account offers by requirements, fees, eligibility, account fit, and last verified dates.",
   },

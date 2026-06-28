@@ -107,6 +107,7 @@ export default function OffersPage() {
               Provider comparisons
             </Link>
             {[
+              { href: "/best-bank-for-checking", label: "Best bank for checking" },
               { href: "/best-banks-for-checking", label: "Best banks for checking" },
               { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
               { href: "/best-credit-unions-florida", label: "Best credit unions in Florida" },
