@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/offers",
+    "/offer-tracker",
+    "/offer-history",
+    "/banking-finder",
     "/about",
     "/disclosures",
     "/editorial-policy",
@@ -24,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/best-brokerage-bonuses",
     "/best-referral-bonuses",
     "/providers",
+    "/compare",
     "/weekly-offer-radar",
     "/bank-bonus-calculator",
     "/brokerage-bonus-calculator",

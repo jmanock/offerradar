@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
@@ -28,9 +29,9 @@ import {
 } from "@/lib/offers";
 
 export const metadata: Metadata = {
-  title: "Florida Banking Offers and Account Comparisons | OfferRadar",
+  title: "OfferRadar | Banking Offer Dashboard and Comparisons",
   description:
-    "Compare Florida checking accounts, savings options, bank bonuses, brokerage promotions, providers, requirements, and last verified offer records.",
+    "Use OfferRadar to find, compare, and track banking offers, checking accounts, credit unions, brokerage bonuses, Florida banking pages, and provider comparisons.",
 };
 
 export default function Home() {
@@ -67,26 +68,26 @@ export default function Home() {
               OfferRadar.io
             </p>
             <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-[#07111f] sm:text-6xl sm:leading-[1.02]">
-              Compare banking offers and accounts in Florida.
+              Find, compare, and track banking offers.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              OfferRadar helps compare Florida checking accounts, savings
-              options, credit unions, business banking, mortgage topics, and
-              bank bonuses with requirements, last verified dates, source
-              review, and clear disclosures.
+              OfferRadar is a financial offer dashboard for comparing checking
+              accounts, bank bonuses, credit unions, brokerage promotions,
+              Florida banking pages, and provider comparisons with verification
+              dates and clear disclosures.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/best-checking-accounts-florida"
+                href="/banking-finder"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-blue-700 px-6 text-sm font-extrabold text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800"
               >
-                Compare offers
+                Use the banking finder
               </Link>
               <Link
-                href="#lead-capture"
+                href="/offer-tracker"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white/90 px-6 text-sm font-extrabold text-slate-950 shadow-sm hover:border-blue-300 hover:text-blue-800"
               >
-                Review local options
+                Open offer tracker
               </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -130,6 +131,78 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Today&apos;s top offer categories
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              Start from the dashboard
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              Use product-style entry points to compare offer categories,
+              account types, provider pages, and Florida banking research paths.
+            </p>
+          </div>
+          <Link href="/banking-finder" className="text-sm font-extrabold text-blue-700">
+            Use the finder
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {topOfferCategories.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="premium-card rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200"
+            >
+              <h3 className="font-extrabold text-slate-950">{item.label}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                {item.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+              Start here finder
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-slate-950">
+              What are you looking for?
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Jump to the strongest current OfferRadar page for your research
+              goal. The full banking finder lets you refine by account type,
+              fee sensitivity, branch needs, and provider preference.
+            </p>
+            <Link
+              href="/banking-finder"
+              className="mt-6 inline-flex rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
+            >
+              Open banking finder
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {finderStartLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-blue-200 hover:bg-white"
+              >
+                <span className="font-extrabold text-slate-950">{item.label}</span>
+                <span className="mt-1 block text-sm leading-6 text-slate-600">
+                  {item.description}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <OfferSection
         eyebrow="Ranked for comparison"
         title="Best current offers"
@@ -140,6 +213,39 @@ export default function Home() {
           <OfferCard key={offer.slug} offer={offer} />
         ))}
       </OfferSection>
+
+      <section className="border-y border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+                Popular right now
+              </p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">
+                High-signal research pages
+              </h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                Pages connected to checking accounts, credit unions, brokerage
+                bonuses, bank bonuses, and Florida banking search demand.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {popularNowLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="premium-card rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200"
+              >
+                <h3 className="font-extrabold text-slate-950">{item.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {item.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -478,29 +584,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
-        <div className="premium-card rounded-3xl p-7">
-          <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-            Method
-          </p>
-          <h2 className="mt-3 text-3xl font-black text-slate-950">
-            How OfferRadar works
-          </h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {[
-              "Track offers",
-              "Verify details",
-              "Compare requirements",
-              "Review source links",
-            ].map((item, index) => (
-              <div key={item} className="rounded-2xl bg-slate-50 p-4">
-                <span className="text-sm font-black text-teal-700">
-                  0{index + 1}
-                </span>
-                <p className="mt-2 font-extrabold text-slate-950">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <HowOfferRadarWorks />
         <DisclosureBlock />
       </section>
 
@@ -578,6 +662,120 @@ const homepageFaq = [
     question: "How current are OfferRadar records?",
     answer:
       "Pages show last verified or last reviewed dates where available. Provider terms remain the source of truth and should be checked before acting.",
+  },
+];
+
+const topOfferCategories = [
+  {
+    href: "/bank-bonuses",
+    label: "Bank bonuses",
+    description: "Compare checking and savings promotions by requirements, fees, and verification dates.",
+  },
+  {
+    href: "/best-bank-for-checking",
+    label: "Checking accounts",
+    description: "Research account fit, monthly fees, mobile banking, ATM access, and direct deposit rules.",
+  },
+  {
+    href: "/best-credit-unions-florida",
+    label: "Credit unions",
+    description: "Compare membership rules, checking fees, mobile tools, and Florida access.",
+  },
+  {
+    href: "/brokerage-bonuses",
+    label: "Brokerage bonuses",
+    description: "Review transfer, funding, holding period, and account-cost considerations.",
+  },
+  {
+    href: "/referral-offers",
+    label: "Referral offers",
+    description: "Track app and provider referral records with eligibility notes.",
+  },
+  {
+    href: "/best-checking-accounts-florida",
+    label: "Florida banking",
+    description: "Start with Florida checking, local banks, and statewide banking comparisons.",
+  },
+  {
+    href: "/compare",
+    label: "Compare providers",
+    description: "Use side-by-side bank, brokerage, and provider comparisons.",
+  },
+  {
+    href: "/offer-tracker",
+    label: "Offer tracker",
+    description: "Filter tracked offers by category, provider, verification status, and amount.",
+  },
+];
+
+const finderStartLinks = [
+  {
+    href: "/best-bank-for-checking",
+    label: "Checking account",
+    description: "Compare fees, access, direct deposit, and account type fit.",
+  },
+  {
+    href: "/high-yield-savings",
+    label: "Savings account",
+    description: "Review savings records, balance rules, and terms to verify.",
+  },
+  {
+    href: "/best-credit-unions-florida",
+    label: "Credit union",
+    description: "Compare membership, checking fees, ATM access, and mobile tools.",
+  },
+  {
+    href: "/brokerage-bonuses",
+    label: "Brokerage bonus",
+    description: "Compare transfer and funding promotions with holding-period checks.",
+  },
+  {
+    href: "/bank-bonuses",
+    label: "Bank bonus",
+    description: "Compare checking and savings offers by requirements and fees.",
+  },
+  {
+    href: "/compare",
+    label: "Compare two providers",
+    description: "Browse bank, brokerage, and provider-vs-provider comparisons.",
+  },
+  {
+    href: "/best-checking-accounts-florida",
+    label: "Florida banking",
+    description: "Review Florida checking, bank bonuses, credit unions, and city pages.",
+  },
+];
+
+const popularNowLinks = [
+  {
+    href: "/best-checking-accounts-florida",
+    label: "Best Checking Accounts in Florida",
+    description: "Compare Florida checking accounts, online banks, credit unions, fees, and bonuses.",
+  },
+  {
+    href: "/best-credit-unions-florida",
+    label: "Best Credit Unions in Florida",
+    description: "Research credit unions by membership, fees, savings questions, and mobile access.",
+  },
+  {
+    href: "/best-banks-for-checking",
+    label: "Best Banks for Checking",
+    description: "Compare banks for checking by fees, direct deposit, ATM access, and account fit.",
+  },
+  {
+    href: "/brokerage-bonuses",
+    label: "Brokerage Bonuses",
+    description: "Compare brokerage promotions, transfer bonuses, and funding requirements.",
+  },
+  {
+    href: "/bank-bonuses",
+    label: "Bank Bonuses",
+    description: "Compare checking and savings account offers with source-reviewed terms.",
+  },
+  {
+    href: "/best-bank-bonuses-florida",
+    label: "Best Bank Bonuses in Florida",
+    description: "Review Florida availability, direct deposit rules, account fees, and verification dates.",
   },
 ];
 

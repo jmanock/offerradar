@@ -237,6 +237,8 @@ export const localSeoPages: LocalSeoPage[] = [
       body: "Use OfferRadar to compare requirements, verification dates, and local banking options before choosing an account.",
     },
     relatedLinks: [
+      { href: "/banking-finder", label: "Banking finder" },
+      { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/bank-bonuses-promotions-florida", label: "Florida bank bonuses" },
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
       { href: "/best-bank-for-checking", label: "Best bank for checking" },
@@ -373,6 +375,7 @@ export const localSeoPages: LocalSeoPage[] = [
       body: "Tell us your city and product interest so OfferRadar can help organize local banking options for review.",
     },
     relatedLinks: [
+      { href: "/banking-finder", label: "Banking finder" },
       { href: "/credit-unions-sanford-fl", label: "Credit unions in Sanford" },
       { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },
       { href: "/bank-bonuses", label: "Bank bonuses" },

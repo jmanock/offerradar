@@ -11,6 +11,11 @@ const comparisonAliases = [
     providerA: "webull",
     providerB: "robinhood",
   },
+  {
+    slug: "fidelity-vs-robinhood",
+    providerA: "fidelity",
+    providerB: "robinhood",
+  },
 ];
 
 export function getAllProviderComparisonPages(): ProviderComparisonInfo[] {

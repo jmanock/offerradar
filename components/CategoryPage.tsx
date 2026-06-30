@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { OfferComparisonTable } from "@/components/OfferComparisonTable";
@@ -232,6 +233,15 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
           name: category.title,
           description: category.description,
           url: `https://offerradar.io/${category.slug}`,
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: offers.slice(0, 12).map((offer, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: offer.title,
+              url: `https://offerradar.io/offer/${offer.slug}`,
+            })),
+          },
         }}
       />
       {searchContent ? (
@@ -337,6 +347,34 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
         </div>
       </div>
 
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+        <HowOfferRadarWorks />
+        <section className="premium-card rounded-3xl p-6">
+          <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+            Related tools
+          </p>
+          <h2 className="mt-3 text-2xl font-black text-slate-950">
+            Continue comparing
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: "/banking-finder", label: "Banking finder" },
+              { href: "/offer-tracker", label: "Offer tracker" },
+              { href: isBrokerage ? "/brokerage-bonus-calculator" : "/bank-bonus-calculator", label: isBrokerage ? "Brokerage calculator" : "Bank bonus calculator" },
+              { href: "/compare", label: "Compare providers" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      </section>
+
       {searchContent ? (
         <section className="border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -409,6 +447,9 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
                 <Link href="/brokerage-bonus-calculator" className="mt-3 block font-extrabold text-blue-700">
                   Estimate bonus costs
                 </Link>
+                <Link href="/offer-tracker" className="mt-3 block font-extrabold text-blue-700">
+                  Open the offer tracker
+                </Link>
               </article>
               <article className="premium-card rounded-3xl p-6">
                 <h2 className="text-2xl font-black text-slate-950">Highest tracked brokerage offers</h2>
@@ -432,6 +473,12 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
                     {provider.name}
                   </Link>
                 ))}
+                <Link href="/compare/robinhood-vs-webull" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                  Robinhood vs Webull
+                </Link>
+                <Link href="/compare/robinhood-vs-fidelity" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+                  Robinhood vs Fidelity
+                </Link>
               </div>
             </div>
           </section>
@@ -464,6 +511,17 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             <h2 className="text-2xl font-black text-slate-950">Estimate bank bonus costs</h2>
             <p className="mt-3 leading-7 text-slate-600">Use the bank bonus calculator to compare a stated bonus with monthly fees, deposit requirements, and holding time.</p>
           </Link>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/best-bank-for-checking" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+              Best bank for checking
+            </Link>
+            <Link href="/banking-finder" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+              Banking finder
+            </Link>
+            <Link href="/offer-tracker" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+              Offer tracker
+            </Link>
+          </div>
         </section>
       ) : null}
 

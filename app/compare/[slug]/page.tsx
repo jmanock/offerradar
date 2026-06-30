@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
@@ -249,6 +250,19 @@ export default async function ProviderComparisonPage({ params }: Props) {
           title="Mobile experience and access"
           items={["Mobile deposit and transfers", "Alerts and card controls", "ATM or branch access", "Support channels and availability"]}
           footer="Mobile tools, ATM policies, and support options vary by provider and account type."
+        />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+        <HowOfferRadarWorks />
+        <LinkPanel
+          title="Related tools"
+          links={[
+            { href: "/banking-finder", label: "Banking finder" },
+            { href: "/offer-tracker", label: "Offer tracker" },
+            { href: "/compare", label: "Comparison hub" },
+            { href: "/offers", label: "Tracked offers" },
+          ]}
         />
       </section>
 

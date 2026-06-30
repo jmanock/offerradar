@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { OfferComparisonTable } from "@/components/OfferComparisonTable";
@@ -70,6 +71,33 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
                 : "financial comparison pages"
           }
         />
+      </section>
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+        <HowOfferRadarWorks />
+        <section className="premium-card rounded-3xl p-6">
+          <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+            Related tools
+          </p>
+          <h2 className="mt-3 text-2xl font-black text-slate-950">
+            Next comparison step
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: "/banking-finder", label: "Banking finder" },
+              { href: "/offer-tracker", label: "Offer tracker" },
+              { href: "/bank-bonus-calculator", label: "Bank bonus calculator" },
+              { href: "/compare", label: "Compare providers" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
       </section>
       {isCheckingAuthority ? (
         <SortableComparisonTable

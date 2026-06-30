@@ -8,12 +8,13 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navLinks = [
     ["Offers", "/offers"],
+    ["Finder", "/banking-finder"],
+    ["Tracker", "/offer-tracker"],
     ["Bank Bonuses", "/bank-bonuses"],
     ["Brokerage", "/brokerage-bonuses"],
     ["Providers", "/providers"],
+    ["Compare", "/compare"],
     ["Best Bonuses", "/best-bank-bonuses"],
-    ["Policy", "/editorial-policy"],
-    ["Disclosures", "/disclosures"],
   ];
 
   return (

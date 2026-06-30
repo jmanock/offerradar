@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ResearchMethodologyBlock } from "@/components/ResearchMethodologyBlock";
@@ -91,10 +92,10 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
             </p>
             <div className="mt-5 grid gap-3">
               <Link
-                href="#lead-capture"
+                href={isFloridaChecking ? "/banking-finder" : "#lead-capture"}
                 className="inline-flex justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-800"
               >
-                Review local options
+                {isFloridaChecking ? "Use banking finder" : "Review local options"}
               </Link>
               <Link
                 href="/offers"
@@ -117,6 +118,34 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
                 : "local banking pages"
           }
         />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:px-8">
+        <HowOfferRadarWorks />
+        <section className="premium-card rounded-3xl p-6">
+          <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
+            Related tools
+          </p>
+          <h2 className="mt-3 text-2xl font-black text-slate-950">
+            Keep comparing
+          </h2>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {[
+              { href: "/banking-finder", label: "Banking finder" },
+              { href: "/offer-tracker", label: "Offer tracker" },
+              { href: "/bank-bonus-calculator", label: "Bank bonus calculator" },
+              { href: "/compare", label: "Compare providers" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -179,6 +208,12 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
               body="Florida residents can compare national, regional, online, and local account offers, but state availability and enrollment channels can vary. Start with the offer requirements, then verify current terms directly with the institution."
               href="/best-bank-bonuses-florida"
               linkLabel="Review Florida bank bonuses"
+            />
+            <ComparisonCard
+              title="Banking finder for Florida"
+              body="If you are deciding between an online bank, national bank, regional bank, or credit union, use the finder to choose a research path before comparing offers."
+              href="/banking-finder"
+              linkLabel="Use the banking finder"
             />
             <ComparisonCard
               title="Minimum deposit comparison"
@@ -310,6 +345,12 @@ export function LocalSeoPageView({ page }: { page: LocalSeoPage }) {
           />
           <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-3">
+              <ComparisonCard
+                title="Banking finder"
+                body="Use the finder to choose whether to start with credit unions, checking accounts, bank bonuses, or Florida banking research paths."
+                href="/banking-finder"
+                linkLabel="Use banking finder"
+              />
               <ComparisonCard
                 title="Florida credit unions"
                 body="Florida credit unions may serve specific counties, cities, employers, schools, or association groups. Compare eligibility, branch access, shared branching, checking fees, savings options, and mobile tools."

@@ -1,5 +1,9 @@
 export const priorityLandingPages = [
   { href: "/best-brokerage-bonuses", label: "Best brokerage bonuses" },
+  { href: "/banking-finder", label: "Banking finder" },
+  { href: "/offer-tracker", label: "Offer tracker" },
+  { href: "/offer-history", label: "Offer history" },
+  { href: "/compare", label: "Compare providers" },
   { href: "/robinhood-transfer-bonus-guide", label: "Robinhood transfer guide" },
   { href: "/brokerage-transfer-bonuses", label: "Brokerage transfer bonuses" },
   { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonuses" },
@@ -52,12 +56,16 @@ export const featuredGuideLinks = [
 ];
 
 export const popularComparisonLinks = [
+  { href: "/compare", label: "Comparison hub" },
   { href: "/compare/chase-vs-sofi", label: "Chase vs SoFi" },
   { href: "/compare/chase-vs-capital-one", label: "Chase vs Capital One" },
   { href: "/compare/chase-vs-robinhood", label: "Chase vs Robinhood" },
   { href: "/compare/capital-one-vs-discover", label: "Capital One vs Discover" },
   { href: "/compare/fidelity-vs-robinhood", label: "Fidelity vs Robinhood" },
   { href: "/compare/robinhood-vs-webull", label: "Robinhood vs Webull" },
+  { href: "/compare/robinhood-vs-fidelity", label: "Robinhood vs Fidelity" },
+  { href: "/compare/fidelity-vs-merrill-edge", label: "Fidelity vs Merrill Edge" },
+  { href: "/compare/chase-vs-wells-fargo", label: "Chase vs Wells Fargo" },
   { href: "/compare/webull-vs-robinhood", label: "Webull vs Robinhood" },
   { href: "/compare/rakuten-vs-upside", label: "Rakuten vs Upside" },
 ];

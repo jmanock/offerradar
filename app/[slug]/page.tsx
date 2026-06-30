@@ -73,12 +73,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (localSeoPage) {
     if (localSeoPage.slug === "best-checking-accounts-florida") {
       return {
-        title: "Best Checking Accounts in Florida | Fees, Bonuses, Banks",
+        title: "Best Checking Accounts in Florida: Fees, Bonuses & Banks",
         description:
-          "Compare Florida checking accounts by fees, bonuses, online banks, credit unions, mobile banking, ATM access, and last verified details.",
+          "Compare Florida checking accounts by fees, bonuses, online banks, credit unions, direct deposit rules, mobile banking, ATM access, and verified research paths.",
         alternates: { canonical: `/${localSeoPage.slug}` },
         openGraph: {
-          title: "Best Checking Accounts in Florida | Fees, Bonuses, Banks",
+          title: "Best Checking Accounts in Florida: Fees, Bonuses & Banks",
           description:
             "Compare Florida checking accounts, tracked bonuses, banking features, fees, access, and last verified details.",
           url: `/${localSeoPage.slug}`,
@@ -88,12 +88,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (localSeoPage.slug === "best-credit-unions-florida") {
       return {
-        title: "Best Credit Unions in Florida | Compare Fees and Access",
+        title: "Best Credit Unions in Florida Compared: Fees, Checking & Savings",
         description:
-          "Compare Florida credit unions by membership rules, checking fees, savings rate questions, mobile app access, ATM networks, and best-fit categories.",
+          "Compare Florida credit unions by membership rules, checking fees, savings questions, mobile app access, ATM networks, branch access, and best-fit categories.",
         alternates: { canonical: `/${localSeoPage.slug}` },
         openGraph: {
-          title: "Best Credit Unions in Florida | Compare Fees and Access",
+          title: "Best Credit Unions in Florida Compared: Fees, Checking & Savings",
           description:
             "Research Florida credit unions by eligibility, fees, mobile banking, ATM access, and what to verify before joining.",
           url: `/${localSeoPage.slug}`,

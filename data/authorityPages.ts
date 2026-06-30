@@ -117,10 +117,10 @@ export const authorityPages: AuthorityPage[] = [
   },
   {
     slug: "best-banks-for-checking",
-    title: "Best Banks for Checking",
-    description: "Compare banks for checking by monthly fees, direct deposit requirements, mobile banking, ATM access, credit unions, and verification reminders.",
-    h1: "Best banks for checking to compare",
-    intro: "The best bank for checking depends on how you use the account: direct deposit, debit card use, ATM access, branches, mobile tools, fee waivers, and whether any promotion requirements are practical. This page organizes the comparison without assuming one bank is best for every user.",
+    title: "Best Banks for Checking Accounts: Fees, Features & Bonuses",
+    description: "Compare banks for checking accounts by monthly fees, mobile banking, ATM access, direct deposit rules, credit unions, and tracked bonus records.",
+    h1: "Best banks for checking accounts to compare",
+    intro: "The best bank for checking is the one that fits your everyday account use first: fees, direct deposit, debit card access, ATMs, branches, mobile tools, support, and whether any bonus requirements are practical. Use this page as a research framework, not a universal ranking.",
     sections: [
       { title: "Comparison table research", body: "Start with the comparison table, then read the provider terms. A checking account offer can look attractive while the account itself has fees or access limits that make it a poor fit.", points: ["Monthly fee", "Fee waiver", "ATM access", "Last verified date"] },
       { title: "Online banks", body: "Online banks can be useful for digital-first users who prefer mobile account opening, electronic transfers, and broader ATM networks, but cash deposits and in-person help may be limited.", points: ["Mobile tools", "ATM policy", "Cash deposits", "Support access"] },
@@ -137,6 +137,8 @@ export const authorityPages: AuthorityPage[] = [
     ],
     relatedLinks: [
       { href: "/best-bank-for-checking", label: "Best bank for checking" },
+      { href: "/banking-finder", label: "Banking finder" },
+      { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },
       { href: "/bank-bonuses", label: "Bank bonuses" },
       { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
@@ -169,6 +171,8 @@ export const authorityPages: AuthorityPage[] = [
     ],
     relatedLinks: [
       { href: "/best-banks-for-checking", label: "Best banks for checking" },
+      { href: "/banking-finder", label: "Banking finder" },
+      { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/bank-bonuses", label: "Bank bonuses" },
       { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },
       { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },

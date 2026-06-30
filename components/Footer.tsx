@@ -52,7 +52,11 @@ export function Footer() {
           <p className="font-semibold text-white">Research</p>
           <div className="mt-3 grid gap-2 text-sm">
             <Link href="/offers">All offers</Link>
+            <Link href="/offer-tracker">Offer tracker</Link>
+            <Link href="/banking-finder">Banking finder</Link>
+            <Link href="/offer-history">Offer history</Link>
             <Link href="/providers">Providers</Link>
+            <Link href="/compare">Compare providers</Link>
             <Link href="/best-bank-bonuses">Best bank bonuses</Link>
             <Link href="/best-brokerage-bonuses">Best brokerage bonuses</Link>
             <Link href="/best-referral-bonuses">Best referral bonuses</Link>

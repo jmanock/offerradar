@@ -33,6 +33,17 @@ export default function OffersPage() {
           name: "Tracked banking and brokerage offers",
           description: metadata.description,
           url: "https://offerradar.io/offers",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: categories.flatMap((category) =>
+              getOffersByCategory(category.slug).slice(0, 3),
+            ).map((offer, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: offer.title,
+              url: `https://offerradar.io/offer/${offer.slug}`,
+            })),
+          },
         }}
       />
       <JsonLd
