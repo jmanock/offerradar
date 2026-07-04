@@ -23,7 +23,8 @@
     "indexnow:changed": "python3 -B automation/scripts/submit_indexnow.py --changed-only --limit 100",
     "indexnow:submit": "python3 -B automation/scripts/submit_indexnow.py --submit",
     "search:growth-report": "python3 -B automation/scripts/generate_search_growth_report.py",
-    "ops:all": "npm run offers:pipeline && npm run intelligence:all && npm run url:inventory && npm run indexnow:dry && npm run search:growth-report"
+    "ops:all": "npm run offers:pipeline && npm run intelligence:all && npm run url:inventory && npm run indexnow:dry && npm run search:growth-report",
+    "signals:export": "node scripts/export-signals.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

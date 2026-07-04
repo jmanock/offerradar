@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated Morning Content Engine signals
+signals/outbox/*.json
+signals/archive/*.json

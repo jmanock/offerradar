@@ -1,5 +1,43 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Morning Content Engine Signal Export
+
+Offer Radar can export its strongest finance, banking, credit card, cash back, and deal alert offers as standardized JSON signals for Morning Content Engine.
+
+Run:
+
+```bash
+npm run signals:export
+```
+
+The exporter writes files to:
+
+```text
+signals/outbox/
+```
+
+Each signal follows the Morning Content Engine Signal Contract with:
+
+- `source_project`: `offer-radar`
+- `brand`: `Offer Radar`
+- `source_type`: `financial_offer`, `credit_card_offer`, `banking_offer`, `cashback_offer`, or `deal_alert`
+- `title`, `summary`, `url`, `category`, `priority`, and `confidence`
+- metadata for offer id, category, estimated value, affiliate network, merchant/provider, expiration, source URL, and priority reason
+
+The exporter skips weak, expired, duplicate, and incomplete offers. Filenames are stable by date and offer slug, so re-running the command on the same day will not create duplicate files.
+
+Workflow:
+
+```bash
+cd ~/Documents/Codex/offerradar
+npm run signals:export
+
+cd ~/Documents/Codex/morning-content-engine
+python main.py collect-signals
+python main.py morning
+open reports/$(date +%F)/preview.html
+```
+
 ## Getting Started
 
 First, run the development server:
