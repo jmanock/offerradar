@@ -8,6 +8,7 @@ import { providers } from "@/data/providers";
 import { statePages } from "@/data/statePages";
 import { offers } from "@/lib/offerData";
 import { authorityPages } from "@/data/authorityPages";
+import { researchArticles } from "@/data/researchArticles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -15,6 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/offers",
     "/offer-tracker",
     "/offer-history",
+    "/recently-changed-offers",
+    "/watchlist",
+    "/research",
+    "/money",
+    "/travel",
+    "/florida",
     "/banking-finder",
     "/about",
     "/disclosures",
@@ -42,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const stateRoutes = statePages.map((page) => `/${page.slug}`);
   const localSeoRoutes = localSeoPages.map((page) => `/${page.slug}`);
   const authorityRoutes = authorityPages.map((page) => `/${page.slug}`);
+  const researchRoutes = researchArticles.map((article) => `/research/${article.slug}`);
 
   const routes = [
     ...staticRoutes,
@@ -54,6 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stateRoutes,
     ...localSeoRoutes,
     ...authorityRoutes,
+    ...researchRoutes,
   ].filter((route, index, allRoutes) => allRoutes.indexOf(route) === index);
 
   return routes.map((route) => ({

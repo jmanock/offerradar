@@ -94,7 +94,7 @@ export default function OfferHistoryPage() {
             <table className="min-w-[920px] w-full text-left text-sm">
               <thead className="bg-slate-950 text-white">
                 <tr>
-                  {["Provider", "Current amount", "Previous amount", "Date observed", "Last verified", "Status", "Notes"].map((heading) => (
+                  {["Provider", "Current value", "Previous value", "First observed", "Last verified", "Change type", "Notes"].map((heading) => (
                     <th key={heading} className="px-4 py-3">{heading}</th>
                   ))}
                 </tr>
@@ -107,11 +107,11 @@ export default function OfferHistoryPage() {
                         {record.provider}
                       </Link>
                     </td>
-                    <td className="px-4 py-4 text-slate-700">{record.currentAmount}</td>
-                    <td className="px-4 py-4 text-slate-700">{record.previousAmount ?? "No prior amount recorded"}</td>
-                    <td className="px-4 py-4 text-slate-700">{formatDate(record.dateObserved)}</td>
+                    <td className="px-4 py-4 text-slate-700">{record.observedValue}</td>
+                    <td className="px-4 py-4 text-slate-700">{record.previousObservedValue ?? "OfferRadar has not collected enough historical observations for a trend yet."}</td>
+                    <td className="px-4 py-4 text-slate-700">{formatDate(record.firstSeen)}</td>
                     <td className="px-4 py-4 text-slate-700">{formatDate(record.lastVerified)}</td>
-                    <td className="px-4 py-4 text-slate-700">{record.status}</td>
+                    <td className="px-4 py-4 text-slate-700">{record.changeType}</td>
                     <td className="px-4 py-4 text-slate-700">{record.notes}</td>
                   </tr>
                 ))}

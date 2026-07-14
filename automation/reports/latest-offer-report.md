@@ -1,6 +1,6 @@
 # OfferRadar Automation Report
 
-Generated: 2026-06-30T11:13:10.914361+00:00
+Generated: 2026-07-14T13:38:17.491781+00:00
 
 ## Summary
 
@@ -104,12 +104,11 @@ Generated: 2026-06-30T11:13:10.914361+00:00
 
 ## Expiring Soon
 
-- 2026-07-05: Atlas Markets - Active Trader $350 Bonus
-- 2026-07-10: Citi - Citi Priority Checking Up to $700 Offer
 - 2026-07-15: Harbor One Bank - Everyday Checking $200 Bonus
 - 2026-07-24: Chase - Chase Total Checking $300 Offer
 - 2026-07-31: Voyager Rewards - Travel Card 60,000 Point Offer
 - 2026-08-01: Blueprint Bank - Startup Checking $250 Bonus
+- 2026-08-20: Wells Fargo - Wells Fargo Everyday Checking $325 Offer
 
 ## Changes Detected
 

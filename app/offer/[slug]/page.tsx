@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { ProviderBadge } from "@/components/ProviderBadge";
 import { StatusBadge } from "@/components/StatusBadge";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
+import { WatchlistButton } from "@/components/WatchlistButton";
 import {
   formatDate,
   getAllProviders,
@@ -76,6 +78,7 @@ export default async function OfferDetailPage({ params }: Props) {
         <div className="radar-grid absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
           <div>
+            <div className="mb-5"><ProviderBadge provider={offer.provider} size="lg" /></div>
             <Link
               href={category ? `/${category.slug}` : "/offers"}
               className="text-sm font-extrabold text-blue-700"
@@ -119,6 +122,7 @@ export default async function OfferDetailPage({ params }: Props) {
                 value={formatDate(offer.lastVerified)}
               />
             </div>
+            <div className="mt-5"><WatchlistButton offerId={offer.slug} provider={offer.provider} /></div>
           </div>
         </div>
       </section>

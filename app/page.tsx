@@ -2,6 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { CategoryCard } from "@/components/CategoryCard";
+import { CategoryArtwork, type ArtworkKind } from "@/components/CategoryArtwork";
+import { ArticleCard } from "@/components/ArticleCard";
+import { ProviderBadge } from "@/components/ProviderBadge";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
@@ -17,6 +20,7 @@ import {
 } from "@/data/internalLinks";
 import { floridaCities, localSeoPages } from "@/data/localSeo";
 import { categories } from "@/data/offers";
+import { researchArticles } from "@/data/researchArticles";
 import {
   formatDate,
   getActiveOfferCount,
@@ -68,27 +72,27 @@ export default function Home() {
               OfferRadar.io
             </p>
             <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-[#07111f] sm:text-6xl sm:leading-[1.02]">
-              Find, compare, and track banking offers.
+              Find offers. Track changes. Know when a deal is worth it.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              OfferRadar is a financial offer dashboard for comparing checking
-              accounts, bank bonuses, credit unions, brokerage promotions,
-              Florida banking pages, and provider comparisons with verification
-              dates and clear disclosures.
+              Discover banking, brokerage, travel, shopping, software, and
+              regional opportunities through review dates, comparison tools,
+              and research that puts requirements before headlines.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/banking-finder"
+                href="/offers"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-blue-700 px-6 text-sm font-extrabold text-white shadow-lg shadow-blue-900/20 hover:bg-blue-800"
               >
-                Use the banking finder
+                Explore offers
               </Link>
               <Link
                 href="/offer-tracker"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white/90 px-6 text-sm font-extrabold text-slate-950 shadow-sm hover:border-blue-300 hover:text-blue-800"
               >
-                Open offer tracker
+                Track an offer
               </Link>
+              <Link href="/recently-changed-offers" className="inline-flex h-12 items-center justify-center px-3 text-sm font-extrabold text-blue-700 hover:text-blue-900">See recent changes</Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {[
@@ -135,10 +139,10 @@ export default function Home() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-              Today&apos;s top offer categories
+              Visual discovery
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950">
-              Start from the dashboard
+              Explore the radar
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
               Use product-style entry points to compare offer categories,
@@ -150,16 +154,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {topOfferCategories.map((item) => (
+          {visualCategories.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className="premium-card rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200"
             >
-              <h3 className="font-extrabold text-slate-950">{item.label}</h3>
+              <CategoryArtwork kind={item.kind} label={item.label} />
+              <h3 className="mt-5 font-extrabold text-slate-950">{item.label}</h3>
               <p className="mt-2 text-sm leading-6 text-slate-600">
                 {item.description}
               </p>
+              <p className="mt-4 text-xs font-extrabold uppercase tracking-wide text-teal-700">{item.count}</p>
             </Link>
           ))}
         </div>
@@ -219,14 +225,14 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-                Popular right now
+                Featured research paths
               </p>
               <h2 className="mt-3 text-3xl font-black text-slate-950">
-                High-signal research pages
+                Useful places to start
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                Pages connected to checking accounts, credit unions, brokerage
-                bonuses, bank bonuses, and Florida banking search demand.
+                Editorially selected pages connected to checking accounts,
+                credit unions, brokerage bonuses, and Florida banking research.
               </p>
             </div>
           </div>
@@ -251,29 +257,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Current research paths</p>
-              <h2 className="mt-3 text-3xl font-black text-slate-950">Trending financial guides this week</h2>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Timely comparison pages and tools connected to the banking and brokerage topics readers are researching now.</p>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Latest research</p>
+              <h2 className="mt-3 text-3xl font-black text-slate-950">Featured requirements-first guides</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">Editorially featured explainers for evaluating offer value, commonly missed rules, and brokerage transfers. This is not a popularity claim.</p>
             </div>
-            <Link href="/weekly-offer-radar" className="text-sm font-extrabold text-blue-700">Open the weekly hub</Link>
+            <Link href="/research" className="text-sm font-extrabold text-blue-700">Open the research library</Link>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              ["/brokerage-bonuses", "Brokerage bonuses", "Compare tracked promotions, transfers, and requirements."],
-              ["/best-checking-accounts-florida", "Florida checking accounts", "Review access, fees, bonuses, and verification details."],
-              ["/best-bank-for-checking", "Best bank for checking", "Research account fit, fees, mobile tools, and access."],
-              ["/best-banks-for-checking", "Best banks for checking", "Compare fees, mobile tools, direct deposit, and access."],
-              ["/best-checking-and-savings-account-offers", "Checking and savings offers", "Compare account offers by requirements and verification dates."],
-              ["/bank-bonuses", "Bank bonuses", "Compare checking and savings offer requirements."],
-              ["/2026-world-cup-banking-guide", "2026 World Cup banking guide", "Plan banking access, cards, ATM fees, and mobile tools."],
-              ["/bank-bonus-calculator", "Bank bonus calculator", "Estimate a bonus after listed monthly fees."],
-              ["/brokerage-bonus-calculator", "Brokerage bonus calculator", "Estimate a promotion after transfer and account fees."],
-            ].map(([href, label, description]) => (
-              <Link key={href} href={href} className="premium-card rounded-2xl p-5 transition hover:-translate-y-0.5 hover:border-blue-200">
-                <h3 className="font-extrabold text-slate-950">{label}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-              </Link>
-            ))}
+            {researchArticles.slice(0, 3).map((article) => <ArticleCard key={article.slug} article={article} />)}
           </div>
         </div>
       </section>
@@ -305,7 +296,7 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-                Popular Providers
+                Featured providers
               </p>
               <h2 className="mt-3 text-3xl font-black text-slate-950">
                 Provider pages to compare
@@ -324,8 +315,9 @@ export default function Home() {
               <Link
                 key={provider.slug}
                 href={`/provider/${provider.slug}`}
-                className="premium-card rounded-2xl p-4 font-extrabold text-slate-950 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-800"
+                className="premium-card flex items-center gap-3 rounded-2xl p-4 font-extrabold text-slate-950 transition hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-800"
               >
+                <ProviderBadge provider={provider.name} size="sm" />
                 {provider.name}
               </Link>
             ))}
@@ -374,14 +366,14 @@ export default function Home() {
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-              New This Week
+              Reviewed recently
             </p>
             <h2 className="mt-3 text-3xl font-black text-slate-950">
-              Recently refreshed offer records
+              Recent verification activity
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-              New and recently verified records are shown with last reviewed
-              dates so readers can verify terms directly before acting.
+              These are recently verified records—not claims that an offer is
+              new. Dates help readers decide what needs a fresh provider check.
             </p>
           </div>
         </div>
@@ -665,47 +657,13 @@ const homepageFaq = [
   },
 ];
 
-const topOfferCategories = [
-  {
-    href: "/bank-bonuses",
-    label: "Bank bonuses",
-    description: "Compare checking and savings promotions by requirements, fees, and verification dates.",
-  },
-  {
-    href: "/best-bank-for-checking",
-    label: "Checking accounts",
-    description: "Research account fit, monthly fees, mobile banking, ATM access, and direct deposit rules.",
-  },
-  {
-    href: "/best-credit-unions-florida",
-    label: "Credit unions",
-    description: "Compare membership rules, checking fees, mobile tools, and Florida access.",
-  },
-  {
-    href: "/brokerage-bonuses",
-    label: "Brokerage bonuses",
-    description: "Review transfer, funding, holding period, and account-cost considerations.",
-  },
-  {
-    href: "/referral-offers",
-    label: "Referral offers",
-    description: "Track app and provider referral records with eligibility notes.",
-  },
-  {
-    href: "/best-checking-accounts-florida",
-    label: "Florida banking",
-    description: "Start with Florida checking, local banks, and statewide banking comparisons.",
-  },
-  {
-    href: "/compare",
-    label: "Compare providers",
-    description: "Use side-by-side bank, brokerage, and provider comparisons.",
-  },
-  {
-    href: "/offer-tracker",
-    label: "Offer tracker",
-    description: "Filter tracked offers by category, provider, verification status, and amount.",
-  },
+const visualCategories: Array<{ href: string; label: string; description: string; count: string; kind: ArtworkKind }> = [
+  { href: "/money", label: "Money", description: "Banking, savings, credit unions, brokerage, referrals, and calculators.", count: "7 tracked categories", kind: "money" },
+  { href: "/travel", label: "Travel", description: "Travel money research, fee tools, and Florida trip planning paths.", count: "Curated research gateway", kind: "travel" },
+  { href: "/cash-back-apps", label: "Shopping", description: "Current cash-back and shopping offer records without a thin new hub.", count: "Live offers", kind: "shopping" },
+  { href: "/research", label: "Research", description: "Practical checklists for evaluating requirements, fees, timing, and risk.", count: "10 field guides", kind: "research" },
+  { href: "/florida", label: "Florida", description: "Checking, credit unions, city research, and travel planning in one place.", count: "Statewide coverage", kind: "florida" },
+  { href: "/compare", label: "Comparisons", description: "Explore provider and category comparisons side by side.", count: "Provider comparisons", kind: "compare" },
 ];
 
 const finderStartLinks = [

@@ -7,14 +7,12 @@ import { BrandLogo } from "./BrandLogo";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const navLinks = [
-    ["Offers", "/offers"],
-    ["Finder", "/banking-finder"],
-    ["Tracker", "/offer-tracker"],
-    ["Bank Bonuses", "/bank-bonuses"],
-    ["Brokerage", "/brokerage-bonuses"],
-    ["Providers", "/providers"],
+    ["Explore", "/offers"],
+    ["Track", "/offer-tracker"],
     ["Compare", "/compare"],
-    ["Best Bonuses", "/best-bank-bonuses"],
+    ["Research", "/research"],
+    ["Florida", "/florida"],
+    ["About", "/about"],
   ];
 
   return (
@@ -55,11 +53,11 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/offers"
+            href="/watchlist"
             onClick={() => setIsOpen(false)}
             className="inline-flex rounded-full bg-blue-700 px-4 py-2 text-white shadow-sm shadow-blue-900/20 transition hover:bg-blue-800 lg:ml-2"
           >
-            Compare Offers
+            My watchlist
           </Link>
         </nav>
       </div>

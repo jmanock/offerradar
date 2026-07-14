@@ -1,0 +1,74 @@
+export type ResearchArticle = {
+  slug: string;
+  title: string;
+  description: string;
+  updated: string;
+  readingMinutes: number;
+  category: "Banking" | "Brokerage" | "Verification" | "Decision guide";
+  takeaway: string;
+  sections: Array<{ title: string; body: string; points: string[] }>;
+  related: Array<{ href: string; label: string }>;
+};
+
+const updated = "2026-07-14";
+
+export const researchArticles: ResearchArticle[] = [
+  article("how-to-tell-whether-a-bank-bonus-is-worth-it", "How to Tell Whether a Bank Bonus Is Worth It", "A requirements-first way to compare headline value with fees, effort, timing, and locked-up cash.", "Banking", "A large headline is not the same as a strong net outcome.", [
+    ["Calculate the usable value", "Start with the amount you could realistically qualify for—not the largest advertised tier.", ["Subtract unavoidable monthly fees", "Account for required balances", "Estimate opportunity cost", "Do not count uncertain referral value"]],
+    ["Price the requirements", "Direct deposit changes, new-money rules, debit transactions, and holding periods all carry friction.", ["List every deadline", "Confirm what counts as a qualifying deposit", "Check early closure terms", "Plan how you will verify completion"]],
+    ["Make a go/no-go decision", "Compare the likely net value with the time and risk involved, then verify the live provider terms.", ["Proceed only if eligibility is clear", "Keep copies of terms", "Set calendar reminders", "Walk away when rules are ambiguous"]],
+  ], [["/bank-bonus-calculator", "Estimate net bonus value"], ["/bank-bonuses", "Compare bank bonuses"]]),
+  article("bank-bonus-requirements-people-commonly-miss", "Bank Bonus Requirements People Commonly Miss", "A practical checklist for deposits, time windows, account status, eligibility, and payout terms.", "Banking", "The missed detail is often a definition or deadline, not the headline amount.", [
+    ["Deposit definitions", "A provider may distinguish payroll, government benefits, ACH transfers, card transfers, and person-to-person payments.", ["Read the qualifying-deposit definition", "Confirm the required total", "Check the measurement window"]],
+    ["Eligibility exclusions", "Existing customers, recent account owners, employees, and people outside a service area may be excluded.", ["Check household rules", "Review prior-account lookback periods", "Confirm state or branch eligibility"]],
+    ["Keep the account eligible", "A bonus can depend on the account staying open, funded, and in good standing through payout.", ["Avoid preventable fees", "Maintain required balances", "Record the expected payout date"]],
+  ], [["/checking-account-bonuses", "Compare checking bonuses"], ["/guides/understanding-offer-requirements", "Read the requirements guide"]]),
+  article("brokerage-transfer-bonuses-explained", "Brokerage Transfer Bonuses Explained", "Understand tiered awards, eligible assets, holding periods, transfer mechanics, and possible costs.", "Brokerage", "Evaluate the award as a percentage of assets and time committed—not as a standalone number.", [
+    ["Read the tier table", "The maximum award may require a much larger transfer than the first visible tier.", ["Find your actual tier", "Calculate award-to-asset percentage", "Confirm eligible account types"]],
+    ["Map the transfer", "Some assets may transfer in kind; others may need to be sold, creating market or tax consequences.", ["Ask about unsupported assets", "Review transfer fees", "Do not trade solely to chase a bonus"]],
+    ["Respect holding periods", "Offers may require assets or cash to remain for months after funding.", ["Check withdrawal consequences", "Keep a liquidity buffer", "Consult a qualified professional for tax questions"]],
+  ], [["/brokerage-bonuses", "Explore brokerage bonuses"], ["/brokerage-bonus-calculator", "Estimate transfer costs"]]),
+  article("bank-bonus-taxes-what-to-research", "Bank Bonus Taxes: What to Research Before Applying", "Questions to investigate about tax forms, recordkeeping, valuation, and professional guidance.", "Banking", "Tax treatment depends on facts and current rules; keep records and seek qualified advice when needed.", [
+    ["Identify what you received", "Cash, points, merchandise, interest, and referral rewards may be reported differently.", ["Save the offer terms", "Record payment date and value", "Watch for provider tax documents"]],
+    ["Research current guidance", "Do not assume an online anecdote applies to your account, jurisdiction, or tax year.", ["Use official tax authority resources", "Compare forms with your records", "Ask the provider about discrepancies"]],
+    ["Know when to get help", "A qualified tax professional can evaluate your specific facts; OfferRadar does not provide tax advice.", ["Seek help for unclear classifications", "Keep documents with tax records", "Avoid spending an expected refund prematurely"]],
+  ], [["/editorial-policy", "Review our editorial policy"], ["/bank-bonuses", "Browse tracked bonuses"]]),
+  article("checking-account-fees-that-can-erase-a-signup-bonus", "Checking Account Fees That Can Erase a Signup Bonus", "Model monthly, overdraft, ATM, transfer, paper, and early-closure costs before applying.", "Banking", "A bonus should be compared with the total account cost over the time you expect to keep it.", [
+    ["Recurring account costs", "Monthly charges can materially reduce a modest bonus when waiver rules are hard to maintain.", ["Model the full holding period", "Check waiver conditions", "Review paper statement fees"]],
+    ["Behavior-driven fees", "Overdrafts, out-of-network ATMs, wires, and stop payments depend on how you use the account.", ["Match fees to your habits", "Check ATM access", "Understand overdraft settings"]],
+    ["Exit costs", "Closing early or moving funds can trigger fees or forfeit eligibility.", ["Read early closure language", "Wait for the bonus to settle", "Download records before closing"]],
+  ], [["/bank-bonus-calculator", "Model account fees"], ["/best-bank-for-checking", "Compare checking fit"]]),
+  article("credit-unions-vs-banks-in-florida", "Credit Unions vs Banks in Florida", "Compare membership, branches, shared networks, digital tools, insurance, rates, fees, and local access.", "Decision guide", "Choose based on access and account fit; the institution type alone does not determine value.", [
+    ["Eligibility and access", "Credit unions may have membership fields while banks may use geographic or product availability rules.", ["Confirm membership eligibility", "Map branches and ATMs", "Check shared branching"]],
+    ["Compare the actual accounts", "Rates, fees, minimums, and digital features vary within both groups.", ["Review fee schedules", "Test mobile feature availability", "Check deposit insurance disclosures"]],
+    ["Use a Florida lens", "Storm readiness, local branches, cash access, and travel patterns can affect practical fit.", ["Plan emergency access", "Compare statewide coverage", "Verify current terms directly"]],
+  ], [["/best-credit-unions-florida", "Compare Florida credit unions"], ["/florida", "Open the Florida hub"]]),
+  article("how-offerradar-tracks-and-verifies-offers", "How OfferRadar Tracks and Verifies Offers", "Inside the structured records, review statuses, source fields, snapshots, and change-detection guardrails.", "Verification", "A review date shows when a record was checked; it does not guarantee that provider terms remain unchanged.", [
+    ["Structured records", "OfferRadar stores provider, category, value, requirements, status, source, and verification fields.", ["Stable offer IDs", "Visible last-reviewed dates", "Explicit needs-review status"]],
+    ["Snapshot comparison", "Automation can compare stored snapshots and report field-level changes without inventing history.", ["No inferred increases", "No fabricated timelines", "Human review remains necessary"]],
+    ["Reader verification", "The provider's current terms remain authoritative for eligibility and action.", ["Open the official source", "Check dates and definitions", "Save terms relevant to your application"]],
+  ], [["/offer-history", "View the history foundation"], ["/recently-changed-offers", "See review activity"]]),
+  article("when-to-wait-for-a-better-offer", "When to Wait for a Better Offer", "A decision framework for timing, urgency, opportunity cost, and uncertain promotional value.", "Decision guide", "Waiting is useful only when flexibility is worth more than the benefit you can secure now.", [
+    ["Separate need from promotion", "If you need an account now, reliability and fit may outweigh a speculative future bonus.", ["Define your real deadline", "Identify must-have features", "Avoid opening an unsuitable account"]],
+    ["Measure the cost of waiting", "Delayed interest, missed convenience, or idle cash can offset a larger future award.", ["Estimate foregone yield", "Consider market exposure", "Value your setup time"]],
+    ["Set a decision rule", "Choose a target value and review date instead of checking constantly.", ["Use the local watchlist", "Record your target", "Re-verify before acting"]],
+  ], [["/watchlist", "Set a watchlist target"], ["/offer-tracker", "Browse the tracker"]]),
+  article("how-long-bank-and-brokerage-bonuses-usually-take", "How Long Bank and Brokerage Bonuses Usually Take", "Build a realistic timeline from enrollment and funding through qualification, holding period, and payout.", "Decision guide", "Use the provider's stated schedule; OfferRadar does not invent an average when terms vary.", [
+    ["Mark each phase", "Enrollment, qualifying activity, review, holding, and payout may each use a separate window.", ["Record the enrollment date", "Mark activity deadlines", "Note the latest stated payout date"]],
+    ["Watch for dependencies", "A missed deposit or an incomplete transfer can delay or prevent qualification.", ["Keep confirmation records", "Check account status", "Contact the provider when the stated window passes"]],
+    ["Plan conservatively", "Do not rely on promotional cash for a bill or time-sensitive obligation.", ["Maintain liquidity", "Expect processing variance", "Escalate with documentation"]],
+  ], [["/offer-tracker", "Check review dates"], ["/bank-bonuses", "Explore bank offers"]]),
+  article("compare-an-offer-without-being-misled-by-headline-amount", "How to Compare an Offer Without Being Misled by the Headline Amount", "Normalize tiered offers by eligibility, cash required, duration, fees, and probability of completion.", "Decision guide", "Compare the amount you can reasonably earn, not the amount used to advertise the campaign.", [
+    ["Find your attainable tier", "Maximum values often depend on deposits or assets far above the minimum.", ["Locate your tier", "Confirm caps", "Ignore tiers you cannot meet"]],
+    ["Normalize time and capital", "Two equal bonuses can differ when one locks more cash for longer.", ["Calculate months committed", "Estimate foregone yield", "Include required purchases or deposits"]],
+    ["Compare confidence", "Clear rules and a realistic completion plan can matter more than a small value difference.", ["Score requirement clarity", "Check verification freshness", "Prefer a suitable account over a headline"]],
+  ], [["/compare", "Compare providers"], ["/research/how-to-tell-whether-a-bank-bonus-is-worth-it", "Use the net-value framework"]]),
+];
+
+function article(slug: string, title: string, description: string, category: ResearchArticle["category"], takeaway: string, sections: Array<[string, string, string[]]>, related: Array<[string, string]>): ResearchArticle {
+  return { slug, title, description, category, takeaway, updated, readingMinutes: 6, sections: sections.map(([sectionTitle, body, points]) => ({ title: sectionTitle, body, points })), related: related.map(([href, label]) => ({ href, label })) };
+}
+
+export function getResearchArticle(slug: string) {
+  return researchArticles.find((article) => article.slug === slug);
+}

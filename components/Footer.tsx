@@ -1,106 +1,13 @@
 import Link from "next/link";
-import {
-  featuredGuideLinks,
-  popularComparisonLinks,
-  priorityLandingPages,
-} from "@/data/internalLinks";
-import { localSeoPages } from "@/data/localSeo";
-import { categories } from "@/data/offers";
-import { getAllProviders } from "@/lib/offers";
 import { BrandLogo } from "./BrandLogo";
 
-export function Footer() {
-  const providers = getAllProviders().slice(0, 6);
+const groups = [
+  { title: "Explore", links: [["All offers", "/offers"], ["Money", "/money"], ["Travel", "/travel"], ["Florida", "/florida"], ["Recently changed", "/recently-changed-offers"]] },
+  { title: "Track & compare", links: [["Offer tracker", "/offer-tracker"], ["My watchlist", "/watchlist"], ["Offer history", "/offer-history"], ["Banking finder", "/banking-finder"], ["Compare providers", "/compare"]] },
+  { title: "Research", links: [["Research library", "/research"], ["Bank bonuses", "/bank-bonuses"], ["Brokerage bonuses", "/brokerage-bonuses"], ["Methodology", "/research/how-offerradar-tracks-and-verifies-offers"], ["Weekly radar", "/weekly-offer-radar"]] },
+  { title: "Trust & policies", links: [["About", "/about"], ["Disclosures", "/disclosures"], ["Editorial policy", "/editorial-policy"], ["Privacy", "/privacy-policy"], ["Contact", "/contact"]] },
+];
 
-  return (
-    <footer className="border-t border-slate-800 bg-[#07111f] text-slate-300">
-      <div className="radar-grid mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-5 lg:px-8 [&_a]:transition [&_a:hover]:text-white">
-        <div>
-          <div className="[&_span_span:first-child]:text-white">
-            <BrandLogo />
-          </div>
-          <p className="mt-3 text-sm leading-6">
-            A disclosure-first offer tracking platform for comparing bonuses,
-            referrals, promotions, fees, and verification dates before acting.
-          </p>
-          <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-xs leading-5 text-slate-400">
-            Offer details can change. Verify terms directly with the provider.
-          </p>
-        </div>
-        <div>
-          <p className="font-semibold text-white">Categories</p>
-          <div className="mt-3 grid gap-2 text-sm">
-            {categories.map((category) => (
-              <Link key={category.slug} href={`/${category.slug}`}>
-                {category.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold text-white">Providers</p>
-          <div className="mt-3 grid gap-2 text-sm">
-            {providers.map((provider) => (
-              <Link key={provider.slug} href={`/provider/${provider.slug}`}>
-                {provider.name}
-              </Link>
-            ))}
-            <Link href="/providers">All providers</Link>
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold text-white">Research</p>
-          <div className="mt-3 grid gap-2 text-sm">
-            <Link href="/offers">All offers</Link>
-            <Link href="/offer-tracker">Offer tracker</Link>
-            <Link href="/banking-finder">Banking finder</Link>
-            <Link href="/offer-history">Offer history</Link>
-            <Link href="/providers">Providers</Link>
-            <Link href="/compare">Compare providers</Link>
-            <Link href="/best-bank-bonuses">Best bank bonuses</Link>
-            <Link href="/best-brokerage-bonuses">Best brokerage bonuses</Link>
-            <Link href="/best-referral-bonuses">Best referral bonuses</Link>
-            <Link href="/weekly-offer-radar">Weekly OfferRadar</Link>
-            <Link href="/bank-bonus-calculator">Bank bonus calculator</Link>
-            <Link href="/brokerage-bonus-calculator">Brokerage bonus calculator</Link>
-            <Link href="/travel-fee-calculator">Travel fee calculator</Link>
-            {priorityLandingPages.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-            {popularComparisonLinks.slice(0, 3).map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-            {localSeoPages.slice(0, 5).map((page) => (
-              <Link key={page.slug} href={`/${page.slug}`}>
-                {page.title}
-              </Link>
-            ))}
-            <Link href="/checking-account-bonuses">Checking bonuses</Link>
-            <Link href="/national-bank-bonuses">National bank bonuses</Link>
-            {featuredGuideLinks.slice(0, 4).map((guide) => (
-              <Link key={guide.href} href={guide.href}>
-                {guide.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="font-semibold text-white">Trust &amp; policies</p>
-          <div className="mt-3 grid gap-2 text-sm">
-            <Link href="/about">About OfferRadar</Link>
-            <Link href="/disclosures">Disclosures</Link>
-            <Link href="/editorial-policy">Editorial policy</Link>
-            <Link href="/advertising-disclosure">Advertising disclosure</Link>
-            <Link href="/privacy-policy">Privacy policy</Link>
-            <Link href="/terms-of-use">Terms of use</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+export function Footer() {
+  return <footer className="border-t border-slate-800 bg-[#07111f] text-slate-300"><div className="radar-grid mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"><div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_repeat(4,1fr)]"><div><div className="[&_span_span:first-child]:text-white"><BrandLogo /></div><p className="mt-4 max-w-sm text-sm leading-6">A consumer-first offer intelligence platform for discovery, comparison, local tracking, and requirements-first research.</p><p className="mt-4 text-xs leading-5 text-slate-400">Text provider badges are identification aids, not evidence of endorsement. Verify live terms directly.</p></div>{groups.map((group) => <div key={group.title}><p className="font-bold text-white">{group.title}</p><div className="mt-3 grid gap-2 text-sm">{group.links.map(([label, href]) => <Link key={href} href={href} className="transition hover:text-white">{label}</Link>)}</div></div>)}</div><div className="mt-10 border-t border-white/10 pt-6 text-xs text-slate-500">© {new Date().getUTCFullYear()} OfferRadar · Educational research, not financial, tax, or legal advice.</div></div></footer>;
 }
