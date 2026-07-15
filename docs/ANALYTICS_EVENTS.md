@@ -14,11 +14,14 @@ Events use Google Analytics through `lib/analytics.ts`. Production-only dispatch
 | `filter_used` | Tracker category, provider, status, freshness, type, availability, range, or sorting changes | `filter_name`, `filter_value`, `source_page` | How do visitors narrow the market? |
 | `comparison_opened` | Reserved for tracked comparison entry points | comparison slug, source page | Which comparisons are useful? |
 | `article_click` | Visitor opens a V15 research article card | `article_slug`, `source_page` | Which research topics support discovery? |
+| `alert_subscription` | A confirmation email was successfully requested | `scope_type`, `scope_id`, `frequency` | Which follow modes create return intent? |
 | `network_outbound_click` | Future verified Florida Deals Network link | `network_destination`, `source_page`, `link_position` | Which network destinations receive qualified traffic? |
 | `recently_changed_click` | Reserved for tracked feed entry points | `offer_id`, `source_page` | Does review/change activity drive detail views? |
 | `finder_start` / `finder_complete` | Existing/future finder workflow boundaries | non-sensitive selection counts/categories | Does the finder help visitors reach a result? |
 
 Legacy `offer_click`, `compare_click`, `lead_submit`, `newsletter_signup`, and `city_page_view` events remain intact for continuity.
+
+V16 can also record an allowlisted first-party aggregate through `/api/events`. This is disabled by default and stores no email, note, target, full referrer, or persistent visitor ID.
 
 ## QA
 

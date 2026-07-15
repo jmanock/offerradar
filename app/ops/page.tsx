@@ -46,6 +46,7 @@ export default function OpsPage() {
       </section>
 
       <section className="mt-8 grid gap-5 md:grid-cols-2">
+        <OpsLink href="/ops/changes" title="Editorial change queue" />
         <OpsLink href="/ops/monetization" title="Monetization gaps" />
         <OpsLink href="/ops/affiliate" title="Affiliate readiness" />
         <OpsLink href="/ops/content-gaps" title="Content gaps" />

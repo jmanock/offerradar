@@ -2,8 +2,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AnalyticsEvent } from "@/components/AnalyticsEvent";
+import { AlertSubscribeForm } from "@/components/AlertSubscribeForm";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { OfferCard } from "@/components/OfferCard";
+import { OfferRelationshipLabel } from "@/components/OfferRelationshipLabel";
+import { HistorySparkline } from "@/components/HistorySparkline";
 import { ProviderBadge } from "@/components/ProviderBadge";
 import { StatusBadge } from "@/components/StatusBadge";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
@@ -17,6 +20,7 @@ import {
   getRelatedOffers,
 } from "@/lib/offers";
 import { getPublicLinkForProvider } from "@/lib/linkRegistry";
+import { getApprovedChanges } from "@/lib/changeQueue";
 import { offers } from "@/lib/offerData";
 
 type Props = {
@@ -61,6 +65,7 @@ export default async function OfferDetailPage({ params }: Props) {
       providerInfo.name.toLowerCase() === offer.provider.toLowerCase(),
   );
   const publicLink = getPublicLinkForProvider(offer.provider);
+  const offerChanges = (await getApprovedChanges()).filter((change) => change.offerId === offer.slug);
 
   return (
     <div>
@@ -219,6 +224,8 @@ export default async function OfferDetailPage({ params }: Props) {
         </article>
 
         <aside className="space-y-5">
+          <div className="premium-card rounded-3xl p-5"><AlertSubscribeForm scopeType="offer" scopeId={offer.slug} scopeLabel={offer.title} compact /></div>
+          <div className="premium-card rounded-3xl p-5"><h2 className="mb-4 text-lg font-black">Approved value history</h2><HistorySparkline changes={offerChanges} label={offer.title} /></div>
           <div className="premium-card rounded-3xl p-5">
             <h2 className="text-lg font-black text-slate-950">
               Verify before applying
@@ -229,6 +236,7 @@ export default async function OfferDetailPage({ params }: Props) {
               the provider.
             </p>
             <div className="mt-5 grid gap-3">
+              <OfferRelationshipLabel relationship={publicLink ? (["affiliate", "referral"].includes(publicLink.linkType) ? "affiliate" : "official") : "research"} />
               {publicLink ? (
                 <TrackedOutboundLink
                   href={publicLink.href}

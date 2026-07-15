@@ -4,7 +4,9 @@ import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
+import { HistorySparkline } from "@/components/HistorySparkline";
 import { offerHistoryRecords } from "@/data/offerHistory";
+import { getApprovedChanges } from "@/lib/changeQueue";
 import { formatDate, getAllOffers, getRecentlyVerifiedOffers } from "@/lib/offers";
 
 export const metadata: Metadata = {
@@ -14,9 +16,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/offer-history" },
 };
 
-export default function OfferHistoryPage() {
+export default async function OfferHistoryPage() {
   const offers = getAllOffers().slice(0, 12);
   const recent = getRecentlyVerifiedOffers(8);
+  const approvedChanges = await getApprovedChanges();
 
   return (
     <div>
@@ -81,6 +84,7 @@ export default function OfferHistoryPage() {
           </article>
         ))}
       </section>
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8"><div className="premium-card rounded-3xl p-6"><h2 className="text-2xl font-black">Approved observation chart</h2><p className="mt-2 mb-5 text-sm text-slate-600">Only editorially approved values can appear in this visualization.</p><HistorySparkline changes={approvedChanges} label="OfferRadar" /></div></section>
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

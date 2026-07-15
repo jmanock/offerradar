@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";
+import { firstPartyAnalyticsAvailable, recordFirstPartyEvent } from "@/lib/firstPartyAnalytics";
+export async function POST(request:Request){if(!firstPartyAnalyticsAvailable())return new NextResponse(null,{status:204});const body=await request.json().catch(()=>null) as {name?:string;source?:string;page?:string;return_state?:string;dimension?:string}|null;if(!body?.name)return NextResponse.json({error:"Invalid event."},{status:400});await recordFirstPartyEvent({name:body.name,source:body.source,page:body.page,return_state:body.return_state,dimension:body.dimension});return new NextResponse(null,{status:204});}

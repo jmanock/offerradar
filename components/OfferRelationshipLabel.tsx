@@ -1,0 +1,5 @@
+export function OfferRelationshipLabel({ relationship }: { relationship: "official" | "affiliate" | "sponsored" | "research" }) {
+  const content = { official: ["Official source", "Direct provider source; no affiliate relationship indicated."], affiliate: ["Tracked affiliate link", "OfferRadar may earn compensation if you use this disclosed link."], sponsored: ["Sponsored placement", "Paid placement; editorial status and provider terms remain independently labeled."], research: ["Research record only", "No reviewed outbound offer link is currently available."] }[relationship];
+  const style = relationship === "sponsored" ? "border-violet-200 bg-violet-50 text-violet-900" : relationship === "affiliate" ? "border-blue-200 bg-blue-50 text-blue-900" : relationship === "official" ? "border-emerald-200 bg-emerald-50 text-emerald-900" : "border-slate-200 bg-slate-50 text-slate-800";
+  return <div className={`rounded-2xl border p-4 ${style}`}><p className="text-xs font-extrabold uppercase tracking-wide">{content[0]}</p><p className="mt-1 text-xs leading-5 opacity-80">{content[1]}</p></div>;
+}

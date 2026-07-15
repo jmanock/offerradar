@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { formatDate, getLastUpdated, getRecentlyVerifiedOffers } from "@/lib/offers";
+import weeklyDigests from "@/data/weeklyDigests.json";
 
 export const metadata: Metadata = {
   title: "Weekly OfferRadar | Recently Verified Offers and Research",
@@ -54,6 +55,7 @@ const groups = [
 export default function WeeklyOfferRadarPage() {
   const offers = getRecentlyVerifiedOffers(6);
   const lastUpdated = getLastUpdated();
+  const latestDigest = weeklyDigests[0];
 
   return (
     <div>
@@ -65,6 +67,7 @@ export default function WeeklyOfferRadarPage() {
           <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Weekly OfferRadar</h1>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">A focused route into recently verified offer records, high-interest banking and brokerage research, Florida comparison pages, travel money guides, and useful calculators.</p>
           <p className="mt-4 text-sm font-bold text-slate-500">Last verified {lastUpdated ? formatDate(lastUpdated) : "review in progress"}</p>
+          {latestDigest ? <Link href={`/weekly/${latestDigest.date}`} className="mt-6 inline-flex rounded-full bg-blue-700 px-5 py-3 text-sm font-extrabold text-white">Read the latest generated digest</Link> : null}
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

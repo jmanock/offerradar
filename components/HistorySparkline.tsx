@@ -1,0 +1,10 @@
+import type { ApprovedChange } from "@/types/change";
+
+export function HistorySparkline({ changes, label }: { changes: ApprovedChange[]; label: string }) {
+  const points = changes.map((change) => ({ value: numericValue(change.currentObservedValue), date: change.approvedAt.slice(0, 10), label: change.currentObservedValue })).filter((point) => point.value > 0).sort((a, b) => a.date.localeCompare(b.date));
+  if (points.length < 2) return <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-5"><div className="flex h-12 items-end gap-1" aria-hidden="true">{[2,4,3,7,5,8,6].map((height,index)=><span key={index} className="flex-1 rounded-t bg-slate-200" style={{height:`${height*5}px`}} />)}</div><p className="mt-3 text-sm font-bold text-slate-700">Not enough approved observations for a trend</p><p className="mt-1 text-xs leading-5 text-slate-500">OfferRadar will draw a history line after at least two reviewed values exist.</p></div>;
+  const min=Math.min(...points.map((point)=>point.value)),max=Math.max(...points.map((point)=>point.value)),range=max-min||1;
+  const coordinates=points.map((point,index)=>`${10+(index/(points.length-1))*180},${90-((point.value-min)/range)*70}`).join(" ");
+  return <figure className="rounded-2xl bg-slate-50 p-4"><svg role="img" aria-label={`${label} approved value history`} viewBox="0 0 200 100" className="h-32 w-full"><title>{label} approved value history</title><path d="M10 90H190" stroke="#cbd5e1"/><polyline points={coordinates} fill="none" stroke="#0f766e" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>{points.map((point,index)=>{const [cx,cy]=coordinates.split(" ")[index].split(",");return <circle key={`${point.date}-${index}`} cx={cx} cy={cy} r="5" fill="#0f766e"/>})}</svg><figcaption className="mt-2 text-xs text-slate-500">{points[0].label} on {points[0].date} → {points.at(-1)?.label} on {points.at(-1)?.date}</figcaption></figure>;
+}
+function numericValue(value:string){const match=value.replaceAll(",","").match(/\d+(?:\.\d+)?/);return match?Number(match[0]):0;}

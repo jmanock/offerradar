@@ -3,7 +3,7 @@ import { BrandLogo } from "./BrandLogo";
 
 const groups = [
   { title: "Explore", links: [["All offers", "/offers"], ["Money", "/money"], ["Travel", "/travel"], ["Florida", "/florida"], ["Recently changed", "/recently-changed-offers"]] },
-  { title: "Track & compare", links: [["Offer tracker", "/offer-tracker"], ["My watchlist", "/watchlist"], ["Offer history", "/offer-history"], ["Banking finder", "/banking-finder"], ["Compare providers", "/compare"]] },
+  { title: "Track & compare", links: [["Offer tracker", "/offer-tracker"], ["My watchlist", "/watchlist"], ["Email alerts", "/alerts"], ["Offer history", "/offer-history"], ["Compare providers", "/compare"]] },
   { title: "Research", links: [["Research library", "/research"], ["Bank bonuses", "/bank-bonuses"], ["Brokerage bonuses", "/brokerage-bonuses"], ["Methodology", "/research/how-offerradar-tracks-and-verifies-offers"], ["Weekly radar", "/weekly-offer-radar"]] },
   { title: "Trust & policies", links: [["About", "/about"], ["Disclosures", "/disclosures"], ["Editorial policy", "/editorial-policy"], ["Privacy", "/privacy-policy"], ["Contact", "/contact"]] },
 ];

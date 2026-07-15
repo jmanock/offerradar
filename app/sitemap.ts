@@ -9,6 +9,7 @@ import { statePages } from "@/data/statePages";
 import { offers } from "@/lib/offerData";
 import { authorityPages } from "@/data/authorityPages";
 import { researchArticles } from "@/data/researchArticles";
+import weeklyDigests from "@/data/weeklyDigests.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/offer-history",
     "/recently-changed-offers",
     "/watchlist",
+    "/alerts",
     "/research",
     "/money",
     "/travel",
@@ -50,6 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localSeoRoutes = localSeoPages.map((page) => `/${page.slug}`);
   const authorityRoutes = authorityPages.map((page) => `/${page.slug}`);
   const researchRoutes = researchArticles.map((article) => `/research/${article.slug}`);
+  const weeklyRoutes = weeklyDigests.map((digest) => `/weekly/${digest.date}`);
 
   const routes = [
     ...staticRoutes,
@@ -63,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...localSeoRoutes,
     ...authorityRoutes,
     ...researchRoutes,
+    ...weeklyRoutes,
   ].filter((route, index, allRoutes) => allRoutes.indexOf(route) === index);
 
   return routes.map((route) => ({

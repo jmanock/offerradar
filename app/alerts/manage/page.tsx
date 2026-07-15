@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import { AlertManageClient } from "@/components/AlertManageClient";
+export const metadata: Metadata = { title: "Manage Offer Alerts", robots: { index: false, follow: false } };
+export default async function ManageAlertPage({ searchParams }: { searchParams: Promise<{ token?: string; confirmed?: string }> }) { const params = await searchParams; return <main className="mx-auto max-w-2xl px-4 py-16 sm:px-6"><p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">Private magic link</p><h1 className="mt-3 text-4xl font-black text-slate-950">Manage your alert</h1><p className="mt-3 mb-7 leading-7 text-slate-600">Pause, resume, or unsubscribe without creating an account.</p><AlertManageClient token={params.token || ""} confirmed={params.confirmed === "1"} /></main>; }

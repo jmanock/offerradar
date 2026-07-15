@@ -1,0 +1,332 @@
+[
+  {
+    "date": "2026-07-15",
+    "periodStart": "2026-07-09",
+    "generatedAt": "2026-07-15T12:23:32.846295+00:00",
+    "largestIncreases": [],
+    "newOffers": [],
+    "expiringOffers": [
+      {
+        "slug": "harbor-one-checking-200-example",
+        "title": "Everyday Checking $200 Bonus",
+        "provider": "Harbor One Bank",
+        "category": "bank-bonuses",
+        "offerAmount": "$200",
+        "offerType": "Checking bonus",
+        "description": "Tracked offer for new checking customers who complete qualifying account activity. Verify the current offer with the provider before opening an account.",
+        "requirements": [
+          "Open a new eligible checking account.",
+          "Receive qualifying deposits during the first 90 days.",
+          "Maintain account eligibility through the bonus review period."
+        ],
+        "fees": [
+          "Overdraft and account maintenance fees may apply."
+        ],
+        "expirationDate": "2026-07-15",
+        "sourceUrl": "https://example.com/harbor-one-checking",
+        "lastVerified": "2026-05-31",
+        "verificationStatus": "verified_this_week",
+        "status": "active",
+        "riskNotes": [
+          "Regional restrictions may apply."
+        ],
+        "tags": [
+          "checking"
+        ],
+        "requiresDirectDeposit": true,
+        "minimumDeposit": "$500 in qualifying deposits",
+        "monthlyFee": "$10, waivable",
+        "stateRestrictions": [
+          "Availability may vary by state."
+        ]
+      },
+      {
+        "slug": "chase-total-checking-300-example",
+        "title": "Chase Total Checking $300 Offer",
+        "provider": "Chase",
+        "category": "bank-bonuses",
+        "offerAmount": "$300",
+        "offerType": "Checking account bonus",
+        "description": "Tracked Chase checking bonus listing. Terms may change, and availability can vary by user, state, bank, account type, and funding requirements.",
+        "requirements": [
+          "Open an eligible new checking account.",
+          "Complete qualifying direct deposits during the offer window.",
+          "Review account fee waiver and early closure terms."
+        ],
+        "fees": [
+          "Monthly service fee may apply unless waiver requirements are met."
+        ],
+        "expirationDate": "2026-07-24",
+        "sourceUrl": "https://example.com/chase-checking-example",
+        "lastVerified": "2026-06-01",
+        "verificationStatus": "verified_today",
+        "status": "active",
+        "featured": true,
+        "riskNotes": [
+          "Verify coupon eligibility and direct deposit definitions."
+        ],
+        "tags": [
+          "checking",
+          "direct deposit",
+          "new customer"
+        ],
+        "requiresDirectDeposit": true,
+        "minimumDeposit": "Qualifying direct deposit",
+        "monthlyFee": "Monthly fee may be waivable",
+        "stateRestrictions": [
+          "National"
+        ]
+      },
+      {
+        "slug": "voyager-travel-card-60000-example",
+        "title": "Travel Card 60,000 Point Offer",
+        "provider": "Voyager Rewards",
+        "category": "credit-card-offers",
+        "offerAmount": "60,000 points",
+        "offerType": "Travel rewards welcome offer",
+        "description": "Tracked travel rewards welcome offer. Point values, transfer partners, and eligibility can change.",
+        "requirements": [
+          "Apply and be approved for an eligible travel card.",
+          "Complete qualifying purchases within the offer period.",
+          "Review reward redemption and transfer rules."
+        ],
+        "fees": [
+          "Annual fee, APR, and foreign transaction fees may apply."
+        ],
+        "expirationDate": "2026-07-31",
+        "sourceUrl": "https://example.com/voyager-travel-card",
+        "lastVerified": "2026-05-31",
+        "verificationStatus": "verified_this_week",
+        "status": "active",
+        "riskNotes": [
+          "Point value depends on redemption method."
+        ],
+        "tags": [
+          "travel",
+          "points"
+        ],
+        "minimumDeposit": "$4,000 spend requirement",
+        "monthlyFee": "$95 annual fee"
+      },
+      {
+        "slug": "blueprint-business-checking-250-example",
+        "title": "Startup Checking $250 Bonus",
+        "provider": "Blueprint Bank",
+        "category": "business-banking",
+        "offerAmount": "$250",
+        "offerType": "Business checking bonus",
+        "description": "Tracked startup checking bonus for new business customers. Verify current eligibility before applying.",
+        "requirements": [
+          "Open an eligible business checking account.",
+          "Deposit qualifying business funds.",
+          "Complete required debit card or ACH transactions."
+        ],
+        "fees": [
+          "Monthly fee may apply after an introductory period."
+        ],
+        "expirationDate": "2026-08-01",
+        "sourceUrl": "https://example.com/blueprint-startup-checking",
+        "lastVerified": "2026-05-26",
+        "verificationStatus": "verified_this_week",
+        "status": "active",
+        "tags": [
+          "startup",
+          "checking"
+        ],
+        "minimumDeposit": "$2,500 business deposit",
+        "monthlyFee": "$10, waivable"
+      }
+    ],
+    "needsVerification": [
+      {
+        "slug": "ally-bank-checking-100-example",
+        "title": "Ally Spending Account $100 Offer",
+        "provider": "Ally",
+        "category": "bank-bonuses",
+        "offerAmount": "$100",
+        "offerType": "Checking account bonus",
+        "description": "Tracked Ally spending account bonus for eligible new customers. Offer availability and requirements can vary.",
+        "requirements": [
+          "Open an eligible spending account.",
+          "Complete qualifying deposit or transaction activity.",
+          "Verify current offer terms directly with Ally."
+        ],
+        "sourceUrl": "https://example.com/ally-checking-example",
+        "lastVerified": "2026-05-16",
+        "verificationStatus": "needs_review",
+        "status": "watching",
+        "riskNotes": [
+          "Confirm whether the tracked offer is currently available."
+        ],
+        "tags": [
+          "checking",
+          "new customer"
+        ],
+        "minimumDeposit": "$500 deposit activity",
+        "monthlyFee": "$0 monthly fee",
+        "stateRestrictions": [
+          "National"
+        ]
+      },
+      {
+        "slug": "pennsylvania-keystone-bank-250-example",
+        "title": "Pennsylvania Keystone Checking $250 Offer",
+        "provider": "Pennsylvania Keystone Bank",
+        "category": "bank-bonuses",
+        "offerAmount": "$250",
+        "offerType": "Direct deposit bonus",
+        "description": "Tracked Pennsylvania checking bonus where direct deposit and account package terms may affect eligibility.",
+        "requirements": [
+          "Open an eligible checking account.",
+          "Set up qualifying direct deposits.",
+          "Verify branch and online availability."
+        ],
+        "sourceUrl": "https://example.com/pennsylvania-keystone-bank",
+        "lastVerified": "2026-05-19",
+        "verificationStatus": "needs_review",
+        "status": "active",
+        "tags": [
+          "checking",
+          "direct deposit",
+          "state page"
+        ],
+        "requiresDirectDeposit": true,
+        "stateRestrictions": [
+          "Pennsylvania"
+        ]
+      },
+      {
+        "slug": "blueharbor-premium-card-800-example",
+        "title": "Premium Card $800 Value Offer",
+        "provider": "BlueHarbor Premium",
+        "category": "credit-card-offers",
+        "offerAmount": "$800 estimated value",
+        "offerType": "Premium card welcome offer",
+        "description": "Tracked premium card offer with a higher annual fee and reward estimate. Estimated value depends on redemption choices and benefit usage.",
+        "requirements": [
+          "Apply and be approved for an eligible premium card.",
+          "Meet the qualifying purchase requirement.",
+          "Review annual fee, credits, and benefit enrollment rules."
+        ],
+        "fees": [
+          "High annual fee, APR, and late payment fees may apply."
+        ],
+        "expirationDate": "2026-06-18",
+        "sourceUrl": "https://example.com/blueharbor-premium-card",
+        "lastVerified": "2026-05-20",
+        "verificationStatus": "needs_review",
+        "status": "active",
+        "riskNotes": [
+          "Compare net value after annual fee and benefit restrictions."
+        ],
+        "tags": [
+          "premium card",
+          "travel"
+        ],
+        "minimumDeposit": "$6,000 spend requirement",
+        "monthlyFee": "$395 annual fee"
+      },
+      {
+        "slug": "ohio-river-bank-175-example",
+        "title": "Ohio River Checking $175 Offer",
+        "provider": "Ohio River Bank",
+        "category": "bank-bonuses",
+        "offerAmount": "$175",
+        "offerType": "Checking account bonus",
+        "description": "Tracked Ohio checking bonus. Verify state availability, required activity, and fees directly.",
+        "requirements": [
+          "Open an eligible account.",
+          "Complete qualifying deposit or debit activity.",
+          "Maintain account eligibility through the review period."
+        ],
+        "sourceUrl": "https://example.com/ohio-river-bank",
+        "lastVerified": "2026-05-20",
+        "verificationStatus": "needs_review",
+        "status": "watching",
+        "tags": [
+          "checking",
+          "state page"
+        ],
+        "stateRestrictions": [
+          "Ohio"
+        ]
+      },
+      {
+        "slug": "atlas-active-trader-350-example",
+        "title": "Active Trader $350 Bonus",
+        "provider": "Atlas Markets",
+        "category": "brokerage-bonuses",
+        "offerAmount": "$350",
+        "offerType": "Trading account bonus",
+        "description": "Tracked active trader promotion that may require account funding and trading activity. Verify all terms before opening an account.",
+        "requirements": [
+          "Open an eligible trading account.",
+          "Fund the account with eligible new money.",
+          "Complete qualifying activity listed in the provider terms."
+        ],
+        "fees": [
+          "Options, margin, data, or platform fees may apply."
+        ],
+        "expirationDate": "2026-07-05",
+        "sourceUrl": "https://example.com/atlas-active-trader",
+        "lastVerified": "2026-05-22",
+        "verificationStatus": "needs_review",
+        "status": "watching",
+        "riskNotes": [
+          "Trading activity can involve significant risk and costs."
+        ],
+        "tags": [
+          "trading",
+          "brokerage"
+        ],
+        "minimumDeposit": "$10,000 new money"
+      },
+      {
+        "slug": "illinois-prairie-bank-225-example",
+        "title": "Illinois Prairie Checking $225 Offer",
+        "provider": "Illinois Prairie Bank",
+        "category": "bank-bonuses",
+        "offerAmount": "$225",
+        "offerType": "Direct deposit bonus",
+        "description": "Tracked Illinois checking bonus that may require direct deposit and local market eligibility.",
+        "requirements": [
+          "Open an eligible checking account.",
+          "Receive qualifying direct deposits.",
+          "Verify local market restrictions."
+        ],
+        "sourceUrl": "https://example.com/illinois-prairie-bank",
+        "lastVerified": "2026-05-22",
+        "verificationStatus": "needs_review",
+        "status": "active",
+        "tags": [
+          "checking",
+          "direct deposit",
+          "state page"
+        ],
+        "requiresDirectDeposit": true,
+        "stateRestrictions": [
+          "Illinois"
+        ]
+      }
+    ],
+    "mostWatchedProviders": [],
+    "mostComparedProviders": [],
+    "newResearch": [
+      {
+        "slug": "how-offerradar-tracks-and-verifies-offers",
+        "title": "How OfferRadar Tracks and Verifies Offers",
+        "updated": "2026-07-14"
+      },
+      {
+        "slug": "when-to-wait-for-a-better-offer",
+        "title": "When to Wait for a Better Offer",
+        "updated": "2026-07-14"
+      },
+      {
+        "slug": "compare-an-offer-without-being-misled-by-headline-amount",
+        "title": "How to Compare an Offer Without Being Misled by the Headline Amount",
+        "updated": "2026-07-14"
+      }
+    ]
+  }
+]

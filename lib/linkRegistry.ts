@@ -85,7 +85,7 @@ export function getPublicLinkForRecord(record: LinkRegistryRecord) {
         href: monetizedUrl,
         label: "Check current terms",
         linkType: record.referralUrl ? "referral" : "affiliate",
-        sourceLabel: "Source reviewed. Verify current terms with the provider.",
+        sourceLabel: "Tracked affiliate or referral link. OfferRadar may earn compensation. Verify current provider terms.",
       };
     }
   }

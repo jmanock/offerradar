@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { AlertSubscribeForm } from "@/components/AlertSubscribeForm";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
 import { OfferComparisonTable } from "@/components/OfferComparisonTable";
+import { ProviderBadge } from "@/components/ProviderBadge";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
 import { getComparisonsForProvider } from "@/data/comparisonPages";
@@ -19,6 +21,7 @@ import {
   getOffersByProvider,
   getProviderBySlug,
 } from "@/lib/offers";
+import { getApprovedChanges } from "@/lib/changeQueue";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -191,6 +194,9 @@ export default async function ProviderPage({ params }: Props) {
         ),
     )
     .slice(0, 6);
+  const providerChanges = (await getApprovedChanges()).filter(
+    (change) => change.provider.toLowerCase() === provider.name.toLowerCase(),
+  );
 
   return (
     <div>
@@ -275,6 +281,7 @@ export default async function ProviderPage({ params }: Props) {
         <div className="radar-grid absolute inset-0 opacity-60" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
           <div>
+            <div className="mb-5 flex items-center gap-4"><ProviderBadge provider={provider.name} size="lg" /><span className="rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-bold text-slate-600">Independent provider research</span></div>
             <Link href="/providers" className="text-sm font-extrabold text-blue-700">
               Providers
             </Link>
@@ -358,6 +365,13 @@ export default async function ProviderPage({ params }: Props) {
               ) : null}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:px-8">
+          <div className="premium-card rounded-3xl p-6"><AlertSubscribeForm scopeType="provider" scopeId={provider.slug} scopeLabel={provider.name} /></div>
+          <div className="rounded-3xl bg-slate-950 p-6 text-white"><p className="text-xs font-extrabold uppercase tracking-wide text-teal-300">Reviewed provider history</p><h2 className="mt-3 text-2xl font-black">{providerChanges.length ? `${providerChanges.length} approved observations` : "History is still forming"}</h2><div className="mt-5 grid gap-3">{providerChanges.length ? providerChanges.slice(0,4).map((change) => <div key={change.id} className="rounded-2xl bg-white/10 p-4"><div className="flex items-center gap-3"><span className="text-xl font-black text-teal-300">{change.changeType === "decreased" ? "↓" : change.changeType === "increased" ? "↑" : "→"}</span><div><p className="font-bold">{change.previousObservedValue || "—"} → {change.currentObservedValue}</p><p className="mt-1 text-xs text-slate-400">{change.changeType} · {change.approvedAt.slice(0,10)}</p></div></div></div>) : <div className="rounded-2xl bg-white/10 p-5 text-sm leading-6 text-slate-300">OfferRadar has not collected enough approved historical observations for a provider trend yet. Current offer records remain available below.</div>}</div></div>
         </div>
       </section>
 

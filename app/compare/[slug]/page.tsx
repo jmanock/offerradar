@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
+import { AnalyticsEvent } from "@/components/AnalyticsEvent";
 import { HowOfferRadarWorks } from "@/components/HowOfferRadarWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { OfferCard } from "@/components/OfferCard";
@@ -82,6 +83,7 @@ export default async function ProviderComparisonPage({ params }: Props) {
 
   return (
     <div>
+      <AnalyticsEvent name="comparison_opened" params={{ comparison_slug: page.slug, comparison_providers: `${page.providerA.name}|${page.providerB.name}`, source_page: `/compare/${page.slug}` }} />
       <JsonLd
         data={{
           "@context": "https://schema.org",
