@@ -1,5 +1,7 @@
 # OfferRadar Affiliate Growth Report
 
+> V16 status note: Unest was returned to `pending-review` and removed from public placements because authenticated AWIN campaign approval was not independently confirmed. See `V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md` for the current state.
+
 Date: 2026-07-22
 
 ## Executive Summary

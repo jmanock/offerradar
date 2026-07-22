@@ -1,0 +1,6 @@
+affiliate_id,advertiser,tested_date,landing_page_works,mobile_works,target_country,current_description,status,notes
+hellosafe-travel-insurance,HelloSafe,2026-07-22,yes,unknown,US,Travel insurance comparison tool,active,"AWIN redirect resolved to the expected HelloSafe travel-insurance path; mobile usability needs a manual device check."
+hellosafe-card-insurance-checker,HelloSafe,2026-07-22,yes,unknown,US,Credit card insurance coverage checker,active,"AWIN redirect resolved to the expected United States card-insurance path; results do not guarantee coverage."
+esimshop,eSimShop,2026-07-22,yes,unknown,US,International eSIM shopping resource,active,"AWIN redirect resolved to eSimShop; device compatibility and destination coverage remain user verification items."
+kitco,Kitco,2026-07-22,yes,unknown,US,Precious-metals market data and research resource,active,"AWIN redirect resolved to Kitco; placement is limited to market research and is not an investment recommendation."
+unest-app,Unest,2026-07-22,yes,unknown,US,Family investing app with custodial investment accounts,pending-review,"Official product and U.S. requirements were reviewed, but AWIN campaign approval and mobile placement require manual confirmation."

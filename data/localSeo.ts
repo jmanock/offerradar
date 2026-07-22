@@ -144,7 +144,7 @@ export const localSeoPages: LocalSeoPage[] = [
     h1: "Best checking accounts and bonuses in Florida",
     kind: "state",
     location: "Florida",
-    lastUpdated: "2026-06-03",
+    lastUpdated: "2026-07-22",
     intro:
       "Compare checking accounts in Florida by monthly fees, direct deposit features, ATM and branch access, mobile banking, and any tracked Florida checking account bonus. There is no single best account for every user, so review the ongoing account fit and verify current terms directly with the institution.",
     comparisonSections: [
@@ -241,6 +241,9 @@ export const localSeoPages: LocalSeoPage[] = [
       { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/bank-bonuses-promotions-florida", label: "Florida bank bonuses" },
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
+      { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonus research" },
+      { href: "/research/bank-bonus-requirements-people-commonly-miss", label: "Bank bonus requirements guide" },
+      { href: "/bank-bonus-calculator", label: "Bank bonus calculator" },
       { href: "/best-banks-for-checking", label: "Best banks for checking" },
       { href: "/best-banks-for-checking", label: "Best banks for checking" },
       { href: "/best-checking-and-savings-account-offers", label: "Checking and savings account offers" },
@@ -528,7 +531,7 @@ export const localSeoPages: LocalSeoPage[] = [
     h1: "Bank bonuses and promotions in Florida",
     kind: "promotions",
     location: "Florida",
-    lastUpdated: "2026-06-03",
+    lastUpdated: "2026-07-22",
     intro:
       "Florida bank promotions can include checking bonuses, savings bonuses, business banking promotions, and referral offers. Requirements vary by provider, state, account type, and customer history.",
     comparisonSections: [
@@ -552,6 +555,9 @@ export const localSeoPages: LocalSeoPage[] = [
       { href: "/bank-bonuses", label: "Bank bonuses" },
       { href: "/best-checking-accounts-florida", label: "Florida checking accounts" },
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
+      { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonus research" },
+      { href: "/research/bank-bonus-requirements-people-commonly-miss", label: "Bank bonus requirements guide" },
+      { href: "/bank-bonus-calculator", label: "Bank bonus calculator" },
     ],
   },
   {
@@ -562,7 +568,7 @@ export const localSeoPages: LocalSeoPage[] = [
     h1: "Checking account bonuses in Florida",
     kind: "promotions",
     location: "Florida",
-    lastUpdated: "2026-06-05",
+    lastUpdated: "2026-07-22",
     intro:
       "Florida checking account bonuses can be useful to compare, but eligibility, direct deposit rules, monthly fees, and payout timing vary by provider. Use this page as a checklist before verifying terms directly.",
     comparisonSections: [
@@ -586,6 +592,9 @@ export const localSeoPages: LocalSeoPage[] = [
       { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },
       { href: "/bank-bonuses-promotions-florida", label: "Florida bank promotions" },
+      { href: "/guides/direct-deposits", label: "Direct deposit guide" },
+      { href: "/research/checking-account-fees-that-can-erase-a-signup-bonus", label: "Checking fee research" },
+      { href: "/offers", label: "All tracked offers" },
     ],
   },
   {

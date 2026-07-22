@@ -1,6 +1,13 @@
 import { affiliateLinks, type AffiliateEntry } from "@/data/affiliateLinks";
 
 const requiredAwinParams = ["gid", "mid", "awinaffid", "linkid"];
+const expectedAwinParams: Record<string, Record<string, string>> = {
+  "hellosafe-travel-insurance": { gid: "610091", mid: "128757", awinaffid: "2935515", linkid: "4837486" },
+  "hellosafe-card-insurance-checker": { gid: "610148", mid: "128757", awinaffid: "2935515", linkid: "4837754" },
+  esimshop: { gid: "600694", mid: "124780", awinaffid: "2935515", linkid: "4730960" },
+  kitco: { gid: "493731", mid: "84579", awinaffid: "2935515", linkid: "3675184" },
+  "unest-app": { gid: "513309", mid: "114220", awinaffid: "2935515", linkid: "4024345" },
+};
 
 export type AffiliateValidation = {
   valid: boolean;
@@ -24,6 +31,8 @@ export function validateAffiliateEntry(entry: AffiliateEntry): AffiliateValidati
   if (!entry.id || !/^[a-z0-9-]+$/.test(entry.id)) errors.push("Invalid registry ID.");
   if (!entry.advertiser.trim()) errors.push("Advertiser is required.");
   if (!entry.allowedRoutes.length) errors.push("At least one allowed route is required.");
+  if (!entry.disclosureRequired) errors.push("Disclosure metadata is required.");
+  if (!entry.defaultClickRef.trim()) errors.push("A default click reference is required.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.lastVerified)) errors.push("lastVerified must use YYYY-MM-DD.");
 
   try {
@@ -34,6 +43,10 @@ export function validateAffiliateEntry(entry: AffiliateEntry): AffiliateValidati
     }
     for (const parameter of requiredAwinParams) {
       if (!url.searchParams.get(parameter)) errors.push(`Missing Awin parameter: ${parameter}.`);
+    }
+    const expected = expectedAwinParams[entry.id];
+    for (const [parameter, value] of Object.entries(expected || {})) {
+      if (url.searchParams.get(parameter) !== value) errors.push(`Unexpected Awin parameter: ${parameter}.`);
     }
   } catch {
     errors.push("Affiliate URL is malformed.");
@@ -70,9 +83,10 @@ export function resolveAffiliateLink(
 ): ResolvedAffiliateLink | undefined {
   const entry = getAffiliateEntry(affiliateId);
   if (!entry || !isRouteAllowed(entry, pagePath)) return undefined;
+  if (!entry.approved || entry.status !== "active" || !entry.disclosureRequired) return undefined;
 
   const validation = validateAffiliateEntry(entry);
-  const affiliateReady = entry.approved && entry.status === "active" && validation.valid;
+  const affiliateReady = validation.valid;
   const clickref = createAffiliateClickref(pagePath, placementId);
 
   if (affiliateReady) {
@@ -81,7 +95,7 @@ export function resolveAffiliateLink(
     return { entry, href: url.toString(), clickref, linkType: "affiliate" };
   }
 
-  if (entry.officialUrl) {
+  if (entry.officialUrl && isValidOfficialUrl(entry.officialUrl)) {
     return { entry, href: entry.officialUrl, clickref: "", linkType: "official" };
   }
 
@@ -113,4 +127,12 @@ function sanitizeKey(value: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || "link";
+}
+
+function isValidOfficialUrl(value: string) {
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
 }

@@ -1,6 +1,6 @@
 # OfferRadar IndexNow Dry Run
 
-Generated: 2026-06-08T13:16:04.298079+00:00
+Generated: 2026-07-22T13:12:56.155264+00:00
 Source: `/Users/jonmanock/Documents/Codex/offerradar/data/urlInventory.json`
 URL count: 25
 Priorities: all

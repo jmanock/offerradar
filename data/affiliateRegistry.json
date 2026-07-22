@@ -10,7 +10,7 @@
     "linkText": "Compare travel insurance",
     "status": "active",
     "approved": true,
-    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/travel-insurance-comparison"],
+    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/travel-insurance-comparison", "/research/travel-money-checklist", "/research/world-cup-travel-finance-guide"],
     "prohibitedRoutes": ["/best-credit-unions-florida", "/brokerage-bonuses", "/bank-bonuses"],
     "disclosureRequired": true,
     "targetCountry": "US",
@@ -19,7 +19,7 @@
     "notes": "Use only in travel-planning contexts. Coverage, exclusions, and eligibility must be verified with the insurer or comparator result.",
     "defaultClickRef": "offerradar-travel-insurance",
     "logoAsset": "",
-    "destinationType": "comparator"
+    "destinationType": "partner-tool"
   },
   {
     "id": "hellosafe-card-insurance-checker",
@@ -29,10 +29,10 @@
     "description": "Free analysis of insurance that may be included with a credit card for a United States, English-speaking audience.",
     "affiliateUrl": "https://www.awin1.com/awclick.php?gid=610148&mid=128757&awinaffid=2935515&linkid=4837754&clickref=",
     "officialUrl": "https://hellosafe.com/credit-card-insurance/united-states",
-    "linkText": "Check what your credit card may cover",
+    "linkText": "Check possible card coverage",
     "status": "active",
     "approved": true,
-    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/credit-card-travel-insurance"],
+    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/credit-card-travel-insurance", "/research/travel-money-checklist", "/research/world-cup-travel-finance-guide"],
     "prohibitedRoutes": ["/best-credit-unions-florida", "/brokerage-bonuses", "/bank-bonuses"],
     "disclosureRequired": true,
     "targetCountry": "US",
@@ -41,7 +41,7 @@
     "notes": "Never imply that a card includes coverage. Readers must verify issuer certificates, activation rules, exclusions, and current terms.",
     "defaultClickRef": "offerradar-card-coverage",
     "logoAsset": "",
-    "destinationType": "checker"
+    "destinationType": "partner-tool"
   },
   {
     "id": "esimshop",
@@ -54,7 +54,7 @@
     "linkText": "Explore eSIM options",
     "status": "active",
     "approved": true,
-    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/esim-international-travel"],
+    "allowedRoutes": ["/travel", "/tools", "/2026-world-cup-banking-guide", "/research/esim-international-travel", "/research/travel-money-checklist", "/research/world-cup-travel-finance-guide"],
     "prohibitedRoutes": ["/bank-bonuses", "/brokerage-bonuses", "/referral-offers"],
     "disclosureRequired": true,
     "targetCountry": "US",
@@ -63,7 +63,7 @@
     "notes": "Device compatibility, country coverage, activation timing, data limits, and refund terms must be checked before purchase.",
     "defaultClickRef": "offerradar-esim",
     "logoAsset": "",
-    "destinationType": "shop"
+    "destinationType": "partner-tool"
   },
   {
     "id": "kitco",
@@ -85,7 +85,7 @@
     "notes": "Present as a market-research resource only. OfferRadar does not recommend buying or selling metals or investments.",
     "defaultClickRef": "offerradar-kitco-research",
     "logoAsset": "",
-    "destinationType": "research-resource"
+    "destinationType": "external-resource"
   },
   {
     "id": "unest-app",
@@ -96,17 +96,17 @@
     "affiliateUrl": "https://www.awin1.com/awclick.php?gid=513309&mid=114220&awinaffid=2935515&linkid=4024345&clickref=",
     "officialUrl": "https://www.unest.co/",
     "linkText": "Explore the Unest app",
-    "status": "active",
-    "approved": true,
-    "allowedRoutes": ["/tools", "/research/family-investing-apps"],
+    "status": "pending-review",
+    "approved": false,
+    "allowedRoutes": ["/tools"],
     "prohibitedRoutes": ["/bank-bonuses", "/brokerage-bonuses", "/best-bank-for-checking", "/best-banks-for-checking"],
     "disclosureRequired": true,
     "targetCountry": "US",
     "targetLanguage": "English",
     "lastVerified": "2026-07-22",
-    "notes": "Destination and U.S. eligibility were reviewed on 2026-07-22. Fees, investment risks, account eligibility, and current product terms must be verified directly.",
+    "notes": "Destination, current product, and U.S. eligibility were reviewed on 2026-07-22. AWIN campaign approval and a controlled mobile placement still require manual confirmation before publication.",
     "defaultClickRef": "offerradar-unest-family",
     "logoAsset": "",
-    "destinationType": "app"
+    "destinationType": "partner-tool"
   }
 ]

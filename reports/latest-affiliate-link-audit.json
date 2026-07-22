@@ -1,59 +1,178 @@
 {
-  "generatedAt": "2026-07-22T12:30:15.247475+00:00",
+  "generatedAt": "2026-07-22T13:11:03.167448+00:00",
+  "overallStatus": "pass-with-review",
   "registryEntries": 5,
-  "requiredEntries": 5,
-  "placements": {
+  "placementRows": 18,
+  "statusCounts": {
+    "needs-review": 1
+  },
+  "activePlacements": {
     "hellosafe-travel-insurance": [
       "/travel",
       "/tools",
-      "/research/travel-insurance-comparison"
+      "/research/travel-insurance-comparison",
+      "/research/travel-money-checklist",
+      "/research/world-cup-travel-finance-guide"
     ],
     "hellosafe-card-insurance-checker": [
       "/travel",
       "/tools",
-      "/research/credit-card-travel-insurance"
+      "/research/credit-card-travel-insurance",
+      "/research/travel-money-checklist",
+      "/research/world-cup-travel-finance-guide"
     ],
     "esimshop": [
       "/travel",
       "/tools",
-      "/research/esim-international-travel"
+      "/research/esim-international-travel",
+      "/research/travel-money-checklist",
+      "/research/world-cup-travel-finance-guide"
     ],
     "kitco": [
       "/tools",
       "/research/gold-price-tracking-guide"
-    ],
-    "unest-app": [
-      "/tools",
-      "/research/family-investing-apps"
     ]
   },
   "destinationChecks": {
     "hellosafe-travel-insurance": {
       "status": 200,
       "destination": "https://hellosafe.com/travel-insurance/app",
-      "warning": ""
+      "redirectStatus": "pass",
+      "note": ""
     },
     "hellosafe-card-insurance-checker": {
       "status": 200,
       "destination": "https://hellosafe.com/credit-card-insurance/united-states",
-      "warning": ""
+      "redirectStatus": "pass",
+      "note": ""
     },
     "esimshop": {
       "status": 200,
       "destination": "https://h5.esimshop.org/",
-      "warning": ""
+      "redirectStatus": "pass",
+      "note": ""
     },
     "kitco": {
       "status": 200,
       "destination": "https://online.kitco.com/",
-      "warning": ""
+      "redirectStatus": "pass",
+      "note": ""
     },
     "unest-app": {
       "status": 200,
       "destination": "https://www.unest.co/",
-      "warning": ""
+      "redirectStatus": "pass",
+      "note": ""
     }
   },
-  "findings": [],
+  "repositoryReferences": {
+    "awin1.com": [
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:11",
+      "lib/affiliateLinks.ts:41",
+      "data/affiliateRegistry.json:8",
+      "data/affiliateRegistry.json:30",
+      "data/affiliateRegistry.json:52",
+      "data/affiliateRegistry.json:74",
+      "data/affiliateRegistry.json:96"
+    ],
+    "awclick.php": [
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:11",
+      "lib/affiliateLinks.ts:41",
+      "data/affiliateRegistry.json:8",
+      "data/affiliateRegistry.json:30",
+      "data/affiliateRegistry.json:52",
+      "data/affiliateRegistry.json:74",
+      "data/affiliateRegistry.json:96"
+    ],
+    "awinaffid": [
+      "V_NEXT_AFFILIATE_GROWTH_REPORT.md:25",
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:11",
+      "lib/affiliateLinks.ts:3",
+      "lib/affiliateLinks.ts:5",
+      "lib/affiliateLinks.ts:6",
+      "lib/affiliateLinks.ts:7",
+      "lib/affiliateLinks.ts:8",
+      "lib/affiliateLinks.ts:9",
+      "data/affiliateRegistry.json:8",
+      "data/affiliateRegistry.json:30",
+      "data/affiliateRegistry.json:52",
+      "data/affiliateRegistry.json:74",
+      "data/affiliateRegistry.json:96"
+    ],
+    "affiliateUrl": [
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:11",
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:14",
+      "docs/AFFILIATE_WORKFLOW.md:41",
+      "docs/V7_LINK_REGISTRY_PLAN.md:38",
+      "docs/V7_LINK_REGISTRY_PLAN.md:74",
+      "docs/V7_LINK_AND_MONETIZATION_PLAN.md:19",
+      "components/OfferHubExplorer.tsx:22",
+      "components/OfferHubExplorer.tsx:37",
+      "lib/affiliateLinks.ts:39",
+      "lib/affiliateLinks.ts:93",
+      "lib/linkRegistry.ts:23",
+      "lib/linkRegistry.ts:81",
+      "data/affiliateLinks.ts:22",
+      "data/affiliateRegistry.json:8",
+      "data/affiliateRegistry.json:30",
+      "data/affiliateRegistry.json:52",
+      "data/affiliateRegistry.json:74",
+      "data/affiliateRegistry.json:96",
+      "data/linkRegistry.json:9",
+      "data/linkRegistry.json:27",
+      "data/linkRegistry.json:45",
+      "data/linkRegistry.json:63",
+      "data/linkRegistry.json:81",
+      "data/linkRegistry.json:99",
+      "data/linkRegistry.json:117",
+      "data/linkRegistry.json:135",
+      "data/linkRegistry.json:153",
+      "data/linkRegistry.json:171",
+      "data/linkRegistry.json:189",
+      "data/linkRegistry.json:207",
+      "data/linkRegistry.json:225",
+      "data/linkRegistry.json:243",
+      "data/linkRegistry.json:261",
+      "data/linkRegistry.json:279",
+      "data/linkRegistry.json:297",
+      "data/linkRegistry.json:315",
+      "data/linkRegistry.json:333",
+      "data/linkRegistry.json:351",
+      "data/linkRegistry.json:369",
+      "data/linkRegistry.json:387",
+      "data/linkRegistry.json:405",
+      "data/linkRegistry.json:423",
+      "data/linkRegistry.json:441",
+      "data/linkRegistry.json:459",
+      "data/linkRegistry.json:477",
+      "data/linkRegistry.json:495",
+      "data/linkRegistry.json:513",
+      "data/linkRegistry.ts:31",
+      "automation/scripts/generate_search_growth_report.py:83",
+      "automation/scripts/analyze_monetization_gaps.py:65",
+      "automation/scripts/generate_url_inventory.py:185",
+      "automation/scripts/validate_v16_publication.py:28"
+    ],
+    "sponsored": [
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:11",
+      "V16_AFFILIATE_VERIFICATION_REVENUE_REPORT.md:15",
+      "V16_ALERTS_AUTOMATION_REVENUE_REPORT.md:88",
+      "V16_ALERTS_AUTOMATION_REVENUE_REPORT.md:91",
+      "docs/AFFILIATE_TRACKING.md:33",
+      "docs/AFFILIATE_TRACKING.md:44",
+      "docs/V16_REVENUE_AND_REPORTING.md:15",
+      "components/OfferRelationshipLabel.tsx:1",
+      "components/OfferRelationshipLabel.tsx:2",
+      "components/OfferRelationshipLabel.tsx:3",
+      "components/AffiliateLink.tsx:40"
+    ]
+  },
+  "findings": [
+    {
+      "status": "needs-review",
+      "id": "unest-app",
+      "message": "Campaign remains non-public until manual approval and status checks are complete."
+    }
+  ],
   "passed": true
 }

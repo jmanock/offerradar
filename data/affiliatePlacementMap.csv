@@ -1,0 +1,19 @@
+affiliate_id,page,placement,link_text,priority,status
+hellosafe-travel-insurance,/travel,featured-tool,Compare travel insurance,high,active
+hellosafe-travel-insurance,/tools,travel-resource,Compare travel insurance,medium,active
+hellosafe-travel-insurance,/research/travel-insurance-comparison,inline-primary,Compare travel insurance,high,active
+hellosafe-travel-insurance,/research/travel-money-checklist,related-tool,Compare travel insurance,medium,active
+hellosafe-travel-insurance,/research/world-cup-travel-finance-guide,related-tool,Compare travel insurance,medium,active
+hellosafe-card-insurance-checker,/travel,featured-tool,Check possible card coverage,high,active
+hellosafe-card-insurance-checker,/tools,travel-resource,Check possible card coverage,medium,active
+hellosafe-card-insurance-checker,/research/credit-card-travel-insurance,inline-primary,Review what your card may include,high,active
+hellosafe-card-insurance-checker,/research/travel-money-checklist,related-tool,Check possible card coverage,medium,active
+hellosafe-card-insurance-checker,/research/world-cup-travel-finance-guide,related-tool,Check possible card coverage,medium,active
+esimshop,/travel,featured-tool,Explore eSIM options,high,active
+esimshop,/tools,travel-resource,Explore eSIM options,medium,active
+esimshop,/research/esim-international-travel,inline-primary,Explore eSIM options,high,active
+esimshop,/research/travel-money-checklist,related-tool,Explore eSIM options,medium,active
+esimshop,/research/world-cup-travel-finance-guide,related-tool,Compare eSIM options,medium,active
+kitco,/tools,research-resource,Visit Kitco,medium,active
+kitco,/research/gold-price-tracking-guide,inline-primary,View precious-metal market data,high,active
+unest-app,/tools,family-finance,Explore the Unest app,disabled,pending-review

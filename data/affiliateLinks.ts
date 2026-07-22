@@ -8,11 +8,10 @@ export type AffiliateStatus =
   | "needs-verification";
 
 export type AffiliateDestinationType =
-  | "comparator"
-  | "checker"
-  | "shop"
-  | "research-resource"
-  | "app";
+  | "affiliate"
+  | "official"
+  | "partner-tool"
+  | "external-resource";
 
 export type AffiliateEntry = {
   id: string;
