@@ -60,7 +60,7 @@ export function BankingFinderClient() {
         description: "Compare checking fees, direct deposit rules, ATM access, and Florida account fit.",
       });
       links.unshift({
-        href: "/best-bank-for-checking",
+        href: "/best-banks-for-checking",
         label: "Best bank for checking",
         description: "Use this page to compare checking account types without assuming one bank fits everyone.",
       });

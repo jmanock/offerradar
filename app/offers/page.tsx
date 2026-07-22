@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DisclosureBlock } from "@/components/DisclosureBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { VerificationMethodology } from "@/components/VerificationMethodology";
-import { OfferCard } from "@/components/OfferCard";
+import { OfferHubExplorer } from "@/components/OfferHubExplorer";
 import {
   featuredGuideLinks,
   popularCategoryLinks,
@@ -12,7 +12,8 @@ import {
 } from "@/data/internalLinks";
 import { localSeoPages } from "@/data/localSeo";
 import { categories } from "@/data/offers";
-import { formatDate, getOffersByCategory, getRecentlyVerifiedOffers } from "@/lib/offers";
+import { offers } from "@/lib/offerData";
+import { formatDate, getRecentlyVerifiedOffers } from "@/lib/offers";
 
 export const metadata: Metadata = {
   title: "Tracked Banking and Brokerage Offers | Compare Details",
@@ -35,9 +36,7 @@ export default function OffersPage() {
           url: "https://offerradar.io/offers",
           mainEntity: {
             "@type": "ItemList",
-            itemListElement: categories.flatMap((category) =>
-              getOffersByCategory(category.slug).slice(0, 3),
-            ).map((offer, index) => ({
+            itemListElement: offers.slice(0, 21).map((offer, index) => ({
               "@type": "ListItem",
               position: index + 1,
               name: offer.title,
@@ -118,7 +117,6 @@ export default function OffersPage() {
               Provider comparisons
             </Link>
             {[
-              { href: "/best-bank-for-checking", label: "Best bank for checking" },
               { href: "/best-banks-for-checking", label: "Best banks for checking" },
               { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
               { href: "/best-credit-unions-florida", label: "Best credit unions in Florida" },
@@ -181,34 +179,7 @@ export default function OffersPage() {
             ))}
           </div>
         </section>
-        <div className="grid gap-14">
-          {categories.map((category) => {
-            const offers = getOffersByCategory(category.slug);
-
-            return (
-              <section key={category.slug}>
-                <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
-                  <div>
-                    <p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">
-                      {category.shortTitle}
-                    </p>
-                    <h2 className="mt-2 text-3xl font-black text-slate-950">
-                      {category.title}
-                    </h2>
-                    <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-                      {category.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {offers.map((offer) => (
-                    <OfferCard key={offer.slug} offer={offer} />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        <OfferHubExplorer offers={offers} categories={categories} />
 
         <div className="mt-12">
           <div className="grid gap-6 lg:grid-cols-[1fr_0.8fr]">

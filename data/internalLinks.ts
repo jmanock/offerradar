@@ -7,7 +7,7 @@ export const priorityLandingPages = [
   { href: "/robinhood-transfer-bonus-guide", label: "Robinhood transfer guide" },
   { href: "/brokerage-transfer-bonuses", label: "Brokerage transfer bonuses" },
   { href: "/best-bank-bonuses-florida", label: "Best Florida bank bonuses" },
-  { href: "/best-bank-for-checking", label: "Best bank for checking" },
+  { href: "/best-banks-for-checking", label: "Best banks for checking" },
   { href: "/best-banks-for-checking", label: "Best banks for checking" },
   { href: "/best-checking-and-savings-account-offers", label: "Checking and savings account offers" },
   { href: "/best-banks-in-florida", label: "Best banks in Florida" },

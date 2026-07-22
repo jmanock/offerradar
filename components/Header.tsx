@@ -11,6 +11,7 @@ export function Header() {
     ["Track", "/offer-tracker"],
     ["Compare", "/compare"],
     ["Research", "/research"],
+    ["Tools", "/tools"],
     ["Florida", "/florida"],
     ["About", "/about"],
   ];

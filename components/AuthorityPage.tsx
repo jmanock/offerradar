@@ -61,6 +61,7 @@ export function AuthorityPage({ page }: { page: AuthorityPageData }) {
           <p className="mt-4 text-sm font-bold text-slate-500">Verification-first research · Last verified {lastUpdated ? formatDate(lastUpdated) : "review in progress"}</p>
         </div>
       </section>
+      {page.slug === "best-bank-for-checking" ? <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8"><p className="rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-slate-700">This supporting guide is retained for existing readers. Continue to the <Link href="/best-banks-for-checking" className="font-extrabold text-blue-800 underline underline-offset-4">primary national checking comparison</Link> for the broadest research framework.</p></div> : null}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <ResearchMethodologyBlock
           focus={

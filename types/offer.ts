@@ -91,6 +91,9 @@ export interface StatePageInfo {
   cautions: string[];
   relatedPages: string[];
   faq: FaqItem[];
+  institutions?: { name: string; context: string }[];
+  accessNotes?: string[];
+  lastVerified?: string;
 }
 
 export interface GuidePageInfo {

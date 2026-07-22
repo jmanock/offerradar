@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-07-22T12:30:15.247475+00:00",
+  "registryEntries": 5,
+  "requiredEntries": 5,
+  "placements": {
+    "hellosafe-travel-insurance": [
+      "/travel",
+      "/tools",
+      "/research/travel-insurance-comparison"
+    ],
+    "hellosafe-card-insurance-checker": [
+      "/travel",
+      "/tools",
+      "/research/credit-card-travel-insurance"
+    ],
+    "esimshop": [
+      "/travel",
+      "/tools",
+      "/research/esim-international-travel"
+    ],
+    "kitco": [
+      "/tools",
+      "/research/gold-price-tracking-guide"
+    ],
+    "unest-app": [
+      "/tools",
+      "/research/family-investing-apps"
+    ]
+  },
+  "destinationChecks": {
+    "hellosafe-travel-insurance": {
+      "status": 200,
+      "destination": "https://hellosafe.com/travel-insurance/app",
+      "warning": ""
+    },
+    "hellosafe-card-insurance-checker": {
+      "status": 200,
+      "destination": "https://hellosafe.com/credit-card-insurance/united-states",
+      "warning": ""
+    },
+    "esimshop": {
+      "status": 200,
+      "destination": "https://h5.esimshop.org/",
+      "warning": ""
+    },
+    "kitco": {
+      "status": 200,
+      "destination": "https://online.kitco.com/",
+      "warning": ""
+    },
+    "unest-app": {
+      "status": 200,
+      "destination": "https://www.unest.co/",
+      "warning": ""
+    }
+  },
+  "findings": [],
+  "passed": true
+}

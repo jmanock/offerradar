@@ -42,14 +42,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const authorityPage = getAuthorityPage(slug);
 
   if (authorityPage) {
+    const canonicalSlug = authorityPage.slug === "best-bank-for-checking" ? "best-banks-for-checking" : authorityPage.slug;
     return {
       title: authorityPage.title,
       description: authorityPage.description,
-      alternates: { canonical: `/${authorityPage.slug}` },
+      alternates: { canonical: `/${canonicalSlug}` },
       openGraph: {
         title: authorityPage.title,
         description: authorityPage.description,
-        url: `/${authorityPage.slug}`,
+        url: `/${canonicalSlug}`,
       },
     };
   }
@@ -165,6 +166,7 @@ export default async function ProgrammaticPage({ params }: Props) {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" "),
         }))}
+        stateDetails={{ stateName: statePage.stateName, institutions: statePage.institutions, accessNotes: statePage.accessNotes, lastVerified: statePage.lastVerified }}
       />
     );
   }
@@ -185,6 +187,7 @@ function ProgrammaticLayout({
   tips,
   faq,
   relatedLinks,
+  stateDetails,
 }: {
   eyebrow: string;
   h1: string;
@@ -194,6 +197,7 @@ function ProgrammaticLayout({
   tips: string[];
   faq: { question: string; answer: string }[];
   relatedLinks: { href: string; label: string }[];
+  stateDetails?: { stateName: string; institutions?: { name: string; context: string }[]; accessNotes?: string[]; lastVerified?: string };
 }) {
   return (
     <div>
@@ -208,6 +212,7 @@ function ProgrammaticLayout({
               {h1}
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-600">{intro}</p>
+            {stateDetails?.lastVerified ? <p className="mt-4 text-sm font-bold text-slate-500">State research reviewed {stateDetails.lastVerified} · Source and eligibility checks required</p> : null}
           </div>
           <div className="premium-card rounded-3xl p-6">
             <h2 className="text-lg font-black text-slate-950">
@@ -229,6 +234,8 @@ function ProgrammaticLayout({
           ))}
         </div>
       </section>
+
+      {stateDetails?.institutions?.length ? <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8"><div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs font-extrabold uppercase tracking-wide text-teal-700">State research</p><h2 className="mt-2 text-3xl font-black text-slate-950">Institutions and access to verify in {stateDetails.stateName}</h2></div><p className="max-w-lg text-sm leading-6 text-slate-600">These are research starting points, not rankings or claims of current promotional availability.</p></div><div className="mt-6 grid gap-5 md:grid-cols-2">{stateDetails.institutions.map((institution) => <article key={institution.name} className="premium-card rounded-3xl p-6"><h3 className="text-xl font-black text-slate-950">{institution.name}</h3><p className="mt-2 leading-7 text-slate-600">{institution.context}</p></article>)}</div>{stateDetails.accessNotes?.length ? <div className="mt-5 grid gap-3 md:grid-cols-2">{stateDetails.accessNotes.map((note) => <p key={note} className="rounded-2xl bg-slate-100 p-4 text-sm font-semibold text-slate-700">{note}</p>)}</div> : null}</section> : null}
 
       <div className="mx-auto grid max-w-7xl gap-6 px-4 pb-12 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:px-8">
         <section className="premium-card rounded-3xl p-6">

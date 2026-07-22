@@ -11,8 +11,9 @@ export const metadata: Metadata = {
 const disclosureSections = [
   {
     title: "Outbound links and compensation",
-    body: "Some outbound links may result in compensation to OfferRadar. This does not change the requirements shown, mean an offer is a recommendation, or indicate that a user will qualify.",
+    body: "Some outbound links may result in compensation to OfferRadar, while many providers do not compensate us. Compensation does not automatically determine rankings or change our research standards, and it never indicates that a user will qualify.",
   },
+  { title: "Official sources and partner links", body: "OfferRadar may link separately to a provider's official source or to a tracked affiliate resource. Partner links are labeled and use the same requirements-first verification standard as other outbound resources." },
   {
     title: "Offers can change",
     body: "Listed promotions are provided for comparison. Providers may change eligibility, values, deadlines, fees, and payout rules after a page is last reviewed.",

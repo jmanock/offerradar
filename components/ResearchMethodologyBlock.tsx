@@ -15,7 +15,7 @@ export function ResearchMethodologyBlock({
         {[
           {
             title: "How we evaluate",
-            body: "We compare requirements, fees, access, account fit, verification dates, and provider terms rather than ranking by headline value alone.",
+            body: "We compare requirements, fees, access, account fit, verification dates, and provider terms rather than ranking by headline value or compensation. Compensation never automatically determines placement.",
           },
           {
             title: "How we update offers",

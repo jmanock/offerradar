@@ -24,7 +24,7 @@ const policySections = [
   },
   {
     title: "Outbound links and compensation",
-    body: "Some outbound links may result in compensation to OfferRadar. Editorial pages remain focused on requirements, fees, verification dates, source review, and terms users should check directly with providers.",
+    body: "Some outbound links may result in compensation to OfferRadar, and many providers do not compensate us. Compensation does not automatically determine rankings, inclusion, or editorial conclusions. Official-source links may be provided separately.",
   },
   {
     title: "Why users should verify terms directly",

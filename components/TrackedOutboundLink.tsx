@@ -21,7 +21,9 @@ export function TrackedOutboundLink({
       {...props}
       onClick={(clickEvent) => {
         event("outbound_offer_click", eventParams);
-        event(["affiliate", "referral"].includes(String(eventParams.link_type)) ? "affiliate_click" : "official_source_click", eventParams);
+        const monetized = ["affiliate", "referral"].includes(String(eventParams.link_type));
+        event(monetized ? "affiliate_click" : "official_provider_click", eventParams);
+        if (!monetized) event("official_source_click", eventParams);
         offerClick(eventParams);
         onClick?.(clickEvent);
       }}

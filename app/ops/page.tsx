@@ -51,6 +51,7 @@ export default function OpsPage() {
         <OpsLink href="/ops/affiliate" title="Affiliate readiness" />
         <OpsLink href="/ops/content-gaps" title="Content gaps" />
         <OpsLink href="/ops/analytics" title="Analytics configuration" />
+        <OpsLink href="/ops/revenue" title="Affiliate revenue" />
         <OpsLink href="/ops/seo" title="SEO health" />
         <OpsLink href="/ops/url-inventory" title="URL inventory" />
         <OpsLink href="/ops/search-console" title="Search Console summary" />

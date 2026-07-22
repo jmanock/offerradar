@@ -136,7 +136,7 @@ export const authorityPages: AuthorityPage[] = [
       { question: "How do credit unions compare with banks for checking?", answer: "Credit unions may offer local service or membership-based accounts, while banks may offer broader branch and ATM networks. Compare eligibility, fees, access, and digital tools." },
     ],
     relatedLinks: [
-      { href: "/best-bank-for-checking", label: "Best bank for checking" },
+      { href: "/best-banks-for-checking", label: "National checking pillar" },
       { href: "/banking-finder", label: "Banking finder" },
       { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },

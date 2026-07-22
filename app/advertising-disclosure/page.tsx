@@ -18,6 +18,8 @@ export default function AdvertisingDisclosurePage() {
         ["Not a bank", "OfferRadar is not a bank, credit union, lender, broker-dealer, or financial institution."],
         ["Educational information", "Information on OfferRadar is for educational comparison purposes only and is not financial advice."],
         ["Provider terms control", "Rates, bonuses, fees, and eligibility can change. Always verify directly with the financial institution before opening an account or applying."],
+        ["Editorial independence", "Not every provider compensates OfferRadar. Compensation does not automatically determine rankings, inclusion, or the conclusions of our research."],
+        ["Official and compensated links", "An official-source link may be shown separately from a compensated link. Both are research paths; current provider terms remain authoritative."],
       ]}
     />
   );

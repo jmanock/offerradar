@@ -512,7 +512,7 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             <p className="mt-3 leading-7 text-slate-600">Use the bank bonus calculator to compare a stated bonus with monthly fees, deposit requirements, and holding time.</p>
           </Link>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/best-bank-for-checking" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
+            <Link href="/best-banks-for-checking" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
               Best bank for checking
             </Link>
             <Link href="/banking-finder" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-900 hover:border-blue-300 hover:text-blue-800">
@@ -565,7 +565,7 @@ export function CategoryPage({ category }: { category: CategoryInfo }) {
             <div className="mt-4 flex flex-wrap gap-3">
               {[
                 { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
-                { href: "/best-bank-for-checking", label: "Best bank for checking" },
+                { href: "/best-banks-for-checking", label: "Best banks for checking" },
                 { href: "/best-banks-for-checking", label: "Best banks for checking" },
                 { href: "/best-checking-and-savings-account-offers", label: "Checking and savings offers" },
                 { href: "/bank-bonuses", label: "Bank bonuses" },

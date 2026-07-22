@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/research",
     "/money",
     "/travel",
+    "/tools",
     "/florida",
     "/banking-finder",
     "/about",

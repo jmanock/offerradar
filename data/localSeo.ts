@@ -241,7 +241,7 @@ export const localSeoPages: LocalSeoPage[] = [
       { href: "/offer-tracker", label: "Offer tracker" },
       { href: "/bank-bonuses-promotions-florida", label: "Florida bank bonuses" },
       { href: "/best-savings-accounts-florida", label: "Florida savings accounts" },
-      { href: "/best-bank-for-checking", label: "Best bank for checking" },
+      { href: "/best-banks-for-checking", label: "Best banks for checking" },
       { href: "/best-banks-for-checking", label: "Best banks for checking" },
       { href: "/best-checking-and-savings-account-offers", label: "Checking and savings account offers" },
       { href: "/checking-account-bonuses", label: "Checking account bonuses" },

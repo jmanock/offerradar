@@ -1,6 +1,6 @@
 # OfferRadar Automation Report
 
-Generated: 2026-07-15T12:22:03.928291+00:00
+Generated: 2026-07-22T12:30:15.680652+00:00
 
 ## Summary
 
@@ -108,6 +108,7 @@ Generated: 2026-07-15T12:22:03.928291+00:00
 - 2026-07-31: Voyager Rewards - Travel Card 60,000 Point Offer
 - 2026-08-01: Blueprint Bank - Startup Checking $250 Bonus
 - 2026-08-20: Wells Fargo - Wells Fargo Everyday Checking $325 Offer
+- 2026-08-31: Evergreen Bank - Premier Checking $300 Offer
 
 ## Changes Detected
 

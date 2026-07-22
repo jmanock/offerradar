@@ -668,7 +668,7 @@ const visualCategories: Array<{ href: string; label: string; description: string
 
 const finderStartLinks = [
   {
-    href: "/best-bank-for-checking",
+    href: "/best-banks-for-checking",
     label: "Checking account",
     description: "Compare fees, access, direct deposit, and account type fit.",
   },
@@ -782,7 +782,7 @@ function SectionLinks() {
   return (
     <div className="flex flex-wrap gap-3 text-sm font-extrabold text-blue-700">
       <Link href="/best-bank-bonuses">Bank bonuses</Link>
-      <Link href="/best-bank-for-checking">Best checking bank</Link>
+      <Link href="/best-banks-for-checking">Best checking banks</Link>
       <Link href="/best-banks-for-checking">Checking banks</Link>
       <Link href="/best-checking-and-savings-account-offers">Checking and savings</Link>
       <Link href="/best-brokerage-bonuses">Brokerage</Link>

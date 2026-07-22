@@ -91,7 +91,7 @@ export default function BankingFinderPage() {
           <div className="mt-5 flex flex-wrap gap-3">
             {[
               { href: "/best-checking-accounts-florida", label: "Best checking accounts in Florida" },
-              { href: "/best-bank-for-checking", label: "Best bank for checking" },
+              { href: "/best-banks-for-checking", label: "Best banks for checking" },
               { href: "/best-credit-unions-florida", label: "Best credit unions in Florida" },
               { href: "/bank-bonuses", label: "Bank bonuses" },
               { href: "/brokerage-bonuses", label: "Brokerage bonuses" },
